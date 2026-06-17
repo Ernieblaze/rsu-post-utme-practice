@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* RSU / school theme palette */
+  --color-school-navy: #002b5c;
+  --color-school-blue: #0047ab;
+  --color-school-green: #046a38;
+  --color-school-gold: #d4af37;
+  --color-school-light: #f0f6ff;
+  --color-school-pale: #eaf6ef;
+  --color-school-cream: #fffdf5;
+  --color-school-muted: #64748b;
+  --color-school-border: rgba(4, 106, 56, 0.14);
+
+  --font-sora: 'Sora', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sora);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-school-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth dark-mode transition on supported properties */
+html.dark,
+html.dark body {
+  color-scheme: dark;
+}
+
+/* Watercolor / radial page background */
+.bg-watercolor {
+  background: radial-gradient(circle at 10% 20%, rgba(4, 106, 56, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(0, 71, 171, 0.08) 0%, transparent 30%),
+    var(--color-school-light);
+}
+
+.dark .bg-watercolor {
+  background: radial-gradient(circle at 10% 20%, rgba(4, 106, 56, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(0, 71, 171, 0.15) 0%, transparent 30%),
+    #0b1120;
+}
+
+.bg-school-radial {
+  background: radial-gradient(circle at 0% 0%, rgba(0, 71, 171, 0.06) 0%, transparent 35%),
+    radial-gradient(circle at 100% 0%, rgba(4, 106, 56, 0.06) 0%, transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.05) 0%, transparent 35%),
+    #f8fafc;
+}
+
+.dark .bg-school-radial {
+  background: radial-gradient(circle at 0% 0%, rgba(0, 71, 171, 0.12) 0%, transparent 35%),
+    radial-gradient(circle at 100% 0%, rgba(4, 106, 56, 0.12) 0%, transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 35%),
+    #0b1221;
+}
+
+/* Hero gradient with watermark */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--color-school-navy) 0%, var(--color-school-blue) 50%, var(--color-school-green) 100%);
+}
+
+.hero-glow {
+  background: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.12) 0%, transparent 40%);
+}
+
+/* Animated glow pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Toast slide in */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-enter {
+  animation: toast-in 0.3s ease-out forwards;
+}
+
+/* Utility helpers */
+.nav-link {
+  transition: all 0.2s ease;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+}
+
+.bg-school-surface {
+  background-color: #ffffff;
+}
+
+.dark .bg-school-surface {
+  background-color: rgba(15, 23, 42, 0.4);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

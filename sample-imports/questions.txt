@@ -1,0 +1,32 @@
+University: Rivers State University
+Year: 2024
+Subject: Mathematics
+Topic: Algebra
+Difficulty: easy
+Q: If 2x + 3 = 11, what is the value of x?
+A) 2
+B) 3
+C) 4
+D) 5
+Answer: C
+Explanation: 2x = 11 - 3 = 8, so x = 4.
+---
+Subject: English
+Year: 2024
+Q: Choose the option nearest in meaning to "abundant".
+A) scarce
+B) plentiful
+C) empty
+D) costly
+Answer: B
+Explanation: "Abundant" means existing in large quantities — plentiful.
+---
+Subject: Biology
+Year: 2024
+Q: The powerhouse of the cell is the?
+A) Nucleus
+B) Ribosome
+C) Mitochondrion
+D) Golgi body
+Answer: C
+Explanation: Mitochondria generate most of the cell's ATP (energy).

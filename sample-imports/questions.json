@@ -1,0 +1,20 @@
+[
+  {
+    "university": "Rivers State University",
+    "year": "2024",
+    "subject": "Physics",
+    "difficulty": "medium",
+    "text": "What is the SI unit of electric current?",
+    "options": { "A": "Volt", "B": "Ampere", "C": "Ohm", "D": "Watt" },
+    "answer": "B",
+    "explanation": "The ampere (A) is the SI base unit of electric current."
+  },
+  {
+    "year": "2024",
+    "subject": "Current Affairs",
+    "text": "Rivers State University is located in which city?",
+    "options": { "A": "Lagos", "B": "Abuja", "C": "Port Harcourt", "D": "Kano" },
+    "answer": "C",
+    "explanation": "RSU's main campus is in Port Harcourt, Rivers State."
+  }
+]

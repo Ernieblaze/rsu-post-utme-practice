@@ -1,0 +1,4 @@
+subject,year,text,A,B,C,D,answer,explanation
+Mathematics,2024,"What is 25% of 80?",15,20,25,30,B,"25% of 80 = 0.25 x 80 = 20."
+Chemistry,2024,"What is the chemical symbol for Sodium?",S,So,Na,N,C,"Sodium's symbol is Na, from the Latin natrium."
+English,2024,"Pick the correctly spelt word.",recieve,receive,recive,receeve,B,"'Receive' follows the i-before-e-except-after-c rule."
