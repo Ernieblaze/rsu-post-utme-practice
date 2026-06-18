@@ -1,1 +1,1902 @@
-[]
+[
+  {
+    "id": "q-1781818107965-l9nmm5",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Vowel Sounds",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that has the same vowel sound as the underlined letters in FOOD.",
+    "options": {
+      "A": "book",
+      "B": "foot",
+      "C": "full",
+      "D": "hooves",
+      "E": "geese"
+    },
+    "answer": "D",
+    "explanation": "FOOD has the long /uː/ sound, the same as in 'hooves'."
+  },
+  {
+    "id": "q-1781818107965-mgldrl",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Consonant Sounds",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that has the same consonant sound as the underlined letters in THROAT.",
+    "options": {
+      "A": "writhe",
+      "B": "Thomas",
+      "C": "smith",
+      "D": "thyme",
+      "E": "though"
+    },
+    "answer": "C",
+    "explanation": "THROAT has the voiceless /θ/ sound, as in 'smith'."
+  },
+  {
+    "id": "q-1781818107965-jlpa1j",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Pronouns",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "_____ is the owner of this pair of scissors?",
+    "options": {
+      "A": "who",
+      "B": "whom",
+      "C": "which",
+      "D": "whose",
+      "E": "what"
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-f3b0gr",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Antonyms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The media house should employ both the novice and the ____ journalists.",
+    "options": {
+      "A": "apprentice",
+      "B": "probationer",
+      "C": "newcomer",
+      "D": "veteran",
+      "E": "inexperienced"
+    },
+    "answer": "D",
+    "explanation": "'Veteran' is the opposite of 'novice'."
+  },
+  {
+    "id": "q-1781818107965-n0lzvb",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Pronouns",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In the sentence 'WHY were you absent yesterday?', the capitalized word is an example of ______",
+    "options": {
+      "A": "a relative pronoun",
+      "B": "a personal pronoun",
+      "C": "a reciprocal pronoun",
+      "D": "a reflexive pronoun",
+      "E": "an interrogative pronoun"
+    },
+    "answer": "E",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-xzbgi2",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Possessives",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The principal sent them home because they did not pay _____ school fees.",
+    "options": {
+      "A": "they",
+      "B": "there",
+      "C": "them",
+      "D": "their",
+      "E": "they're"
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-8z3mw5",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Phrasal Verbs",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The business tycoon's daughter was carried _____ by the flattery of her suitor.",
+    "options": {
+      "A": "on",
+      "B": "out",
+      "C": "along",
+      "D": "away",
+      "E": "in"
+    },
+    "answer": "D",
+    "explanation": "'Carried away' means overwhelmed by emotion."
+  },
+  {
+    "id": "q-1781818107965-boa7c3",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Subject-Verb Agreement",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that best completes the sentence. One of his close friends _____ a soldier.",
+    "options": {
+      "A": "is",
+      "B": "are",
+      "C": "have been",
+      "D": "were",
+      "E": "been"
+    },
+    "answer": "A",
+    "explanation": "'One' is singular, so the verb is 'is'."
+  },
+  {
+    "id": "q-1781818107965-boh3vc",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Antonyms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word most nearly OPPOSITE in meaning to PRAGMATIC.",
+    "options": {
+      "A": "realistic",
+      "B": "practical",
+      "C": "idealistic",
+      "D": "sensible",
+      "E": "efficient"
+    },
+    "answer": "C",
+    "explanation": "Pragmatic means practical and realistic; its opposite is 'idealistic'."
+  },
+  {
+    "id": "q-1781818107965-e9udls",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Idioms",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Choose the most appropriate interpretation. 'The two young couple took to the altar yesterday' means the two ____",
+    "options": {
+      "A": "climbed the altar",
+      "B": "got married",
+      "C": "ascended the altar",
+      "D": "could be at the altar",
+      "E": "left the altar"
+    },
+    "answer": "B",
+    "explanation": "'Took to the altar' is an idiom for getting married."
+  },
+  {
+    "id": "q-1781818107965-hxl67p",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Antonyms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Usually, Joseph is articulate in his speech, but today he sounds _____",
+    "options": {
+      "A": "clear",
+      "B": "turgid",
+      "C": "timid",
+      "D": "incoherent",
+      "E": "eloquent"
+    },
+    "answer": "D",
+    "explanation": "'Incoherent' is the opposite of 'articulate'."
+  },
+  {
+    "id": "q-1781818107965-q26585",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Prepositions",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Choose the word that best completes the sentence. I found my mother eating _____ the sofa.",
+    "options": {
+      "A": "in",
+      "B": "at",
+      "C": "under",
+      "D": "on",
+      "E": "of"
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-27ornh",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "To _____ an audience is also considered a goal in speech writing.",
+    "options": {
+      "A": "engage",
+      "B": "lecture",
+      "C": "repulse",
+      "D": "capture",
+      "E": "hypnotize"
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-tzsn2m",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Prepositions",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Fill in the blank space with the correct option. Many go to school _____ bus.",
+    "options": {
+      "A": "in",
+      "B": "on",
+      "C": "with",
+      "D": "through",
+      "E": "by"
+    },
+    "answer": "E",
+    "explanation": "'By bus' indicates means of transport."
+  },
+  {
+    "id": "q-1781818107965-avdqsv",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "English",
+    "topic": "Pronouns",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "In the sentence 'YOU are invited to the party', the capitalized word is an example of ______",
+    "options": {
+      "A": "a relative pronoun",
+      "B": "a personal pronoun",
+      "C": "a reciprocal pronoun",
+      "D": "a reflexive pronoun",
+      "E": "an interrogative pronoun"
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-l1jn1q",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Mathematics",
+    "topic": "Percentage Error",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "If the age of a man of 64 years is written as 71 years, calculate the percentage error to 3 significant figures.",
+    "options": {
+      "A": "10.9%",
+      "B": "14.3%",
+      "C": "8.5%",
+      "D": "7.7%",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Error = |71-64|/64 x 100 = 7/64 x 100 = 10.9%."
+  },
+  {
+    "id": "q-1781818107965-qz1dor",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Mathematics",
+    "topic": "Variation",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A varies inversely as b. a = 15 when b = 8. Find the value of the constant.",
+    "options": {
+      "A": "140",
+      "B": "110",
+      "C": "120",
+      "D": "100",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "For inverse variation, k = a x b = 15 x 8 = 120."
+  },
+  {
+    "id": "q-1781818107965-1awhzg",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Mathematics",
+    "topic": "Frequency Distribution",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The scores of 50 students in a Physics test are: 2 (5 students), 3 (8 students), 4 (12 students), 5 (10 students), 6 (9 students), 7 (6 students). If the pass mark is 5, how many students passed the test?",
+    "options": {
+      "A": "25",
+      "B": "35",
+      "C": "19",
+      "D": "60",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Scores of 5 and above: 10 + 9 + 6 = 25 students."
+  },
+  {
+    "id": "q-1781818107965-b2vs9e",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Mathematics",
+    "topic": "Permutations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Seven students are to be seated together. Find the number of ways they can be arranged.",
+    "options": {
+      "A": "5040",
+      "B": "6040",
+      "C": "4050",
+      "D": "4060",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "7! = 5040."
+  },
+  {
+    "id": "q-1781818107965-3m778v",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Mathematics",
+    "topic": "Statistics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The graph obtained when class frequencies are plotted against class marks is known as a _____",
+    "options": {
+      "A": "bar chart",
+      "B": "pie chart",
+      "C": "line graph",
+      "D": "histogram",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Frequencies against class marks form a frequency polygon, a type of line graph."
+  },
+  {
+    "id": "q-1781818107965-b87bqk",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Chemistry",
+    "topic": "Oxides",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Amphoteric oxides are oxides which _____",
+    "options": {
+      "A": "react with water to form oxides",
+      "B": "react with water to form alkali",
+      "C": "show neither acidic nor basic properties",
+      "D": "react with acids and alkali",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Amphoteric oxides react with both acids and bases."
+  },
+  {
+    "id": "q-1781818107965-bj82z1",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Radioactivity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Basic nuclear radiation was discovered by _____",
+    "options": {
+      "A": "Becquerel",
+      "B": "Marie Curie",
+      "C": "Geiger Muller",
+      "D": "Marsden",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Henri Becquerel discovered radioactivity in 1896."
+  },
+  {
+    "id": "q-1781818107965-8hnaml",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Atmosphere",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The region of the atmosphere extending from about 75km to about 400km is known as the _____",
+    "options": {
+      "A": "stratosphere",
+      "B": "thermosphere",
+      "C": "troposphere",
+      "D": "mesosphere",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-6o4j93",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Astronomy",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The sun is a _____",
+    "options": {
+      "A": "star",
+      "B": "universe",
+      "C": "planet",
+      "D": "galaxy",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-89qc2j",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Chemistry",
+    "topic": "Gases",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Nitrogen is prepared on a large scale by the _____",
+    "options": {
+      "A": "fractional distillation of liquefied air",
+      "B": "decomposition of ammonium dioxonitrate (III)",
+      "C": "electrolysis of brine",
+      "D": "Haber process",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Industrial nitrogen is obtained by fractional distillation of liquefied air."
+  },
+  {
+    "id": "q-1781818107965-2dytny",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Electromagnetism",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "To reduce heat loss in a transformer:",
+    "options": {
+      "A": "the number of turns should be increased",
+      "B": "the soft iron core should be laminated",
+      "C": "the area of the coils should be increased",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Laminating the core reduces eddy-current heat losses."
+  },
+  {
+    "id": "q-1781818107965-ehmbdo",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Radioactivity",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Which of the following is NOT a characteristic of natural radioactivity?",
+    "options": {
+      "A": "radioactivity is a nuclear phenomenon",
+      "B": "it is exhibited only by elements of mass number greater than 206",
+      "C": "the radioactivity of an element is affected by electric and magnetic fields in the surroundings",
+      "D": "radioactive substances emit alpha, beta and gamma radiation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Radioactivity is a nuclear process unaffected by external fields, so that statement is false."
+  },
+  {
+    "id": "q-1781818107965-9p555w",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Electricity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Free electrons in a metallic conductor are best described as electrons that _____",
+    "options": {
+      "A": "are tightly bound to the nucleus of each atom",
+      "B": "are detached from their parent atoms and free to move through the conductor",
+      "C": "exist only in a vacuum and cannot move in metals",
+      "D": "carry a positive charge",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Free electrons are loosely held and drift to carry current."
+  },
+  {
+    "id": "q-1781818107965-do2gyw",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "AC Circuits",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "In a series RLC circuit operating at resonance, the resistance is 200 ohms and the peak current is 0.1 A. What is the peak voltage across the resistor?",
+    "options": {
+      "A": "2 V",
+      "B": "20 V",
+      "C": "200 V",
+      "D": "10 V",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "At resonance the impedance equals R, so V = IR = 0.1 x 200 = 20 V."
+  },
+  {
+    "id": "q-1781818107965-4vhpil",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Physics",
+    "topic": "Electromagnetism",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A wire carrying a current tends to move when placed in a magnetic field not parallel to it, in accordance with _____",
+    "options": {
+      "A": "Fleming's left hand rule",
+      "B": "Fleming's right hand rule",
+      "C": "Maxwell's corkscrew rule",
+      "D": "Newton's principle",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Fleming's left hand rule gives the direction of force on a current-carrying conductor."
+  },
+  {
+    "id": "q-1781818107965-gvwqya",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Biology",
+    "topic": "Nervous System",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main sensory receptors of the body include _____",
+    "options": {
+      "A": "tasting, sighting, touching and hearing receptors",
+      "B": "mechanoreceptors, chemoreceptors, photoreceptors and thermoreceptors",
+      "C": "eye, nose, skin and ear",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-yzabt3",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Biology",
+    "topic": "Hormones",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Increase in blood sugar level stimulates the production of _____",
+    "options": {
+      "A": "insulin",
+      "B": "estrogen",
+      "C": "progesterone",
+      "D": "prolactin",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Insulin lowers blood glucose levels."
+  },
+  {
+    "id": "q-1781818107965-o41j7z",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Biology",
+    "topic": "Skin",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The topmost layer of the skin that consists of flat dead cells is known as the _____",
+    "options": {
+      "A": "dermis",
+      "B": "cornified layer",
+      "C": "malpighian layer",
+      "D": "epidermis",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The cornified layer (stratum corneum) is made of flat dead cells."
+  },
+  {
+    "id": "q-1781818107965-cxi8rq",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Biology",
+    "topic": "Sense Organs",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Chemicals are stimuli of the nose and the _____",
+    "options": {
+      "A": "ear",
+      "B": "tongue",
+      "C": "eye",
+      "D": "skin",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The nose and tongue are chemoreceptors."
+  },
+  {
+    "id": "q-1781818107966-11yr0a",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Biology",
+    "topic": "Blood Groups",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Which of the following blood groups is a general donor?",
+    "options": {
+      "A": "B",
+      "B": "O",
+      "C": "AB",
+      "D": "B+",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Group O is the universal donor."
+  },
+  {
+    "id": "q-1781818107966-uitqk9",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "RSU Rules",
+    "topic": "Examination Regulations",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The students' results considered and approved by the Faculty Board of Examiners are presented to the Dean of the Faculty.",
+    "options": {
+      "A": "True",
+      "B": "False",
+      "C": "",
+      "D": "",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-w0xc2n",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "RSU Rules",
+    "topic": "Examination Regulations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All examination scripts are to be marked and submitted to the Head of Department normally within _____ of a given examination.",
+    "options": {
+      "A": "4 days",
+      "B": "2 days",
+      "C": "3 days",
+      "D": "one week",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-s33jli",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "RSU Rules",
+    "topic": "Examination Regulations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All results approved by the Faculty Board are submitted to the Senate Committee on Assessment and Graduation Requirements within _____ of the last date of the re-examination for approval.",
+    "options": {
+      "A": "2 weeks",
+      "B": "3 weeks",
+      "C": "1 week",
+      "D": "2 to 4 weeks",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-5thjux",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "RSU Rules",
+    "topic": "Registration",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student who does not register all his courses within the period stipulated will be made to _____",
+    "options": {
+      "A": "forfeit 5% of his total class attendance in all courses",
+      "B": "pay a specific sum for late registration",
+      "C": "forfeit his admission that year",
+      "D": "suffer any penalty prescribed by the Head of Department",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-dvdnyd",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "RSU Rules",
+    "topic": "Examination Conduct",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the likely punishment for a student who fails to sit down while invigilators are retrieving scripts at the end of an examination?",
+    "options": {
+      "A": "F grade",
+      "B": "suspension",
+      "C": "dismissal",
+      "D": "demotion",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-wt9llq",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Government",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The separation of powers simply means _____",
+    "options": {
+      "A": "monitory",
+      "B": "guide",
+      "C": "checks and balances",
+      "D": "specialization",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-co8hfk",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "General Knowledge",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "A 70-year anniversary is called the _____ anniversary.",
+    "options": {
+      "A": "Silver",
+      "B": "Jubilee",
+      "C": "Sanitaria",
+      "D": "Platinum",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-o1qawp",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Acronyms",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "What does the acronym ICAO stand for?",
+    "options": {
+      "A": "International Civil Aviation Organisation",
+      "B": "International Council Aviation Organisation",
+      "C": "Internal Civil Aviation Organisation",
+      "D": "Informal Companies Alliance Organisation",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-vnnccd",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Nigerian History",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who was Nigeria's first indigenous Inspector-General of Police?",
+    "options": {
+      "A": "Kam Salem",
+      "B": "Louis Orok Edet",
+      "C": "J. E. Hodge",
+      "D": "Teslim Balogun",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Louis Orok Edet was Nigeria's first indigenous IGP, serving from 1964 to 1966."
+  },
+  {
+    "id": "q-1781818107966-6des3d",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Current Affairs",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current Sultan of Sokoto Caliphate?",
+    "options": {
+      "A": "Muhammadu Sanusi Abubakar",
+      "B": "Muhammadu Sa'ad Abubakar",
+      "C": "Muhammadu Salad Ibrahim",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-5xvlzm",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Current Affairs",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current Governor of the Central Bank of Nigeria?",
+    "options": {
+      "A": "Godwin Emefiele",
+      "B": "Olayemi Cardoso",
+      "C": "Sanusi Lamido Sanusi",
+      "D": "Charles Soludo",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Olayemi Cardoso became CBN Governor in October 2023."
+  },
+  {
+    "id": "q-1781818107966-2syhzb",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Current Affairs",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is Nigeria's current Minister of Education?",
+    "options": {
+      "A": "Adamu Adamu",
+      "B": "Tunji Alausa",
+      "C": "Tahir Mamman",
+      "D": "Ruqayyatu Rufa'i",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Tunji Alausa was appointed Minister of Education in October 2024."
+  },
+  {
+    "id": "q-1781818107966-dbiqdq",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Acronyms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What does the acronym ECOMOG mean?",
+    "options": {
+      "A": "Economic Committee Monitoring Group",
+      "B": "Economic Community Monitoring Group",
+      "C": "Environmental Committee Monitoring Group",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-zn3fp3",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Geography",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Which is the highest mountain in Africa?",
+    "options": {
+      "A": "Mount Kilimanjaro",
+      "B": "Mount Zabiza",
+      "C": "Mount Ogologo",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107966-dzo8a4",
+    "university": "RSU",
+    "year": "2011",
+    "subject": "Current Affairs",
+    "topic": "Nigerian History",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When did Nigeria break diplomatic relations with Israel?",
+    "options": {
+      "A": "1972",
+      "B": "1973",
+      "C": "1974",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Nigeria broke ties with Israel in 1973 following the Yom Kippur War."
+  },
+  {
+    "id": "seed-exam-2010-1",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word OPPOSITE IN MEANING to the word in capital letters. The birthday party took place on a DULL day.",
+    "options": {
+      "A": "cloudy",
+      "B": "unusual",
+      "C": "bright",
+      "D": "gloomy",
+      "E": "lengthy"
+    },
+    "answer": "C",
+    "explanation": "\"Dull\" means lacking brightness or cheer; the opposite is \"bright\"."
+  },
+  {
+    "id": "seed-exam-2010-2",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Fill in the blank space with the correct option. The student took a correspondence course as a means ___ his knowledge.",
+    "options": {
+      "A": "to improve",
+      "B": "for improving",
+      "C": "of improving",
+      "D": "by improving",
+      "E": "to improving"
+    },
+    "answer": "A",
+    "explanation": "The answer key gives \"to improve\" as the correct completion: \"a means to improve his knowledge\"."
+  },
+  {
+    "id": "seed-exam-2010-3",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the one that is NEAREST IN MEANING to the words written in capital letters. Most of the time, my boss tells COCK-AND-BULL stories.",
+    "options": {
+      "A": "costly",
+      "B": "unreasonable",
+      "C": "clever",
+      "D": "untrue",
+      "E": "funny"
+    },
+    "answer": "D",
+    "explanation": "A \"cock-and-bull story\" is an absurd, unbelievable, or untrue tale."
+  },
+  {
+    "id": "seed-exam-2010-4",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the one that has the SAME STRESS PATTERN as the given word. HONOUR.",
+    "options": {
+      "A": "hotel",
+      "B": "hyena",
+      "C": "human",
+      "D": "humane",
+      "E": "report"
+    },
+    "answer": "C",
+    "explanation": "HONour is stressed on the first syllable; \"human\" is also stressed on the first syllable."
+  },
+  {
+    "id": "seed-exam-2010-5",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose from options A-D the one that contains the sound segment represented by the given phonetic symbol. /u/",
+    "options": {
+      "A": "boot",
+      "B": "goose",
+      "C": "push",
+      "D": "rust",
+      "E": "none of the above"
+    },
+    "answer": "C",
+    "explanation": "According to the answer key, \"push\" is the option that contains the /u/ sound represented by the symbol."
+  },
+  {
+    "id": "seed-exam-2010-6",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that has the same vowel sound as the one represented by the letter(s) underlined. EAT",
+    "options": {
+      "A": "seat",
+      "B": "wand",
+      "C": "rather",
+      "D": "harder",
+      "E": "play"
+    },
+    "answer": "A",
+    "explanation": "\"Eat\" and \"seat\" both contain the long /iː/ vowel sound."
+  },
+  {
+    "id": "seed-exam-2010-7",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose from the options the one that has the sound represented by the given phonetic symbol /ou/.",
+    "options": {
+      "A": "rover",
+      "B": "rostrum",
+      "C": "novel",
+      "D": "modest",
+      "E": "from"
+    },
+    "answer": "A",
+    "explanation": "\"Rover\" contains the /oʊ/ diphthong sound."
+  },
+  {
+    "id": "seed-exam-2010-8",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that has the same consonant sound(s) as the one represented by the letter(s) underlined. PROPOSE",
+    "options": {
+      "A": "pneumonia",
+      "B": "psyche",
+      "C": "psalms",
+      "D": "rupture",
+      "E": "phenomenon"
+    },
+    "answer": "D",
+    "explanation": "The \"p\" in \"propose\" is pronounced; \"rupture\" also contains the /p/ sound."
+  },
+  {
+    "id": "seed-exam-2010-9",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the one that has the same consonant sound as the sound represented by the underlined letter. TEACHER",
+    "options": {
+      "A": "bench",
+      "B": "both",
+      "C": "deviate",
+      "D": "listen",
+      "E": "action"
+    },
+    "answer": "C",
+    "explanation": "The answer key indicates option C (deviate) as the correct answer for the consonant sound tested."
+  },
+  {
+    "id": "seed-exam-2010-10",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the word that has the same vowel sound as the one represented by the underlined letter. STUBBLE",
+    "options": {
+      "A": "molecule",
+      "B": "stool",
+      "C": "stupid",
+      "D": "tub",
+      "E": "incredible"
+    },
+    "answer": "D",
+    "explanation": "\"Stubble\" and \"tub\" both contain the short /ʌ/ vowel sound."
+  },
+  {
+    "id": "seed-exam-2010-11",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the correct option. Lack of familiarity with the ___ can prevent a speech presenter from maintaining eye contact with an audience being addressed.",
+    "options": {
+      "A": "a report",
+      "B": "text",
+      "C": "research",
+      "D": "context",
+      "E": "PA system"
+    },
+    "answer": "B",
+    "explanation": "Knowing the speech text well allows the presenter to look at the audience instead of reading notes."
+  },
+  {
+    "id": "seed-exam-2010-12",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Fill in the blank space with correct option. It is most ___ that despite the huge amount spent on health care, most hospitals lack basic medical equipment.",
+    "options": {
+      "A": "wonderful",
+      "B": "ungrateful",
+      "C": "wicked",
+      "D": "astonishing",
+      "E": "remarkable"
+    },
+    "answer": "D",
+    "explanation": "\"Astonishing\" expresses surprise that so much money is spent yet basic equipment is missing."
+  },
+  {
+    "id": "seed-exam-2010-13",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Fill in the blank space with the correct option. The woman walked ___ fast that the little girl couldn't catch up with her.",
+    "options": {
+      "A": "too",
+      "B": "very",
+      "C": "so",
+      "D": "quite",
+      "E": "over"
+    },
+    "answer": "C",
+    "explanation": "The correct structure is \"so ... that\" to show result."
+  },
+  {
+    "id": "seed-exam-2010-14",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the one that is nearest in meaning to the word written in capital in the sentence below. Over reliance on importation often HAMPERS economic growth.",
+    "options": {
+      "A": "facilitates",
+      "B": "promotes",
+      "C": "quickens",
+      "D": "restrains",
+      "E": "pampers"
+    },
+    "answer": "D",
+    "explanation": "To hamper means to hinder or restrain progress."
+  },
+  {
+    "id": "seed-exam-2010-15",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "From the option lettered A to D, choose the one that has the correct stress pattern. BENEFICIAL",
+    "options": {
+      "A": "BEN-e-fi-cial",
+      "B": "ben-E-fi-cial",
+      "C": "ben-eF-i-cial",
+      "D": "ben-e-fi-CIAL",
+      "E": "none of the above"
+    },
+    "answer": "C",
+    "explanation": "BENEFICIAL is stressed on the third syllable: ben-e-FI-cial."
+  },
+  {
+    "id": "seed-exam-2010-16",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Biology",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The table is a Punnett square for sex determination in man. Which of the following determines a normal male offspring?",
+    "options": {
+      "A": "X",
+      "B": "Y",
+      "C": "XX",
+      "D": "XY",
+      "E": "YY"
+    },
+    "answer": "D",
+    "explanation": "A normal human male has the sex chromosomes XY."
+  },
+  {
+    "id": "seed-exam-2010-17",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Biology",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Human height is an example of a feature which depends on both ___.",
+    "options": {
+      "A": "genotype",
+      "B": "genetic and environmental factors",
+      "C": "mother's genotype and environmental factors",
+      "D": "phenotype and environmental factors",
+      "E": "none of the above"
+    },
+    "answer": "B",
+    "explanation": "Height is influenced by genes inherited and environmental factors such as nutrition."
+  },
+  {
+    "id": "seed-exam-2010-18",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Biology",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which one is not an example of a cypsela?",
+    "options": {
+      "A": "Emilia",
+      "B": "Tridax",
+      "C": "Obeche",
+      "D": "Eupatorium",
+      "E": "Sunflower"
+    },
+    "answer": "C",
+    "explanation": "Obeche is a hardwood tree, not a member of the Asteraceae family that produces cypsela fruits."
+  },
+  {
+    "id": "seed-exam-2010-19",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Biology",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The gradual, cumulative, adaptive and heritable changes in an organism over a long period of time resulting in emergence of new species is known as ___.",
+    "options": {
+      "A": "adaptation",
+      "B": "survival",
+      "C": "organic evolution",
+      "D": "variation",
+      "E": "mutation"
+    },
+    "answer": "C",
+    "explanation": "Organic evolution refers to long-term heritable changes leading to new species."
+  },
+  {
+    "id": "seed-exam-2010-20",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Biology",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "One of the disadvantages of cross pollination is the ___.",
+    "options": {
+      "A": "it leads to less production of seeds",
+      "B": "it produces unhealthy seeds and fruits",
+      "C": "pollen grains are likely to be wasted during the process",
+      "D": "the seeds produced gradually develop into weaker plants",
+      "E": "none of the above"
+    },
+    "answer": "C",
+    "explanation": "In cross pollination, much pollen may fail to reach a compatible flower and is wasted."
+  },
+  {
+    "id": "seed-exam-2010-21",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Mathematics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Factor: x + y - ax - ay.",
+    "options": {
+      "A": "(x - y)(1 - a)",
+      "B": "(x + y)(1 + a)",
+      "C": "(x + y)(1 - a)",
+      "D": "(x - y)(1 + a)",
+      "E": "(x + y)(a - 1)"
+    },
+    "answer": "C",
+    "explanation": "Group: (x + y) - a(x + y) = (x + y)(1 - a)."
+  },
+  {
+    "id": "seed-exam-2010-22",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Mathematics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A pie chart has two equal small sectors and one sector twice each small sector. What is the angle of a small sector?",
+    "options": {
+      "A": "15°",
+      "B": "18°",
+      "C": "45°",
+      "D": "54°",
+      "E": "90°"
+    },
+    "answer": "B",
+    "explanation": "According to the answer key, the angle of the small sector is 18°."
+  },
+  {
+    "id": "seed-exam-2010-23",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Mathematics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Expand [4n - 6m] x [10n + 4m].",
+    "options": {
+      "A": "25mn + 22n² - 33m²",
+      "B": "30n² - 20mn - 10m²",
+      "C": "50n² - 35mn + 45m²",
+      "D": "40n² - 44mn - 24m²",
+      "E": "40n² + 44mn - 24m²"
+    },
+    "answer": "D",
+    "explanation": "(4n - 6m)(10n + 4m) = 40n² + 16mn - 60mn - 24m² = 40n² - 44mn - 24m²."
+  },
+  {
+    "id": "seed-exam-2010-24",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Mathematics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "On a certain project the only grades awarded were 80 and 100. If 10 students completed the project and the average of their grades was 94, how many earned 100?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "5",
+      "D": "7",
+      "E": "8"
+    },
+    "answer": "D",
+    "explanation": "Let x students score 100. Then 100x + 80(10 - x) = 940, giving 20x = 140, so x = 7."
+  },
+  {
+    "id": "seed-exam-2010-25",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Mathematics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A trader buys some eggs at N6 each. She finds that six of them are broken, she sells the rest at N10 each and makes a profit of N160. How many eggs did she buy?",
+    "options": {
+      "A": "25",
+      "B": "45",
+      "C": "55",
+      "D": "10",
+      "E": "60"
+    },
+    "answer": "C",
+    "explanation": "Let x be the number of eggs. Profit = 10(x - 6) - 6x = 4x - 60 = 160, so x = 55."
+  },
+  {
+    "id": "seed-exam-2010-26",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The four main sources of raw materials for the plastics and synthetic organic chemical industries are ___, ___, ___ and ___.",
+    "options": {
+      "A": "coal, limestone, glucose and malt",
+      "B": "coke, lime, cellulose and malt",
+      "C": "coal, limestone, cellulose and molasses",
+      "D": "coke, lime, glucose and molasses",
+      "E": "coal, coke, lime and glucose"
+    },
+    "answer": "C",
+    "explanation": "Coal, limestone, cellulose and molasses are major raw-material sources for synthetic organic industries."
+  },
+  {
+    "id": "seed-exam-2010-27",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A positive brown ring test indicates the presence of ___.",
+    "options": {
+      "A": "NO₃⁻",
+      "B": "Fe³⁺",
+      "C": "SO₄²⁻",
+      "D": "Cu²⁺",
+      "E": "Cl⁻"
+    },
+    "answer": "A",
+    "explanation": "The brown ring test is used to detect nitrate ions (NO₃⁻)."
+  },
+  {
+    "id": "seed-exam-2010-28",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following oxides of nitrogen is unstable in air?",
+    "options": {
+      "A": "NO₂",
+      "B": "NO",
+      "C": "N₂O₄",
+      "D": "N₂O₅",
+      "E": "N₂O"
+    },
+    "answer": "D",
+    "explanation": "The answer key gives dinitrogen pentoxide (N₂O₅) as the oxide of nitrogen that is unstable in air."
+  },
+  {
+    "id": "seed-exam-2010-29",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The production of plastics involves these conditions with the exception of ___.",
+    "options": {
+      "A": "high temperature",
+      "B": "low temperature",
+      "C": "high pressure",
+      "D": "setting",
+      "E": "catalyst"
+    },
+    "answer": "B",
+    "explanation": "Plastic production generally uses high temperature, high pressure and setting/catalysts, not low temperature."
+  },
+  {
+    "id": "seed-exam-2010-30",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "If sulphur is dissolved in carbon (IV) sulphide and the solution allowed to evaporate, the allotrope of sulphur formed is ___.",
+    "options": {
+      "A": "plastic sulphur",
+      "B": "amorphous sulphur",
+      "C": "rhombic sulphur",
+      "D": "monoclinic sulphur",
+      "E": "colloidal sulphur"
+    },
+    "answer": "C",
+    "explanation": "Slow evaporation of a sulphur solution in CS₂ yields rhombic sulphur crystals."
+  },
+  {
+    "id": "seed-exam-2010-31",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Physics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The following is a method of producing spectra of hot substances by ___.",
+    "options": {
+      "A": "use of discharge tube",
+      "B": "direct application of a Bunsen flame",
+      "C": "use of two metal electrodes connected to the secondary of an induction coil",
+      "D": "use of two non-metal rods connected to a dc voltage",
+      "E": "none of the above"
+    },
+    "answer": "D",
+    "explanation": "According to the answer key, option D is the correct method described."
+  },
+  {
+    "id": "seed-exam-2010-32",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Physics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "X-rays can be used in the study of crystal structure because they ___.",
+    "options": {
+      "A": "are visible",
+      "B": "are fast",
+      "C": "have an extremely short wavelength",
+      "D": "have a very long-reaching wavelength",
+      "E": "are positively charged"
+    },
+    "answer": "C",
+    "explanation": "X-rays have very short wavelengths comparable to atomic spacing in crystals, allowing diffraction studies."
+  },
+  {
+    "id": "seed-exam-2010-33",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Physics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an advantage of the capacitor in an induction coil?",
+    "options": {
+      "A": "the presence of the capacitor is to slow down the fall of current in the primary coil at the instant of break",
+      "B": "to produce low voltage from a high voltage for use",
+      "C": "to provide sparks required to ignite the petrol air mixture in car cylinder",
+      "D": "this is to prevent the induced emf in the primary coil from rising as to cause unwanted spark",
+      "E": "none of the above"
+    },
+    "answer": "B",
+    "explanation": "The answer key gives option B as the advantage of the capacitor in an induction coil."
+  },
+  {
+    "id": "seed-exam-2010-34",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Physics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lines of force (i) are continuous in any region with charges (ii) cross each other (iii) indicate the direction of the field (iv) start and end on negative charge only. Which of the statements above are NOT correct?",
+    "options": {
+      "A": "I and II only",
+      "B": "I and III only",
+      "C": "I and IV only",
+      "D": "II and IV only",
+      "E": "III and IV only"
+    },
+    "answer": "D",
+    "explanation": "Lines of force never cross, and they start on positive and end on negative charges."
+  },
+  {
+    "id": "seed-exam-2010-35",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Physics",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In an alternating circuit theory, the units of impedance, r.m.s voltage and resonance frequency are respectively equal to ___.",
+    "options": {
+      "A": "volt, ampere and hertz",
+      "B": "ohm, volt and hertz",
+      "C": "watt, ohm and radian",
+      "D": "ohm, hertz and joule",
+      "E": "ampere, volt and radian"
+    },
+    "answer": "B",
+    "explanation": "Impedance is measured in ohms, voltage in volts, and frequency in hertz."
+  },
+  {
+    "id": "seed-exam-2010-36",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "About RSU",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The head of Department, Dean of Faculty, Faculty Examination Officer, and Secretary to the Faculty Board retain copies of the results of all students to avoid unofficial releases of results.",
+    "options": {
+      "A": "true",
+      "B": "false",
+      "C": "not stated",
+      "D": "partly true",
+      "E": "none of the above"
+    },
+    "answer": "A",
+    "explanation": "According to the answer key, this statement is true."
+  },
+  {
+    "id": "seed-exam-2010-37",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "About RSU",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The departmental Examination Officer collects answer booklets from the ___.",
+    "options": {
+      "A": "faculty librarian",
+      "B": "faculty examination officer",
+      "C": "departmental secretary",
+      "D": "dean of faculty",
+      "E": "students directly"
+    },
+    "answer": "B",
+    "explanation": "The answer key indicates that the departmental Examination Officer collects answer booklets from the faculty examination officer."
+  },
+  {
+    "id": "seed-exam-2010-38",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "About RSU",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student in a four-year degree programme in the Rivers State University who is unable to complete his programme in 12 semesters may be allowed an additional ___ semesters, but shall be eligible to a ___ degree.",
+    "options": {
+      "A": "2 semesters; Pass degree",
+      "B": "2 semesters; classified degree",
+      "C": "4 semesters; Pass degree",
+      "D": "4 semesters; classified degree",
+      "E": "none of the above"
+    },
+    "answer": "A",
+    "explanation": "The answer key gives 2 additional semesters and a Pass degree."
+  },
+  {
+    "id": "seed-exam-2010-39",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "About RSU",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Rivers State University is the only university in Nigeria that offers first degree programmes in ___ and ___.",
+    "options": {
+      "A": "marine engineering and secretarial administration",
+      "B": "educational foundations and crop/soil science",
+      "C": "land surveying and aeronautical telecommunication engineering",
+      "D": "forestry and environment and chemistry",
+      "E": "medicine and pharmacy"
+    },
+    "answer": "A",
+    "explanation": "According to the answer key, RSU uniquely offers first degree programmes in marine engineering and secretarial administration."
+  },
+  {
+    "id": "seed-exam-2010-40",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "About RSU",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the likely punishment meted on a student who destroys possible evidence for an examination malpractice?",
+    "options": {
+      "A": "dismissal",
+      "B": "F grade",
+      "C": "demotion",
+      "D": "suspension",
+      "E": "warning"
+    },
+    "answer": "A",
+    "explanation": "Destroying evidence of examination malpractice is a serious offence that typically leads to dismissal."
+  },
+  {
+    "id": "seed-exam-2010-41",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Current Affairs",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which country was the last to win independence from colonial rule?",
+    "options": {
+      "A": "Angola",
+      "B": "Liberia",
+      "C": "Libya",
+      "D": "none of the above",
+      "E": "Sudan"
+    },
+    "answer": "A",
+    "explanation": "According to the answer key, Angola is the correct choice among the options given."
+  },
+  {
+    "id": "seed-exam-2010-42",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Current Affairs",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A country made up of semi-autonomous units is called ___.",
+    "options": {
+      "A": "confederation",
+      "B": "federal state",
+      "C": "true federalism",
+      "D": "none of the above",
+      "E": "unitary state"
+    },
+    "answer": "A",
+    "explanation": "A confederation is a union of semi-autonomous states or units."
+  },
+  {
+    "id": "seed-exam-2010-43",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Current Affairs",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the ultimate aim of political parties?",
+    "options": {
+      "A": "To acquire and exercise power",
+      "B": "to be opposition to the government in power",
+      "C": "to train citizens on political participation",
+      "D": "none of the above",
+      "E": "to promote religion"
+    },
+    "answer": "A",
+    "explanation": "Political parties are primarily formed to acquire and exercise political power."
+  },
+  {
+    "id": "seed-exam-2010-44",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "Current Affairs",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What system of Government is political power inherited?",
+    "options": {
+      "A": "Monarchy",
+      "B": "Democracy",
+      "C": "Military",
+      "D": "none of the above",
+      "E": "Republicanism"
+    },
+    "answer": "A",
+    "explanation": "In a monarchy, political power is usually inherited."
+  },
+  {
+    "id": "seed-exam-2010-45",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "“But go rather to the lost sheep of the house of ___”",
+    "options": {
+      "A": "Israel",
+      "B": "Portiphar",
+      "C": "Herod",
+      "D": "Zechariah",
+      "E": "Judah"
+    },
+    "answer": "A",
+    "explanation": "Jesus sent his disciples to the lost sheep of the house of Israel."
+  },
+  {
+    "id": "seed-exam-2010-46",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The following are qualities of a good citizen except a good citizen should ___.",
+    "options": {
+      "A": "pay taxes, rates, levies and electricity bills",
+      "B": "question all orders constituted by the authorities before carrying them out",
+      "C": "go out to cast his vote at elections",
+      "D": "learn to express his grievances through dialogue and not through violence",
+      "E": "obey traffic rules"
+    },
+    "answer": "B",
+    "explanation": "A good citizen obeys lawful authority; questioning every order before obeying is the exception."
+  },
+  {
+    "id": "seed-exam-2010-47",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "How did God convince Jeremiah of his divine call?",
+    "options": {
+      "A": "He anointed him with oil",
+      "B": "He spoke to him directly from heaven",
+      "C": "He sent a prophet to inform him",
+      "D": "He touched his mouth",
+      "E": "He gave him a vision of a burning bush"
+    },
+    "answer": "D",
+    "explanation": "God touched Jeremiah’s mouth and put his words into it."
+  },
+  {
+    "id": "seed-exam-2010-48",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Paul considered himself unfit to be called an apostle because he ___.",
+    "options": {
+      "A": "persecuted the church of God",
+      "B": "was the least among the Jewish race",
+      "C": "was timely born",
+      "D": "became one through hardwork",
+      "E": "was not one of the twelve disciples"
+    },
+    "answer": "A",
+    "explanation": "Paul persecuted the church before his conversion, so he felt unworthy of the title apostle."
+  },
+  {
+    "id": "seed-exam-2010-49",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "“I will; be clean”, Jesus made this statement at the healing of ___.",
+    "options": {
+      "A": "the woman with the issue of blood",
+      "B": "the paralytic",
+      "C": "the leper",
+      "D": "Bartimaeus",
+      "E": "Lazarus"
+    },
+    "answer": "C",
+    "explanation": "Jesus healed a leper and said, “I will; be clean.”"
+  },
+  {
+    "id": "seed-exam-2010-50",
+    "university": "Rivers State University",
+    "year": "2010",
+    "subject": "CRS",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The close of the Old Testament and the beginning of the New Testament is called the ___ period.",
+    "options": {
+      "A": "messianic",
+      "B": "apocalyptic",
+      "C": "eschatological",
+      "D": "inter-testamental",
+      "E": "prophetic"
+    },
+    "answer": "C",
+    "explanation": "According to the answer key, this period is called the eschatological period."
+  }
+]
