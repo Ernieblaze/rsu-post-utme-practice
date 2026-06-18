@@ -14,7 +14,6 @@ import {
   Zap,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { tests } from '../data/tests';
 import type { Attempt, Test } from '../types';
 import {
   formatDate,
@@ -25,6 +24,7 @@ import {
 } from '../lib/helpers';
 
 interface HomeProps {
+  tests: Test[];
   attempts: Attempt[];
   activeTestStateTestId: string | null;
   onStart: (testId: string) => void;
@@ -49,7 +49,7 @@ const trustBadges = [
   { icon: <Zap size={16} />, text: 'Instant Results & Explanations' },
 ];
 
-export function Home({ attempts, activeTestStateTestId, onStart, onViewProgress, onViewRevision }: HomeProps) {
+export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewProgress, onViewRevision }: HomeProps) {
   const today = new Date().toDateString();
   const attemptedToday = attempts.filter((a) => new Date(a.date).toDateString() === today);
 
@@ -57,7 +57,7 @@ export function Home({ attempts, activeTestStateTestId, onStart, onViewProgress,
     return (
       tests.find((t) => !attemptedToday.some((a) => a.testId === t.id)) || tests[0]
     );
-  }, [attemptedToday]);
+  }, [tests, attemptedToday]);
 
   const average = useMemo(() => {
     if (!attempts.length) return 0;
@@ -66,7 +66,7 @@ export function Home({ attempts, activeTestStateTestId, onStart, onViewProgress,
 
   const totalQuestions = useMemo(
     () => tests.reduce((sum, t) => sum + t.questions.length, 0),
-    []
+    [tests]
   );
 
   return (

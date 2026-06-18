@@ -131,3 +131,41 @@ export function buildTestFromBank(
 }
 
 export const OPTION_KEYS: OptionKey[] = ['A', 'B', 'C', 'D', 'E'];
+
+/**
+ * Build one Test per distinct `year` in the bank, sorted oldest-first. This is
+ * what powers the "Available Exams" list on the home page — every imported
+ * year (2010, 2011, ...) automatically becomes its own exam paper.
+ */
+export function getYearlyTests(bank: BankQuestion[]): Test[] {
+  const byYear = new Map<string, BankQuestion[]>();
+  bank
+    .filter((q) => q.type === 'single')
+    .forEach((q) => {
+      const year = q.year || 'General';
+      const list = byYear.get(year) ?? [];
+      list.push(q);
+      byYear.set(year, list);
+    });
+
+  return Array.from(byYear.keys())
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((year) => {
+      const yearQuestions = byYear.get(year)!;
+      const questions: Question[] = yearQuestions.map((q, idx) => ({
+        id: idx + 1,
+        subject: q.subject,
+        text: q.text,
+        options: { ...q.options },
+        answer: q.answer,
+        explanation: q.explanation,
+      }));
+      return {
+        id: `exam-year-${year}`,
+        title: `RSU POST-UTME – ${year} – Mixed – ${questions.length} Questions – 30 Minutes`,
+        description: `Official ${year} RSU Post-UTME past questions compiled from the question bank, with the answer key.`,
+        durationMinutes: 30,
+        questions,
+      };
+    });
+}

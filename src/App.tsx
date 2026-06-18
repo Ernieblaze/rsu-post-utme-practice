@@ -12,6 +12,7 @@ import { Admin } from './components/Admin';
 import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
 import { tests } from './data/tests';
+import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
@@ -55,10 +56,16 @@ function AppContent() {
     document.title = titles[view];
   }, [view]);
 
+  const yearlyTests = useMemo(() => getYearlyTests(bank), [bank]);
+
   const activeTest = useMemo(() => {
     if (dynamicTest) return dynamicTest;
-    return tests.find((t) => t.id === activeTestId) || null;
-  }, [activeTestId, dynamicTest]);
+    return (
+      yearlyTests.find((t) => t.id === activeTestId) ||
+      tests.find((t) => t.id === activeTestId) ||
+      null
+    );
+  }, [activeTestId, dynamicTest, yearlyTests]);
 
   const activeTestStateTestId = useMemo(() => {
     const state = getTestState();
@@ -135,6 +142,7 @@ function AppContent() {
         {view === 'home' && (
           <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
             <Home
+              tests={yearlyTests}
               attempts={attempts}
               activeTestStateTestId={activeTestStateTestId}
               onStart={startTest}
