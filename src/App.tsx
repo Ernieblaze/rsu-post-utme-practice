@@ -130,6 +130,7 @@ function AppContent() {
     <div className="min-h-screen bg-school-radial text-school-navy">
       {view !== 'quiz' && (
         <Header
+          tests={yearlyTests}
           dark={dark}
           currentView={view}
           onToggleDark={toggleDark}
@@ -179,7 +180,7 @@ function AppContent() {
 
         {view === 'revision' && (
           <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Revision tests={tests} onBack={() => setView('home')} onStartTest={startTest} initialSubject={revisionSubject} />
+            <Revision tests={yearlyTests} onBack={() => setView('home')} onStartTest={startTest} initialSubject={revisionSubject} />
           </motion.div>
         )}
 
@@ -202,7 +203,7 @@ function AppContent() {
         )}
       </AnimatePresence>
 
-      {view !== 'quiz' && <Footer onNavigate={navigate} onStartTest={startTest} />}
+      {view !== 'quiz' && <Footer tests={yearlyTests} onNavigate={navigate} onStartTest={startTest} />}
     </div>
   );
 }

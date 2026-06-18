@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, FileText, GraduationCap, Layers, Trophy } from 'lucide-react';
-import { tests } from '../data/tests';
+import type { Test } from '../types';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 interface FooterProps {
+  tests: Test[];
   onNavigate: (view: NavView) => void;
   onStartTest: (testId: string) => void;
 }
 
-export function Footer({ onNavigate, onStartTest }: FooterProps) {
+export function Footer({ tests, onNavigate, onStartTest }: FooterProps) {
   const [siteUrl, setSiteUrl] = useState('');
 
   useEffect(() => {

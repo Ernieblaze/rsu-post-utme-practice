@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { BookOpen, Moon, Sun, BarChart3, Home, ChevronDown, Menu, X, GraduationCap, Layers, Trophy, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { tests } from '../data/tests';
+import type { Test } from '../types';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 interface HeaderProps {
+  tests: Test[];
   dark: boolean;
   currentView: string;
   onToggleDark: () => void;
@@ -13,7 +14,7 @@ interface HeaderProps {
   onStartExam: (testId: string) => void;
 }
 
-export function Header({ dark, currentView, onToggleDark, onNavigate, onStartExam }: HeaderProps) {
+export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onStartExam }: HeaderProps) {
   const [examMenuOpen, setExamMenuOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const examRef = useRef<HTMLDivElement>(null);
