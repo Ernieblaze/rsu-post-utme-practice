@@ -1,5 +1,841 @@
 [
   {
+    "id": "q-1781824895870-lljyu7",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Question Tags",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I won't go there, will I?",
+    "options": {
+      "A": "Yes, I would",
+      "B": "No, I won't",
+      "C": "Yes, I won't",
+      "D": "No, I would",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-14vavv",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Question Tags",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "She does her knitting skillfully.",
+    "options": {
+      "A": "Doesn't she?",
+      "B": "Isn't it?",
+      "C": "Does she?",
+      "D": "Didn't she?",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-yipal6",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Question Tags",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mary and John cannot force me to attend Abdul's birthday.",
+    "options": {
+      "A": "Will they?",
+      "B": "Can he?",
+      "C": "Can they?",
+      "D": "Could they?",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-ymyzat",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Question Tags",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We did them proud, didn't we?",
+    "options": {
+      "A": "Yes, you did",
+      "B": "No, we didn't",
+      "C": "Yes, we did",
+      "D": "Yes, they did",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-q3xekq",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Question Tags",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "They couldn't just make it in good time, could they?",
+    "options": {
+      "A": "No, they couldn't",
+      "B": "Yes, they couldn't",
+      "C": "No, they could",
+      "D": "Yes, they could",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-mfxhwy",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I had _____ trust in the boy before he woefully disappointed me",
+    "options": {
+      "A": "flagrant",
+      "B": "fruitful",
+      "C": "absolute",
+      "D": "effective",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-3z9ysf",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We need to _____ our resources in these hard times",
+    "options": {
+      "A": "withhold",
+      "B": "economize",
+      "C": "retrench",
+      "D": "squander",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895870-gnjvdi",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The poor boy was _____ when he stepped on a live wire",
+    "options": {
+      "A": "burnt",
+      "B": "electrocuted",
+      "C": "electrified",
+      "D": "radiated",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-bmrv45",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "English",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The politician ran to another country to seek _____",
+    "options": {
+      "A": "refuge",
+      "B": "safeguard",
+      "C": "retreat",
+      "D": "privacy",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-wh7knu",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Vocabulary",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The university awarded doctorate degrees to four distinguished members of the community",
+    "options": {
+      "A": "honourable",
+      "B": "ceremonies",
+      "C": "ceremonial",
+      "D": "honorary",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-rwj1ig",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Rivers",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following rivers does NOT drain into the Atlantic Ocean?",
+    "options": {
+      "A": "The Niger",
+      "B": "The Indus",
+      "C": "The Amazon",
+      "D": "The Volta",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-zyfxsq",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Map Reading",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Which features on a topographical sheet would you analyze to characterize the configuration of the area covered by the sheet",
+    "options": {
+      "A": "isohyets and isolines",
+      "B": "ranges and spot heights",
+      "C": "contour lines for cross section",
+      "D": "contour lines for slope estimates",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-e6xc00",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Resources",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The greatest challenge to future use of automobiles is",
+    "options": {
+      "A": "advances in air travels",
+      "B": "identification of alternatives to fossil fuels",
+      "C": "changing and more reliable technology for rail transport",
+      "D": "population growth",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-5icml4",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Map Scales",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The statement '1cm to 2km' can be represented by the ratio of",
+    "options": {
+      "A": "1:50,000",
+      "B": "1:500,000",
+      "C": "1:20,000",
+      "D": "1:200,000",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-2o8kqf",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Time Zones",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "What is the local standard time in New York (75 degrees W) when it is 2pm in Accra?",
+    "options": {
+      "A": "7pm (1900hrs)",
+      "B": "7am (0700hrs)",
+      "C": "9pm (2100hrs)",
+      "D": "9am (0900hrs)",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-rorb0g",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Earth & Sun",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "On any day in the year at a specific time",
+    "options": {
+      "A": "the sun is overhead along the equator",
+      "B": "the sun is overhead along the tropic of cancer",
+      "C": "the North pole has 24 hours of daylight",
+      "D": "one half of the earth is in darkness",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-wdgj8t",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Landforms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not a feature produced by volcanic activity?",
+    "options": {
+      "A": "horst",
+      "B": "caldera",
+      "C": "dyke",
+      "D": "geyser",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-rgv8kq",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Agriculture",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which is the main crop grown in the Gezira plains",
+    "options": {
+      "A": "wheat",
+      "B": "millet",
+      "C": "rice",
+      "D": "cotton",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-kls2fm",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Population",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following countries has a large number of people of African descent?",
+    "options": {
+      "A": "England",
+      "B": "Canada",
+      "C": "Chile",
+      "D": "Brazil",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-ovttu1",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Time Zones",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "When it is 12.00 noon on longitude 30 degrees E, what is the time on longitude 150 degrees W?",
+    "options": {
+      "A": "9.00am",
+      "B": "9.00pm",
+      "C": "5.00pm",
+      "D": "5.00am",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-ayezrk",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Nigerian History",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Sir Richards' constitution was introduced in Nigeria in",
+    "options": {
+      "A": "1946",
+      "B": "1950",
+      "C": "1964",
+      "D": "1864",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-4myg54",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Nigerian History",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Central Bank of Nigeria was established in",
+    "options": {
+      "A": "1920",
+      "B": "1908",
+      "C": "1959",
+      "D": "1950",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-tlynjq",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Nigeria",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Headquarters of NYSC is at",
+    "options": {
+      "A": "Abuja",
+      "B": "Kano",
+      "C": "Lagos",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-jyzqlm",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Nigeria",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is linked with CONFLUENCE",
+    "options": {
+      "A": "Niger State",
+      "B": "Kogi State",
+      "C": "Benue State",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-37et8g",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "General Knowledge",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Zebra crossing is for",
+    "options": {
+      "A": "playground",
+      "B": "easy transportation of zebras",
+      "C": "safety of pedestrians",
+      "D": "zoological garden",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-wx9uf8",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Space",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The first man to get to space is",
+    "options": {
+      "A": "Yuri Gagarin",
+      "B": "Gay Lussac",
+      "C": "Dalton",
+      "D": "Sir Isaac Newton",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-bceqok",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Geography",
+    "topic": "Capitals",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The capital of Benin Republic is",
+    "options": {
+      "A": "Kinshasa",
+      "B": "Algiers",
+      "C": "Niamey",
+      "D": "Porto-Novo",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-0237s7",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Biology",
+    "topic": "Nervous System",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The nervous system passes messages mainly as _____ along nerves",
+    "options": {
+      "A": "electrical impulses",
+      "B": "manual impulses",
+      "C": "mechanical impulses",
+      "D": "blood impulses",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-41w6rs",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Biology",
+    "topic": "Variation",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Morphological variation can clearly be seen in _____",
+    "options": {
+      "A": "weight",
+      "B": "skin colour in man",
+      "C": "height",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-grucq4",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Biology",
+    "topic": "Nervous System",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The central nervous system consists of the _____ and _____",
+    "options": {
+      "A": "fore and hind",
+      "B": "brain and spinal cord",
+      "C": "sensory and motor",
+      "D": "nerves and spinal cord",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-83mbp1",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Physics",
+    "topic": "Earth Science",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The earth is made up of (i) the atmosphere (ii) the hydrosphere (iii) the lithosphere",
+    "options": {
+      "A": "(i) & (ii) only",
+      "B": "(i), (ii) & (iii)",
+      "C": "(iii) only",
+      "D": "(ii) & (iii)",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-mzs87w",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Physics",
+    "topic": "Astronomy",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "How many moons does Jupiter have?",
+    "options": {
+      "A": "8",
+      "B": "16",
+      "C": "15",
+      "D": "20",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-3940an",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Physics",
+    "topic": "Nuclear Physics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An alpha particle is _____",
+    "options": {
+      "A": "a hydrogen nucleus",
+      "B": "a neutron",
+      "C": "a positron",
+      "D": "a helium nucleus",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-2hojrh",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Physics",
+    "topic": "Nuclear Physics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The splitting of a nucleus into two nuclei of nearly equal mass with a release of energy is known as _____",
+    "options": {
+      "A": "half-life",
+      "B": "nuclear fission",
+      "C": "nuclear fusion",
+      "D": "radioactivity",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-wvar3g",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Physics",
+    "topic": "Materials",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "A varnish may be regarded as _____",
+    "options": {
+      "A": "an unpigmented colloidal dispersion",
+      "B": "a solution of natural resin",
+      "C": "a solution of synthetic resin",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-n9943i",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "About RSU",
+    "topic": "Registration",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Failure to clear and register online within the period specified for students will result in the following, except _____",
+    "options": {
+      "A": "affected persons will be regarded as non-students",
+      "B": "affected persons may be allowed to defer their admission",
+      "C": "affected persons will not attend lectures and take school examinations",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-d2no3e",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "About RSU",
+    "topic": "Transfers",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A transfer from one department to another will involve all of the following except the _____",
+    "options": {
+      "A": "Committee of Deans",
+      "B": "Senate",
+      "C": "Pro-Chancellor and Chairman of Council",
+      "D": "Registrar",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-xjwu70",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Which of these statements is not true about internal examiners in the Rivers State University?",
+    "options": {
+      "A": "they are of the rank of Senior Lecturers and above",
+      "B": "they constitute the departmental or faculty board of examiners",
+      "C": "they sign examination cards for records of lectures attended by registered students if satisfactory",
+      "D": "they submit grades, answer scripts, marking schemes and copies of their question papers to the Chief Examiner for storage",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-xtgyt5",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "About RSU",
+    "topic": "Admissions",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "For a five-year programme in the Rivers State University, a CCE student for Direct Entry into year three is expected to earn a minimum of _____ credit units.",
+    "options": {
+      "A": "190",
+      "B": "100",
+      "C": "130",
+      "D": "160",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-04v4x5",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Current Affairs",
+    "topic": "International Bodies",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What year was the United Nations Organisation formed?",
+    "options": {
+      "A": "1944",
+      "B": "1945",
+      "C": "1946",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-2eht8b",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Current Affairs",
+    "topic": "Nigerian Politics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The first state to have a female governor in Nigeria is",
+    "options": {
+      "A": "Anambra",
+      "B": "Edo",
+      "C": "Ekiti",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-3hfoch",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Current Affairs",
+    "topic": "Acronyms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What does the acronym NUPENG mean?",
+    "options": {
+      "A": "National Union of Petroleum Engineers and Natural Gas",
+      "B": "Nigeria Union of Petroleum Engineers and Natural Gas",
+      "C": "National Union of Petroleum Energy and Natural Gas",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-mx631x",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Current Affairs",
+    "topic": "Nigerian Politics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current INEC Chairman?",
+    "options": {
+      "A": "Prof. Mahmood Yakubu",
+      "B": "Dr. Okoye Festus",
+      "C": "Mr. Madu Yusuf",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824895871-nqaqr0",
+    "university": "RSU",
+    "year": "2013",
+    "subject": "Current Affairs",
+    "topic": "Nigeria",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The first female Brigadier in Nigeria?",
+    "options": {
+      "A": "Ronke Kale",
+      "B": "Rosaline Kemi",
+      "C": "Ajayi Gladys",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
     "id": "q-1781824444013-dqrkaf",
     "university": "RSU",
     "year": "2012",
