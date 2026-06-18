@@ -1,6 +1,861 @@
 [
   {
-    "id": "q-1781761344032-lfywie",
+    "id": "q-1781824444013-dqrkaf",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "English",
+    "topic": "Grammar",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The messenger _____ home until his boss leaves",
+    "options": {
+      "A": "dare not went",
+      "B": "dare not go",
+      "C": "dare not to go",
+      "D": "dare not going",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-s7cjp1",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "English",
+    "topic": "Prepositions",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ogechi did not behave _____ her parent's wishes",
+    "options": {
+      "A": "with according",
+      "B": "in accordance",
+      "C": "accordance about",
+      "D": "in accordance with",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-m8a7n2",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "English",
+    "topic": "Prepositions",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Are you keen _____ joining me in this venture?",
+    "options": {
+      "A": "at",
+      "B": "in",
+      "C": "for",
+      "D": "on",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-pq2ju9",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "English",
+    "topic": "Pronouns",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Do you notice John and Comfort glancing at _____",
+    "options": {
+      "A": "themselves",
+      "B": "other",
+      "C": "each other",
+      "D": "theirselves",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-xkz653",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "English",
+    "topic": "Idioms",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The corrupt bank manager was arrested and convicted _____",
+    "options": {
+      "A": "on the long run",
+      "B": "at the long run",
+      "C": "in the long run",
+      "D": "after the long run",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-wu6154",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Health & Nutrition",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Adequate cross ventilation should be provided in the kitchen in order to _____",
+    "options": {
+      "A": "enhance the development of high humidity",
+      "B": "enhance the development of undesired odour",
+      "C": "enhance conducive temperature in the kitchen",
+      "D": "enhance heat generated during cooking process",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444013-ylt3fg",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Health",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "People recovering from sickness are called",
+    "options": {
+      "A": "invalid",
+      "B": "aging",
+      "C": "convalescent",
+      "D": "vegetable",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-0oay63",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Human Development",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Adolescents are people between the age range of _____ to _____",
+    "options": {
+      "A": "0 to 4",
+      "B": "0 to 11",
+      "C": "20 to 30",
+      "D": "11 to 20",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-tcplvo",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Units",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The international unit of energy is",
+    "options": {
+      "A": "kilo calorie (kcal)",
+      "B": "kilohertz",
+      "C": "gramme",
+      "D": "Joule",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-y1ta9y",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Digestion",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The digestion of all food starts in _____",
+    "options": {
+      "A": "stomach",
+      "B": "large intestine",
+      "C": "small intestine",
+      "D": "oesophagus",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-psj2rh",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Nutrition",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "One of the major features of kwashiorkor in children is _____",
+    "options": {
+      "A": "red hair",
+      "B": "black coloured",
+      "C": "swollen belly",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-8xu5qd",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Enzymes",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Protein splitting enzyme produced by the pancreas is called _____",
+    "options": {
+      "A": "insulin",
+      "B": "tyallin",
+      "C": "trypsin",
+      "D": "co-enzyme",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-hb10pj",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Biology",
+    "topic": "Ecology",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Which of the following statements is not true of a climax vegetation?",
+    "options": {
+      "A": "is an ecological phenomenon",
+      "B": "is a stable community",
+      "C": "eliminates competition",
+      "D": "results from succession",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-8hk2ud",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Physiology",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The contraction of the stomach muscle resulting from the emptiness of the bowel is known as _____",
+    "options": {
+      "A": "appetite",
+      "B": "ulcer",
+      "C": "hunger",
+      "D": "stomach pain",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-77v8km",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Vitamins",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Scurvy is caused by lack of _____ in the body",
+    "options": {
+      "A": "vitamin A",
+      "B": "protein",
+      "C": "blood",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-9ibhnd",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Reactivity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Hydrogen is readily released when dilute hydrochloric acid reacts with",
+    "options": {
+      "A": "Cu",
+      "B": "Na",
+      "C": "Au",
+      "D": "Ag",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-3lhth7",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "The intermediate product formed when ethanol is progressively oxidized to ethanoic acid with potassium heptaoxodichromate (VI) is",
+    "options": {
+      "A": "butanol",
+      "B": "ethanal",
+      "C": "methanol",
+      "D": "propanol",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-guji0o",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Bonding",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Which of the following chlorides would exhibit the least ionic character",
+    "options": {
+      "A": "MgCl2",
+      "B": "CaCl2",
+      "C": "LiCl",
+      "D": "AlCl3",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-s815o1",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Chemistry",
+    "topic": "Bonding",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The property which makes alcohol soluble in water is the",
+    "options": {
+      "A": "boiling point",
+      "B": "hydrogen bonding",
+      "C": "ionic character",
+      "D": "covalent nature",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-nvu19f",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Sequences",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The sum of four consecutive integers is 34. Find the least of these numbers",
+    "options": {
+      "A": "7",
+      "B": "6",
+      "C": "8",
+      "D": "5",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-x6w40b",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Bearings",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "A man walks 100m due west from a point X to a point Y, then walks 100m due north to a point Z. Find the bearing of X from Z.",
+    "options": {
+      "A": "195",
+      "B": "135",
+      "C": "225",
+      "D": "045",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-mt4aq8",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Permutations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In how many ways can the letters of the word FLATION be arranged?",
+    "options": {
+      "A": "6",
+      "B": "7",
+      "C": "5",
+      "D": "8",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-qg1mfp",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Permutations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In how many ways can five people sit around a circular table?",
+    "options": {
+      "A": "24",
+      "B": "60",
+      "C": "12",
+      "D": "120",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-m9fsl6",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Find the probability that a number picked at random from the set (46,47,48,...60) is a prime number.",
+    "options": {
+      "A": "2/3",
+      "B": "1/3",
+      "C": "2/9",
+      "D": "7/9",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-5qll8y",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Mathematics",
+    "topic": "Combinatorics",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "Ugochi has 7 different posters to be hung in her room, living room and kitchen. Assuming she places at least a poster in each of the 3 rooms, how many choices does she have?",
+    "options": {
+      "A": "49",
+      "B": "170",
+      "C": "210",
+      "D": "343",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-elnbjm",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Conductors",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Which of the following materials is a conductor?",
+    "options": {
+      "A": "plastic",
+      "B": "sodium",
+      "C": "gas",
+      "D": "glass",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-xzpv7c",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The charge carriers in gases are:",
+    "options": {
+      "A": "ions only",
+      "B": "electrons and holes",
+      "C": "holes only",
+      "D": "electrons and ions",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-xiw4o0",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Work & Power",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A job is done slowly, while an identical job is done quickly. Both jobs require the same amount of work but different amounts of",
+    "options": {
+      "A": "energy",
+      "B": "power",
+      "C": "both of these",
+      "D": "none of these",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-cll4q3",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Waves",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Satellite communication networks make use of",
+    "options": {
+      "A": "infra-red rays",
+      "B": "wave",
+      "C": "visible light",
+      "D": "radio wave",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-clonya",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Electricity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An electric device is rated 2000W, 250V. The correct fuse rating of the device is?",
+    "options": {
+      "A": "8A",
+      "B": "9A",
+      "C": "7A",
+      "D": "6A",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-icrkrq",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Physics",
+    "topic": "Electricity",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A car battery rated 45AH is charged with a charger whose rating is 2.5A. How long will it take to charge the battery fully?",
+    "options": {
+      "A": "20hrs",
+      "B": "10hrs",
+      "C": "5hrs",
+      "D": "18hrs",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-9b86t0",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Admissions",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Online registration for bed spaces for hostel accommodation as a fresh student is done with the use of _____",
+    "options": {
+      "A": "student's school ID card",
+      "B": "JAMB registration number",
+      "C": "School fees receipt number",
+      "D": "designated hostel number by gender",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-crxc9c",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An external examiner approved by the Senate is appointed each session for a maximum of _____ sessions consecutively.",
+    "options": {
+      "A": "four",
+      "B": "two",
+      "C": "three",
+      "D": "any number of sessions",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-2bgs9e",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Head of Department compiles all final results of all students and for all courses in a department within _____ days.",
+    "options": {
+      "A": "15",
+      "B": "10",
+      "C": "12",
+      "D": "10 to 15",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-apf48j",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "The responsibilities of the Examination Committee set up by the department include all of the following, except _____",
+    "options": {
+      "A": "to publicize the list of invigilators",
+      "B": "to liaise with the Senate Committee on Calendar and Time-table to ensure no conflicts in courses",
+      "C": "to prepare examination halls and sitting arrangements of students",
+      "D": "to approve the appointment of external examiners for the department",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-11vkau",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Academic Standing",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student is said to be on clear standing if he maintains _____ and passes all the courses he takes in the university.",
+    "options": {
+      "A": "at least a CGPA of 1.49",
+      "B": "at least a CGPA of 1.00",
+      "C": "at least a CGPA of 2.00",
+      "D": "at least a CGPA of 1.15",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-wnuu5t",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Regulations",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "All of these statements are true, except _____",
+    "options": {
+      "A": "the sale of handouts by teaching staff is an offence",
+      "B": "all lecturers must make available office addresses and contact time to their students",
+      "C": "teaching staff are allowed to change time tables to suit themselves as long as students are able to meet up",
+      "D": "teaching staff cannot delegate the supervision of examinations to non-academic staff",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-kypc4p",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the likely punishment meted on a student who is found on a seat designated for another student during an examination without the permission of the invigilators?",
+    "options": {
+      "A": "demotion",
+      "B": "F grade",
+      "C": "dismissal",
+      "D": "suspension",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-m4tem7",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Regulations",
+    "difficulty": "hard",
+    "type": "single",
+    "text": "The ad hoc committee on handouts and textbooks inaugurated by the Vice Chancellor was to _____",
+    "options": {
+      "A": "consider any matters related to the compulsory sale of handouts and textbooks referred to it by the Vice Chancellor",
+      "B": "examine the decision made by the Senate banning the compulsory sale of handouts and textbooks",
+      "C": "forward the names of lecturers who contravene the ban on the compulsory sale of handouts and textbooks",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-jibob8",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "About RSU",
+    "topic": "Examinations",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lecturers who have to mark examination scripts for courses with large numbers of students can _____",
+    "options": {
+      "A": "delegate non-academic staff to mark scripts",
+      "B": "supervise students at a higher level in marking the scripts",
+      "C": "engage in conference marking of the scripts",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-gnipe3",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Current Affairs",
+    "topic": "Nigerian History",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who created the Nigerian Council?",
+    "options": {
+      "A": "Fred Lord Freeman",
+      "B": "Frederick Lugard",
+      "C": "Freeman Lugard",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-90rhun",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Current Affairs",
+    "topic": "Geography",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "What country does Nigeria share borders with in the West?",
+    "options": {
+      "A": "Cameroon",
+      "B": "Republic of Benin",
+      "C": "Chad",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-3otds0",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Current Affairs",
+    "topic": "Politics",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current Senate President of Nigeria?",
+    "options": {
+      "A": "Bukola Saraki",
+      "B": "Ahmed Bola",
+      "C": "Ahmed Lawan",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-y52cbs",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Current Affairs",
+    "topic": "Geography",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Which continent is the smallest in the world?",
+    "options": {
+      "A": "Africa",
+      "B": "Australia",
+      "C": "Asia",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781824444014-hdeevx",
+    "university": "RSU",
+    "year": "2012",
+    "subject": "Current Affairs",
+    "topic": "International Bodies",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What agency is the Economic Commission for Africa part of?",
+    "options": {
+      "A": "UNO",
+      "B": "OAU",
+      "C": "AUN",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "q-1781818107965-l9nmm5",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -19,7 +874,7 @@
     "explanation": "FOOD has the long /uː/ sound, the same as in 'hooves'."
   },
   {
-    "id": "q-1781761344032-0nhh81",
+    "id": "q-1781818107965-mgldrl",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -38,7 +893,7 @@
     "explanation": "THROAT has the voiceless /θ/ sound, as in 'smith'."
   },
   {
-    "id": "q-1781761344032-5nl5fp",
+    "id": "q-1781818107965-jlpa1j",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -57,7 +912,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344032-co6krd",
+    "id": "q-1781818107965-f3b0gr",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -76,7 +931,7 @@
     "explanation": "'Veteran' is the opposite of 'novice'."
   },
   {
-    "id": "q-1781761344032-lqikak",
+    "id": "q-1781818107965-n0lzvb",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -95,7 +950,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344032-uk1wwc",
+    "id": "q-1781818107965-xzbgi2",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -114,7 +969,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-gp8634",
+    "id": "q-1781818107965-8z3mw5",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -133,7 +988,7 @@
     "explanation": "'Carried away' means overwhelmed by emotion."
   },
   {
-    "id": "q-1781761344033-gjmhhg",
+    "id": "q-1781818107965-boa7c3",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -152,7 +1007,7 @@
     "explanation": "'One' is singular, so the verb is 'is'."
   },
   {
-    "id": "q-1781761344033-pbxafv",
+    "id": "q-1781818107965-boh3vc",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -171,7 +1026,7 @@
     "explanation": "Pragmatic means practical and realistic; its opposite is 'idealistic'."
   },
   {
-    "id": "q-1781761344033-cyn7xv",
+    "id": "q-1781818107965-e9udls",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -190,7 +1045,7 @@
     "explanation": "'Took to the altar' is an idiom for getting married."
   },
   {
-    "id": "q-1781761344033-i3rcc7",
+    "id": "q-1781818107965-hxl67p",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -209,7 +1064,7 @@
     "explanation": "'Incoherent' is the opposite of 'articulate'."
   },
   {
-    "id": "q-1781761344033-rad4io",
+    "id": "q-1781818107965-q26585",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -228,7 +1083,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-yxqvef",
+    "id": "q-1781818107965-27ornh",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -247,7 +1102,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-djfivt",
+    "id": "q-1781818107965-tzsn2m",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -266,7 +1121,7 @@
     "explanation": "'By bus' indicates means of transport."
   },
   {
-    "id": "q-1781761344033-mifrp2",
+    "id": "q-1781818107965-avdqsv",
     "university": "RSU",
     "year": "2011",
     "subject": "English",
@@ -285,7 +1140,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-7w0prl",
+    "id": "q-1781818107965-l1jn1q",
     "university": "RSU",
     "year": "2011",
     "subject": "Mathematics",
@@ -304,7 +1159,7 @@
     "explanation": "Error = |71-64|/64 x 100 = 7/64 x 100 = 10.9%."
   },
   {
-    "id": "q-1781761344033-2agpu1",
+    "id": "q-1781818107965-qz1dor",
     "university": "RSU",
     "year": "2011",
     "subject": "Mathematics",
@@ -323,7 +1178,7 @@
     "explanation": "For inverse variation, k = a x b = 15 x 8 = 120."
   },
   {
-    "id": "q-1781761344033-nkwzuj",
+    "id": "q-1781818107965-1awhzg",
     "university": "RSU",
     "year": "2011",
     "subject": "Mathematics",
@@ -342,7 +1197,7 @@
     "explanation": "Scores of 5 and above: 10 + 9 + 6 = 25 students."
   },
   {
-    "id": "q-1781761344033-nqjosd",
+    "id": "q-1781818107965-b2vs9e",
     "university": "RSU",
     "year": "2011",
     "subject": "Mathematics",
@@ -361,7 +1216,7 @@
     "explanation": "7! = 5040."
   },
   {
-    "id": "q-1781761344033-egeo81",
+    "id": "q-1781818107965-3m778v",
     "university": "RSU",
     "year": "2011",
     "subject": "Mathematics",
@@ -380,7 +1235,7 @@
     "explanation": "Frequencies against class marks form a frequency polygon, a type of line graph."
   },
   {
-    "id": "q-1781761344033-22mc8w",
+    "id": "q-1781818107965-b87bqk",
     "university": "RSU",
     "year": "2011",
     "subject": "Chemistry",
@@ -399,7 +1254,7 @@
     "explanation": "Amphoteric oxides react with both acids and bases."
   },
   {
-    "id": "q-1781761344033-je86fw",
+    "id": "q-1781818107965-bj82z1",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -418,7 +1273,7 @@
     "explanation": "Henri Becquerel discovered radioactivity in 1896."
   },
   {
-    "id": "q-1781761344033-ixsqsu",
+    "id": "q-1781818107965-8hnaml",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -437,7 +1292,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-5s2lpf",
+    "id": "q-1781818107965-6o4j93",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -456,7 +1311,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-nqzurx",
+    "id": "q-1781818107965-89qc2j",
     "university": "RSU",
     "year": "2011",
     "subject": "Chemistry",
@@ -475,7 +1330,7 @@
     "explanation": "Industrial nitrogen is obtained by fractional distillation of liquefied air."
   },
   {
-    "id": "q-1781761344033-q1d14y",
+    "id": "q-1781818107965-2dytny",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -494,7 +1349,7 @@
     "explanation": "Laminating the core reduces eddy-current heat losses."
   },
   {
-    "id": "q-1781761344033-q9nhkj",
+    "id": "q-1781818107965-ehmbdo",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -513,7 +1368,7 @@
     "explanation": "Radioactivity is a nuclear process unaffected by external fields, so that statement is false."
   },
   {
-    "id": "q-1781761344033-j0ut6i",
+    "id": "q-1781818107965-9p555w",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -532,7 +1387,7 @@
     "explanation": "Free electrons are loosely held and drift to carry current."
   },
   {
-    "id": "q-1781761344033-fkbkb7",
+    "id": "q-1781818107965-do2gyw",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -551,7 +1406,7 @@
     "explanation": "At resonance the impedance equals R, so V = IR = 0.1 x 200 = 20 V."
   },
   {
-    "id": "q-1781761344033-fe327x",
+    "id": "q-1781818107965-4vhpil",
     "university": "RSU",
     "year": "2011",
     "subject": "Physics",
@@ -570,7 +1425,7 @@
     "explanation": "Fleming's left hand rule gives the direction of force on a current-carrying conductor."
   },
   {
-    "id": "q-1781761344033-373u2m",
+    "id": "q-1781818107965-gvwqya",
     "university": "RSU",
     "year": "2011",
     "subject": "Biology",
@@ -589,7 +1444,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-yzaewd",
+    "id": "q-1781818107965-yzabt3",
     "university": "RSU",
     "year": "2011",
     "subject": "Biology",
@@ -608,7 +1463,7 @@
     "explanation": "Insulin lowers blood glucose levels."
   },
   {
-    "id": "q-1781761344033-3yuqnm",
+    "id": "q-1781818107965-o41j7z",
     "university": "RSU",
     "year": "2011",
     "subject": "Biology",
@@ -627,7 +1482,7 @@
     "explanation": "The cornified layer (stratum corneum) is made of flat dead cells."
   },
   {
-    "id": "q-1781761344033-3w3xuw",
+    "id": "q-1781818107965-cxi8rq",
     "university": "RSU",
     "year": "2011",
     "subject": "Biology",
@@ -646,7 +1501,7 @@
     "explanation": "The nose and tongue are chemoreceptors."
   },
   {
-    "id": "q-1781761344033-892v74",
+    "id": "q-1781818107966-11yr0a",
     "university": "RSU",
     "year": "2011",
     "subject": "Biology",
@@ -665,7 +1520,7 @@
     "explanation": "Group O is the universal donor."
   },
   {
-    "id": "q-1781761344033-5bedd6",
+    "id": "q-1781818107966-uitqk9",
     "university": "RSU",
     "year": "2011",
     "subject": "RSU Rules",
@@ -684,7 +1539,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-4kz6qs",
+    "id": "q-1781818107966-w0xc2n",
     "university": "RSU",
     "year": "2011",
     "subject": "RSU Rules",
@@ -703,7 +1558,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-w0upz7",
+    "id": "q-1781818107966-s33jli",
     "university": "RSU",
     "year": "2011",
     "subject": "RSU Rules",
@@ -722,7 +1577,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-q1b9wl",
+    "id": "q-1781818107966-5thjux",
     "university": "RSU",
     "year": "2011",
     "subject": "RSU Rules",
@@ -741,7 +1596,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-h1azyh",
+    "id": "q-1781818107966-dvdnyd",
     "university": "RSU",
     "year": "2011",
     "subject": "RSU Rules",
@@ -760,7 +1615,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-11w2xl",
+    "id": "q-1781818107966-wt9llq",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -779,7 +1634,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-krj7vt",
+    "id": "q-1781818107966-co8hfk",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -798,7 +1653,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-ym1pvm",
+    "id": "q-1781818107966-o1qawp",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -817,7 +1672,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-drlpnq",
+    "id": "q-1781818107966-vnnccd",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -836,7 +1691,7 @@
     "explanation": "Louis Orok Edet was Nigeria's first indigenous IGP, serving from 1964 to 1966."
   },
   {
-    "id": "q-1781761344033-85jgx3",
+    "id": "q-1781818107966-6des3d",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -855,7 +1710,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-idbdls",
+    "id": "q-1781818107966-5xvlzm",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -874,7 +1729,7 @@
     "explanation": "Olayemi Cardoso became CBN Governor in October 2023."
   },
   {
-    "id": "q-1781761344033-tavtgj",
+    "id": "q-1781818107966-2syhzb",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -893,7 +1748,7 @@
     "explanation": "Tunji Alausa was appointed Minister of Education in October 2024."
   },
   {
-    "id": "q-1781761344033-3loi47",
+    "id": "q-1781818107966-dbiqdq",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -912,7 +1767,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-inkiss",
+    "id": "q-1781818107966-zn3fp3",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
@@ -931,7 +1786,7 @@
     "explanation": ""
   },
   {
-    "id": "q-1781761344033-kk9au4",
+    "id": "q-1781818107966-dzo8a4",
     "university": "RSU",
     "year": "2011",
     "subject": "Current Affairs",
