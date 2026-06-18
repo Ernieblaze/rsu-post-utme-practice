@@ -143,6 +143,6 @@ src/
 sample-imports/                # example import files
 ```
 
-## Tech
+## Tech YES
 
 React 19 - TypeScript - Vite - Tailwind CSS v4 - Framer Motion - lucide-react.
