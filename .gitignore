@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .vite-source-tags.js
 .vercel
+
+# Environment variables (secrets - never commit)
+.env
+.env.local
+.env.*.local
