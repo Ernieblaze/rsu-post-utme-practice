@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { BookOpen, Moon, Sun, BarChart3, Home, ChevronDown, Menu, X, GraduationCap, Layers, Trophy, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Test } from '../types';
+import { AuthControl } from './AuthControl';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
@@ -129,6 +130,10 @@ export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onS
           >
             {dark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
+
+          <div className="ml-2">
+            <AuthControl />
+          </div>
         </nav>
 
         {/* Mobile menu button */}
@@ -192,6 +197,10 @@ export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onS
           >
             <Shield size={16} /> Admin
           </button>
+          <div className="mt-3">
+            <AuthControl />
+          </div>
+
           <div className="mt-2 text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">Exams</div>
           {tests.map((test) => (
             <button

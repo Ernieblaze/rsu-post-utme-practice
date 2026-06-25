@@ -11,6 +11,8 @@ import { PracticeBank } from './components/PracticeBank';
 import { Admin } from './components/Admin';
 import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
+import { AuthModal } from './components/AuthModal';
+import { useAuth } from './context/AuthContext';
 import { tests } from './data/tests';
 import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
@@ -28,6 +30,7 @@ type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'ad
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 function AppContent() {
+  const { user } = useAuth();
   const [view, setView] = useState<View>('home');
   const [activeTestId, setActiveTestId] = useState<string | null>(null);
   const [dynamicTest, setDynamicTest] = useState<Test | null>(null);
@@ -36,6 +39,8 @@ function AppContent() {
   const [attempts, setAttempts] = useState<Attempt[]>(() => getAttempts());
   const [revisionSubject, setRevisionSubject] = useState<string>('');
   const [bank, setBank] = useState(() => getBank());
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -91,6 +96,31 @@ function AppContent() {
     setView('quiz');
   }
 
+  function requireAuth(action: () => void) {
+    if (user) {
+      action();
+      return;
+    }
+    setPendingAction(() => action);
+    setAuthModalOpen(true);
+  }
+
+  function guardedStartTest(id: string) {
+    requireAuth(() => startTest(id));
+  }
+
+  function guardedStartDynamicTest(test: Test) {
+    requireAuth(() => startDynamicTest(test));
+  }
+
+  useEffect(() => {
+    if (user && pendingAction) {
+      pendingAction();
+      setPendingAction(null);
+      setAuthModalOpen(false);
+    }
+  }, [user, pendingAction]);
+
   function finishTest(attempt: Attempt) {
     saveAttempt(attempt);
     setAttempts(getAttempts());
@@ -135,7 +165,7 @@ function AppContent() {
           currentView={view}
           onToggleDark={toggleDark}
           onNavigate={navigate}
-          onStartExam={startTest}
+          onStartExam={guardedStartTest}
         />
       )}
 
@@ -146,7 +176,7 @@ function AppContent() {
               tests={yearlyTests}
               attempts={attempts}
               activeTestStateTestId={activeTestStateTestId}
-              onStart={startTest}
+              onStart={guardedStartTest}
               onViewProgress={() => setView('progress')}
               onViewRevision={() => setView('revision')}
             />
@@ -180,13 +210,13 @@ function AppContent() {
 
         {view === 'revision' && (
           <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Revision tests={yearlyTests} onBack={() => setView('home')} onStartTest={startTest} initialSubject={revisionSubject} />
+            <Revision tests={yearlyTests} onBack={() => setView('home')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
           </motion.div>
         )}
 
         {view === 'bank' && (
           <motion.div key="bank" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <PracticeBank bank={bank} onBack={() => setView('home')} onStart={startDynamicTest} />
+            <PracticeBank bank={bank} onBack={() => setView('home')} onStart={guardedStartDynamicTest} />
           </motion.div>
         )}
 
@@ -203,7 +233,15 @@ function AppContent() {
         )}
       </AnimatePresence>
 
-      {view !== 'quiz' && <Footer tests={yearlyTests} onNavigate={navigate} onStartTest={startTest} />}
+      {view !== 'quiz' && <Footer tests={yearlyTests} onNavigate={navigate} onStartTest={guardedStartTest} />}
+
+      <AuthModal
+        open={authModalOpen}
+        onClose={() => {
+          setAuthModalOpen(false);
+          setPendingAction(null);
+        }}
+      />
     </div>
   );
 }
