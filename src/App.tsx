@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './components/Home';
@@ -29,9 +30,33 @@ import type { Attempt, Test } from './types';
 type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
+const PATH_TO_VIEW: Record<string, View> = {
+  '/': 'home',
+  '/quiz': 'quiz',
+  '/results': 'results',
+  '/progress': 'progress',
+  '/revision': 'revision',
+  '/bank': 'bank',
+  '/admin': 'admin',
+  '/leaderboard': 'leaderboard',
+};
+
+const NAV_TO_PATH: Record<NavView, string> = {
+  home: '/',
+  progress: '/progress',
+  revision: '/revision',
+  bank: '/bank',
+  admin: '/admin',
+  leaderboard: '/leaderboard',
+};
+
 function AppContent() {
   const { user } = useAuth();
-  const [view, setView] = useState<View>('home');
+  const location = useLocation();
+  const routerNavigate = useNavigate();
+
+  const view: View = PATH_TO_VIEW[location.pathname] ?? 'home';
+
   const [activeTestId, setActiveTestId] = useState<string | null>(null);
   const [dynamicTest, setDynamicTest] = useState<Test | null>(null);
   const [result, setResult] = useState<Attempt | null>(null);
@@ -86,14 +111,14 @@ function AppContent() {
   function startTest(id: string) {
     setDynamicTest(null);
     setActiveTestId(id);
-    setView('quiz');
+    routerNavigate('/quiz');
   }
 
   function startDynamicTest(test: Test) {
     clearTestState();
     setActiveTestId(test.id);
     setDynamicTest(test);
-    setView('quiz');
+    routerNavigate('/quiz');
   }
 
   function requireAuth(action: () => void) {
@@ -125,24 +150,24 @@ function AppContent() {
     saveAttempt(attempt);
     setAttempts(getAttempts());
     setResult(attempt);
-    setView('results');
+    routerNavigate('/results');
   }
 
   function retakeTest() {
     if (activeTest) {
       clearTestState();
-      setView('quiz');
+      routerNavigate('/quiz');
     }
   }
 
   function navigate(destination: NavView) {
     setRevisionSubject('');
-    setView(destination);
+    routerNavigate(NAV_TO_PATH[destination]);
   }
 
   function reviseSubject(subject: string) {
     setRevisionSubject(subject);
-    setView('revision');
+    routerNavigate('/revision');
   }
 
   function refreshBank() {
@@ -170,67 +195,103 @@ function AppContent() {
       )}
 
       <AnimatePresence mode="wait">
-        {view === 'home' && (
-          <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Home
-              tests={yearlyTests}
-              attempts={attempts}
-              activeTestStateTestId={activeTestStateTestId}
-              onStart={guardedStartTest}
-              onViewProgress={() => setView('progress')}
-              onViewRevision={() => setView('revision')}
-            />
-          </motion.div>
-        )}
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Home
+                  tests={yearlyTests}
+                  attempts={attempts}
+                  activeTestStateTestId={activeTestStateTestId}
+                  onStart={guardedStartTest}
+                  onViewProgress={() => routerNavigate('/progress')}
+                  onViewRevision={() => routerNavigate('/revision')}
+                />
+              </motion.div>
+            }
+          />
 
-        {view === 'quiz' && activeTest && (
-          <motion.div key="quiz" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Quiz test={activeTest} onFinish={finishTest} onCancel={() => setView('home')} />
-          </motion.div>
-        )}
+          <Route
+            path="/quiz"
+            element={
+              activeTest ? (
+                <motion.div key="quiz" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <Quiz test={activeTest} onFinish={finishTest} onCancel={() => routerNavigate('/')} />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
 
-        {view === 'results' && result && activeTest && (
-          <motion.div key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Results
-              attempt={result}
-              test={activeTest}
-              onRetake={retakeTest}
-              onHome={() => setView('home')}
-              onProgress={() => setView('progress')}
-              onReviseSubject={reviseSubject}
-            />
-          </motion.div>
-        )}
+          <Route
+            path="/results"
+            element={
+              result && activeTest ? (
+                <motion.div key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <Results
+                    attempt={result}
+                    test={activeTest}
+                    onRetake={retakeTest}
+                    onHome={() => routerNavigate('/')}
+                    onProgress={() => routerNavigate('/progress')}
+                    onReviseSubject={reviseSubject}
+                  />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
 
-        {view === 'progress' && (
-          <motion.div key="progress" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Progress attempts={attempts} onBack={() => setView('home')} onClear={clearHistory} />
-          </motion.div>
-        )}
+          <Route
+            path="/progress"
+            element={
+              <motion.div key="progress" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Progress attempts={attempts} onBack={() => routerNavigate('/')} onClear={clearHistory} />
+              </motion.div>
+            }
+          />
 
-        {view === 'revision' && (
-          <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Revision tests={yearlyTests} onBack={() => setView('home')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
-          </motion.div>
-        )}
+          <Route
+            path="/revision"
+            element={
+              <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Revision tests={yearlyTests} onBack={() => routerNavigate('/')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
+              </motion.div>
+            }
+          />
 
-        {view === 'bank' && (
-          <motion.div key="bank" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <PracticeBank bank={bank} onBack={() => setView('home')} onStart={guardedStartDynamicTest} />
-          </motion.div>
-        )}
+          <Route
+            path="/bank"
+            element={
+              <motion.div key="bank" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <PracticeBank bank={bank} onBack={() => routerNavigate('/')} onStart={guardedStartDynamicTest} />
+              </motion.div>
+            }
+          />
 
-        {view === 'leaderboard' && (
-          <motion.div key="leaderboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Leaderboard attempts={attempts} onBack={() => setView('home')} />
-          </motion.div>
-        )}
+          <Route
+            path="/leaderboard"
+            element={
+              <motion.div key="leaderboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Leaderboard attempts={attempts} onBack={() => routerNavigate('/')} />
+              </motion.div>
+            }
+          />
 
-        {view === 'admin' && (
-          <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-            <Admin onBack={() => setView('home')} onBankChanged={refreshBank} />
-          </motion.div>
-        )}
+          <Route
+            path="/admin"
+            element={
+              <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Admin onBack={() => routerNavigate('/')} onBankChanged={refreshBank} />
+              </motion.div>
+            }
+          />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </AnimatePresence>
 
       {view !== 'quiz' && <Footer tests={yearlyTests} onNavigate={navigate} onStartTest={guardedStartTest} />}
