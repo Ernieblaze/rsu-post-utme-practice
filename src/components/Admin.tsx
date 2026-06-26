@@ -249,7 +249,7 @@ function QuestionsTab({
 function Tag({ children, tone = 'default' }: { children: ReactNode; tone?: 'default' | 'gold' | 'muted' }) {
   const tones = {
     default: 'bg-school-pale text-school-green dark:bg-school-green/20',
-    gold: 'bg-school-gold/15 text-school-gold',
+    gold: 'bg-school-gold/15 text-amber-700 dark:text-school-gold',
     muted: 'bg-school-light text-school-navy/60 dark:bg-school-navy/60 dark:text-slate-400',
   };
   return <span className={`rounded px-2 py-0.5 ${tones[tone]}`}>{children}</span>;

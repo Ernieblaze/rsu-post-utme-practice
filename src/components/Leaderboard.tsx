@@ -44,7 +44,7 @@ export function Leaderboard({ attempts, onBack }: LeaderboardProps) {
       </button>
 
       <div className="mb-6 flex items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-school-gold/20 text-school-gold"><Trophy size={24} /></div>
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-school-gold/20 text-amber-700 dark:text-school-gold"><Trophy size={24} /></div>
         <div>
           <h1 className="text-3xl font-extrabold text-school-navy dark:text-white">Leaderboard</h1>
           <p className="text-sm text-school-navy/60 dark:text-slate-400">Top attempts on this device</p>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ArrowLeft, Check, Star } from 'lucide-react';
 
 interface UpgradeProps {
   onBack: () => void;
@@ -20,7 +21,7 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
         onClick={onBack}
         className="mb-3 inline-flex items-center gap-2 rounded-xl border border-school-border bg-white px-3 py-1.5 text-sm font-semibold text-school-navy shadow-sm transition hover:bg-school-light"
       >
-        ← Back
+        <ArrowLeft size={16} /> Back
       </button>
 
       <motion.div
@@ -30,8 +31,8 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
         className="overflow-hidden rounded-2xl border border-school-border bg-white shadow-sm"
       >
         <div className="bg-gradient-to-br from-school-navy to-school-green px-6 py-5 text-white">
-          <div className="mb-1.5 inline-flex items-center gap-2 rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide">
-            ★ Premium Access
+          <div className="mb-1.5 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide">
+            <Star size={12} /> Premium Access
           </div>
           <h1 className="font-sora text-2xl font-bold">Unlock full practice</h1>
           <p className="mt-1 max-w-md text-sm text-white/80">
@@ -48,8 +49,8 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
           <ul className="mb-5 space-y-2">
             {PERKS.map((perk) => (
               <li key={perk} className="flex items-start gap-2.5 text-sm text-school-navy">
-                <span className="mt-0.5 flex h-4 w-4 flex-none items-center justify-center rounded-full bg-school-green/15 text-[10px] font-bold text-school-green">
-                  ✓
+                <span className="mt-0.5 flex h-4 w-4 flex-none items-center justify-center rounded-full bg-school-green/15 text-school-green">
+                  <Check size={10} strokeWidth={3} />
                 </span>
                 <span>{perk}</span>
               </li>

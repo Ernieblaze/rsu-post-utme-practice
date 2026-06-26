@@ -1,40 +1,19 @@
-import { useState, useRef, useEffect } from 'react';
-import { BookOpen, Moon, Sun, BarChart3, Home, ChevronDown, Menu, X, GraduationCap, Layers, Trophy, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { Test } from '../types';
 import { AuthControl } from './AuthControl';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 interface HeaderProps {
-  tests: Test[];
   dark: boolean;
   currentView: string;
   onToggleDark: () => void;
   onNavigate: (view: NavView) => void;
-  onStartExam: (testId: string) => void;
 }
 
-export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onStartExam }: HeaderProps) {
-  const [examMenuOpen, setExamMenuOpen] = useState(false);
+export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const examRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (examRef.current && !examRef.current.contains(e.target as Node)) {
-        setExamMenuOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  function startExam(id: string) {
-    setExamMenuOpen(false);
-    setMobileOpen(false);
-    onStartExam(id);
-  }
 
   return (
     <motion.header
@@ -87,36 +66,9 @@ export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onS
             );
           })}
 
-          {/* Exam switch dropdown */}
-          <div className="relative ml-1" ref={examRef}>
-            <button
-              onClick={() => setExamMenuOpen((v) => !v)}
-              className="flex items-center gap-1.5 rounded-lg border border-school-green/20 bg-school-light px-3 py-2 text-sm font-semibold text-school-navy hover:bg-school-pale dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white dark:hover:bg-school-navy/40"
-            >
-              Select Exam <ChevronDown size={14} className={`transition ${examMenuOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {examMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="absolute right-0 z-50 mt-2 w-64 overflow-hidden rounded-xl border border-school-green/20 bg-white shadow-xl dark:border-school-green/30 dark:bg-school-navy"
-              >
-                {tests.map((test) => (
-                  <button
-                    key={test.id}
-                    onClick={() => startExam(test.id)}
-                    className="w-full px-4 py-2.5 text-left text-sm font-medium text-school-navy transition hover:bg-school-pale dark:text-slate-200 dark:hover:bg-school-navy/60"
-                  >
-                    {test.title.replace('RSU POST-UTME \u2013 ', '')}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </div>
-
           <button
             onClick={() => onNavigate('admin')}
-            className="ml-1 flex h-9 w-9 items-center justify-center rounded-lg border border-school-gold/30 bg-school-gold/10 text-school-gold hover:bg-school-gold/20"
+            className="ml-1 flex h-9 w-9 items-center justify-center rounded-lg border border-school-gold/30 bg-school-gold/10 text-amber-700 hover:bg-school-gold/20 dark:text-school-gold"
             aria-label="Admin"
             title="Admin"
           >
@@ -193,24 +145,13 @@ export function Header({ tests, dark, currentView, onToggleDark, onNavigate, onS
           </button>
           <button
             onClick={() => { onNavigate('admin'); setMobileOpen(false); }}
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-gold hover:bg-school-light"
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-amber-700 hover:bg-school-light dark:text-school-gold"
           >
             <Shield size={16} /> Admin
           </button>
           <div className="mt-3">
             <AuthControl />
           </div>
-
-          <div className="mt-2 text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">Exams</div>
-          {tests.map((test) => (
-            <button
-              key={test.id}
-              onClick={() => startExam(test.id)}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium text-school-navy hover:bg-school-light dark:text-slate-200"
-            >
-              <BookOpen size={14} /> {test.title.replace('RSU POST-UTME \u2013 ', '')}
-            </button>
-          ))}
         </motion.div>
       )}
     </motion.header>

@@ -192,6 +192,32 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
           <h2 className="text-xl font-bold text-school-navy dark:text-white">Available Exams</h2>
           <span className="text-sm font-medium text-school-navy/70 dark:text-slate-400">{tests.length} paper(s)</span>
         </div>
+
+        {tests.length > 0 && (
+          <div className="mb-6 flex flex-wrap items-center gap-2 rounded-2xl border border-school-gold/20 bg-school-gold/5 px-4 py-3">
+            <span className="mr-1 text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
+              Jump to a paper
+            </span>
+            {tests.map((test) => {
+              const yearLabel = test.id.startsWith('exam-year-')
+                ? test.id.replace('exam-year-', '')
+                : test.title;
+              return (
+                <motion.button
+                  key={test.id}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => onStart(test.id)}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-school-gold/40 bg-white px-4 py-1.5 text-sm font-bold text-school-navy shadow-sm transition hover:bg-school-gold/15 dark:border-school-gold/30 dark:bg-school-navy/60 dark:text-white"
+                >
+                  <Calendar size={14} className="text-amber-700 dark:text-school-gold" />
+                  {yearLabel}
+                </motion.button>
+              );
+            })}
+          </div>
+        )}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -252,6 +278,7 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             animate={{ opacity: 1, y: 0 }}
             className="overflow-hidden rounded-2xl border border-school-green/10 bg-white shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
           >
+            <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
               <thead className="bg-school-pale text-xs uppercase tracking-wider text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
                 <tr>
@@ -288,6 +315,7 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
                 ))}
               </tbody>
             </table>
+            </div>
           </motion.div>
         )}
       </section>
@@ -348,7 +376,7 @@ function TestCard({ test, lastAttempt, average, best, hasActiveState, onStart }:
         </div>
 
         <div className="mb-2 flex items-center gap-2">
-          <span className="rounded-md bg-school-gold/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-school-gold">
+          <span className="rounded-md bg-school-gold/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-school-gold">
             {examName}
           </span>
         </div>

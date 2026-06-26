@@ -250,12 +250,10 @@ function AppContent() {
       <ScrollToTop />
       {view !== 'quiz' && (
         <Header
-          tests={yearlyTests}
           dark={dark}
           currentView={view}
           onToggleDark={toggleDark}
           onNavigate={navigate}
-          onStartExam={guardedStartTest}
         />
       )}
 
@@ -385,7 +383,7 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && <Footer tests={yearlyTests} onNavigate={navigate} onStartTest={guardedStartTest} />}
+      {view !== 'quiz' && <Footer onNavigate={navigate} />}
 
       <AuthModal
         open={authModalOpen}

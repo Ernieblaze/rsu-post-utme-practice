@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, FileText, GraduationCap, Layers, Trophy } from 'lucide-react';
-import type { Test } from '../types';
+import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy } from 'lucide-react';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 interface FooterProps {
-  tests: Test[];
   onNavigate: (view: NavView) => void;
-  onStartTest: (testId: string) => void;
 }
 
-export function Footer({ tests, onNavigate, onStartTest }: FooterProps) {
+export function Footer({ onNavigate }: FooterProps) {
   const [siteUrl, setSiteUrl] = useState('');
 
   useEffect(() => {
@@ -108,13 +105,6 @@ export function Footer({ tests, onNavigate, onStartTest }: FooterProps) {
                   <Trophy size={14} /> Leaderboard
                 </button>
               </li>
-              {tests.map((test) => (
-                <li key={test.id}>
-                  <button onClick={() => onStartTest(test.id)} className="flex items-center gap-2 hover:text-white">
-                    <FileText size={14} /> {test.title.replace('RSU POST-UTME – ', '').split(' – ')[0]} Exam
-                  </button>
-                </li>
-              ))}
             </ul>
           </motion.div>
 
