@@ -17,6 +17,7 @@ import { Upgrade } from './components/Upgrade';
 import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus } from './lib/access';
 import { supabase } from './lib/supabaseClient';
+import { startPaystackPayment } from './lib/paystack';
 import { tests } from './data/tests';
 import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
@@ -172,6 +173,36 @@ function AppContent() {
     }
   }
 
+  function handleUpgrade() {
+    if (!user?.email) {
+      setAuthModalOpen(true);
+      return;
+    }
+    const email = user.email;
+    const userId = user.id;
+    const amountKobo = Number(import.meta.env.VITE_APP_PRICE ?? '200000');
+
+    startPaystackPayment({
+      email,
+      amountKobo,
+      onSuccess: () => {
+        void (async () => {
+          const paidUntil = new Date();
+          paidUntil.setFullYear(paidUntil.getFullYear() + 1);
+          await supabase
+            .from('profiles')
+            .update({ has_paid: true, paid_until: paidUntil.toISOString() })
+            .eq('id', userId);
+          await refreshProfile();
+          routerNavigate('/');
+        })();
+      },
+      onError: (message) => {
+        window.alert('Payment could not be completed: ' + message);
+      },
+    });
+  }
+
   function retakeTest() {
     if (activeTest) {
       clearTestState();
@@ -315,7 +346,7 @@ function AppContent() {
               <motion.div key="upgrade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <Upgrade
                   onBack={() => routerNavigate('/')}
-                  onUpgrade={() => { window.alert('Payment coming soon. Paystack will be wired up next.'); }}
+                  onUpgrade={handleUpgrade}
                   priceLabel="₦2,000"
                 />
               </motion.div>
