@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, LayoutDashboard, LogOut } from 'lucide-react';
+import { ChevronDown, LayoutDashboard, LogOut, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { AuthModal } from './AuthModal';
 
 export function AuthControl() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, profile, signOut } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -50,6 +50,17 @@ export function AuthControl() {
             >
               <LayoutDashboard size={14} /> Dashboard
             </button>
+            {profile?.is_admin && (
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  navigate('/owner');
+                }}
+                className="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm font-medium text-school-navy transition hover:bg-school-pale dark:text-slate-200 dark:hover:bg-school-navy/60"
+              >
+                <ShieldCheck size={14} /> Owner Dashboard
+              </button>
+            )}
             <button
               onClick={() => {
                 setMenuOpen(false);

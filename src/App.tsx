@@ -16,6 +16,7 @@ import { ToastProvider } from './components/Toast';
 import { AuthModal } from './components/AuthModal';
 import { Upgrade } from './components/Upgrade';
 import { Dashboard } from './components/Dashboard';
+import { OwnerDashboard } from './components/OwnerDashboard';
 import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
 import { supabase } from './lib/supabaseClient';
@@ -33,7 +34,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -47,6 +48,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/leaderboard': 'leaderboard',
   '/upgrade': 'upgrade',
   '/dashboard': 'dashboard',
+  '/owner': 'owner',
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
@@ -92,6 +94,7 @@ function AppContent() {
       leaderboard: `Leaderboard | ${base}`,
       upgrade: `Upgrade | ${base}`,
       dashboard: `Dashboard | ${base}`,
+      owner: `Owner Dashboard | ${base}`,
     };
     document.title = titles[view];
   }, [view]);
@@ -372,6 +375,19 @@ function AppContent() {
               authLoading ? null : user ? (
                 <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                   <Dashboard onBack={() => routerNavigate('/')} onUpgrade={() => routerNavigate('/upgrade')} />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
+
+          <Route
+            path="/owner"
+            element={
+              authLoading || profileLoading ? null : profile?.is_admin ? (
+                <motion.div key="owner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <OwnerDashboard onBack={() => routerNavigate('/')} />
                 </motion.div>
               ) : (
                 <Navigate to="/" replace />
