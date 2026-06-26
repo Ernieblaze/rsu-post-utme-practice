@@ -13,7 +13,7 @@ interface AuthContextValue {
   loading: boolean;
   profile: Profile | null;
   profileLoading: boolean;
-  refreshProfile: () => Promise<void>;
+  refreshProfile: () => Promise<Profile | null>;
   signUp: (email: string, password: string) => Promise<AuthResult>;
   signIn: (email: string, password: string) => Promise<AuthResult>;
   signOut: () => Promise<AuthResult>;
@@ -80,13 +80,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [userId]);
 
-  async function refreshProfile(): Promise<void> {
+  async function refreshProfile(): Promise<Profile | null> {
     if (!userId) {
       setProfile(null);
-      return;
+      return null;
     }
     const p = await fetchProfile(userId);
     setProfile(p);
+    return p;
   }
 
   async function signUp(email: string, password: string): Promise<AuthResult> {

@@ -15,7 +15,7 @@ import { ToastProvider } from './components/Toast';
 import { AuthModal } from './components/AuthModal';
 import { Upgrade } from './components/Upgrade';
 import { useAuth } from './context/AuthContext';
-import { canStartTest, getAccessStatus } from './lib/access';
+import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { tests } from './data/tests';
@@ -184,16 +184,26 @@ function AppContent() {
 
     startPaystackPayment({
       email,
+      userId,
       amountKobo,
       onSuccess: () => {
         void (async () => {
-          const paidUntil = new Date();
-          paidUntil.setFullYear(paidUntil.getFullYear() + 1);
-          await supabase
-            .from('profiles')
-            .update({ has_paid: true, paid_until: paidUntil.toISOString() })
-            .eq('id', userId);
-          await refreshProfile();
+          // Access is granted server-side by the Paystack webhook.
+          // Poll the profile a few times until the webhook has updated it.
+          let granted = false;
+          for (let attempt = 0; attempt < 6; attempt++) {
+            const p = await refreshProfile();
+            if (p && isSubscriptionActive(p)) {
+              granted = true;
+              break;
+            }
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+          }
+          if (!granted) {
+            window.alert(
+              'Payment received. Your access will unlock shortly — please refresh the page in a moment.'
+            );
+          }
           routerNavigate('/');
         })();
       },

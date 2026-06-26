@@ -2,6 +2,7 @@ import PaystackPop from '@paystack/inline-js';
 
 interface StartPaymentArgs {
   email: string;
+  userId: string;
   amountKobo: number;
   onSuccess: (reference: string) => void;
   onCancel?: () => void;
@@ -10,6 +11,7 @@ interface StartPaymentArgs {
 
 export function startPaystackPayment({
   email,
+  userId,
   amountKobo,
   onSuccess,
   onCancel,
@@ -26,6 +28,9 @@ export function startPaystackPayment({
     email,
     amount: amountKobo,
     currency: 'NGN',
+    metadata: {
+      user_id: userId,
+    },
     onSuccess: (transaction) => {
       onSuccess(transaction.reference);
     },
