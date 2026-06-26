@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './components/Home';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
@@ -243,6 +244,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-school-radial text-school-navy">
+      <ScrollToTop />
       {view !== 'quiz' && (
         <Header
           tests={yearlyTests}
