@@ -13,7 +13,10 @@ import { Admin } from './components/Admin';
 import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
 import { AuthModal } from './components/AuthModal';
+import { Upgrade } from './components/Upgrade';
 import { useAuth } from './context/AuthContext';
+import { canStartTest, getAccessStatus } from './lib/access';
+import { supabase } from './lib/supabaseClient';
 import { tests } from './data/tests';
 import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
@@ -27,7 +30,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -39,6 +42,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/bank': 'bank',
   '/admin': 'admin',
   '/leaderboard': 'leaderboard',
+  '/upgrade': 'upgrade',
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
@@ -51,7 +55,7 @@ const NAV_TO_PATH: Record<NavView, string> = {
 };
 
 function AppContent() {
-  const { user } = useAuth();
+  const { user, profile, profileLoading, refreshProfile } = useAuth();
   const location = useLocation();
   const routerNavigate = useNavigate();
 
@@ -82,6 +86,7 @@ function AppContent() {
       bank: `Practice | ${base}`,
       admin: `Question Manager | ${base}`,
       leaderboard: `Leaderboard | ${base}`,
+      upgrade: `Upgrade | ${base}`,
     };
     document.title = titles[view];
   }, [view]);
@@ -122,12 +127,20 @@ function AppContent() {
   }
 
   function requireAuth(action: () => void) {
-    if (user) {
+    if (!user) {
+      setPendingAction(() => action);
+      setAuthModalOpen(true);
+      return;
+    }
+    if (profileLoading) {
       action();
       return;
     }
-    setPendingAction(() => action);
-    setAuthModalOpen(true);
+    if (canStartTest(profile)) {
+      action();
+      return;
+    }
+    routerNavigate('/upgrade');
   }
 
   function guardedStartTest(id: string) {
@@ -151,6 +164,12 @@ function AppContent() {
     setAttempts(getAttempts());
     setResult(attempt);
     routerNavigate('/results');
+    if (user && profile && getAccessStatus(profile) === 'free-available') {
+      void (async () => {
+        await supabase.from('profiles').update({ free_test_used: true }).eq('id', user.id);
+        await refreshProfile();
+      })();
+    }
   }
 
   function retakeTest() {
@@ -286,6 +305,19 @@ function AppContent() {
             element={
               <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <Admin onBack={() => routerNavigate('/')} onBankChanged={refreshBank} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/upgrade"
+            element={
+              <motion.div key="upgrade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Upgrade
+                  onBack={() => routerNavigate('/')}
+                  onUpgrade={() => { window.alert('Payment coming soon. Paystack will be wired up next.'); }}
+                  priceLabel="₦2,000"
+                />
               </motion.div>
             }
           />
