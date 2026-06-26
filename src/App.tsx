@@ -15,6 +15,7 @@ import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
 import { AuthModal } from './components/AuthModal';
 import { Upgrade } from './components/Upgrade';
+import { Dashboard } from './components/Dashboard';
 import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
 import { supabase } from './lib/supabaseClient';
@@ -32,7 +33,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -45,6 +46,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/admin': 'admin',
   '/leaderboard': 'leaderboard',
   '/upgrade': 'upgrade',
+  '/dashboard': 'dashboard',
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
@@ -57,7 +59,7 @@ const NAV_TO_PATH: Record<NavView, string> = {
 };
 
 function AppContent() {
-  const { user, profile, profileLoading, refreshProfile } = useAuth();
+  const { user, loading: authLoading, profile, profileLoading, refreshProfile } = useAuth();
   const location = useLocation();
   const routerNavigate = useNavigate();
 
@@ -89,6 +91,7 @@ function AppContent() {
       admin: `Question Manager | ${base}`,
       leaderboard: `Leaderboard | ${base}`,
       upgrade: `Upgrade | ${base}`,
+      dashboard: `Dashboard | ${base}`,
     };
     document.title = titles[view];
   }, [view]);
@@ -362,6 +365,19 @@ function AppContent() {
                   priceLabel="₦2,000"
                 />
               </motion.div>
+            }
+          />
+
+          <Route
+            path="/dashboard"
+            element={
+              authLoading ? null : user ? (
+                <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <Dashboard onBack={() => routerNavigate('/')} onUpgrade={() => routerNavigate('/upgrade')} />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
             }
           />
 
