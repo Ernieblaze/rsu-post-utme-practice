@@ -31,7 +31,7 @@ export function AuthControl() {
           onClick={() => setMenuOpen((v) => !v)}
           className="flex max-w-[10rem] items-center gap-1.5 rounded-lg border border-school-green/20 bg-school-light px-3 py-2 text-sm font-semibold text-school-navy transition hover:bg-school-pale dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white dark:hover:bg-school-navy/40"
         >
-          <span className="truncate">{user.email}</span>
+          <span className="min-w-0 flex-1 truncate">{user.email}</span>
           <ChevronDown size={14} className={`shrink-0 transition ${menuOpen ? 'rotate-180' : ''}`} />
         </button>
 

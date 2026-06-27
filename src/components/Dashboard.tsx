@@ -342,7 +342,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
               onClick={copyReferralLink}
               className="mt-3 flex w-full items-center justify-between gap-2 rounded-lg bg-school-light px-3 py-2 font-mono text-sm text-school-navy transition hover:bg-school-pale dark:bg-school-navy/60 dark:text-slate-200"
             >
-              <span className="truncate">{buildReferralLink(profile.referral_code)}</span>
+              <span className="min-w-0 flex-1 truncate">{buildReferralLink(profile.referral_code)}</span>
               <Copy size={14} className="flex-none" />
             </button>
           ) : (
