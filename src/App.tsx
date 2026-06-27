@@ -18,6 +18,8 @@ import { Upgrade } from './components/Upgrade';
 import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
 import { LegalPage } from './components/LegalPage';
+import { EmailConfirmed } from './components/EmailConfirmed';
+import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
@@ -37,7 +39,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -54,6 +56,8 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/owner': 'owner',
   '/privacy': 'privacy',
   '/terms': 'terms',
+  '/email-confirmed': 'email-confirmed',
+  '/reset-password': 'reset-password',
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
@@ -106,6 +110,8 @@ function AppContent() {
       owner: `Owner Dashboard | ${base}`,
       privacy: `Privacy Policy | ${base}`,
       terms: `Terms of Service | ${base}`,
+      'email-confirmed': `Email Verified | ${base}`,
+      'reset-password': `Reset Password | ${base}`,
     };
     document.title = titles[view];
   }, [view]);
@@ -457,6 +463,29 @@ function AppContent() {
             element={
               <motion.div key="terms" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <LegalPage {...TERMS_OF_SERVICE} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/email-confirmed"
+            element={
+              <motion.div key="email-confirmed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <EmailConfirmed
+                  onContinue={() => {
+                    routerNavigate('/');
+                    setAuthModalOpen(true);
+                  }}
+                />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/reset-password"
+            element={
+              <motion.div key="reset-password" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <ResetPassword onDone={() => routerNavigate('/dashboard')} />
               </motion.div>
             }
           />

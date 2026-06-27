@@ -10,10 +10,10 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
-type Mode = 'signin' | 'signup';
+type Mode = 'signin' | 'signup' | 'forgot';
 
 export function AuthModal({ open, onClose }: AuthModalProps) {
-  const { signUp, signIn } = useAuth();
+  const { signUp, signIn, resetPassword } = useAuth();
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +23,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   const [success, setSuccess] = useState<string | null>(null);
 
   function reset() {
+    setMode('signin');
     setEmail('');
     setPassword('');
     setError(null);
@@ -49,6 +50,17 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
 
     if (mode === 'signup' && referralCode.trim()) {
       setPendingReferralCode(referralCode);
+    }
+
+    if (mode === 'forgot') {
+      const result = await resetPassword(email);
+      setSubmitting(false);
+      if (result.error) {
+        setError(result.error);
+        return;
+      }
+      setSuccess('Check your email for a link to reset your password.');
+      return;
     }
 
     const result = mode === 'signup' ? await signUp(email, password) : await signIn(email, password);
@@ -87,7 +99,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
           >
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-extrabold text-school-navy dark:text-white">
-                {mode === 'signup' ? 'Create an account' : 'Log in'}
+                {mode === 'signup' ? 'Create an account' : mode === 'forgot' ? 'Reset password' : 'Log in'}
               </h2>
               <button
                 onClick={handleClose}
@@ -111,18 +123,32 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                 />
               </div>
 
-              <div className="relative">
-                <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
-                <input
-                  type="password"
-                  required
-                  minLength={6}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  className="w-full rounded-lg border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-white/10 dark:text-white"
-                />
-              </div>
+              {mode !== 'forgot' && (
+                <div className="relative">
+                  <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
+                  <input
+                    type="password"
+                    required
+                    minLength={6}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    className="w-full rounded-lg border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-white/10 dark:text-white"
+                  />
+                </div>
+              )}
+
+              {mode === 'signin' && (
+                <div className="text-right">
+                  <button
+                    type="button"
+                    onClick={() => switchMode('forgot')}
+                    className="text-xs font-semibold text-school-green hover:underline"
+                  >
+                    Forgot password?
+                  </button>
+                </div>
+              )}
 
               {mode === 'signup' && (
                 <div className="relative">
@@ -153,12 +179,25 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                 disabled={submitting}
                 className="w-full rounded-lg bg-school-green py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-60"
               >
-                {submitting ? 'Please wait…' : mode === 'signup' ? 'Sign up' : 'Log in'}
+                {submitting
+                  ? 'Please wait…'
+                  : mode === 'signup'
+                  ? 'Sign up'
+                  : mode === 'forgot'
+                  ? 'Send reset link'
+                  : 'Log in'}
               </button>
             </form>
 
             <p className="mt-4 text-center text-sm text-school-navy/70 dark:text-slate-300">
-              {mode === 'signup' ? (
+              {mode === 'forgot' ? (
+                <>
+                  Remembered it?{' '}
+                  <button onClick={() => switchMode('signin')} className="font-semibold text-school-green hover:underline">
+                    Log in
+                  </button>
+                </>
+              ) : mode === 'signup' ? (
                 <>
                   Already have an account?{' '}
                   <button onClick={() => switchMode('signin')} className="font-semibold text-school-green hover:underline">

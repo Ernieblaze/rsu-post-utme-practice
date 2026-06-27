@@ -18,6 +18,8 @@ interface AuthContextValue {
   signUp: (email: string, password: string) => Promise<AuthResult>;
   signIn: (email: string, password: string) => Promise<AuthResult>;
   signOut: () => Promise<AuthResult>;
+  resetPassword: (email: string) => Promise<AuthResult>;
+  updatePassword: (newPassword: string) => Promise<AuthResult>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -120,7 +122,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   async function signUp(email: string, password: string): Promise<AuthResult> {
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { emailRedirectTo: `${window.location.origin}/email-confirmed` },
+    });
     if (!error) markJustSignedUp();
     return { error: error ? error.message : null };
   }
@@ -135,6 +141,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error ? error.message : null };
   }
 
+  async function resetPassword(email: string): Promise<AuthResult> {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    return { error: error ? error.message : null };
+  }
+
+  async function updatePassword(newPassword: string): Promise<AuthResult> {
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    return { error: error ? error.message : null };
+  }
+
   const value: AuthContextValue = {
     user: session?.user ?? null,
     session,
@@ -145,6 +163,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signUp,
     signIn,
     signOut,
+    resetPassword,
+    updatePassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
