@@ -74,6 +74,13 @@ function finalize(d: Draft, index: number, errors: string[], warnings: string[])
     else warnings.push(`${where}: unknown difficulty "${d.difficulty}" — set to medium.`);
   }
 
+  if (!d.year || !d.year.trim()) {
+    warnings.push(`${where}: no year specified — defaulted to "General".`);
+  }
+  if (!d.subject || !d.subject.trim()) {
+    warnings.push(`${where}: no subject specified — defaulted to "General".`);
+  }
+
   return {
     id: genId(),
     university: (d.university || defaults.university).trim(),

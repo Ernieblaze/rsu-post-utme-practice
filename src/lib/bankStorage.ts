@@ -65,11 +65,21 @@ export function deleteQuestion(id: string): BankQuestion[] {
   return next;
 }
 
-/** Merge imported questions into the bank (skips exact-text duplicates). */
+/**
+ * Merge imported questions into the bank. Skips exact-text duplicates —
+ * both against the existing bank AND against other rows in the same batch,
+ * so a question repeated twice in one file only gets added once.
+ */
 export function addManyQuestions(items: BankQuestion[]): BankQuestion[] {
   const bank = getBank();
-  const existingTexts = new Set(bank.map((q) => q.text.trim().toLowerCase()));
-  const fresh = items.filter((q) => !existingTexts.has(q.text.trim().toLowerCase()));
+  const seenTexts = new Set(bank.map((q) => q.text.trim().toLowerCase()));
+  const fresh: BankQuestion[] = [];
+  for (const q of items) {
+    const key = q.text.trim().toLowerCase();
+    if (seenTexts.has(key)) continue;
+    seenTexts.add(key);
+    fresh.push(q);
+  }
   const next = [...fresh, ...bank];
   persist(next);
   return next;

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -29,6 +30,7 @@ interface TransactionRow {
 }
 
 export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
+  const navigate = useNavigate();
   const [users, setUsers] = useState<UserRow[]>([]);
   const [transactions, setTransactions] = useState<TransactionRow[]>([]);
   const [loading, setLoading] = useState(true);
@@ -107,6 +109,23 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
         Owner Dashboard
       </h1>
       <p className="mt-1 text-school-muted">All users, payment status, and real revenue from Paystack.</p>
+
+      <motion.button
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -2 }}
+        onClick={() => navigate('/admin')}
+        className="mt-6 flex w-full items-center gap-4 rounded-2xl border border-school-border bg-school-surface p-5 text-left shadow-sm transition hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:hover:bg-school-navy/60"
+      >
+        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-school-pale text-school-green dark:bg-school-green/20">
+          <FileText size={22} />
+        </div>
+        <div className="flex-1">
+          <div className="font-sora text-lg font-semibold text-school-navy dark:text-white">Question Manager</div>
+          <div className="text-sm text-school-muted">Upload, edit, and publish exam questions (PIN required).</div>
+        </div>
+        <ChevronRight size={20} className="text-school-muted" />
+      </motion.button>
 
       {error && (
         <div className="mt-6 flex items-center gap-2 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-400">

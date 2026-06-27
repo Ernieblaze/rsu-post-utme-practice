@@ -425,8 +425,17 @@ function ImportTab({
 
   function confirmImport() {
     if (!result || result.questions.length === 0) return;
-    onChange(addManyQuestions(result.questions));
-    notify(`${result.questions.length} question(s) imported`, 'success');
+    const before = getBank().length;
+    const nextBank = addManyQuestions(result.questions);
+    const added = nextBank.length - before;
+    const skipped = result.questions.length - added;
+    onChange(nextBank);
+    notify(
+      skipped > 0
+        ? `${added} question(s) imported, ${skipped} duplicate(s) skipped`
+        : `${added} question(s) imported`,
+      'success'
+    );
     setText('');
     setResult(null);
   }
@@ -524,10 +533,12 @@ function PublishTab({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'bank.json';
+    const stamp = new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-');
+    const filename = `bank-${stamp}.json`;
+    a.download = filename;
     a.click();
     URL.revokeObjectURL(url);
-    notify('bank.json downloaded', 'success');
+    notify(`${filename} downloaded`, 'success');
   }
   function reset() {
     if (window.confirm('Discard your local working copy and track the published bank again?')) {
@@ -544,7 +555,7 @@ function PublishTab({
           Your edits live in this browser only. To make them live for everyone, export the bank and commit it.
         </p>
         <ol className="mb-5 space-y-2 text-sm text-school-navy/80 dark:text-slate-300">
-          <li><strong>1.</strong> Click <em>Download bank.json</em> ({bank.length} questions).</li>
+          <li><strong>1.</strong> Click <em>Download bank.json</em> ({bank.length} questions). The file is named with today's date and time, so it never collides with an older download.</li>
           <li><strong>2.</strong> Replace <code className="rounded bg-school-light px-1 dark:bg-school-navy/60">src/data/bank.json</code> in your project with it.</li>
           <li><strong>3.</strong> Commit &amp; push to GitHub. The deploy action rebuilds the site.</li>
           <li><strong>4.</strong> Once live, click <em>Reset local copy</em> so this browser tracks the published bank.</li>

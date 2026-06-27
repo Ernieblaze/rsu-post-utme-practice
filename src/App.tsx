@@ -350,9 +350,13 @@ function AppContent() {
           <Route
             path="/admin"
             element={
-              <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Admin onBack={() => routerNavigate('/')} onBankChanged={refreshBank} />
-              </motion.div>
+              authLoading || profileLoading ? null : profile?.is_admin ? (
+                <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <Admin onBack={() => routerNavigate('/owner')} onBankChanged={refreshBank} />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
             }
           />
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Shield } from 'lucide-react';
+import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuthControl } from './AuthControl';
 
@@ -65,15 +65,6 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
               </button>
             );
           })}
-
-          <button
-            onClick={() => onNavigate('admin')}
-            className="ml-1 flex h-9 w-9 items-center justify-center rounded-lg border border-school-gold/30 bg-school-gold/10 text-amber-700 hover:bg-school-gold/20 dark:text-school-gold"
-            aria-label="Admin"
-            title="Admin"
-          >
-            <Shield size={16} />
-          </button>
 
           <button
             onClick={onToggleDark}
@@ -142,12 +133,6 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-navy hover:bg-school-light dark:text-slate-200"
           >
             <Trophy size={16} /> Leaderboard
-          </button>
-          <button
-            onClick={() => { onNavigate('admin'); setMobileOpen(false); }}
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-amber-700 hover:bg-school-light dark:text-school-gold"
-          >
-            <Shield size={16} /> Admin
           </button>
           <div className="mt-3">
             <AuthControl />
