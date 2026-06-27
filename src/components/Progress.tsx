@@ -1,7 +1,7 @@
 import { ArrowLeft, Trash2, Trophy, TrendingUp, AlertCircle, Calendar } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import type { Attempt } from '../types';
-import { formatDate, formatDateTime, formatTime, overallWeakAreas } from '../lib/helpers';
+import { formatDateTime, formatTime, overallWeakAreas } from '../lib/helpers';
 
 interface ProgressProps {
   attempts: Attempt[];

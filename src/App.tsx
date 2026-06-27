@@ -474,7 +474,7 @@ function AppContent() {
                 <EmailConfirmed
                   onContinue={() => {
                     routerNavigate('/');
-                    setAuthModalOpen(true);
+                    if (!user) setAuthModalOpen(true);
                   }}
                 />
               </motion.div>
