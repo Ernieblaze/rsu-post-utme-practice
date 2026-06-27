@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -10,11 +10,22 @@ import {
   Crown,
   Gift,
   Wallet,
+  Copy,
+  Send,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getAccessStatus, isSubscriptionActive } from '../lib/access';
 import { getAttempts } from '../lib/storage';
+import { supabase } from '../lib/supabaseClient';
+import { generateReferralCode, buildReferralLink } from '../lib/referral';
 import type { Attempt } from '../types';
+
+interface WithdrawalRow {
+  id: string;
+  amount: number;
+  status: string;
+  requested_at: string;
+}
 
 interface DashboardProps {
   onBack: () => void;
@@ -66,8 +77,79 @@ function aggregateSubjects(attempts: Attempt[]): SubjectStat[] {
 }
 
 export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
-  const { user, profile } = useAuth();
+  const { user, profile, refreshProfile } = useAuth();
   const reduceMotion = useReducedMotion();
+
+  const [earningsKobo, setEarningsKobo] = useState(0);
+  const [withdrawals, setWithdrawals] = useState<WithdrawalRow[]>([]);
+  const [referralLoading, setReferralLoading] = useState(true);
+  const [requesting, setRequesting] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+
+    async function ensureCodeAndLoad() {
+      if (profile && !profile.referral_code) {
+        const code = generateReferralCode(user!.email ?? 'user');
+        await supabase.from('profiles').update({ referral_code: code }).eq('id', user!.id);
+        await refreshProfile();
+      }
+
+      const [earningsRes, withdrawalsRes] = await Promise.all([
+        supabase.from('referral_earnings').select('amount').eq('referrer_id', user!.id),
+        supabase
+          .from('withdrawal_requests')
+          .select('id, amount, status, requested_at')
+          .eq('user_id', user!.id)
+          .order('requested_at', { ascending: false }),
+      ]);
+
+      if (cancelled) return;
+      const totalEarned = (earningsRes.data ?? []).reduce((s, e) => s + (e.amount as number), 0);
+      setEarningsKobo(totalEarned);
+      setWithdrawals((withdrawalsRes.data ?? []) as WithdrawalRow[]);
+      setReferralLoading(false);
+    }
+
+    ensureCodeAndLoad();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, profile?.referral_code]);
+
+  const withdrawnOrPendingKobo = useMemo(
+    () => withdrawals.filter((w) => w.status !== 'rejected').reduce((s, w) => s + w.amount, 0),
+    [withdrawals]
+  );
+  const availableKobo = Math.max(0, earningsKobo - withdrawnOrPendingKobo);
+  const hasPendingRequest = withdrawals.some((w) => w.status === 'pending');
+
+  async function requestWithdrawal() {
+    if (!user || availableKobo <= 0 || hasPendingRequest) return;
+    setRequesting(true);
+    const { error } = await supabase
+      .from('withdrawal_requests')
+      .insert({ user_id: user.id, amount: availableKobo, status: 'pending' });
+    if (!error) {
+      const { data } = await supabase
+        .from('withdrawal_requests')
+        .select('id, amount, status, requested_at')
+        .eq('user_id', user.id)
+        .order('requested_at', { ascending: false });
+      setWithdrawals((data ?? []) as WithdrawalRow[]);
+    }
+    setRequesting(false);
+  }
+
+  function copyReferralLink() {
+    if (!profile?.referral_code) return;
+    navigator.clipboard.writeText(buildReferralLink(profile.referral_code));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   const attempts = useMemo(() => getAttempts(), []);
 
@@ -232,11 +314,22 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Refer & earn</h2>
           </div>
           <p className="mt-2 text-sm text-school-muted">
-            Your personal referral code is being set up. You'll be able to share it and earn when friends upgrade.
+            Share your link. When someone signs up through it and upgrades, you earn 25% of what they pay.
           </p>
-          <div className="mt-3 inline-flex rounded-lg bg-school-light px-3 py-2 font-mono text-sm text-school-muted dark:bg-school-navy/60">
-            Coming soon
-          </div>
+          {profile?.referral_code ? (
+            <button
+              onClick={copyReferralLink}
+              className="mt-3 flex w-full items-center justify-between gap-2 rounded-lg bg-school-light px-3 py-2 font-mono text-sm text-school-navy transition hover:bg-school-pale dark:bg-school-navy/60 dark:text-slate-200"
+            >
+              <span className="truncate">{buildReferralLink(profile.referral_code)}</span>
+              <Copy size={14} className="flex-none" />
+            </button>
+          ) : (
+            <div className="mt-3 inline-flex rounded-lg bg-school-light px-3 py-2 font-mono text-sm text-school-muted dark:bg-school-navy/60">
+              Setting up your link…
+            </div>
+          )}
+          {copied && <p className="mt-1.5 text-xs font-semibold text-school-green">Link copied!</p>}
         </motion.section>
 
         <motion.section
@@ -249,8 +342,45 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             <Wallet size={18} className="text-school-green" />
             <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Balance</h2>
           </div>
-          <div className="mt-2 font-sora text-3xl font-bold text-school-navy dark:text-white">₦0.00</div>
-          <p className="mt-1 text-sm text-school-muted">Withdrawals open once referrals launch.</p>
+          <div className="mt-2 font-sora text-3xl font-bold text-school-navy dark:text-white">
+            ₦{(availableKobo / 100).toLocaleString()}
+          </div>
+          <p className="mt-1 text-sm text-school-muted">
+            {referralLoading
+              ? 'Loading…'
+              : hasPendingRequest
+              ? 'You have a payment request pending review.'
+              : availableKobo > 0
+              ? 'Available to request now.'
+              : 'No earnings available yet.'}
+          </p>
+          <button
+            onClick={requestWithdrawal}
+            disabled={availableKobo <= 0 || hasPendingRequest || requesting}
+            className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
+          >
+            <Send size={14} /> {requesting ? 'Requesting…' : 'Request payment'}
+          </button>
+          {withdrawals.length > 0 && (
+            <ul className="mt-3 space-y-1.5 text-xs text-school-muted">
+              {withdrawals.slice(0, 4).map((w) => (
+                <li key={w.id} className="flex items-center justify-between">
+                  <span>₦{(w.amount / 100).toLocaleString()}</span>
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
+                      w.status === 'paid'
+                        ? 'bg-school-pale text-school-green dark:bg-school-green/20'
+                        : w.status === 'rejected'
+                        ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30'
+                        : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
+                    }`}
+                  >
+                    {w.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </motion.section>
       </div>
     </main>

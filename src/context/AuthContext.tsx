@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 import type { Session, User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabaseClient';
 import type { Profile } from '../lib/access';
+import { consumeJustSignedUpFlag, getPendingReferralCode, markJustSignedUp } from '../lib/referral';
 
 interface AuthResult {
   error: string | null;
@@ -30,11 +31,35 @@ export function useAuth() {
 async function fetchProfile(userId: string): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
-    .select('id, email, has_paid, paid_until, free_test_used, is_admin')
+    .select('id, email, has_paid, paid_until, free_test_used, is_admin, referral_code, referred_by')
     .eq('id', userId)
     .single();
   if (error) return null;
   return data as Profile;
+}
+
+/**
+ * If this login follows a fresh signup that happened via a referral link,
+ * attribute the new account to its referrer (one-time, own-row update only).
+ */
+async function attributeReferralIfPending(profile: Profile): Promise<boolean> {
+  if (profile.referred_by) return false;
+  const pendingCode = getPendingReferralCode();
+  const wasJustSignedUp = consumeJustSignedUpFlag();
+  if (!pendingCode || !wasJustSignedUp) return false;
+
+  const { data: referrer } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('referral_code', pendingCode)
+    .neq('id', profile.id)
+    .maybeSingle();
+
+  if (referrer?.id) {
+    const { error } = await supabase.from('profiles').update({ referred_by: referrer.id }).eq('id', profile.id);
+    return !error;
+  }
+  return false;
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -69,7 +94,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     setProfileLoading(true);
-    fetchProfile(userId).then((p) => {
+    fetchProfile(userId).then(async (p) => {
+      if (cancelled) return;
+      if (p) {
+        const attributed = await attributeReferralIfPending(p);
+        if (attributed) {
+          p = await fetchProfile(userId);
+        }
+      }
       if (!cancelled) {
         setProfile(p);
         setProfileLoading(false);
@@ -92,6 +124,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function signUp(email: string, password: string): Promise<AuthResult> {
     const { error } = await supabase.auth.signUp({ email, password });
+    if (!error) markJustSignedUp();
     return { error: error ? error.message : null };
   }
 

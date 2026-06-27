@@ -23,6 +23,7 @@ import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
+import { captureReferralFromUrl } from './lib/referral';
 import { tests } from './data/tests';
 import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
@@ -84,6 +85,10 @@ function AppContent() {
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
   }, [dark]);
+
+  useEffect(() => {
+    captureReferralFromUrl();
+  }, []);
 
   useEffect(() => {
     const base = 'RSU Post-UTME Practice';
@@ -182,6 +187,21 @@ function AppContent() {
       void (async () => {
         await supabase.from('profiles').update({ free_test_used: true }).eq('id', user.id);
         await refreshProfile();
+      })();
+    }
+    if (user) {
+      // Best-effort: log this attempt server-side for site-wide usage analytics.
+      // Quiz history itself still lives in localStorage — this is purely additive.
+      void (async () => {
+        await supabase.from('attempts').insert({
+          user_id: user.id,
+          test_id: attempt.testId,
+          test_title: attempt.testTitle,
+          score: attempt.score,
+          total: attempt.total,
+          percentage: attempt.percentage,
+          time_spent_seconds: attempt.timeSpentSeconds,
+        });
       })();
     }
   }

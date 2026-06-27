@@ -5,6 +5,8 @@ export interface Profile {
   paid_until: string | null;
   free_test_used: boolean;
   is_admin: boolean;
+  referral_code: string | null;
+  referred_by: string | null;
 }
 
 export type AccessStatus = 'admin' | 'paid' | 'free-available' | 'locked';
