@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Lock } from 'lucide-react';
+import { X, Mail, Lock, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { getPendingReferralCode, setPendingReferralCode } from '../lib/referral';
 
 interface AuthModalProps {
   open: boolean;
@@ -16,6 +17,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [referralCode, setReferralCode] = useState(() => getPendingReferralCode() ?? '');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -44,6 +46,10 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
     setSubmitting(true);
     setError(null);
     setSuccess(null);
+
+    if (mode === 'signup' && referralCode.trim()) {
+      setPendingReferralCode(referralCode);
+    }
 
     const result = mode === 'signup' ? await signUp(email, password) : await signIn(email, password);
 
@@ -117,6 +123,19 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   className="w-full rounded-lg border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-white/10 dark:text-white"
                 />
               </div>
+
+              {mode === 'signup' && (
+                <div className="relative">
+                  <Gift size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
+                  <input
+                    type="text"
+                    value={referralCode}
+                    onChange={(e) => setReferralCode(e.target.value)}
+                    placeholder="Referral code (optional)"
+                    className="w-full rounded-lg border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-white/10 dark:text-white"
+                  />
+                </div>
+              )}
 
               {error && (
                 <p className="rounded-lg bg-rose-50 px-3 py-2 text-sm font-medium text-rose-600 dark:bg-rose-500/10 dark:text-rose-400">

@@ -14,6 +14,12 @@ export function getPendingReferralCode(): string | null {
   return localStorage.getItem(PENDING_REF_KEY);
 }
 
+/** Let a user manually type a referral code at signup, instead of (or in addition to) a link. */
+export function setPendingReferralCode(code: string): void {
+  const trimmed = code.trim().toUpperCase();
+  if (trimmed) localStorage.setItem(PENDING_REF_KEY, trimmed);
+}
+
 export function markJustSignedUp(): void {
   localStorage.setItem(JUST_SIGNED_UP_KEY, '1');
 }
