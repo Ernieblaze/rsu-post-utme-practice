@@ -31,7 +31,6 @@ interface HomeProps {
   activeTestStateTestId: string | null;
   onStart: (testId: string) => void;
   onViewProgress: () => void;
-  onViewRevision: () => void;
 }
 
 const containerVariants = {
@@ -51,7 +50,7 @@ const trustBadges = [
   { icon: <Zap size={16} />, text: 'Instant Results & Explanations' },
 ];
 
-export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewProgress, onViewRevision }: HomeProps) {
+export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewProgress }: HomeProps) {
   const navigate = useNavigate();
   const today = new Date().toDateString();
   const attemptedToday = attempts.filter((a) => new Date(a.date).toDateString() === today);
@@ -134,7 +133,7 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={onViewRevision}
+              onClick={() => navigate('/bank')}
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
             >
               <BookOpen size={18} />

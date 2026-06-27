@@ -298,7 +298,6 @@ function AppContent() {
                   activeTestStateTestId={activeTestStateTestId}
                   onStart={guardedStartTest}
                   onViewProgress={() => routerNavigate('/progress')}
-                  onViewRevision={() => routerNavigate('/revision')}
                 />
               </motion.div>
             }
