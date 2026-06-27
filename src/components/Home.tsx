@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Clock,
   Play,
@@ -12,6 +13,7 @@ import {
   Timer,
   TrendingUp,
   Zap,
+  Crown,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Attempt, Test } from '../types';
@@ -50,6 +52,7 @@ const trustBadges = [
 ];
 
 export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewProgress, onViewRevision }: HomeProps) {
+  const navigate = useNavigate();
   const today = new Date().toDateString();
   const attemptedToday = attempts.filter((a) => new Date(a.date).toDateString() === today);
 
@@ -136,6 +139,15 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             >
               <BookOpen size={18} />
               Question Bank
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => navigate('/upgrade')}
+              className="inline-flex items-center gap-2 rounded-xl border border-school-gold/50 bg-transparent px-6 py-3 font-semibold text-school-gold backdrop-blur transition hover:bg-school-gold/10"
+            >
+              <Crown size={18} />
+              Get Premium
             </motion.button>
           </motion.div>
         </div>
