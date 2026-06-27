@@ -390,11 +390,30 @@ function AppContent() {
             path="/upgrade"
             element={
               <motion.div key="upgrade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Upgrade
-                  onBack={() => routerNavigate('/')}
-                  onUpgrade={handleUpgrade}
-                  priceLabel="₦2,000"
-                />
+                {profile && (profile.is_admin || isSubscriptionActive(profile)) ? (
+                  <main className="mx-auto max-w-lg px-4 py-16 text-center">
+                    <h1 className="font-sora text-2xl font-bold text-school-navy dark:text-white">
+                      You already have full access
+                    </h1>
+                    <p className="mt-2 text-school-muted">
+                      {profile.is_admin
+                        ? 'Admin accounts already have unlimited access — no need to pay.'
+                        : `Your access is active until ${new Date(profile.paid_until ?? '').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}. You can renew once it's closer to expiring.`}
+                    </p>
+                    <button
+                      onClick={() => routerNavigate('/dashboard')}
+                      className="mt-6 rounded-xl bg-school-green px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-school-green/90"
+                    >
+                      Go to Dashboard
+                    </button>
+                  </main>
+                ) : (
+                  <Upgrade
+                    onBack={() => routerNavigate('/')}
+                    onUpgrade={handleUpgrade}
+                    priceLabel="₦2,000"
+                  />
+                )}
               </motion.div>
             }
           />
