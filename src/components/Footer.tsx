@@ -156,7 +156,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-slate-400">
           <p className="mb-2">
-            Made with ❤️ by <strong className="text-white">Ernie Blzae</strong>. All questions are real past questions from the Rivers State University
+            Made with ❤️ by <strong className="text-white">Ernie Blaze</strong>. All questions are real past questions from the Rivers State University
             Post-UTME screening exam.
           </p>
           <p>

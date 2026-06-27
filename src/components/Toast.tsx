@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, AlertCircle, Info, X, Flag, Save, Link2 } from 'lucide-react';
+import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
 
 export type ToastType = 'success' | 'info' | 'warning' | 'error';
 
@@ -87,5 +87,3 @@ function ToastItem({ toast, onClose }: { toast: Toast; onClose: (id: string) => 
     </motion.div>
   );
 }
-
-export { Flag, Save, Link2 };

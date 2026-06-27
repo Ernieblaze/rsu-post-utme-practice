@@ -202,7 +202,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
             onClick={clearFilters}
             className="rounded-xl bg-school-green px-5 py-2.5 font-bold text-white hover:bg-school-green/90"
           >
-            Clear filters
+            Clear Filters
           </button>
         </motion.div>
       ) : (
