@@ -265,77 +265,135 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             {withdrawals.length === 0 ? (
               <p className="px-5 py-8 text-center text-sm text-school-muted">No payout requests yet.</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-                    <tr>
-                      <th className="px-5 py-3">Date</th>
-                      <th className="px-5 py-3">User</th>
-                      <th className="px-5 py-3">Amount</th>
-                      <th className="px-5 py-3">Bank Details</th>
-                      <th className="px-5 py-3">Status</th>
-                      <th className="px-5 py-3">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-school-border dark:divide-school-green/20">
-                    {withdrawals.map((w) => (
-                      <tr key={w.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
-                        <td className="px-5 py-3 text-school-muted">{formatDateTime(w.requested_at)}</td>
-                        <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+              <>
+                <div className="divide-y divide-school-border sm:hidden dark:divide-school-green/20">
+                  {withdrawals.map((w) => (
+                    <div key={w.id} className="space-y-2 px-5 py-4">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
                           {(w.user_id && emailById.get(w.user_id)) ?? '—'}
-                        </td>
-                        <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
-                          ₦{(w.amount / 100).toLocaleString()}
-                        </td>
-                        <td className="px-5 py-3 text-school-muted">
-                          {w.bank_name ? (
-                            <>
-                              {w.bank_name}
-                              <br />
-                              {w.account_number} — {w.account_name}
-                            </>
-                          ) : (
-                            '—'
-                          )}
-                        </td>
-                        <td className="px-5 py-3">
-                          <span
-                            className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                              w.status === 'paid'
-                                ? 'bg-school-pale text-school-green dark:bg-school-green/20'
-                                : w.status === 'rejected'
-                                ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30'
-                                : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
-                            }`}
+                        </span>
+                        <span
+                          className={`flex-none rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                            w.status === 'paid'
+                              ? 'bg-school-pale text-school-green dark:bg-school-green/20'
+                              : w.status === 'rejected'
+                              ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30'
+                              : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
+                          }`}
+                        >
+                          {w.status}
+                        </span>
+                      </div>
+                      <div className="font-sora text-xl font-bold text-school-navy dark:text-white">
+                        ₦{(w.amount / 100).toLocaleString()}
+                      </div>
+                      <div className="text-sm text-school-muted">
+                        {w.bank_name ? (
+                          <>
+                            {w.bank_name}
+                            <br />
+                            {w.account_number} — {w.account_name}
+                          </>
+                        ) : (
+                          'No bank details'
+                        )}
+                      </div>
+                      <div className="text-xs text-school-muted">{formatDateTime(w.requested_at)}</div>
+                      {w.status === 'pending' && (
+                        <div className="flex gap-1.5 pt-1">
+                          <button
+                            onClick={() => setWithdrawalStatus(w.id, 'paid')}
+                            disabled={actingOn === w.id}
+                            className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-school-green px-2.5 py-2 text-xs font-bold text-white hover:bg-school-green/90 disabled:opacity-40"
                           >
-                            {w.status}
-                          </span>
-                        </td>
-                        <td className="px-5 py-3">
-                          {w.status === 'pending' && (
-                            <div className="flex gap-1.5">
-                              <button
-                                onClick={() => setWithdrawalStatus(w.id, 'paid')}
-                                disabled={actingOn === w.id}
-                                className="flex items-center gap-1 rounded-lg bg-school-green px-2.5 py-1.5 text-xs font-bold text-white hover:bg-school-green/90 disabled:opacity-40"
-                              >
-                                <Check size={12} /> Mark paid
-                              </button>
-                              <button
-                                onClick={() => setWithdrawalStatus(w.id, 'rejected')}
-                                disabled={actingOn === w.id}
-                                className="flex items-center gap-1 rounded-lg border border-school-border px-2.5 py-1.5 text-xs font-bold text-school-navy hover:bg-school-light disabled:opacity-40 dark:border-school-green/20 dark:text-slate-200 dark:hover:bg-school-navy/60"
-                              >
-                                <X size={12} /> Reject
-                              </button>
-                            </div>
-                          )}
-                        </td>
+                            <Check size={12} /> Mark paid
+                          </button>
+                          <button
+                            onClick={() => setWithdrawalStatus(w.id, 'rejected')}
+                            disabled={actingOn === w.id}
+                            className="flex flex-1 items-center justify-center gap-1 rounded-lg border border-school-border px-2.5 py-2 text-xs font-bold text-school-navy hover:bg-school-light disabled:opacity-40 dark:border-school-green/20 dark:text-slate-200 dark:hover:bg-school-navy/60"
+                          >
+                            <X size={12} /> Reject
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="hidden overflow-x-auto sm:block">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
+                      <tr>
+                        <th className="px-5 py-3">Date</th>
+                        <th className="px-5 py-3">User</th>
+                        <th className="px-5 py-3">Amount</th>
+                        <th className="px-5 py-3">Bank Details</th>
+                        <th className="px-5 py-3">Status</th>
+                        <th className="px-5 py-3">Action</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody className="divide-y divide-school-border dark:divide-school-green/20">
+                      {withdrawals.map((w) => (
+                        <tr key={w.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
+                          <td className="px-5 py-3 text-school-muted">{formatDateTime(w.requested_at)}</td>
+                          <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+                            {(w.user_id && emailById.get(w.user_id)) ?? '—'}
+                          </td>
+                          <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
+                            ₦{(w.amount / 100).toLocaleString()}
+                          </td>
+                          <td className="px-5 py-3 text-school-muted">
+                            {w.bank_name ? (
+                              <>
+                                {w.bank_name}
+                                <br />
+                                {w.account_number} — {w.account_name}
+                              </>
+                            ) : (
+                              '—'
+                            )}
+                          </td>
+                          <td className="px-5 py-3">
+                            <span
+                              className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                                w.status === 'paid'
+                                  ? 'bg-school-pale text-school-green dark:bg-school-green/20'
+                                  : w.status === 'rejected'
+                                  ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30'
+                                  : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
+                              }`}
+                            >
+                              {w.status}
+                            </span>
+                          </td>
+                          <td className="px-5 py-3">
+                            {w.status === 'pending' && (
+                              <div className="flex gap-1.5">
+                                <button
+                                  onClick={() => setWithdrawalStatus(w.id, 'paid')}
+                                  disabled={actingOn === w.id}
+                                  className="flex items-center gap-1 rounded-lg bg-school-green px-2.5 py-1.5 text-xs font-bold text-white hover:bg-school-green/90 disabled:opacity-40"
+                                >
+                                  <Check size={12} /> Mark paid
+                                </button>
+                                <button
+                                  onClick={() => setWithdrawalStatus(w.id, 'rejected')}
+                                  disabled={actingOn === w.id}
+                                  className="flex items-center gap-1 rounded-lg border border-school-border px-2.5 py-1.5 text-xs font-bold text-school-navy hover:bg-school-light disabled:opacity-40 dark:border-school-green/20 dark:text-slate-200 dark:hover:bg-school-navy/60"
+                                >
+                                  <X size={12} /> Reject
+                                </button>
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </motion.section>
 
@@ -357,32 +415,51 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             {transactions.length === 0 ? (
               <p className="px-5 py-8 text-center text-sm text-school-muted">No payments recorded yet.</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-                    <tr>
-                      <th className="px-5 py-3">Date</th>
-                      <th className="px-5 py-3">User</th>
-                      <th className="px-5 py-3">Reference</th>
-                      <th className="px-5 py-3">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-school-border dark:divide-school-green/20">
-                    {transactions.slice(0, 20).map((t) => (
-                      <tr key={t.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
-                        <td className="px-5 py-3 text-school-muted">{formatDateTime(t.created_at)}</td>
-                        <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+              <>
+                <div className="divide-y divide-school-border sm:hidden dark:divide-school-green/20">
+                  {transactions.slice(0, 20).map((t) => (
+                    <div key={t.id} className="space-y-1 px-5 py-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
                           {(t.user_id && emailById.get(t.user_id)) ?? '—'}
-                        </td>
-                        <td className="px-5 py-3 text-school-muted">{t.paystack_reference ?? '—'}</td>
-                        <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
+                        </span>
+                        <span className="flex-none font-semibold text-school-navy dark:text-slate-200">
                           ₦{(t.amount / 100).toLocaleString()}
-                        </td>
+                        </span>
+                      </div>
+                      <div className="truncate text-xs text-school-muted">{t.paystack_reference ?? '—'}</div>
+                      <div className="text-xs text-school-muted">{formatDateTime(t.created_at)}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="hidden overflow-x-auto sm:block">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
+                      <tr>
+                        <th className="px-5 py-3">Date</th>
+                        <th className="px-5 py-3">User</th>
+                        <th className="px-5 py-3">Reference</th>
+                        <th className="px-5 py-3">Amount</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody className="divide-y divide-school-border dark:divide-school-green/20">
+                      {transactions.slice(0, 20).map((t) => (
+                        <tr key={t.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
+                          <td className="px-5 py-3 text-school-muted">{formatDateTime(t.created_at)}</td>
+                          <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+                            {(t.user_id && emailById.get(t.user_id)) ?? '—'}
+                          </td>
+                          <td className="px-5 py-3 text-school-muted">{t.paystack_reference ?? '—'}</td>
+                          <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
+                            ₦{(t.amount / 100).toLocaleString()}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </motion.section>
 
@@ -401,39 +478,66 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             ) : users.length === 0 ? (
               <p className="px-5 py-8 text-center text-sm text-school-muted">No users yet.</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-                    <tr>
-                      <th className="px-5 py-3">Email</th>
-                      <th className="px-5 py-3">Status</th>
-                      <th className="px-5 py-3">Paid until</th>
-                      <th className="px-5 py-3">Free trial used</th>
-                      <th className="px-5 py-3">Joined</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-school-border dark:divide-school-green/20">
-                    {users.map((u) => {
-                      const status = getAccessStatus(u);
-                      return (
-                        <tr key={u.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
-                          <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+              <>
+                <div className="divide-y divide-school-border sm:hidden dark:divide-school-green/20">
+                  {users.map((u) => {
+                    const status = getAccessStatus(u);
+                    return (
+                      <div key={u.id} className="space-y-1.5 px-5 py-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
                             {u.email ?? '—'}
-                          </td>
-                          <td className="px-5 py-3">
+                          </span>
+                          <span className="flex-none">
                             <StatusBadge status={status} />
-                          </td>
-                          <td className="px-5 py-3 text-school-muted">
-                            {u.paid_until ? formatDate(u.paid_until) : '—'}
-                          </td>
-                          <td className="px-5 py-3 text-school-muted">{u.free_test_used ? 'Yes' : 'No'}</td>
-                          <td className="px-5 py-3 text-school-muted">{formatDate(u.created_at)}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs text-school-muted">
+                          <span>Paid until: {u.paid_until ? formatDate(u.paid_until) : '—'}</span>
+                          <span>Joined: {formatDate(u.created_at)}</span>
+                        </div>
+                        <div className="text-xs text-school-muted">
+                          Free trial used: {u.free_test_used ? 'Yes' : 'No'}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="hidden overflow-x-auto sm:block">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
+                      <tr>
+                        <th className="px-5 py-3">Email</th>
+                        <th className="px-5 py-3">Status</th>
+                        <th className="px-5 py-3">Paid until</th>
+                        <th className="px-5 py-3">Free trial used</th>
+                        <th className="px-5 py-3">Joined</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-school-border dark:divide-school-green/20">
+                      {users.map((u) => {
+                        const status = getAccessStatus(u);
+                        return (
+                          <tr key={u.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
+                            <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+                              {u.email ?? '—'}
+                            </td>
+                            <td className="px-5 py-3">
+                              <StatusBadge status={status} />
+                            </td>
+                            <td className="px-5 py-3 text-school-muted">
+                              {u.paid_until ? formatDate(u.paid_until) : '—'}
+                            </td>
+                            <td className="px-5 py-3 text-school-muted">{u.free_test_used ? 'Yes' : 'No'}</td>
+                            <td className="px-5 py-3 text-school-muted">{formatDate(u.created_at)}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </motion.section>
 
