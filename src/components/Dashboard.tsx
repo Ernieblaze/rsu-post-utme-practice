@@ -27,6 +27,12 @@ interface WithdrawalRow {
   requested_at: string;
 }
 
+interface BankDetails {
+  bankName: string;
+  accountNumber: string;
+  accountName: string;
+}
+
 interface DashboardProps {
   onBack: () => void;
   onUpgrade: () => void;
@@ -80,11 +86,22 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
   const { user, profile, refreshProfile } = useAuth();
   const reduceMotion = useReducedMotion();
 
-  const [earningsKobo, setEarningsKobo] = useState(0);
   const [withdrawals, setWithdrawals] = useState<WithdrawalRow[]>([]);
   const [referralLoading, setReferralLoading] = useState(true);
   const [requesting, setRequesting] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showBankForm, setShowBankForm] = useState(false);
+  const [bankDetails, setBankDetails] = useState<BankDetails>({ bankName: '', accountNumber: '', accountName: '' });
+  const [requestError, setRequestError] = useState<string | null>(null);
+
+  async function loadWithdrawals(userId: string) {
+    const { data } = await supabase
+      .from('withdrawal_requests')
+      .select('id, amount, status, requested_at')
+      .eq('user_id', userId)
+      .order('requested_at', { ascending: false });
+    setWithdrawals((data ?? []) as WithdrawalRow[]);
+  }
 
   useEffect(() => {
     if (!user) return;
@@ -96,20 +113,8 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
         await supabase.from('profiles').update({ referral_code: code }).eq('id', user!.id);
         await refreshProfile();
       }
-
-      const [earningsRes, withdrawalsRes] = await Promise.all([
-        supabase.from('referral_earnings').select('amount').eq('referrer_id', user!.id),
-        supabase
-          .from('withdrawal_requests')
-          .select('id, amount, status, requested_at')
-          .eq('user_id', user!.id)
-          .order('requested_at', { ascending: false }),
-      ]);
-
       if (cancelled) return;
-      const totalEarned = (earningsRes.data ?? []).reduce((s, e) => s + (e.amount as number), 0);
-      setEarningsKobo(totalEarned);
-      setWithdrawals((withdrawalsRes.data ?? []) as WithdrawalRow[]);
+      await loadWithdrawals(user!.id);
       setReferralLoading(false);
     }
 
@@ -120,26 +125,36 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, profile?.referral_code]);
 
-  const withdrawnOrPendingKobo = useMemo(
-    () => withdrawals.filter((w) => w.status !== 'rejected').reduce((s, w) => s + w.amount, 0),
+  const pendingKobo = useMemo(
+    () => withdrawals.filter((w) => w.status === 'pending').reduce((s, w) => s + w.amount, 0),
     [withdrawals]
   );
-  const availableKobo = Math.max(0, earningsKobo - withdrawnOrPendingKobo);
+  const balanceKobo = profile?.referral_balance ?? 0;
+  const availableKobo = Math.max(0, balanceKobo - pendingKobo);
   const hasPendingRequest = withdrawals.some((w) => w.status === 'pending');
 
   async function requestWithdrawal() {
     if (!user || availableKobo <= 0 || hasPendingRequest) return;
+    if (!bankDetails.bankName.trim() || !bankDetails.accountNumber.trim() || !bankDetails.accountName.trim()) {
+      setRequestError('Please fill in your bank name, account number, and account name.');
+      return;
+    }
+    setRequestError(null);
     setRequesting(true);
-    const { error } = await supabase
-      .from('withdrawal_requests')
-      .insert({ user_id: user.id, amount: availableKobo, status: 'pending' });
+    const { error } = await supabase.from('withdrawal_requests').insert({
+      user_id: user.id,
+      amount: availableKobo,
+      status: 'pending',
+      bank_name: bankDetails.bankName.trim(),
+      account_number: bankDetails.accountNumber.trim(),
+      account_name: bankDetails.accountName.trim(),
+    });
     if (!error) {
-      const { data } = await supabase
-        .from('withdrawal_requests')
-        .select('id, amount, status, requested_at')
-        .eq('user_id', user.id)
-        .order('requested_at', { ascending: false });
-      setWithdrawals((data ?? []) as WithdrawalRow[]);
+      await loadWithdrawals(user.id);
+      setShowBankForm(false);
+      setBankDetails({ bankName: '', accountNumber: '', accountName: '' });
+    } else {
+      setRequestError(error.message);
     }
     setRequesting(false);
   }
@@ -354,13 +369,52 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
               ? 'Available to request now.'
               : 'No earnings available yet.'}
           </p>
-          <button
-            onClick={requestWithdrawal}
-            disabled={availableKobo <= 0 || hasPendingRequest || requesting}
-            className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
-          >
-            <Send size={14} /> {requesting ? 'Requesting…' : 'Request payment'}
-          </button>
+          {showBankForm ? (
+            <div className="mt-3 space-y-2">
+              <input
+                value={bankDetails.bankName}
+                onChange={(e) => setBankDetails((b) => ({ ...b, bankName: e.target.value }))}
+                placeholder="Bank name"
+                className="w-full rounded-lg border border-school-border bg-school-light px-3 py-2 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+              />
+              <input
+                value={bankDetails.accountNumber}
+                onChange={(e) => setBankDetails((b) => ({ ...b, accountNumber: e.target.value }))}
+                placeholder="Account number"
+                className="w-full rounded-lg border border-school-border bg-school-light px-3 py-2 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+              />
+              <input
+                value={bankDetails.accountName}
+                onChange={(e) => setBankDetails((b) => ({ ...b, accountName: e.target.value }))}
+                placeholder="Account name"
+                className="w-full rounded-lg border border-school-border bg-school-light px-3 py-2 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+              />
+              {requestError && <p className="text-xs font-semibold text-rose-500">{requestError}</p>}
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setShowBankForm(false)}
+                  className="flex-1 rounded-lg border border-school-border px-4 py-2.5 text-sm font-semibold text-school-navy hover:bg-school-light dark:border-school-green/20 dark:text-slate-200 dark:hover:bg-school-navy/60"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={requestWithdrawal}
+                  disabled={requesting}
+                  className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
+                >
+                  <Send size={14} /> {requesting ? 'Submitting…' : 'Submit'}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowBankForm(true)}
+              disabled={availableKobo <= 0 || hasPendingRequest}
+              className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
+            >
+              <Send size={14} /> Request payment
+            </button>
+          )}
           {withdrawals.length > 0 && (
             <ul className="mt-3 space-y-1.5 text-xs text-school-muted">
               {withdrawals.slice(0, 4).map((w) => (

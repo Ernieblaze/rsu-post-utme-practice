@@ -7,6 +7,7 @@ export interface Profile {
   is_admin: boolean;
   referral_code: string | null;
   referred_by: string | null;
+  referral_balance: number;
 }
 
 export type AccessStatus = 'admin' | 'paid' | 'free-available' | 'locked';

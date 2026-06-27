@@ -31,7 +31,7 @@ export function useAuth() {
 async function fetchProfile(userId: string): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
-    .select('id, email, has_paid, paid_until, free_test_used, is_admin, referral_code, referred_by')
+    .select('id, email, has_paid, paid_until, free_test_used, is_admin, referral_code, referred_by, referral_balance')
     .eq('id', userId)
     .single();
   if (error) return null;
@@ -41,6 +41,8 @@ async function fetchProfile(userId: string): Promise<Profile | null> {
 /**
  * If this login follows a fresh signup that happened via a referral link,
  * attribute the new account to its referrer (one-time, own-row update only).
+ * Looks up the referrer through a SECURITY DEFINER function so a regular
+ * user never needs read access to anyone else's profile row.
  */
 async function attributeReferralIfPending(profile: Profile): Promise<boolean> {
   if (profile.referred_by) return false;
@@ -48,15 +50,10 @@ async function attributeReferralIfPending(profile: Profile): Promise<boolean> {
   const wasJustSignedUp = consumeJustSignedUpFlag();
   if (!pendingCode || !wasJustSignedUp) return false;
 
-  const { data: referrer } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('referral_code', pendingCode)
-    .neq('id', profile.id)
-    .maybeSingle();
+  const { data: referrerId } = await supabase.rpc('find_referrer_id', { code: pendingCode });
 
-  if (referrer?.id) {
-    const { error } = await supabase.from('profiles').update({ referred_by: referrer.id }).eq('id', profile.id);
+  if (referrerId && referrerId !== profile.id) {
+    const { error } = await supabase.from('profiles').update({ referred_by: referrerId }).eq('id', profile.id);
     return !error;
   }
   return false;

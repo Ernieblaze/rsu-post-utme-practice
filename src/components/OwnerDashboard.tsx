@@ -35,6 +35,9 @@ interface WithdrawalRow {
   amount: number;
   status: string;
   requested_at: string;
+  bank_name: string | null;
+  account_number: string | null;
+  account_name: string | null;
 }
 
 interface AttemptRow {
@@ -67,7 +70,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
         .order('created_at', { ascending: false }),
       supabase
         .from('withdrawal_requests')
-        .select('id, user_id, amount, status, requested_at')
+        .select('id, user_id, amount, status, requested_at, bank_name, account_number, account_name')
         .order('requested_at', { ascending: false }),
       supabase.from('attempts').select('id, test_title, percentage'),
     ]);
@@ -126,8 +129,22 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
 
   async function setWithdrawalStatus(id: string, status: 'paid' | 'rejected') {
     setActingOn(id);
-    const { error: updateError } = await supabase.from('withdrawal_requests').update({ status }).eq('id', id);
+    const request = withdrawals.find((w) => w.id === id);
+    const { error: updateError } = await supabase
+      .from('withdrawal_requests')
+      .update({ status, resolved_at: new Date().toISOString() })
+      .eq('id', id);
+
     if (!updateError) {
+      if (status === 'paid' && request?.user_id) {
+        const { data: payee } = await supabase
+          .from('profiles')
+          .select('referral_balance')
+          .eq('id', request.user_id)
+          .single();
+        const newBalance = Math.max(0, (payee?.referral_balance ?? 0) - request.amount);
+        await supabase.from('profiles').update({ referral_balance: newBalance }).eq('id', request.user_id);
+      }
       setWithdrawals((prev) => prev.map((w) => (w.id === id ? { ...w, status } : w)));
     }
     setActingOn(null);
@@ -255,6 +272,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                       <th className="px-5 py-3">Date</th>
                       <th className="px-5 py-3">User</th>
                       <th className="px-5 py-3">Amount</th>
+                      <th className="px-5 py-3">Bank Details</th>
                       <th className="px-5 py-3">Status</th>
                       <th className="px-5 py-3">Action</th>
                     </tr>
@@ -268,6 +286,17 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                         </td>
                         <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
                           ₦{(w.amount / 100).toLocaleString()}
+                        </td>
+                        <td className="px-5 py-3 text-school-muted">
+                          {w.bank_name ? (
+                            <>
+                              {w.bank_name}
+                              <br />
+                              {w.account_number} — {w.account_name}
+                            </>
+                          ) : (
+                            '—'
+                          )}
                         </td>
                         <td className="px-5 py-3">
                           <span
