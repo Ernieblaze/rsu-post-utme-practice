@@ -198,7 +198,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
   const greetingName = user?.email ? user.email.split('@')[0] : 'there';
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 outline outline-2 outline-red-500">
+    <main className="mx-auto max-w-5xl px-4 py-8">
       <button
         onClick={onBack}
         className="mb-6 inline-flex items-center gap-1.5 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
@@ -288,7 +288,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             variants={itemVariants}
             initial={reduceMotion ? false : 'hidden'}
             animate="show"
-            className="mt-8 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm outline outline-2 outline-blue-500 dark:border-school-green/20 dark:bg-school-navy/40"
+            className="mt-8 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 size={18} className="text-school-green" />
@@ -323,12 +323,12 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
       )}
 
       {/* Referral + Balance (read-only for now) */}
-      <div className="mt-8 grid gap-4 outline outline-2 outline-green-500 sm:grid-cols-2">
+      <div className="mt-8 grid min-w-0 gap-4 sm:grid-cols-2">
         <motion.section
           variants={itemVariants}
           initial={reduceMotion ? false : 'hidden'}
           animate="show"
-          className="rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm outline outline-2 outline-amber-500 dark:border-school-green/20 dark:bg-school-navy/40"
+          className="min-w-0 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
         >
           <div className="flex items-center gap-2">
             <Gift size={18} className="text-school-green" />
@@ -357,7 +357,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
           variants={itemVariants}
           initial={reduceMotion ? false : 'hidden'}
           animate="show"
-          className="rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          className="min-w-0 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
         >
           <div className="flex items-center gap-2">
             <Wallet size={18} className="text-school-green" />
