@@ -17,6 +17,8 @@ import { AuthModal } from './components/AuthModal';
 import { Upgrade } from './components/Upgrade';
 import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
+import { LegalPage } from './components/LegalPage';
+import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
 import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
 import { supabase } from './lib/supabaseClient';
@@ -34,7 +36,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -49,6 +51,8 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/upgrade': 'upgrade',
   '/dashboard': 'dashboard',
   '/owner': 'owner',
+  '/privacy': 'privacy',
+  '/terms': 'terms',
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
@@ -95,6 +99,8 @@ function AppContent() {
       upgrade: `Upgrade | ${base}`,
       dashboard: `Dashboard | ${base}`,
       owner: `Owner Dashboard | ${base}`,
+      privacy: `Privacy Policy | ${base}`,
+      terms: `Terms of Service | ${base}`,
     };
     document.title = titles[view];
   }, [view]);
@@ -396,6 +402,24 @@ function AppContent() {
               ) : (
                 <Navigate to="/" replace />
               )
+            }
+          />
+
+          <Route
+            path="/privacy"
+            element={
+              <motion.div key="privacy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <LegalPage {...PRIVACY_POLICY} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/terms"
+            element={
+              <motion.div key="terms" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <LegalPage {...TERMS_OF_SERVICE} />
+              </motion.div>
             }
           />
 

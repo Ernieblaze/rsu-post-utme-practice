@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy } from 'lucide-react';
 
@@ -161,6 +162,11 @@ export function Footer({ onNavigate }: FooterProps) {
           <p>
             This website is not officially affiliated with Rivers State University. &copy; {new Date().getFullYear()} RSU
             Post-UTME Practice.
+          </p>
+          <p className="mt-2 flex items-center justify-center gap-3">
+            <Link to="/privacy" className="text-school-gold hover:underline">Privacy Policy</Link>
+            <span className="text-slate-500">•</span>
+            <Link to="/terms" className="text-school-gold hover:underline">Terms of Service</Link>
           </p>
         </div>
       </div>
