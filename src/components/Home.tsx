@@ -137,7 +137,7 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
             >
               <BookOpen size={18} />
-              Question Bank
+              Build a Practice Set
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.04 }}
