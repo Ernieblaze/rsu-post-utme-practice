@@ -48,6 +48,8 @@ const container = {
   show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
+const MIN_WITHDRAWAL_KOBO = 500000; // ₦5,000
+
 function formatDate(iso: string | null): string {
   if (!iso) return '—';
   const d = new Date(iso);
@@ -132,9 +134,10 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
   const balanceKobo = profile?.referral_balance ?? 0;
   const availableKobo = Math.max(0, balanceKobo - pendingKobo);
   const hasPendingRequest = withdrawals.some((w) => w.status === 'pending');
+  const belowMinimum = availableKobo < MIN_WITHDRAWAL_KOBO;
 
   async function requestWithdrawal() {
-    if (!user || availableKobo <= 0 || hasPendingRequest) return;
+    if (!user || availableKobo <= 0 || hasPendingRequest || belowMinimum) return;
     if (!bankDetails.bankName.trim() || !bankDetails.accountNumber.trim() || !bankDetails.accountName.trim()) {
       setRequestError('Please fill in your bank name, account number, and account name.');
       return;
@@ -365,9 +368,11 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
               ? 'Loading…'
               : hasPendingRequest
               ? 'You have a payment request pending review.'
-              : availableKobo > 0
-              ? 'Available to request now.'
-              : 'No earnings available yet.'}
+              : availableKobo <= 0
+              ? 'No earnings available yet.'
+              : belowMinimum
+              ? `You need at least ₦${(MIN_WITHDRAWAL_KOBO / 100).toLocaleString()} to request a payout.`
+              : 'Available to request now.'}
           </p>
           {showBankForm ? (
             <div className="mt-3 space-y-2">
@@ -409,7 +414,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
           ) : (
             <button
               onClick={() => setShowBankForm(true)}
-              disabled={availableKobo <= 0 || hasPendingRequest}
+              disabled={availableKobo <= 0 || hasPendingRequest || belowMinimum}
               className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
             >
               <Send size={14} /> Request payment
