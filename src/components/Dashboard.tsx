@@ -110,7 +110,10 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
     let cancelled = false;
 
     async function ensureCodeAndLoad() {
-      if (profile && !profile.referral_code) {
+      // Always pull a fresh profile (balance may have changed elsewhere, e.g. an admin marking a payout as paid).
+      const freshProfile = await refreshProfile();
+      if (cancelled) return;
+      if (freshProfile && !freshProfile.referral_code) {
         const code = generateReferralCode(user!.email ?? 'user');
         await supabase.from('profiles').update({ referral_code: code }).eq('id', user!.id);
         await refreshProfile();
@@ -125,7 +128,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, profile?.referral_code]);
+  }, [user]);
 
   const pendingKobo = useMemo(
     () => withdrawals.filter((w) => w.status === 'pending').reduce((s, w) => s + w.amount, 0),
@@ -421,24 +424,30 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             </button>
           )}
           {withdrawals.length > 0 && (
-            <ul className="mt-3 space-y-1.5 text-xs text-school-muted">
-              {withdrawals.slice(0, 4).map((w) => (
-                <li key={w.id} className="flex items-center justify-between">
-                  <span>₦{(w.amount / 100).toLocaleString()}</span>
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
-                      w.status === 'paid'
-                        ? 'bg-school-pale text-school-green dark:bg-school-green/20'
-                        : w.status === 'rejected'
-                        ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30'
-                        : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
-                    }`}
-                  >
-                    {w.status}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 border-t border-school-border pt-3 dark:border-school-green/20">
+              <p className="mb-2 text-xs font-bold uppercase tracking-wider text-school-muted">Payout history</p>
+              <ul className="space-y-2 text-xs">
+                {withdrawals.slice(0, 6).map((w) => (
+                  <li key={w.id} className="flex items-center justify-between gap-2">
+                    <span className="text-school-muted">{formatDate(w.requested_at)}</span>
+                    <span className="font-semibold text-school-navy dark:text-slate-200">
+                      ₦{(w.amount / 100).toLocaleString()}
+                    </span>
+                    <span
+                      className={`flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
+                        w.status === 'paid'
+                          ? 'bg-school-pale text-school-green dark:bg-school-green/20'
+                          : w.status === 'rejected'
+                          ? 'bg-rose-100 text-rose-600 dark:bg-rose-900/30'
+                          : 'bg-amber-50 text-amber-700 dark:bg-amber-900/20'
+                      }`}
+                    >
+                      {w.status === 'paid' && <CheckCircle2 size={10} />} {w.status}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </motion.section>
       </div>
