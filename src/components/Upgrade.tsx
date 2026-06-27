@@ -19,7 +19,7 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
     <div className="mx-auto max-w-lg px-4 py-5">
       <button
         onClick={onBack}
-        className="mb-3 inline-flex items-center gap-2 rounded-xl border border-school-border bg-white px-3 py-1.5 text-sm font-semibold text-school-navy shadow-sm transition hover:bg-school-light"
+        className="mb-3 inline-flex items-center gap-2 rounded-xl border border-school-border bg-white px-3 py-1.5 text-sm font-semibold text-school-navy shadow-sm transition hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
       >
         <ArrowLeft size={16} /> Back
       </button>
@@ -28,7 +28,7 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25 }}
-        className="overflow-hidden rounded-2xl border border-school-border bg-white shadow-sm"
+        className="overflow-hidden rounded-2xl border border-school-border bg-white shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
       >
         <div className="bg-gradient-to-br from-school-navy to-school-green px-6 py-5 text-white">
           <div className="mb-1.5 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide">
@@ -42,13 +42,13 @@ export function Upgrade({ onBack, onUpgrade, priceLabel }: UpgradeProps) {
 
         <div className="px-6 py-5">
           <div className="mb-4 flex items-baseline gap-2">
-            <span className="font-sora text-3xl font-bold text-school-navy">{priceLabel}</span>
+            <span className="font-sora text-3xl font-bold text-school-navy dark:text-white">{priceLabel}</span>
             <span className="text-sm text-school-muted">/ year</span>
           </div>
 
           <ul className="mb-5 space-y-2">
             {PERKS.map((perk) => (
-              <li key={perk} className="flex items-start gap-2.5 text-sm text-school-navy">
+              <li key={perk} className="flex items-start gap-2.5 text-sm text-school-navy dark:text-slate-200">
                 <span className="mt-0.5 flex h-4 w-4 flex-none items-center justify-center rounded-full bg-school-green/15 text-school-green">
                   <Check size={10} strokeWidth={3} />
                 </span>

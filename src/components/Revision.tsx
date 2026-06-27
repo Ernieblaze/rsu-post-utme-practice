@@ -95,7 +95,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
       >
         <div className="grid gap-4 md:grid-cols-4">
           <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
               type="text"
               value={search}
@@ -141,7 +141,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
       <div className="mb-6 hidden rounded-2xl border border-school-green/10 bg-white p-4 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 md:block">
         <div className="grid gap-4 md:grid-cols-4">
           <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
               type="text"
               value={search}
