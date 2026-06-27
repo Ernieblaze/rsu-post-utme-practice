@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
-import { formatDate } from '../lib/helpers';
+import { formatDate, formatDateTime } from '../lib/helpers';
 
 interface OwnerDashboardProps {
   onBack: () => void;
@@ -19,33 +19,65 @@ interface UserRow {
   created_at: string;
 }
 
-const PRICE_NAIRA = Number(import.meta.env.VITE_APP_PRICE ?? '200000') / 100;
+interface TransactionRow {
+  id: string;
+  user_id: string | null;
+  paystack_reference: string | null;
+  amount: number;
+  status: string;
+  created_at: string;
+}
 
 export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [users, setUsers] = useState<UserRow[]>([]);
+  const [transactions, setTransactions] = useState<TransactionRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    supabase
-      .from('profiles')
-      .select('id, email, has_paid, paid_until, free_test_used, is_admin, created_at')
-      .order('created_at', { ascending: false })
-      .then(({ data, error: queryError }) => {
-        if (cancelled) return;
-        if (queryError) {
-          setError(queryError.message);
-        } else {
-          setUsers((data ?? []) as UserRow[]);
-        }
-        setLoading(false);
-      });
+
+    Promise.all([
+      supabase
+        .from('profiles')
+        .select('id, email, has_paid, paid_until, free_test_used, is_admin, created_at')
+        .order('created_at', { ascending: false }),
+      supabase
+        .from('transactions')
+        .select('id, user_id, paystack_reference, amount, status, created_at')
+        .eq('status', 'success')
+        .order('created_at', { ascending: false }),
+    ]).then(([usersRes, txRes]) => {
+      if (cancelled) return;
+      if (usersRes.error) {
+        setError(usersRes.error.message);
+      } else if (txRes.error) {
+        setError(txRes.error.message);
+      } else {
+        setUsers((usersRes.data ?? []) as UserRow[]);
+        setTransactions((txRes.data ?? []) as TransactionRow[]);
+      }
+      setLoading(false);
+    });
+
     return () => {
       cancelled = true;
     };
   }, []);
+
+  const emailById = useMemo(() => {
+    const map = new Map<string, string>();
+    users.forEach((u) => {
+      if (u.email) map.set(u.id, u.email);
+    });
+    return map;
+  }, [users]);
+
+  const totalRevenueNaira = useMemo(
+    () => transactions.reduce((sum, t) => sum + t.amount, 0) / 100,
+    [transactions]
+  );
 
   const stats = useMemo(() => {
     let paid = 0;
@@ -74,7 +106,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
       <h1 className="section-heading font-sora text-2xl font-bold text-school-navy dark:text-white">
         Owner Dashboard
       </h1>
-      <p className="mt-1 text-school-muted">All users, payment status, and a revenue estimate.</p>
+      <p className="mt-1 text-school-muted">All users, payment status, and real revenue from Paystack.</p>
 
       {error && (
         <div className="mt-6 flex items-center gap-2 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-600 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-400">
@@ -102,18 +134,61 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
           >
             <div className="flex items-center gap-2">
               <Wallet size={18} className="text-school-green" />
-              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">
-                Revenue (estimate)
-              </h2>
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Revenue</h2>
             </div>
             <div className="mt-2 font-sora text-3xl font-bold text-school-navy dark:text-white">
-              ₦{(stats.paid * PRICE_NAIRA).toLocaleString()}
+              ₦{totalRevenueNaira.toLocaleString()}
             </div>
             <p className="mt-1 text-sm text-school-muted">
-              {stats.paid} active paid user(s) × ₦{PRICE_NAIRA.toLocaleString()}. This is an estimate based on
-              who currently has an active subscription — not a real transaction history yet. Real
-              payment-by-payment tracking is coming next.
+              From {transactions.length} successful payment(s), based on real Paystack transaction records.
             </p>
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="flex items-center justify-between border-b border-school-border px-5 py-4 dark:border-school-green/20">
+              <div className="flex items-center gap-2">
+                <Receipt size={18} className="text-school-green" />
+                <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">
+                  Recent Payments
+                </h2>
+              </div>
+              <span className="text-sm font-medium text-school-muted">{transactions.length} total</span>
+            </div>
+
+            {transactions.length === 0 ? (
+              <p className="px-5 py-8 text-center text-sm text-school-muted">No payments recorded yet.</p>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-school-pale text-xs font-bold uppercase tracking-widest text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
+                    <tr>
+                      <th className="px-5 py-3">Date</th>
+                      <th className="px-5 py-3">User</th>
+                      <th className="px-5 py-3">Reference</th>
+                      <th className="px-5 py-3">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-school-border dark:divide-school-green/20">
+                    {transactions.slice(0, 20).map((t) => (
+                      <tr key={t.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
+                        <td className="px-5 py-3 text-school-muted">{formatDateTime(t.created_at)}</td>
+                        <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
+                          {(t.user_id && emailById.get(t.user_id)) ?? '—'}
+                        </td>
+                        <td className="px-5 py-3 text-school-muted">{t.paystack_reference ?? '—'}</td>
+                        <td className="px-5 py-3 font-semibold text-school-navy dark:text-slate-200">
+                          ₦{(t.amount / 100).toLocaleString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </motion.section>
 
           <motion.section
