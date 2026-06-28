@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target, HelpCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuthControl } from './AuthControl';
 
@@ -14,6 +15,7 @@ interface HeaderProps {
 
 export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <motion.header
@@ -68,6 +70,14 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
           })}
 
           <button
+            onClick={() => navigate('/guide')}
+            className="ml-2 flex h-9 w-9 items-center justify-center rounded-lg border border-school-green/20 bg-school-light text-school-navy hover:bg-school-pale dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
+            aria-label="How to use this site"
+          >
+            <HelpCircle size={16} />
+          </button>
+
+          <button
             onClick={onToggleDark}
             className="ml-2 flex h-9 w-9 items-center justify-center rounded-lg border border-school-green/20 bg-school-light text-school-navy hover:bg-school-pale dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
             aria-label="Toggle dark mode"
@@ -82,6 +92,13 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => navigate('/guide')}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-school-green/20 bg-school-light text-school-navy dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+            aria-label="How to use this site"
+          >
+            <HelpCircle size={16} />
+          </button>
           <button
             onClick={onToggleDark}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-school-green/20 bg-school-light text-school-navy dark:border-white/10 dark:bg-white/10 dark:text-slate-200"

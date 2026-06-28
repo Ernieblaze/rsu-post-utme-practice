@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy, Target } from 'lucide-react';
+import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy, Target, HelpCircle } from 'lucide-react';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
 
@@ -110,6 +110,11 @@ export function Footer({ onNavigate }: FooterProps) {
                 <button onClick={() => onNavigate('leaderboard')} className="flex items-center gap-2 hover:text-white">
                   <Trophy size={14} /> Leaderboard
                 </button>
+              </li>
+              <li>
+                <Link to="/guide" className="flex items-center gap-2 hover:text-white">
+                  <HelpCircle size={14} /> How to Use
+                </Link>
               </li>
             </ul>
           </motion.div>
