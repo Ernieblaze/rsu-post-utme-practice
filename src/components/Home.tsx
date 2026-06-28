@@ -15,11 +15,10 @@ import {
   Crown,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { Attempt, BankQuestion } from '../types';
+import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
 
 interface HomeProps {
-  bank: BankQuestion[];
   attempts: Attempt[];
   onViewProgress: () => void;
 }
@@ -41,8 +40,13 @@ const trustBadges = [
   { icon: <Zap size={16} />, text: 'Instant Results & Explanations' },
 ];
 
-export function Home({ bank, attempts, onViewProgress }: HomeProps) {
+export function Home({ attempts, onViewProgress }: HomeProps) {
   const navigate = useNavigate();
+
+  const best = useMemo(() => {
+    if (!attempts.length) return 0;
+    return Math.max(...attempts.map((a) => a.percentage));
+  }, [attempts]);
 
   const average = useMemo(() => {
     if (!attempts.length) return 0;
@@ -153,8 +157,8 @@ export function Home({ bank, attempts, onViewProgress }: HomeProps) {
             bg: 'bg-school-pale text-school-green dark:bg-school-green/20',
           },
           {
-            label: 'Questions in Bank',
-            value: bank.length,
+            label: 'Best Score',
+            value: `${best}%`,
             icon: <BookOpen size={20} />,
             accent: 'border-l-school-gold',
             bg: 'bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400',
@@ -251,7 +255,30 @@ export function Home({ bank, attempts, onViewProgress }: HomeProps) {
             animate={{ opacity: 1, y: 0 }}
             className="overflow-hidden rounded-2xl border border-school-green/10 bg-white shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
           >
-            <div className="overflow-x-auto">
+            {/* Mobile card list */}
+            <div className="divide-y divide-school-green/10 sm:hidden dark:divide-school-green/20">
+              {attempts.slice(0, 5).map((a) => (
+                <div key={a.id} className="space-y-1.5 px-4 py-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">{a.testTitle}</span>
+                    <PassFailBadge percentage={a.percentage} />
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-semibold text-school-navy dark:text-slate-200">
+                      {a.score}/{a.total} ({a.percentage}%)
+                    </span>
+                    <span className="text-school-navy/70 dark:text-slate-400">{formatTime(a.timeSpentSeconds)}</span>
+                  </div>
+                  <span className="flex items-center gap-1.5 text-xs text-school-navy/60 dark:text-slate-400">
+                    <Calendar size={12} />
+                    {formatDate(a.date)}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden overflow-x-auto sm:block">
             <table className="w-full text-left text-sm">
               <thead className="bg-school-pale text-xs uppercase tracking-wider text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
                 <tr>

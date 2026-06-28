@@ -274,7 +274,6 @@ function AppContent() {
             element={
               <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <Home
-                  bank={bank}
                   attempts={attempts}
                   onViewProgress={() => routerNavigate('/progress')}
                 />

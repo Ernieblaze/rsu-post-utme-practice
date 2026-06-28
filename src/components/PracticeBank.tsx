@@ -182,11 +182,18 @@ function CoursePractice({
           </div>
         )}
 
-        <div className="mt-5 flex items-center gap-2 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
-          <Layers size={16} className="text-school-green" />
-          {available} matching question(s) available
-          {available > 0 && count > available && <span className="text-school-navy/60 dark:text-slate-400"> — you'll get all {available}.</span>}
-        </div>
+        {available === 0 ? (
+          <p className="mt-5 rounded-xl bg-amber-50 p-3 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
+            No questions match this selection yet. Try a different subject or clear the topic filter.
+          </p>
+        ) : (
+          count > available && (
+            <p className="mt-5 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+              <Layers size={16} className="mr-2 inline text-school-green" />
+              You'll get a shorter set than requested for this selection.
+            </p>
+          )
+        )}
 
         {error && <p className="mt-3 text-sm font-semibold text-rose-500">{error}</p>}
 
@@ -249,11 +256,18 @@ function FreePractice({ bank, onStart }: { bank: BankQuestion[]; onStart: (test:
           <NumberField label="Time limit (minutes)" value={minutes} min={1} max={180} onChange={setMinutes} />
         </div>
 
-        <div className="mt-5 flex items-center gap-2 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
-          <Layers size={16} className="text-school-green" />
-          {available} matching question(s) available
-          {available > 0 && count > available && <span className="text-school-navy/60 dark:text-slate-400"> — you'll get all {available}.</span>}
-        </div>
+        {available === 0 ? (
+          <p className="mt-5 rounded-xl bg-amber-50 p-3 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
+            No questions match these filters. Try widening them.
+          </p>
+        ) : (
+          count > available && (
+            <p className="mt-5 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+              <Layers size={16} className="mr-2 inline text-school-green" />
+              You'll get a shorter set than requested for this selection.
+            </p>
+          )
+        )}
 
         {error && <p className="mt-3 text-sm font-semibold text-rose-500">{error}</p>}
 

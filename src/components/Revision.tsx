@@ -230,10 +230,6 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
         </div>
       </div>
 
-      <div className="mb-4 text-sm font-medium text-school-navy/70 dark:text-slate-400">
-        Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} matching questions
-      </div>
-
       {filtered.length === 0 ? (
         <motion.div
           initial={{ opacity: 0 }}
