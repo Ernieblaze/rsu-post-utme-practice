@@ -6,39 +6,35 @@ import {
   X,
   CheckCircle,
   Lightbulb,
-  Play,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { BankQuestion, Test } from '../types';
-import { flattenQuestions, subjectColor } from '../lib/helpers';
+import type { BankQuestion } from '../types';
+import { subjectColor } from '../lib/helpers';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
 interface RevisionProps {
-  tests: Test[];
   bank: BankQuestion[];
   onBack: () => void;
-  onStartTest: (testId: string) => void;
   initialSubject?: string;
 }
 
 const SESSION_BATCH_SIZE = 6;
 
-export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: RevisionProps) {
+export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
   const selectedCourse = courseId ? findCourseById(courseId) : null;
 
   const [search, setSearch] = useState('');
-  const [exam, setExam] = useState<string>('all');
   const [subject, setSubject] = useState<string>(initialSubject || 'all');
   const [topic, setTopic] = useState<string>('all');
   const [showFilters, setShowFilters] = useState(false);
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [visibleCount, setVisibleCount] = useState(SESSION_BATCH_SIZE);
 
-  const allItems = useMemo(() => flattenQuestions(tests), [tests]);
+  const allItems = useMemo(() => bank.filter((q) => q.type === 'single'), [bank]);
 
   const relevantSubjects = useMemo(
     () => (selectedCourse ? relevantBankSubjects(bank, selectedCourse.course) : null),
@@ -46,7 +42,7 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
   );
 
   const allSubjects = useMemo(
-    () => Array.from(new Set(allItems.map((i) => i.question.subject))).sort(),
+    () => Array.from(new Set(allItems.map((q) => q.subject))).sort(),
     [allItems]
   );
   const subjects = relevantSubjects && relevantSubjects.length > 0 ? relevantSubjects : allSubjects;
@@ -55,27 +51,25 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
     const q = search.toLowerCase();
     return allItems.filter((item) => {
       const matchesSearch =
-        item.question.text.toLowerCase().includes(q) ||
-        Object.values(item.question.options).some((o) => o.toLowerCase().includes(q));
-      const matchesExam = exam === 'all' || item.testId === exam;
-      const matchesSubject = subject === 'all' || item.question.subject === subject;
-      const matchesTopic = topic === 'all' || item.question.topic === topic;
-      return matchesSearch && matchesExam && matchesSubject && matchesTopic;
+        item.text.toLowerCase().includes(q) ||
+        Object.values(item.options).some((o) => o.toLowerCase().includes(q));
+      const matchesSubject = subject === 'all' || item.subject === subject;
+      const matchesTopic = topic === 'all' || item.topic === topic;
+      return matchesSearch && matchesSubject && matchesTopic;
     });
-  }, [allItems, search, exam, subject, topic]);
+  }, [allItems, search, subject, topic]);
 
   const topics = useMemo(() => {
-    const pool = subject === 'all' ? allItems : allItems.filter((i) => i.question.subject === subject);
-    return Array.from(new Set(pool.map((i) => i.question.topic).filter((t): t is string => !!t))).sort();
+    const pool = subject === 'all' ? allItems : allItems.filter((i) => i.subject === subject);
+    return Array.from(new Set(pool.map((i) => i.topic).filter((t): t is string => !!t && t.trim() !== ''))).sort();
   }, [allItems, subject]);
 
   useEffect(() => {
     setVisibleCount(SESSION_BATCH_SIZE);
-  }, [search, exam, subject, topic]);
+  }, [search, subject, topic]);
 
   function clearFilters() {
     setSearch('');
-    setExam('all');
     setSubject('all');
     setTopic('all');
   }
@@ -109,7 +103,7 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
       >
         <h1 className="text-2xl font-bold text-school-navy dark:text-white">Question Bank & Revision</h1>
         <p className="text-school-navy/70 dark:text-slate-400">
-          Study and understand every question from all RSU Post-UTME past papers.
+          Study and understand questions organized by department, subject, and topic.
         </p>
       </motion.div>
 
@@ -144,7 +138,7 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
         animate={{ height: showFilters ? 'auto' : 0, opacity: showFilters ? 1 : 0 }}
         className="mb-6 overflow-hidden rounded-2xl border border-school-green/10 bg-white p-4 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 md:h-auto md:opacity-100 md:overflow-visible"
       >
-        <div className="grid gap-4 md:grid-cols-5">
+        <div className="grid gap-4 md:grid-cols-4">
           <div className="relative">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
@@ -155,18 +149,6 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
               className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy placeholder:text-school-navy/40 focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white dark:placeholder:text-slate-500"
             />
           </div>
-          <select
-            value={exam}
-            onChange={(e) => setExam(e.target.value)}
-            className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
-          >
-            <option value="all">All exams</option>
-            {tests.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.title}
-              </option>
-            ))}
-          </select>
           <select
             value={subject}
             onChange={(e) => { setSubject(e.target.value); setTopic('all'); }}
@@ -203,7 +185,7 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
 
       {/* Desktop filters always visible */}
       <div className="mb-6 hidden rounded-2xl border border-school-green/10 bg-white p-4 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 md:block">
-        <div className="grid gap-4 md:grid-cols-5">
+        <div className="grid gap-4 md:grid-cols-4">
           <div className="relative">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
@@ -214,18 +196,6 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
               className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy placeholder:text-school-navy/40 focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white dark:placeholder:text-slate-500"
             />
           </div>
-          <select
-            value={exam}
-            onChange={(e) => setExam(e.target.value)}
-            className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
-          >
-            <option value="all">All exams</option>
-            {tests.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.title}
-              </option>
-            ))}
-          </select>
           <select
             value={subject}
             onChange={(e) => { setSubject(e.target.value); setTopic('all'); }}
@@ -284,8 +254,7 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
         </motion.div>
       ) : (
         <div className="space-y-4">
-          {filtered.slice(0, visibleCount).map((item, idx) => {
-            const q = item.question;
+          {filtered.slice(0, visibleCount).map((q, idx) => {
             const isExpanded = expanded[q.id] ?? false;
             const subjectIdx = subjects.indexOf(q.subject);
             return (
@@ -293,25 +262,27 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.03 }}
-                key={`${item.testId}-${q.id}`}
+                key={q.id}
                 className="overflow-hidden rounded-2xl border border-school-green/10 bg-white shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
               >
                 <div className={`h-1 w-full ${subjectColor(subjectIdx)}`} />
                 <div className="p-5">
                   <div className="mb-3 flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-school-light px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-                      {item.testTitle.replace('Rivers State Post UTME ', '')}
-                    </span>
                     <span className="rounded-full bg-school-pale px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-school-green dark:bg-school-green/20">
                       {q.subject}
                     </span>
+                    {q.topic && (
+                      <span className="rounded-full bg-school-light px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
+                        {q.topic}
+                      </span>
+                    )}
                     <span className="ml-auto rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400">
                       <CheckCircle size={10} className="mr-1 inline" />
                       Ans: {q.answer}
                     </span>
                   </div>
 
-                  <p className="mb-4 font-medium text-school-navy dark:text-white">Q{q.id}. {q.text}</p>
+                  <p className="mb-4 font-medium text-school-navy dark:text-white">{q.text}</p>
 
                   <div className="mb-4 grid gap-2 sm:grid-cols-2">
                     {(['A', 'B', 'C', 'D', 'E'] as const).map((opt) => (
@@ -335,12 +306,6 @@ export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: R
                     >
                       <Lightbulb size={14} />
                       {isExpanded ? 'Hide explanation' : 'Show explanation'}
-                    </button>
-                    <button
-                      onClick={() => onStartTest(item.testId)}
-                      className="flex items-center gap-1.5 rounded-lg bg-school-green px-3 py-1.5 text-xs font-bold text-white hover:bg-school-green/90"
-                    >
-                      <Play size={14} fill="currentColor" /> Practice this exam
                     </button>
                   </div>
 

@@ -1,35 +1,26 @@
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Clock,
   Play,
-  RotateCcw,
   Award,
   BookOpen,
-  CheckCircle,
   ChevronRight,
   Calendar,
-  FileText,
+  Layers,
+  Target,
+  GraduationCap,
   Timer,
   TrendingUp,
   Zap,
   Crown,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { Attempt, Test } from '../types';
-import {
-  formatDate,
-  formatTime,
-  getLastAttemptForTest,
-  getTestAverage,
-  getTestBestScore,
-} from '../lib/helpers';
+import type { Attempt, BankQuestion } from '../types';
+import { formatDate, formatTime } from '../lib/helpers';
 
 interface HomeProps {
-  tests: Test[];
+  bank: BankQuestion[];
   attempts: Attempt[];
-  activeTestStateTestId: string | null;
-  onStart: (testId: string) => void;
   onViewProgress: () => void;
 }
 
@@ -44,32 +35,19 @@ const itemVariants = {
 };
 
 const trustBadges = [
-  { icon: <FileText size={16} />, text: '13 Real Past Papers' },
-  { icon: <Timer size={16} />, text: 'Timed 30-Min Exams' },
-  { icon: <CheckCircle size={16} />, text: '50 Questions Per Test' },
+  { icon: <Layers size={16} />, text: 'Questions Organized by Department' },
+  { icon: <Timer size={16} />, text: 'Timed Mock Exams' },
+  { icon: <Target size={16} />, text: 'Personalized to Your Course' },
   { icon: <Zap size={16} />, text: 'Instant Results & Explanations' },
 ];
 
-export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewProgress }: HomeProps) {
+export function Home({ bank, attempts, onViewProgress }: HomeProps) {
   const navigate = useNavigate();
-  const today = new Date().toDateString();
-  const attemptedToday = attempts.filter((a) => new Date(a.date).toDateString() === today);
-
-  const dailyTest = useMemo(() => {
-    return (
-      tests.find((t) => !attemptedToday.some((a) => a.testId === t.id)) || tests[0]
-    );
-  }, [tests, attemptedToday]);
 
   const average = useMemo(() => {
     if (!attempts.length) return 0;
     return Math.round(attempts.reduce((s, a) => s + a.percentage, 0) / attempts.length);
   }, [attempts]);
-
-  const totalQuestions = useMemo(
-    () => tests.reduce((sum, t) => sum + t.questions.length, 0),
-    [tests]
-  );
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
@@ -100,7 +78,7 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             Ace Your RSU Post-UTME
           </h1>
           <p className="mb-6 text-lg text-white/90 sm:text-xl">
-            Practice with real past questions, timed exactly like the actual screening exam.
+            Practice with questions organized by department, personalized to your exact course.
           </p>
 
           <div className="mb-8 flex flex-wrap gap-3">
@@ -124,11 +102,11 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => onStart(dailyTest.id)}
+              onClick={() => navigate('/exam-focus')}
               className="inline-flex items-center gap-2 rounded-xl bg-school-gold px-6 py-3 font-bold text-school-navy shadow-lg transition hover:bg-amber-300"
             >
               <Play size={18} fill="currentColor" />
-              Start Today&apos;s Practice
+              Start Exam Focus
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -175,8 +153,8 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             bg: 'bg-school-pale text-school-green dark:bg-school-green/20',
           },
           {
-            label: 'Questions Practiced',
-            value: totalQuestions,
+            label: 'Questions in Bank',
+            value: bank.length,
             icon: <BookOpen size={20} />,
             accent: 'border-l-school-gold',
             bg: 'bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400',
@@ -197,57 +175,41 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
         ))}
       </motion.section>
 
-      {/* Tests list */}
-      <section className="mt-12">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-school-navy dark:text-white">Available Exams</h2>
-          <span className="text-sm font-medium text-school-navy/70 dark:text-slate-400">{tests.length} paper(s)</span>
-        </div>
-
-        {tests.length > 0 && (
-          <div className="mb-6 flex flex-wrap items-center gap-2 rounded-2xl border border-school-gold/20 bg-school-gold/5 px-4 py-3">
-            <span className="mr-1 text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
-              Jump to a paper
-            </span>
-            {tests.map((test) => {
-              const yearLabel = test.id.startsWith('exam-year-')
-                ? test.id.replace('exam-year-', '')
-                : test.title;
-              return (
-                <motion.button
-                  key={test.id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => onStart(test.id)}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-school-gold/40 bg-white px-4 py-1.5 text-sm font-bold text-school-navy shadow-sm transition hover:bg-school-gold/15 dark:border-school-gold/30 dark:bg-school-navy/60 dark:text-white"
-                >
-                  <Calendar size={14} className="text-amber-700 dark:text-school-gold" />
-                  {yearLabel}
-                </motion.button>
-              );
-            })}
-          </div>
-        )}
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="grid gap-5 md:grid-cols-2"
-        >
-          {tests.map((test) => (
-            <TestCard
-              key={test.id}
-              test={test}
-              lastAttempt={getLastAttemptForTest(attempts, test.id)}
-              average={getTestAverage(attempts, test.id)}
-              best={getTestBestScore(attempts, test.id)}
-              hasActiveState={activeTestStateTestId === test.id}
-              onStart={onStart}
-            />
-          ))}
-        </motion.div>
-      </section>
+      {/* Exam Focus / Practice / Revision */}
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="mt-12 space-y-5"
+      >
+        <SectionPromoCard
+          icon={<Target size={26} />}
+          eyebrow="Flagship feature"
+          title="Exam Focus"
+          description="A personalized mock exam built around your exact course — your JAMB subjects, Current Affairs, and RSU General Knowledge, fully timed."
+          cta="Start Exam Focus"
+          onClick={() => navigate('/exam-focus')}
+          accent="bg-school-green text-white"
+        />
+        <SectionPromoCard
+          icon={<Layers size={26} />}
+          eyebrow="Customize it"
+          title="Practice"
+          description="Pick which subjects and topics to drill, choose how many questions, and practice timed or untimed."
+          cta="Build a Practice Set"
+          onClick={() => navigate('/bank')}
+          accent="bg-school-blue text-white"
+        />
+        <SectionPromoCard
+          icon={<GraduationCap size={26} />}
+          eyebrow="Study calmly"
+          title="Revision"
+          description="Browse and study questions for your course, filtered by subject and topic, with explanations right there."
+          cta="Go to Revision"
+          onClick={() => navigate('/revision')}
+          accent="bg-school-gold text-school-navy"
+        />
+      </motion.section>
 
       {/* Recent history preview */}
       <section className="mt-12">
@@ -272,15 +234,15 @@ export function Home({ tests, attempts, activeTestStateTestId, onStart, onViewPr
             </div>
             <p className="text-lg font-bold text-school-navy dark:text-white">No attempts yet</p>
             <p className="mb-6 text-school-navy/70 dark:text-slate-400">
-              Start your first practice now and track your progress over time.
+              Start with Exam Focus and track your progress over time.
             </p>
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => onStart(dailyTest.id)}
+              onClick={() => navigate('/exam-focus')}
               className="inline-flex items-center gap-2 rounded-xl bg-school-green px-6 py-2.5 font-bold text-white shadow-md hover:bg-school-green/90"
             >
-              Start your first practice now <ChevronRight size={16} />
+              Start Exam Focus <ChevronRight size={16} />
             </motion.button>
           </motion.div>
         ) : (
@@ -349,92 +311,46 @@ function PassFailBadge({ percentage }: { percentage: number }) {
   );
 }
 
-interface TestCardProps {
-  test: Test;
-  lastAttempt?: Attempt;
-  average: number;
-  best: number;
-  hasActiveState: boolean;
-  onStart: (id: string) => void;
-}
-
-function TestCard({ test, lastAttempt, average, best, hasActiveState, onStart }: TestCardProps) {
-  const examName = test.title.replace('Rivers State Post UTME ', '');
-  const completed = !!lastAttempt;
-
+function SectionPromoCard({
+  icon,
+  eyebrow,
+  title,
+  description,
+  cta,
+  onClick,
+  accent,
+}: {
+  icon: React.ReactNode;
+  eyebrow: string;
+  title: string;
+  description: string;
+  cta: string;
+  onClick: () => void;
+  accent: string;
+}) {
   return (
     <motion.div
       variants={itemVariants}
-      whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-      className="relative flex flex-col overflow-hidden rounded-2xl border border-school-green/10 bg-white shadow-sm transition dark:border-school-green/20 dark:bg-school-navy/40"
+      whileHover={{ y: -3 }}
+      className="flex flex-col gap-4 rounded-2xl border border-school-green/10 bg-white p-6 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 sm:flex-row sm:items-center sm:justify-between"
     >
-      <div className="h-1.5 w-full bg-gradient-to-r from-school-navy via-school-blue to-school-green" />
-      <div className="p-5">
-        <div className="mb-4 flex items-start justify-between">
-          <div className="rounded-lg bg-school-pale p-2 text-school-green dark:bg-school-green/20">
-            <FileText size={22} />
-          </div>
-          <div className="flex flex-col items-end gap-1.5">
-            <span className="rounded-full bg-school-light px-2.5 py-1 text-xs font-bold text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-              {test.questions.length} Qs
-            </span>
-            {completed && (
-              <span className="rounded-full bg-school-green/10 px-2.5 py-1 text-xs font-bold text-school-green dark:bg-school-green/20">
-                Completed
-              </span>
-            )}
-          </div>
-        </div>
-
-        <div className="mb-2 flex items-center gap-2">
-          <span className="rounded-md bg-school-gold/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-school-gold">
-            {examName}
-          </span>
-        </div>
-
-        <h3 className="mb-1 text-lg font-bold text-school-navy dark:text-white">{test.title}</h3>
-        <p className="mb-4 text-sm leading-relaxed text-school-navy/80 dark:text-slate-300">{test.description}</p>
-
-        <div className="mb-4 grid grid-cols-2 gap-3 text-sm">
-          <div className="rounded-xl bg-school-light p-3 dark:bg-school-navy/60">
-            <div className="mb-1 flex items-center gap-1.5 text-xs text-school-navy/70 dark:text-slate-400">
-              <Clock size={13} /> Duration
-            </div>
-            <div className="font-bold text-school-navy dark:text-white">{test.durationMinutes} mins</div>
-          </div>
-          <div className="rounded-xl bg-school-light p-3 dark:bg-school-navy/60">
-            <div className="mb-1 flex items-center gap-1.5 text-xs text-school-navy/70 dark:text-slate-400">
-              <Award size={13} /> Best Score
-            </div>
-            <div className="font-bold text-school-navy dark:text-white">{best || 0}%</div>
-          </div>
-        </div>
-
-        {completed && (
-          <div className="mb-4 rounded-xl border border-school-green/20 bg-school-pale p-3 text-sm dark:bg-school-green/10">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-school-green dark:text-school-green/80">
-                <CheckCircle size={16} />
-                <span className="font-semibold">Last: {lastAttempt.score}/{lastAttempt.total}</span>
-              </div>
-              <PassFailBadge percentage={lastAttempt.percentage} />
-            </div>
-            <div className="mt-1 text-xs text-school-navy/70 dark:text-slate-400">{formatDate(lastAttempt.date)}</div>
-          </div>
-        )}
-
-        <div className="mt-auto">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => onStart(test.id)}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-school-green px-4 py-2.5 font-bold text-white shadow-sm transition hover:bg-school-green/90"
-          >
-            {hasActiveState ? <RotateCcw size={16} /> : <Play size={16} fill="currentColor" />}
-            {hasActiveState ? 'Resume / Restart' : completed ? 'Retake Exam' : 'Start Exam'}
-          </motion.button>
+      <div className="flex items-start gap-4">
+        <div className={`flex h-14 w-14 flex-none items-center justify-center rounded-2xl ${accent}`}>{icon}</div>
+        <div>
+          <span className="text-xs font-bold uppercase tracking-wider text-school-navy/50 dark:text-slate-500">{eyebrow}</span>
+          <h2 className="font-sora text-xl font-bold text-school-navy dark:text-white">{title}</h2>
+          <p className="mt-1 max-w-md text-sm text-school-navy/70 dark:text-slate-400">{description}</p>
         </div>
       </div>
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        onClick={onClick}
+        className="flex flex-none items-center justify-center gap-2 rounded-xl bg-school-green px-5 py-2.5 font-bold text-white shadow-sm hover:bg-school-green/90 sm:w-auto"
+      >
+        {cta} <ChevronRight size={16} />
+      </motion.button>
     </motion.div>
   );
 }
+

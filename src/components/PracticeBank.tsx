@@ -207,11 +207,9 @@ function CoursePractice({
 /** Original filter-by-university/year/subject/difficulty flow, unchanged, for anyone who skips course selection. */
 function FreePractice({ bank, onStart }: { bank: BankQuestion[]; onStart: (test: Test) => void }) {
   const universities = useMemo(() => uniqueValues(bank, 'university'), [bank]);
-  const years = useMemo(() => uniqueValues(bank, 'year'), [bank]);
   const subjects = useMemo(() => uniqueValues(bank, 'subject'), [bank]);
 
   const [university, setUniversity] = useState('');
-  const [year, setYear] = useState('');
   const [subject, setSubject] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [count, setCount] = useState(20);
@@ -219,12 +217,12 @@ function FreePractice({ bank, onStart }: { bank: BankQuestion[]; onStart: (test:
   const [error, setError] = useState('');
 
   const available = useMemo(
-    () => filterBank(bank, { university, year, subject, difficulty }).filter((q) => q.type === 'single').length,
-    [bank, university, year, subject, difficulty]
+    () => filterBank(bank, { university, subject, difficulty }).filter((q) => q.type === 'single').length,
+    [bank, university, subject, difficulty]
   );
 
   function start() {
-    const test = buildTestFromBank(bank, { university, year, subject, difficulty }, count, minutes);
+    const test = buildTestFromBank(bank, { university, subject, difficulty }, count, minutes);
     if (!test) {
       setError('No single-answer questions match these filters. Try widening them.');
       return;
@@ -239,13 +237,12 @@ function FreePractice({ bank, onStart }: { bank: BankQuestion[]; onStart: (test:
           <Sparkles size={13} /> Custom practice
         </div>
         <h1 className="text-2xl font-extrabold sm:text-3xl">Build a practice set</h1>
-        <p className="mt-1 text-white/85">Draw questions from your bank by university, year, subject and level.</p>
+        <p className="mt-1 text-white/85">Draw questions from your bank by university, subject and level.</p>
       </div>
 
       <div className="p-6">
         <div className="grid gap-4 sm:grid-cols-2">
           <FilterSelect label="University" value={university} onChange={setUniversity} options={universities} all="Any university" />
-          <FilterSelect label="Year" value={year} onChange={setYear} options={years} all="Any year" />
           <FilterSelect label="Subject" value={subject} onChange={setSubject} options={subjects} all="Any subject" />
           <FilterSelect label="Difficulty" value={difficulty} onChange={setDifficulty} options={['easy', 'medium', 'hard']} all="Any level" />
           <NumberField label="Questions" value={count} min={1} max={100} onChange={setCount} />

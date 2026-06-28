@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
@@ -27,13 +27,10 @@ import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/acces
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
-import { tests } from './data/tests';
-import { getYearlyTests } from './data/questionBank';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
   getDarkMode,
-  getTestState,
   saveAttempt,
   setDarkMode,
   clearTestState,
@@ -79,7 +76,6 @@ function AppContent() {
 
   const view: View = PATH_TO_VIEW[location.pathname] ?? 'home';
 
-  const [activeTestId, setActiveTestId] = useState<string | null>(null);
   const [dynamicTest, setDynamicTest] = useState<Test | null>(null);
   const [result, setResult] = useState<Attempt | null>(null);
   const [dark, setDark] = useState(getDarkMode);
@@ -120,21 +116,7 @@ function AppContent() {
     document.title = titles[view];
   }, [view]);
 
-  const yearlyTests = useMemo(() => getYearlyTests(bank), [bank]);
-
-  const activeTest = useMemo(() => {
-    if (dynamicTest) return dynamicTest;
-    return (
-      yearlyTests.find((t) => t.id === activeTestId) ||
-      tests.find((t) => t.id === activeTestId) ||
-      null
-    );
-  }, [activeTestId, dynamicTest, yearlyTests]);
-
-  const activeTestStateTestId = useMemo(() => {
-    const state = getTestState();
-    return state ? state.testId : null;
-  }, [view, attempts]);
+  const activeTest = dynamicTest;
 
   function toggleDark() {
     const next = !dark;
@@ -142,15 +124,8 @@ function AppContent() {
     setDarkMode(next);
   }
 
-  function startTest(id: string) {
-    setDynamicTest(null);
-    setActiveTestId(id);
-    routerNavigate('/quiz');
-  }
-
   function startDynamicTest(test: Test) {
     clearTestState();
-    setActiveTestId(test.id);
     setDynamicTest(test);
     routerNavigate('/quiz');
   }
@@ -170,10 +145,6 @@ function AppContent() {
       return;
     }
     routerNavigate('/upgrade');
-  }
-
-  function guardedStartTest(id: string) {
-    requireAuth(() => startTest(id));
   }
 
   function guardedStartDynamicTest(test: Test) {
@@ -303,10 +274,8 @@ function AppContent() {
             element={
               <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <Home
-                  tests={yearlyTests}
+                  bank={bank}
                   attempts={attempts}
-                  activeTestStateTestId={activeTestStateTestId}
-                  onStart={guardedStartTest}
                   onViewProgress={() => routerNavigate('/progress')}
                 />
               </motion.div>
@@ -359,7 +328,7 @@ function AppContent() {
             path="/revision"
             element={
               <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Revision tests={yearlyTests} bank={bank} onBack={() => routerNavigate('/')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
+                <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} />
               </motion.div>
             }
           />
