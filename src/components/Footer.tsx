@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy } from 'lucide-react';
+import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy, Target } from 'lucide-react';
 
-type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
+type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
 
 interface FooterProps {
   onNavigate: (view: NavView) => void;
@@ -84,6 +84,11 @@ export function Footer({ onNavigate }: FooterProps) {
               <li>
                 <button onClick={() => onNavigate('home')} className="flex items-center gap-2 hover:text-white">
                   <Home size={14} /> Home
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('exam-focus')} className="flex items-center gap-2 hover:text-white">
+                  <Target size={14} /> Exam Focus
                 </button>
               </li>
               <li>

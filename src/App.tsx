@@ -10,6 +10,7 @@ import { Results } from './components/Results';
 import { Progress } from './components/Progress';
 import { Revision } from './components/Revision';
 import { PracticeBank } from './components/PracticeBank';
+import { ExamFocus } from './components/ExamFocus';
 import { Admin } from './components/Admin';
 import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
@@ -39,8 +40,8 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password';
-export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password';
+export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
   '/': 'home',
@@ -49,6 +50,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/progress': 'progress',
   '/revision': 'revision',
   '/bank': 'bank',
+  '/exam-focus': 'exam-focus',
   '/admin': 'admin',
   '/leaderboard': 'leaderboard',
   '/upgrade': 'upgrade',
@@ -65,6 +67,7 @@ const NAV_TO_PATH: Record<NavView, string> = {
   progress: '/progress',
   revision: '/revision',
   bank: '/bank',
+  'exam-focus': '/exam-focus',
   admin: '/admin',
   leaderboard: '/leaderboard',
 };
@@ -103,6 +106,7 @@ function AppContent() {
       progress: `Progress | ${base}`,
       revision: `Revision | ${base}`,
       bank: `Practice | ${base}`,
+      'exam-focus': `Exam Focus | ${base}`,
       admin: `Question Manager | ${base}`,
       leaderboard: `Leaderboard | ${base}`,
       upgrade: `Upgrade | ${base}`,
@@ -365,6 +369,15 @@ function AppContent() {
             element={
               <motion.div key="bank" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <PracticeBank bank={bank} onBack={() => routerNavigate('/')} onStart={guardedStartDynamicTest} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/exam-focus"
+            element={
+              <motion.div key="exam-focus" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <ExamFocus bank={bank} onStart={guardedStartDynamicTest} />
               </motion.div>
             }
           />

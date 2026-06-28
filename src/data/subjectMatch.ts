@@ -21,13 +21,36 @@ const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
 };
 
 /** A JAMB combo slot is a generic elective ("Any Social Science subject") rather than a named subject. */
-function isGenericSlot(slot: string): boolean {
+export function isGenericSlot(slot: string): boolean {
   return /^Any /i.test(slot.trim());
 }
 
 /** Split a combo slot like "Chemistry/Biology/Economics" into its alternative options. */
-function slotOptions(slot: string): string[] {
+export function slotOptions(slot: string): string[] {
   return slot.split('/').map((s) => s.trim());
+}
+
+/** Pooled, deduplicated questions for one JAMB combo slot — satisfied if ANY of its options has content. */
+export function poolForSlot(bank: BankQuestion[], slot: string): BankQuestion[] {
+  if (isGenericSlot(slot)) return [];
+  const seen = new Set<string>();
+  const pool: BankQuestion[] = [];
+  slotOptions(slot).forEach((subject) => {
+    questionsForSubject(bank, subject).forEach((q) => {
+      if (!seen.has(q.id)) {
+        seen.add(q.id);
+        pool.push(q);
+      }
+    });
+  });
+  return pool;
+}
+
+/** Per-slot question counts for a course (slot, not flattened subject — correctly treats "A/B/C" as satisfied by any one). */
+export function slotCoverageForCourse(bank: BankQuestion[], course: Course): { slot: string; available: number }[] {
+  return course.jambSubjects
+    .filter((slot) => !isGenericSlot(slot))
+    .map((slot) => ({ slot, available: poolForSlot(bank, slot).length }));
 }
 
 /** All distinct, non-generic canonical subject names a course's combo could resolve to. */

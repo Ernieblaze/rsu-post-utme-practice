@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy } from 'lucide-react';
+import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuthControl } from './AuthControl';
 
-type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'admin' | 'leaderboard';
+type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
 
 interface HeaderProps {
   dark: boolean;
@@ -45,6 +45,7 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
         <nav className="hidden items-center gap-1 md:flex">
           {[
             { key: 'home', label: 'Home', icon: <Home size={16} /> },
+            { key: 'exam-focus', label: 'Exam Focus', icon: <Target size={16} /> },
             { key: 'bank', label: 'Practice', icon: <Layers size={16} /> },
             { key: 'progress', label: 'Progress', icon: <BarChart3 size={16} /> },
             { key: 'revision', label: 'Revision', icon: <GraduationCap size={16} /> },
@@ -109,6 +110,12 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-navy hover:bg-school-light dark:text-slate-200"
           >
             <Home size={16} /> Home
+          </button>
+          <button
+            onClick={() => { onNavigate('exam-focus'); setMobileOpen(false); }}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-navy hover:bg-school-light dark:text-slate-200"
+          >
+            <Target size={16} /> Exam Focus
           </button>
           <button
             onClick={() => { onNavigate('bank'); setMobileOpen(false); }}
