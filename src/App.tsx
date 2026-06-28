@@ -359,7 +359,7 @@ function AppContent() {
             path="/revision"
             element={
               <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Revision tests={yearlyTests} onBack={() => routerNavigate('/')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
+                <Revision tests={yearlyTests} bank={bank} onBack={() => routerNavigate('/')} onStartTest={guardedStartTest} initialSubject={revisionSubject} />
               </motion.div>
             }
           />

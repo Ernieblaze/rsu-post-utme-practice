@@ -64,8 +64,26 @@ export function namedSubjectsForCourse(course: Course): string[] {
 }
 
 /** Bank subject name(s) that satisfy a canonical subject name, for filtering bank.json. */
-function bankSubjectsFor(canonicalSubject: string): string[] {
+export function bankSubjectsFor(canonicalSubject: string): string[] {
   return CANONICAL_TO_BANK_SUBJECTS[canonicalSubject] ?? [canonicalSubject];
+}
+
+/**
+ * Actual bank.json subject strings relevant to a course: its named JAMB
+ * subjects plus Current Affairs and RSU General Knowledge, translated to
+ * whichever real subject names are present in the bank. Used to pre-filter
+ * the Revision/Practice subject pickers once a course is selected.
+ */
+export function relevantBankSubjects(bank: BankQuestion[], course: Course): string[] {
+  const bankSubjects = new Set(bank.map((q) => q.subject));
+  const canonical = [...namedSubjectsForCourse(course), 'Current Affairs', 'RSU General Knowledge'];
+  const result = new Set<string>();
+  canonical.forEach((c) => {
+    bankSubjectsFor(c).forEach((name) => {
+      if (bankSubjects.has(name)) result.add(name);
+    });
+  });
+  return Array.from(result);
 }
 
 export function questionsForSubject(bank: BankQuestion[], canonicalSubject: string): BankQuestion[] {

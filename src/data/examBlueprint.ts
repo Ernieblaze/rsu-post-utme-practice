@@ -30,6 +30,7 @@ function toQuestion(q: BankQuestion, idx: number): Question {
   return {
     id: idx + 1,
     subject: q.subject,
+    topic: q.topic || undefined,
     text: q.text,
     options: { ...q.options },
     answer: q.answer,

@@ -1,6 +1,17 @@
 import type { BankQuestion, OptionKey, Question, Test } from '../types';
 import { tests } from './tests';
 import publishedBank from './bank.json';
+import subjectsList from './subjects.json';
+
+export type SubjectCategory = 'Science' | 'Arts' | 'General';
+
+/** Master subject -> category map (src/data/subjects.json). Single source of truth. */
+export const SUBJECTS = subjectsList as { subject: string; category: SubjectCategory }[];
+
+/** Science/Arts/General for a subject name; unknown subjects default to General. */
+export function categoryForSubject(subject: string): SubjectCategory {
+  return SUBJECTS.find((s) => s.subject === subject)?.category ?? 'General';
+}
 
 /**
  * The question bank has two layers:
@@ -111,6 +122,7 @@ export function buildTestFromBank(
   const questions: Question[] = picked.map((q, idx) => ({
     id: idx + 1,
     subject: q.subject,
+    topic: q.topic || undefined,
     text: q.text,
     options: { ...q.options },
     answer: q.answer,
@@ -155,6 +167,7 @@ export function getYearlyTests(bank: BankQuestion[]): Test[] {
       const questions: Question[] = yearQuestions.map((q, idx) => ({
         id: idx + 1,
         subject: q.subject,
+        topic: q.topic || undefined,
         text: q.text,
         options: { ...q.options },
         answer: q.answer,

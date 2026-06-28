@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   Search,
@@ -9,29 +9,47 @@ import {
   Play,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Test } from '../types';
+import type { BankQuestion, Test } from '../types';
 import { flattenQuestions, subjectColor } from '../lib/helpers';
+import { findCourseById } from '../data/rsuData';
+import { relevantBankSubjects } from '../data/subjectMatch';
+import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
+import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
 interface RevisionProps {
   tests: Test[];
+  bank: BankQuestion[];
   onBack: () => void;
   onStartTest: (testId: string) => void;
   initialSubject?: string;
 }
 
-export function Revision({ tests, onBack, onStartTest, initialSubject }: RevisionProps) {
+const SESSION_BATCH_SIZE = 6;
+
+export function Revision({ tests, bank, onBack, onStartTest, initialSubject }: RevisionProps) {
+  const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
+  const selectedCourse = courseId ? findCourseById(courseId) : null;
+
   const [search, setSearch] = useState('');
   const [exam, setExam] = useState<string>('all');
   const [subject, setSubject] = useState<string>(initialSubject || 'all');
+  const [topic, setTopic] = useState<string>('all');
   const [showFilters, setShowFilters] = useState(false);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [visibleCount, setVisibleCount] = useState(SESSION_BATCH_SIZE);
 
   const allItems = useMemo(() => flattenQuestions(tests), [tests]);
 
-  const subjects = useMemo(
+  const relevantSubjects = useMemo(
+    () => (selectedCourse ? relevantBankSubjects(bank, selectedCourse.course) : null),
+    [selectedCourse, bank]
+  );
+
+  const allSubjects = useMemo(
     () => Array.from(new Set(allItems.map((i) => i.question.subject))).sort(),
     [allItems]
   );
+  const subjects = relevantSubjects && relevantSubjects.length > 0 ? relevantSubjects : allSubjects;
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
@@ -41,13 +59,35 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
         Object.values(item.question.options).some((o) => o.toLowerCase().includes(q));
       const matchesExam = exam === 'all' || item.testId === exam;
       const matchesSubject = subject === 'all' || item.question.subject === subject;
-      return matchesSearch && matchesExam && matchesSubject;
+      const matchesTopic = topic === 'all' || item.question.topic === topic;
+      return matchesSearch && matchesExam && matchesSubject && matchesTopic;
     });
-  }, [allItems, search, exam, subject]);
+  }, [allItems, search, exam, subject, topic]);
+
+  const topics = useMemo(() => {
+    const pool = subject === 'all' ? allItems : allItems.filter((i) => i.question.subject === subject);
+    return Array.from(new Set(pool.map((i) => i.question.topic).filter((t): t is string => !!t))).sort();
+  }, [allItems, subject]);
+
+  useEffect(() => {
+    setVisibleCount(SESSION_BATCH_SIZE);
+  }, [search, exam, subject, topic]);
 
   function clearFilters() {
     setSearch('');
     setExam('all');
+    setSubject('all');
+    setTopic('all');
+  }
+
+  function handleSelectCourse(id: string) {
+    setSelectedCourseId(id);
+    setCourseId(id);
+  }
+
+  function handleChangeCourse() {
+    clearSelectedCourseId();
+    setCourseId(null);
     setSubject('all');
   }
 
@@ -73,6 +113,18 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
         </p>
       </motion.div>
 
+      <div className="mb-6">
+        {selectedCourse ? (
+          <CourseSummaryCard
+            faculty={selectedCourse.faculty}
+            course={selectedCourse.course}
+            onChangeCourse={handleChangeCourse}
+          />
+        ) : (
+          <CoursePicker onSelect={handleSelectCourse} />
+        )}
+      </div>
+
       {/* Mobile filter toggle */}
       <div className="mb-4 md:hidden">
         <button
@@ -92,7 +144,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
         animate={{ height: showFilters ? 'auto' : 0, opacity: showFilters ? 1 : 0 }}
         className="mb-6 overflow-hidden rounded-2xl border border-school-green/10 bg-white p-4 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 md:h-auto md:opacity-100 md:overflow-visible"
       >
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-5">
           <div className="relative">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
@@ -117,13 +169,26 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
           </select>
           <select
             value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            onChange={(e) => { setSubject(e.target.value); setTopic('all'); }}
             className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
           >
-            <option value="all">All subjects</option>
+            <option value="all">{relevantSubjects ? 'All your subjects' : 'All subjects'}</option>
             {subjects.map((s) => (
               <option key={s} value={s}>
                 {s}
+              </option>
+            ))}
+          </select>
+          <select
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            disabled={topics.length === 0}
+            className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green disabled:opacity-50 focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+          >
+            <option value="all">All topics</option>
+            {topics.map((t) => (
+              <option key={t} value={t}>
+                {t}
               </option>
             ))}
           </select>
@@ -138,7 +203,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
 
       {/* Desktop filters always visible */}
       <div className="mb-6 hidden rounded-2xl border border-school-green/10 bg-white p-4 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 md:block">
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-5">
           <div className="relative">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
             <input
@@ -163,13 +228,26 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
           </select>
           <select
             value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            onChange={(e) => { setSubject(e.target.value); setTopic('all'); }}
             className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
           >
-            <option value="all">All subjects</option>
+            <option value="all">{relevantSubjects ? 'All your subjects' : 'All subjects'}</option>
             {subjects.map((s) => (
               <option key={s} value={s}>
                 {s}
+              </option>
+            ))}
+          </select>
+          <select
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            disabled={topics.length === 0}
+            className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green disabled:opacity-50 focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+          >
+            <option value="all">All topics</option>
+            {topics.map((t) => (
+              <option key={t} value={t}>
+                {t}
               </option>
             ))}
           </select>
@@ -183,7 +261,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
       </div>
 
       <div className="mb-4 text-sm font-medium text-school-navy/70 dark:text-slate-400">
-        Showing {filtered.length} of {allItems.length} questions
+        Showing {Math.min(visibleCount, filtered.length)} of {filtered.length} matching questions
       </div>
 
       {filtered.length === 0 ? (
@@ -206,7 +284,7 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
         </motion.div>
       ) : (
         <div className="space-y-4">
-          {filtered.map((item, idx) => {
+          {filtered.slice(0, visibleCount).map((item, idx) => {
             const q = item.question;
             const isExpanded = expanded[q.id] ?? false;
             const subjectIdx = subjects.indexOf(q.subject);
@@ -285,6 +363,15 @@ export function Revision({ tests, onBack, onStartTest, initialSubject }: Revisio
             );
           })}
         </div>
+      )}
+
+      {visibleCount < filtered.length && (
+        <button
+          onClick={() => setVisibleCount((c) => c + SESSION_BATCH_SIZE)}
+          className="mx-auto mt-6 block rounded-xl border border-school-green/20 bg-white px-6 py-2.5 text-sm font-bold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/30 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
+        >
+          Show {Math.min(SESSION_BATCH_SIZE, filtered.length - visibleCount)} more questions
+        </button>
       )}
     </main>
   );

@@ -3,6 +3,7 @@ export type OptionKey = 'A' | 'B' | 'C' | 'D' | 'E';
 export interface Question {
   id: number;
   subject: string;
+  topic?: string;
   text: string;
   options: Record<OptionKey, string>;
   answer: OptionKey;
