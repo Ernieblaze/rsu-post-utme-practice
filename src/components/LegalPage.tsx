@@ -11,7 +11,7 @@ export function LegalPage({ title, lastUpdated, sections }: LegalDoc) {
         onClick={() => navigate('/')}
         className="mb-6 inline-flex items-center gap-1.5 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
       >
-        <ArrowLeft size={16} /> Back to site
+        <ArrowLeft size={16} /> Back
       </button>
 
       <h1 className="font-sora text-3xl font-bold text-school-navy dark:text-white">{title}</h1>

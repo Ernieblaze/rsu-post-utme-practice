@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Zap,
   Crown,
+  HelpCircle,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
@@ -133,6 +134,30 @@ export function Home({ attempts, onViewProgress }: HomeProps) {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* New here? Guide banner */}
+      <motion.button
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -2 }}
+        onClick={() => navigate('/guide')}
+        className="mt-6 flex w-full flex-wrap items-center justify-between gap-3 rounded-2xl border border-school-green/20 bg-school-pale px-5 py-4 text-left shadow-sm transition hover:bg-school-pale/70 dark:border-school-green/30 dark:bg-school-green/10 dark:hover:bg-school-green/15"
+      >
+        <span className="flex items-center gap-3">
+          <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-school-green text-white">
+            <HelpCircle size={20} />
+          </span>
+          <span>
+            <span className="block font-sora font-bold text-school-navy dark:text-white">New here?</span>
+            <span className="block text-sm text-school-navy/70 dark:text-slate-300">
+              See how to use the platform — from signing up to passing your exam.
+            </span>
+          </span>
+        </span>
+        <span className="flex items-center gap-1 text-sm font-semibold text-school-green">
+          Read the guide <ChevronRight size={16} />
+        </span>
+      </motion.button>
 
       {/* Quick stats */}
       <motion.section

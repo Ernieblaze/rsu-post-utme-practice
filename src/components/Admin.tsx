@@ -103,7 +103,7 @@ function AdminPanel({ onBack, onBankChanged, onLock }: AdminProps & { onLock: ()
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <button onClick={onBack} className="mb-2 flex items-center gap-1 text-sm font-semibold text-school-green hover:underline">
-            <ArrowLeft size={16} /> Back to site
+            <ArrowLeft size={16} /> Back
           </button>
           <h1 className="text-3xl font-extrabold text-school-navy dark:text-white">Question Manager</h1>
           <p className="text-sm text-school-navy/70 dark:text-slate-400">{bank.length} question(s) in your working bank</p>

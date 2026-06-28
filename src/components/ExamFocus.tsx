@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Target, AlertCircle, Play } from 'lucide-react';
+import { ArrowLeft, Target, AlertCircle, Play } from 'lucide-react';
 import type { BankQuestion, Test } from '../types';
 import { findCourseById } from '../data/rsuData';
 import { slotCoverageForCourse } from '../data/subjectMatch';
@@ -16,6 +17,7 @@ interface ExamFocusProps {
 const MIN_QUESTIONS_PER_SUBJECT = 5;
 
 export function ExamFocus({ bank, onStart }: ExamFocusProps) {
+  const navigate = useNavigate();
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
 
   const selected = courseId ? findCourseById(courseId) : null;
@@ -46,6 +48,13 @@ export function ExamFocus({ bank, onStart }: ExamFocusProps) {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
+      <button
+        onClick={() => navigate('/')}
+        className="mb-6 inline-flex items-center gap-1.5 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
+      >
+        <ArrowLeft size={16} /> Back
+      </button>
+
       <div className="mb-6 flex items-center gap-3">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-school-green/15 text-school-green">
           <Target size={24} />
