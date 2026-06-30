@@ -21,6 +21,7 @@ import { OwnerDashboard } from './components/OwnerDashboard';
 import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
+import { AiTutor } from './components/AiTutor';
 import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
@@ -38,8 +39,8 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide';
-export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor';
+export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
   '/': 'home',
@@ -57,6 +58,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/privacy': 'privacy',
   '/terms': 'terms',
   '/guide': 'guide',
+  '/ai-tutor': 'ai-tutor',
   '/email-confirmed': 'email-confirmed',
   '/reset-password': 'reset-password',
 };
@@ -67,6 +69,7 @@ const NAV_TO_PATH: Record<NavView, string> = {
   revision: '/revision',
   bank: '/bank',
   'exam-focus': '/exam-focus',
+  'ai-tutor': '/ai-tutor',
   admin: '/admin',
   leaderboard: '/leaderboard',
 };
@@ -113,6 +116,7 @@ function AppContent() {
       privacy: `Privacy Policy | ${base}`,
       terms: `Terms of Service | ${base}`,
       guide: `How to Use | ${base}`,
+      'ai-tutor': `AI Study Helper | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
       'reset-password': `Reset Password | ${base}`,
     };
@@ -456,6 +460,15 @@ function AppContent() {
             element={
               <motion.div key="guide" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <UserGuide />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/ai-tutor"
+            element={
+              <motion.div key="ai-tutor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <AiTutor profile={profile} />
               </motion.div>
             }
           />

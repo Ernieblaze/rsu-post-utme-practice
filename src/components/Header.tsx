@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target, HelpCircle } from 'lucide-react';
+import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target, HelpCircle, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuthControl } from './AuthControl';
 
-type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard';
+type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 interface HeaderProps {
   dark: boolean;
@@ -49,6 +49,7 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
             { key: 'home', label: 'Home', icon: <Home size={16} /> },
             { key: 'exam-focus', label: 'Exam Focus', icon: <Target size={16} /> },
             { key: 'bank', label: 'Practice', icon: <Layers size={16} /> },
+            { key: 'ai-tutor', label: 'AI Tutor', icon: <Sparkles size={16} /> },
             { key: 'progress', label: 'Progress', icon: <BarChart3 size={16} /> },
             { key: 'revision', label: 'Revision', icon: <GraduationCap size={16} /> },
             { key: 'leaderboard', label: 'Leaderboard', icon: <Trophy size={16} /> },
@@ -139,6 +140,12 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
             className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-navy hover:bg-school-light dark:text-slate-200"
           >
             <Layers size={16} /> Practice
+          </button>
+          <button
+            onClick={() => { onNavigate('ai-tutor'); setMobileOpen(false); }}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-school-navy hover:bg-school-light dark:text-slate-200"
+          >
+            <Sparkles size={16} /> AI Tutor
           </button>
           <button
             onClick={() => { onNavigate('progress'); setMobileOpen(false); }}

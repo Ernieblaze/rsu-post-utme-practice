@@ -14,6 +14,7 @@ import {
   Zap,
   Crown,
   HelpCircle,
+  Sparkles,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
@@ -238,6 +239,16 @@ export function Home({ attempts, onViewProgress }: HomeProps) {
           onClick={() => navigate('/revision')}
           accent="bg-school-gold text-school-navy"
         />
+        <SectionPromoCard
+          icon={<Sparkles size={26} />}
+          eyebrow="New"
+          badge="Premium"
+          title="AI Study Helper"
+          description="Stuck on something confusing in any subject? Ask the AI tutor for a clear, simple explanation, anytime."
+          cta="Ask the AI Tutor"
+          onClick={() => navigate('/ai-tutor')}
+          accent="bg-purple-600 text-white"
+        />
       </motion.section>
 
       {/* Recent history preview */}
@@ -371,6 +382,7 @@ function SectionPromoCard({
   cta,
   onClick,
   accent,
+  badge,
 }: {
   icon: React.ReactNode;
   eyebrow: string;
@@ -379,6 +391,7 @@ function SectionPromoCard({
   cta: string;
   onClick: () => void;
   accent: string;
+  badge?: string;
 }) {
   return (
     <motion.div
@@ -390,7 +403,14 @@ function SectionPromoCard({
         <div className={`flex h-14 w-14 flex-none items-center justify-center rounded-2xl ${accent}`}>{icon}</div>
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-school-navy/50 dark:text-slate-500">{eyebrow}</span>
-          <h2 className="font-sora text-xl font-bold text-school-navy dark:text-white">{title}</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="font-sora text-xl font-bold text-school-navy dark:text-white">{title}</h2>
+            {badge && (
+              <span className="rounded-full bg-school-gold/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-school-gold">
+                {badge}
+              </span>
+            )}
+          </div>
           <p className="mt-1 max-w-md text-sm text-school-navy/70 dark:text-slate-400">{description}</p>
         </div>
       </div>
