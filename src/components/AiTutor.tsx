@@ -25,10 +25,15 @@ export function AiTutor({ profile }: AiTutorProps) {
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
+  // Scroll only the message list itself, never the page -- and only once
+  // there's actually something to scroll to, so the page doesn't jump on
+  // first load or visibly shift every time a message is sent.
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messages.length === 0) return;
+    const el = listRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [messages, sending]);
 
   async function handleSend() {
@@ -109,7 +114,7 @@ export function AiTutor({ profile }: AiTutorProps) {
         </div>
       ) : (
         <div className="flex flex-1 flex-col rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40">
-          <div className="flex max-h-[60vh] min-h-[40vh] flex-col gap-3 overflow-y-auto p-4">
+          <div ref={listRef} className="flex max-h-[60vh] min-h-[40vh] flex-col gap-3 overflow-y-auto p-4">
             {messages.length === 0 && (
               <p className="m-auto max-w-sm text-center text-sm text-school-muted">
                 Ask anything — e.g. "Explain how to balance a chemical equation" or "What's the difference between
@@ -126,13 +131,21 @@ export function AiTutor({ profile }: AiTutorProps) {
                   {m.role === 'user' ? <UserIcon size={14} /> : <Bot size={14} />}
                 </div>
                 <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[80%] space-y-2 rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === 'user'
                       ? 'bg-school-blue text-white'
                       : 'bg-school-light text-school-navy dark:bg-school-navy/60 dark:text-slate-200'
                   }`}
                 >
-                  {m.content}
+                  {m.content
+                    .split(/\n+/)
+                    .map((para) => para.trim())
+                    .filter(Boolean)
+                    .map((para, pi) => (
+                      <p key={pi} className="whitespace-pre-wrap">
+                        {para}
+                      </p>
+                    ))}
                 </div>
               </div>
             ))}
@@ -146,7 +159,6 @@ export function AiTutor({ profile }: AiTutorProps) {
                 </div>
               </div>
             )}
-            <div ref={bottomRef} />
           </div>
 
           {error && (
