@@ -420,7 +420,12 @@ function ImportTab({
   }
 
   function preview() {
-    setResult(parseByExtension(filename, text));
+    const trimmed = text.trim();
+    const effectiveName =
+      filename === 'paste.txt' && (trimmed.startsWith('[') || trimmed.startsWith('{'))
+        ? 'paste.json'
+        : filename;
+    setResult(parseByExtension(effectiveName, text));
   }
 
   function confirmImport() {
