@@ -9,14 +9,17 @@ import type { Course } from './rsuData';
  * "RSU General Knowledge" pool per the new naming convention.
  */
 const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
-  'Use of English': ['English', 'Use of English'],
-  'RSU General Knowledge': ['About RSU', 'RSU Rules', 'RSU General Knowledge'],
-  'Current Affairs': ['Current Affairs', 'Nigeria Current Affairs'],
+  // Subjects merged in bank.json — only one name remains on disk now
+  'Use of English': ['Use of English'],
+  'Current Affairs': ['Nigeria Current Affairs'],
+  'RSU General Knowledge': ['About RSU & Rules', 'RSU General Knowledge'],
+  // Core science / maths
   Mathematics: ['Mathematics'],
   Physics: ['Physics'],
   Chemistry: ['Chemistry'],
   Biology: ['Biology'],
   Geography: ['Geography'],
+  // Arts & social science
   CRS: ['CRS'],
   Economics: ['Economics'],
   Government: ['Government'],
@@ -24,6 +27,9 @@ const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
   Literature: ['Literature', 'Literature in English'],
   Commerce: ['Commerce'],
   Accounting: ['Accounting', 'Financial Accounting'],
+  // New subjects (questions coming soon)
+  'Computer Studies': ['Computer Studies', 'Computer Science'],
+  IRS: ['IRS', 'Islamic Religious Studies'],
 };
 
 /** A JAMB combo slot is a generic elective ("Any Social Science subject") rather than a named subject. */
