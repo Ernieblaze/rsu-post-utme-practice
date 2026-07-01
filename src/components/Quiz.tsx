@@ -122,6 +122,7 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
   const flaggedCount = useMemo(() => state.flagged.length, [state.flagged]);
 
   const currentQuestion = test.questions[state.currentIndex];
+  if (!currentQuestion) return null;
   const optionKeys: OptionKey[] = ['A', 'B', 'C', 'D', 'E'];
   const warning = timeLeft <= 300;
   const danger = timeLeft <= 60;
