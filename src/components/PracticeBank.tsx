@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Layers, Sparkles, Clock } from 'lucide-react';
+import { ArrowLeft, Play, Layers, Sparkles, Clock, X } from 'lucide-react';
 import type { BankQuestion, Test } from '../types';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
@@ -15,19 +15,34 @@ interface PracticeBankProps {
 }
 
 const UNTIMED_MINUTES = 999;
-const DEFAULT_PRACTICE_COUNT = 6;
+const DEFAULT_COUNT = 10;
 
 export function PracticeBank({ bank, onBack, onStart }: PracticeBankProps) {
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
+  const [showCoursePicker, setShowCoursePicker] = useState(false);
   const selected = courseId ? findCourseById(courseId) : null;
+
+  // Every single-answer subject in the bank
+  const allSubjects = useMemo(
+    () => Array.from(new Set(bank.filter((q) => q.type === 'single').map((q) => q.subject))).sort(),
+    [bank]
+  );
+
+  // Pre-selected subjects: course subjects when course is set, all subjects otherwise
+  const courseSubjects = useMemo(
+    () => (selected ? relevantBankSubjects(bank, selected.course) : null),
+    [selected, bank]
+  );
 
   function handleSelectCourse(id: string) {
     setSelectedCourseId(id);
     setCourseId(id);
+    setShowCoursePicker(false);
   }
   function handleChangeCourse() {
     clearSelectedCourseId();
     setCourseId(null);
+    setShowCoursePicker(false);
   }
 
   return (
@@ -39,46 +54,78 @@ export function PracticeBank({ bank, onBack, onStart }: PracticeBankProps) {
         <ArrowLeft size={16} /> Back
       </button>
 
+      {/* Optional course filter */}
       <div className="mb-6">
         {selected ? (
-          <CourseSummaryCard faculty={selected.faculty} course={selected.course} onChangeCourse={handleChangeCourse} />
+          <CourseSummaryCard
+            faculty={selected.faculty}
+            course={selected.course}
+            onChangeCourse={handleChangeCourse}
+          />
+        ) : showCoursePicker ? (
+          <div className="space-y-2">
+            <CoursePicker onSelect={handleSelectCourse} />
+            <button
+              onClick={() => setShowCoursePicker(false)}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-school-muted hover:text-school-navy dark:hover:text-slate-200"
+            >
+              <X size={12} /> Cancel — show all subjects
+            </button>
+          </div>
         ) : (
-          <CoursePicker onSelect={handleSelectCourse} />
+          <div className="flex items-center justify-between rounded-xl border border-dashed border-school-green/30 bg-school-light/60 px-4 py-3 dark:border-school-green/20 dark:bg-school-navy/40">
+            <span className="text-sm text-school-navy/70 dark:text-slate-400">
+              Showing all {allSubjects.length} subjects ·{' '}
+              <button
+                onClick={() => setShowCoursePicker(true)}
+                className="font-semibold text-school-green underline-offset-2 hover:underline"
+              >
+                Filter to my course
+              </button>
+            </span>
+          </div>
         )}
       </div>
 
-      {selected && <CoursePractice bank={bank} courseId={selected.course.id} onStart={onStart} />}
+      <PracticeForm
+        bank={bank}
+        allSubjects={allSubjects}
+        courseSubjects={courseSubjects}
+        onStart={onStart}
+      />
     </main>
   );
 }
 
-/** Practice mode once a course is selected: pick subjects + topics from the student's own combo. */
-function CoursePractice({
+function PracticeForm({
   bank,
-  courseId,
+  allSubjects,
+  courseSubjects,
   onStart,
 }: {
   bank: BankQuestion[];
-  courseId: string;
+  allSubjects: string[];
+  courseSubjects: string[] | null;
   onStart: (test: Test) => void;
 }) {
-  const found = findCourseById(courseId);
-  const relevantSubjects = useMemo(() => (found ? relevantBankSubjects(bank, found.course) : []), [found, bank]);
-
-  const [selectedSubjects, setSelectedSubjects] = useState<string[]>(relevantSubjects);
+  const defaultSubjects = courseSubjects ?? allSubjects;
+  const [selectedSubjects, setSelectedSubjects] = useState<string[]>(defaultSubjects);
   const [topic, setTopic] = useState('all');
-  const [count, setCount] = useState(DEFAULT_PRACTICE_COUNT);
+  const [count, setCount] = useState(DEFAULT_COUNT);
   const [timed, setTimed] = useState(true);
   const [minutes, setMinutes] = useState(15);
   const [error, setError] = useState('');
 
+  // Re-sync when course changes
   useEffect(() => {
-    setSelectedSubjects(relevantSubjects);
+    setSelectedSubjects(courseSubjects ?? allSubjects);
     setTopic('all');
-  }, [relevantSubjects]);
+  }, [courseSubjects, allSubjects]);
 
   function toggleSubject(s: string) {
-    setSelectedSubjects((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+    setSelectedSubjects((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
+    );
   }
 
   const topics = useMemo(() => {
@@ -87,20 +134,25 @@ function CoursePractice({
   }, [bank, selectedSubjects]);
 
   const available = useMemo(
-    () => filterForPractice(bank, { subjects: selectedSubjects, topics: topic === 'all' ? [] : [topic] }).length,
+    () =>
+      filterForPractice(bank, {
+        subjects: selectedSubjects,
+        topics: topic === 'all' ? [] : [topic],
+      }).length,
     [bank, selectedSubjects, topic]
   );
 
   function start() {
+    setError('');
     const test = buildPracticeTest(
       bank,
       { subjects: selectedSubjects, topics: topic === 'all' ? [] : [topic] },
       count,
       timed ? minutes : UNTIMED_MINUTES,
-      `Practice: ${selectedSubjects.join(', ') || 'Your subjects'}`
+      `Practice: ${selectedSubjects.length === allSubjects.length ? 'All subjects' : selectedSubjects.join(', ')}`
     );
     if (!test) {
-      setError('No questions match these filters yet. Try selecting more subjects or clearing the topic filter.');
+      setError('No questions match these filters. Try selecting more subjects or clearing the topic filter.');
       return;
     }
     onStart(test);
@@ -117,15 +169,34 @@ function CoursePractice({
           <Sparkles size={13} /> Custom practice
         </div>
         <h1 className="text-2xl font-extrabold sm:text-3xl">Build a practice set</h1>
-        <p className="mt-1 text-white/85">Pick which of your subjects to drill, and how.</p>
+        <p className="mt-1 text-white/85">
+          Pick subjects to drill — questions shuffle randomly every session.
+        </p>
       </div>
 
       <div className="p-6">
-        <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
-          Subjects
-        </span>
-        <div className="mb-4 flex flex-wrap gap-2">
-          {relevantSubjects.map((s) => {
+        {/* Subject toggles */}
+        <div className="mb-2 flex items-center justify-between">
+          <span className="text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
+            Subjects
+          </span>
+          <div className="flex gap-3 text-xs font-semibold">
+            <button
+              onClick={() => setSelectedSubjects(allSubjects)}
+              className="text-school-green hover:underline"
+            >
+              Select all
+            </button>
+            <button
+              onClick={() => setSelectedSubjects([])}
+              className="text-school-muted hover:text-school-navy dark:hover:text-slate-200"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+        <div className="mb-5 flex flex-wrap gap-2">
+          {allSubjects.map((s) => {
             const active = selectedSubjects.includes(s);
             return (
               <button
@@ -145,7 +216,9 @@ function CoursePractice({
 
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block">
-            <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">Topic</span>
+            <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
+              Topic
+            </span>
             <select
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
@@ -154,13 +227,22 @@ function CoursePractice({
             >
               <option value="all">All topics</option>
               {topics.map((t) => (
-                <option key={t} value={t}>{t}</option>
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </select>
           </label>
-          <NumberField label="Questions (6 is a calm session)" value={count} min={1} max={50} onChange={setCount} />
+          <NumberField
+            label="Questions per session"
+            value={count}
+            min={1}
+            max={100}
+            onChange={setCount}
+          />
         </div>
 
+        {/* Timer toggle */}
         <div className="mt-4 flex items-center justify-between rounded-xl bg-school-light p-3 dark:bg-school-navy/60">
           <span className="flex items-center gap-2 text-sm font-semibold text-school-navy dark:text-slate-200">
             <Clock size={16} className="text-school-green" /> Timed practice
@@ -169,28 +251,58 @@ function CoursePractice({
             onClick={() => setTimed((t) => !t)}
             role="switch"
             aria-checked={timed}
-            className={`relative h-6 w-11 rounded-full transition ${timed ? 'bg-school-green' : 'bg-school-navy/20 dark:bg-white/20'}`}
+            className={`relative h-6 w-11 rounded-full transition ${
+              timed ? 'bg-school-green' : 'bg-school-navy/20 dark:bg-white/20'
+            }`}
           >
-            <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition ${timed ? 'left-5' : 'left-0.5'}`} />
+            <span
+              className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition ${
+                timed ? 'left-5' : 'left-0.5'
+              }`}
+            />
           </button>
         </div>
         {timed && (
           <div className="mt-3">
-            <NumberField label="Time limit (minutes)" value={minutes} min={1} max={180} onChange={setMinutes} />
+            <NumberField
+              label="Time limit (minutes)"
+              value={minutes}
+              min={1}
+              max={180}
+              onChange={setMinutes}
+            />
           </div>
         )}
 
-        {available === 0 ? (
-          <p className="mt-5 rounded-xl bg-amber-50 p-3 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
-            No questions match this selection yet. Try a different subject or clear the topic filter.
+        {/* Availability summary */}
+        <div className="mt-3 rounded-lg bg-school-pale/60 px-3 py-2 text-sm dark:bg-school-navy/40">
+          {selectedSubjects.length === 0 ? (
+            <span className="text-school-muted">No subjects selected — toggle some above.</span>
+          ) : (
+            <span className="text-school-navy/70 dark:text-slate-400">
+              <strong className="text-school-green">{available}</strong> question
+              {available !== 1 ? 's' : ''} available to draw from
+              {count > available && available > 0 && (
+                <>
+                  {' '}
+                  <span className="text-school-muted">(you'll get all {available})</span>
+                </>
+              )}
+            </span>
+          )}
+        </div>
+
+        {available === 0 && selectedSubjects.length > 0 && (
+          <p className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-semibold text-amber-700 dark:bg-amber-500/10 dark:text-amber-300">
+            No questions match this selection yet. Try adding more subjects or clearing the topic filter.
           </p>
-        ) : (
-          count > available && (
-            <p className="mt-5 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
-              <Layers size={16} className="mr-2 inline text-school-green" />
-              You'll get a shorter set than requested for this selection.
-            </p>
-          )
+        )}
+
+        {count > available && available > 0 && (
+          <p className="mt-2 flex items-center gap-2 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+            <Layers size={16} className="text-school-green" />
+            Session count is higher than available questions — all {available} will be used.
+          </p>
         )}
 
         {error && <p className="mt-3 text-sm font-semibold text-rose-500">{error}</p>}
@@ -209,16 +321,32 @@ function CoursePractice({
   );
 }
 
-function NumberField({ label, value, min, max, onChange }: { label: string; value: number; min: number; max: number; onChange: (v: number) => void }) {
+function NumberField({
+  label,
+  value,
+  min,
+  max,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  onChange: (v: number) => void;
+}) {
   return (
     <label className="block">
-      <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">{label}</span>
+      <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
+        {label}
+      </span>
       <input
         type="number"
         value={value}
         min={min}
         max={max}
-        onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value) || min)))}
+        onChange={(e) =>
+          onChange(Math.max(min, Math.min(max, Number(e.target.value) || min)))
+        }
         className="w-full rounded-xl border border-school-green/20 bg-school-light px-3 py-2.5 text-sm font-medium text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
       />
     </label>

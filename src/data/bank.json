@@ -1,5 +1,3805 @@
 [
   {
+    "id": "q-1782907817744-bc0pvm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a chemical change?",
+    "options": {
+      "A": "Melting of ice",
+      "B": "Boiling of water",
+      "C": "Rusting of iron",
+      "D": "Breaking of glass",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Rusting is a chemical change because iron reacts with oxygen and water to form a new substance, iron(III) oxide (Fe2O3.xH2O). Melting, boiling and breaking only change physical state or shape without forming a new substance."
+  },
+  {
+    "id": "q-1782907817744-4zjjss",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the oxidation number of sulfur in H2SO4?",
+    "options": {
+      "A": "+4",
+      "B": "+6",
+      "C": "-2",
+      "D": "0",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In H2SO4, H is +1 (x2 = +2) and O is -2 (x4 = -8). Since the compound is neutral, S + 2 - 8 = 0, so S = +6."
+  },
+  {
+    "id": "q-1782907817744-ijultm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following gases is not a greenhouse gas?",
+    "options": {
+      "A": "CO2",
+      "B": "CH4",
+      "C": "N2",
+      "D": "H2O vapour",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Greenhouse gases trap infrared radiation because their molecules can vibrate and absorb heat (CO2, CH4, H2O vapour). N2 is a symmetric diatomic molecule with no net dipole change on vibration, so it does not absorb infrared radiation."
+  },
+  {
+    "id": "q-1782907817744-9i90ar",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which particle has the same number of protons and electrons but a different number of neutrons?",
+    "options": {
+      "A": "Isomer",
+      "B": "Isotope",
+      "C": "Ion",
+      "D": "Molecule",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Isotopes are atoms of the same element with the same number of protons (and electrons in the neutral atom) but different numbers of neutrons, giving them different mass numbers. Examples include carbon-12 and carbon-14."
+  },
+  {
+    "id": "q-1782907817744-31sail",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the molar volume of an ideal gas at STP?",
+    "options": {
+      "A": "22.4 dm3",
+      "B": "24 dm3",
+      "C": "1.0 dm3",
+      "D": "2.24 dm3",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "At standard temperature and pressure (0°C, 1 atm), one mole of any ideal gas occupies 22.4 dm3, as derived from the ideal gas law PV = nRT. This value is used to convert between moles and gas volumes in stoichiometry."
+  },
+  {
+    "id": "q-1782907817744-131q7w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following represents a covalent compound?",
+    "options": {
+      "A": "NaCl",
+      "B": "MgO",
+      "C": "H2O",
+      "D": "CaCl2",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Water (H2O) is formed between two nonmetal atoms (H and O) that share electron pairs, forming covalent bonds. NaCl, MgO and CaCl2 are ionic compounds formed between metals and nonmetals."
+  },
+  {
+    "id": "q-1782907817744-qsx5ai",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these processes is endothermic?",
+    "options": {
+      "A": "Freezing of water",
+      "B": "Condensation of steam",
+      "C": "Dissolution of NH4Cl in water",
+      "D": "Combustion of methane",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Dissolving ammonium chloride in water absorbs heat from the surroundings, causing the solution to feel cold, so ΔH is positive (endothermic). Freezing, condensation and combustion all release heat (exothermic)."
+  },
+  {
+    "id": "q-1782907817744-svi9no",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the pH of a solution with [H+] = 1 x 10^-4 mol/dm3?",
+    "options": {
+      "A": "4",
+      "B": "10",
+      "C": "7",
+      "D": "2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "pH is defined as -log10[H+]. For [H+] = 1 x 10^-4 mol/dm3, pH = -log(10^-4) = 4."
+  },
+  {
+    "id": "q-1782907817744-52wh5o",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the IUPAC name of CH3CH2OH?",
+    "options": {
+      "A": "Methanol",
+      "B": "Ethanol",
+      "C": "Propanol",
+      "D": "Butanol",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "CH3CH2OH has two carbon atoms with an -OH group on the terminal carbon, making it ethanol, the alcohol derived from ethane. Methanol has one carbon, propanol has three, and butanol has four."
+  },
+  {
+    "id": "q-1782907817745-jesjsi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an alkyne?",
+    "options": {
+      "A": "C2H6",
+      "B": "C2H4",
+      "C": "C2H2",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Alkynes have the general formula CnH2n-2 and contain a carbon-carbon triple bond; C2H2 (ethyne) fits this formula. C2H6 is an alkane, C2H4 is an alkene, and CH4 is the simplest alkane."
+  },
+  {
+    "id": "q-1782907817745-n1drvp",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the main ore of aluminum?",
+    "options": {
+      "A": "Hematite",
+      "B": "Bauxite",
+      "C": "Galena",
+      "D": "Magnetite",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Bauxite is a hydrated aluminium oxide ore and is the principal commercial source of aluminium, extracted via the Bayer process followed by electrolysis (Hall-Heroult process). Hematite and magnetite are iron ores, while galena is a lead ore."
+  },
+  {
+    "id": "q-1782907817745-zm2kf1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these elements has the highest electronegativity?",
+    "options": {
+      "A": "Fluorine",
+      "B": "Oxygen",
+      "C": "Nitrogen",
+      "D": "Chlorine",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Electronegativity increases across a period and decreases down a group; fluorine, being at the top right of the periodic table (excluding noble gases), has the highest electronegativity value (about 4.0 on the Pauling scale) of all elements."
+  },
+  {
+    "id": "q-1782907817745-4833qy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the formula mass of Na2CO3?",
+    "options": {
+      "A": "106 g/mol",
+      "B": "84 g/mol",
+      "C": "40 g/mol",
+      "D": "23 g/mol",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Na2CO3 formula mass = (2 x 23) + 12 + (3 x 16) = 46 + 12 + 48 = 106 g/mol, using the relative atomic masses Na=23, C=12, O=16."
+  },
+  {
+    "id": "q-1782907817745-zv4ngb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the oxidation number of Mn in KMnO4?",
+    "options": {
+      "A": "+2",
+      "B": "+4",
+      "C": "+6",
+      "D": "+7",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In KMnO4, K is +1 and each O is -2 (4 x -2 = -8). For the compound to be neutral: +1 + Mn - 8 = 0, so Mn = +7."
+  },
+  {
+    "id": "q-1782907817745-mfkkpb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a base?",
+    "options": {
+      "A": "H2SO4",
+      "B": "NaOH",
+      "C": "HCl",
+      "D": "CO2",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "NaOH is an alkali (a soluble base) that dissociates in water to release hydroxide ions (OH-), which react with acids to form salt and water. H2SO4 and HCl are acids, while CO2 forms an acidic solution in water."
+  },
+  {
+    "id": "q-1782907817745-vgptry",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following shows periodicity?",
+    "options": {
+      "A": "Atomic number",
+      "B": "Isotopy",
+      "C": "Mass number",
+      "D": "Ionization energy",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Periodicity refers to the recurring trend of a property across periods and down groups of the periodic table. Ionization energy shows this repeating pattern, generally increasing across a period and decreasing down a group, unlike atomic number which simply increases steadily."
+  },
+  {
+    "id": "q-1782907817745-glg025",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not a property of acids?",
+    "options": {
+      "A": "Sour taste",
+      "B": "Turns blue litmus red",
+      "C": "Reacts with bases",
+      "D": "Soapy feel",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Acids taste sour, turn blue litmus red, and react with bases to form salt and water. A soapy or slippery feel is characteristic of bases (alkalis), not acids."
+  },
+  {
+    "id": "q-1782907817745-edzitg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major constituent of natural gas is:",
+    "options": {
+      "A": "Methane",
+      "B": "Ethane",
+      "C": "Butane",
+      "D": "Propane",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Natural gas is composed mainly of methane (CH4), typically making up over 70-90% of its volume, with smaller amounts of ethane, propane and butane."
+  },
+  {
+    "id": "q-1782907817745-qenejn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the number of neutrons in an atom of potassium-39 (39/19 K)?",
+    "options": {
+      "A": "20",
+      "B": "19",
+      "C": "39",
+      "D": "58",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The mass number (39) equals the number of protons plus neutrons. Since the atomic number (protons) of potassium is 19, the number of neutrons = 39 - 19 = 20."
+  },
+  {
+    "id": "q-1782907817745-u8gx5g",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The process of separating liquids with different boiling points is called:",
+    "options": {
+      "A": "Filtration",
+      "B": "Crystallization",
+      "C": "Distillation",
+      "D": "Sublimation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Distillation separates miscible liquids based on differences in their boiling points: the liquid with the lower boiling point vaporizes first, is condensed, and collected separately."
+  },
+  {
+    "id": "q-1782907817745-0j0fbj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the shape of the water molecule?",
+    "options": {
+      "A": "Linear",
+      "B": "Tetrahedral",
+      "C": "Angular (V-shaped)",
+      "D": "Trigonal planar",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The oxygen atom in water has two bonding pairs and two lone pairs of electrons arranged tetrahedrally, but because only the two bonded hydrogen atoms define the molecular shape, water is bent/angular, with a bond angle of about 104.5°."
+  },
+  {
+    "id": "q-1782907817745-si7245",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which element forms a basic oxide?",
+    "options": {
+      "A": "CO2",
+      "B": "SO2",
+      "C": "Na2O",
+      "D": "NO2",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Na2O is a metal oxide that reacts with water to form NaOH, a strong base, making it a basic oxide. CO2, SO2 and NO2 are nonmetal oxides that form acidic solutions in water."
+  },
+  {
+    "id": "q-1782907817745-nqbfm2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The number of unpaired electrons in an oxygen atom is:",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "2",
+      "D": "4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Oxygen has the electronic configuration 1s2 2s2 2p4. In the 2p subshell, the four electrons occupy three orbitals such that two orbitals are singly occupied and one is doubly occupied, giving 2 unpaired electrons (following Hund's rule)."
+  },
+  {
+    "id": "q-1782907817745-xwdnwe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following has a giant covalent structure?",
+    "options": {
+      "A": "NaCl",
+      "B": "H2O",
+      "C": "Diamond",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Diamond consists of carbon atoms covalently bonded to four neighbours in a rigid, extended three-dimensional lattice, making it a giant covalent (macromolecular) structure. NaCl is ionic, while H2O and CH4 are simple covalent molecules."
+  },
+  {
+    "id": "q-1782907817745-w21n05",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following gases is monoatomic?",
+    "options": {
+      "A": "O2",
+      "B": "N2",
+      "C": "Ne",
+      "D": "Cl2",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Noble gases such as neon exist as single, unbonded atoms because they already have a stable, full outer electron shell and do not need to bond. O2, N2 and Cl2 are all diatomic molecules."
+  },
+  {
+    "id": "q-1782907817745-kpn0uh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which process is used to obtain pure water from salt water?",
+    "options": {
+      "A": "Filtration",
+      "B": "Decantation",
+      "C": "Distillation",
+      "D": "Crystallization",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Distillation works because water has a much lower boiling point than dissolved salts; the water evaporates, leaving the salt behind, and is then condensed and collected as pure water."
+  },
+  {
+    "id": "q-1782907817745-cm5aok",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these best describes the solubility of gases in water?",
+    "options": {
+      "A": "Increases with temperature",
+      "B": "Decreases with pressure",
+      "C": "Increases with pressure",
+      "D": "Independent of pressure",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "According to Henry's law, the solubility of a gas in a liquid is directly proportional to the partial pressure of that gas above the liquid; increasing pressure forces more gas molecules into solution."
+  },
+  {
+    "id": "q-1782907817745-50ipfz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following undergoes addition reaction?",
+    "options": {
+      "A": "Alkane",
+      "B": "Alkene",
+      "C": "Alkyne",
+      "D": "Aromatic hydrocarbon",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Alkenes contain a reactive carbon-carbon double bond that can open up to add other atoms or groups (e.g. H2, halogens), a process called addition reaction. Alkanes are saturated and generally undergo substitution instead."
+  },
+  {
+    "id": "q-1782907817745-did5uj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the empirical formula of a compound with 40% C, 6.7% H, and 53.3% O?",
+    "options": {
+      "A": "CHO",
+      "B": "CH2O",
+      "C": "C2H4O2",
+      "D": "C6H12O6",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Dividing each percentage by its atomic mass gives moles: C = 40/12 = 3.33, H = 6.7/1 = 6.7, O = 53.3/16 = 3.33. Dividing through by the smallest value (3.33) gives a ratio of C:H:O = 1:2:1, so the empirical formula is CH2O."
+  },
+  {
+    "id": "q-1782907817745-maugte",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The monomer of polyethylene is:",
+    "options": {
+      "A": "Ethene",
+      "B": "Ethane",
+      "C": "Propene",
+      "D": "Methane",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Polyethylene (polythene) is formed by the addition polymerization of many ethene (CH2=CH2) monomer units, in which the double bonds open up to link the molecules into long chains."
+  },
+  {
+    "id": "q-1782907817745-akmebr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these metals will not liberate hydrogen from dilute HCl?",
+    "options": {
+      "A": "Zinc",
+      "B": "Iron",
+      "C": "Copper",
+      "D": "Magnesium",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Copper is below hydrogen in the reactivity (electrochemical) series, so it cannot displace hydrogen ions from dilute acids. Zinc, iron and magnesium are more reactive than hydrogen and readily displace it."
+  },
+  {
+    "id": "q-1782907817745-r1yigb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The device used to measure atmospheric pressure is called:",
+    "options": {
+      "A": "Thermometer",
+      "B": "Barometer",
+      "C": "Hygrometer",
+      "D": "Manometer",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A barometer measures atmospheric (air) pressure, commonly using a column of mercury whose height changes with pressure. A manometer measures the pressure of a contained gas, while a hygrometer measures humidity."
+  },
+  {
+    "id": "q-1782907817745-p5tex3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The compound that decolorizes bromine water is:",
+    "options": {
+      "A": "Ethane",
+      "B": "Ethene",
+      "C": "Methane",
+      "D": "Ethanol",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Ethene has a C=C double bond that reacts with bromine water in an addition reaction, forming 1,2-dibromoethane and decolorizing the orange bromine water. This is a standard test to distinguish alkenes from alkanes."
+  },
+  {
+    "id": "q-1782907817745-a469s5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the major constituent of air by volume?",
+    "options": {
+      "A": "Oxygen",
+      "B": "Nitrogen",
+      "C": "Carbon dioxide",
+      "D": "Argon",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Nitrogen makes up about 78% of the atmosphere by volume, making it the major constituent, followed by oxygen at about 21%."
+  },
+  {
+    "id": "q-1782907817745-tdqu6d",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an amphoteric oxide?",
+    "options": {
+      "A": "Na2O",
+      "B": "ZnO",
+      "C": "CO2",
+      "D": "SO2",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Zinc oxide (ZnO) is amphoteric because it can react with both acids (forming zinc salts and water) and bases (forming zincate ions and water). Na2O is strictly basic, while CO2 and SO2 are strictly acidic oxides."
+  },
+  {
+    "id": "q-1782907817745-7eq7ss",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A solution that resists change in pH is a:",
+    "options": {
+      "A": "Salt",
+      "B": "Base",
+      "C": "Buffer",
+      "D": "Acid",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A buffer solution, typically made of a weak acid and its conjugate base (or a weak base and its conjugate acid), resists changes in pH when small amounts of acid or base are added, because it can neutralize either."
+  },
+  {
+    "id": "q-1782907817745-haf0rh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these is an extensive property of matter?",
+    "options": {
+      "A": "Pressure",
+      "B": "Temperature",
+      "C": "Mass",
+      "D": "Density",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An extensive property depends on the amount of substance present; mass increases as more matter is added. Pressure, temperature and density are intensive properties that do not depend on the quantity of material."
+  },
+  {
+    "id": "q-1782907817745-cuz23w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In redox reactions, the oxidizing agent is:",
+    "options": {
+      "A": "Reduced",
+      "B": "Oxidized",
+      "C": "A base",
+      "D": "Neutral",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "An oxidizing agent gains electrons from another species and is itself reduced in the process (its oxidation number decreases), while it causes the other substance to be oxidized."
+  },
+  {
+    "id": "q-1782907817745-uj7cqc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Tetraoxosulphate(VI) acid is commonly known as:",
+    "options": {
+      "A": "Nitric acid",
+      "B": "Hydrochloric acid",
+      "C": "Sulphuric acid",
+      "D": "Acetic acid",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Tetraoxosulphate(VI) acid is the systematic (IUPAC-style) name for sulphuric acid, H2SO4, where 'VI' indicates the +6 oxidation state of sulfur and 'tetraoxo' indicates four oxygen atoms."
+  },
+  {
+    "id": "q-1782907817745-c6r3pg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is used as a drying agent for acidic gases?",
+    "options": {
+      "A": "NaOH",
+      "B": "CaO",
+      "C": "P2O5",
+      "D": "Conc. H2SO4",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Concentrated sulphuric acid is a powerful drying agent that removes water vapour from acidic gases without reacting with them chemically. NaOH and CaO cannot be used because they are basic and would react with acidic gases."
+  },
+  {
+    "id": "q-1782907817745-6li9id",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an isomer of C4H10?",
+    "options": {
+      "A": "Butane only",
+      "B": "Isobutane only",
+      "C": "Both butane and isobutane",
+      "D": "Neither",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "C4H10 has two structural isomers: n-butane (straight chain) and isobutane/2-methylpropane (branched chain). Both have the same molecular formula but different structural arrangements, making them isomers of each other."
+  },
+  {
+    "id": "q-1782907817745-b4mxwj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The ligand in the complex ion [Cu(NH3)4]2+ is:",
+    "options": {
+      "A": "NH3",
+      "B": "Cu",
+      "C": "H2O",
+      "D": "Cl-",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In the complex [Cu(NH3)4]2+, ammonia (NH3) molecules act as the ligands, donating a lone pair of electrons from nitrogen to form four coordinate (dative) bonds to the central Cu2+ ion."
+  },
+  {
+    "id": "q-1782907817745-hhfkfi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Molality expresses concentration using the mass of solvent measured in:",
+    "options": {
+      "A": "kg",
+      "B": "g",
+      "C": "L",
+      "D": "mol",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Molality is defined as moles of solute per kilogram of solvent (mol/kg), which makes it independent of temperature, unlike molarity which uses volume."
+  },
+  {
+    "id": "q-1782907817745-xtscpz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which gas is most soluble in water among the following?",
+    "options": {
+      "A": "NH3",
+      "B": "O2",
+      "C": "N2",
+      "D": "CO2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Ammonia is highly soluble in water because it forms strong hydrogen bonds with water molecules and can even react to form NH4OH. O2, N2 and CO2 are far less soluble because they cannot hydrogen bond as effectively."
+  },
+  {
+    "id": "q-1782907817745-ik9a0t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The molecular geometry of H2O is:",
+    "options": {
+      "A": "Bent",
+      "B": "Linear",
+      "C": "Trigonal planar",
+      "D": "Tetrahedral",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Water's oxygen atom has two bonding pairs and two lone pairs; the lone pairs push the bonding pairs together, giving a bent (angular) shape with a bond angle of about 104.5°, rather than a linear shape."
+  },
+  {
+    "id": "q-1782907817745-6i760a",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The magnetic quantum number (ml) indicates:",
+    "options": {
+      "A": "Orbital orientation",
+      "B": "Sublevel (subshell)",
+      "C": "Electron spin",
+      "D": "Principal energy shell",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The magnetic quantum number (ml) specifies the orientation of an orbital in space relative to a chosen axis, for a given value of the azimuthal quantum number (l)."
+  },
+  {
+    "id": "q-1782907817745-j8lucv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Beer-Lambert law states that absorbance is directly proportional to:",
+    "options": {
+      "A": "Concentration",
+      "B": "Volume",
+      "C": "Mass",
+      "D": "Pressure",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Beer-Lambert law is expressed as A = εlc, showing that absorbance (A) is directly proportional to the molar concentration (c) of the absorbing species, for a fixed path length (l) and molar absorptivity (ε)."
+  },
+  {
+    "id": "q-1782907817745-0vdvbv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In a multi-step reaction mechanism, the rate-determining step is the:",
+    "options": {
+      "A": "Slowest step",
+      "B": "Fastest step",
+      "C": "Last step",
+      "D": "First step",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The rate-determining step is the slowest step in a reaction mechanism, because the overall rate of a multi-step reaction can never exceed the rate of its slowest individual step."
+  },
+  {
+    "id": "q-1782907817745-hjfekn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The sum of the mole fractions of solute and solvent in a solution is always:",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "Dependent on concentration",
+      "D": "2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "By definition, the mole fraction of each component is the ratio of its moles to the total moles present; since the components together make up the whole solution, their mole fractions must always add up to 1."
+  },
+  {
+    "id": "q-1782907817745-hk7d42",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A covalent bond is formed by two atoms:",
+    "options": {
+      "A": "Sharing electrons",
+      "B": "Transferring electrons",
+      "C": "Pooling electrons in a lattice",
+      "D": "Losing electrons",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A covalent bond forms when two atoms, usually nonmetals, share one or more pairs of electrons so that each atom attains a more stable electron configuration, unlike ionic bonding which involves electron transfer."
+  },
+  {
+    "id": "q-1782907817745-ayo78i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Determining the empirical formula from percentage composition data requires converting mass percentages into:",
+    "options": {
+      "A": "Relative moles of each element",
+      "B": "Mass ratios directly",
+      "C": "Volume ratios",
+      "D": "Densities",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "To find an empirical formula, each element's percentage is divided by its atomic mass to obtain relative moles, and these mole values are then divided by the smallest one to get the simplest whole-number ratio."
+  },
+  {
+    "id": "q-1782907817745-bidx0q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Saponification (hydrolysis of a fat or oil with an alkali) produces:",
+    "options": {
+      "A": "Soap and glycerol",
+      "B": "Ester and acid",
+      "C": "Water and ester",
+      "D": "Alcohol and ketone",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Saponification is the alkaline hydrolysis of a triglyceride (fat/oil), which breaks the ester bonds to yield glycerol and the sodium or potassium salts of fatty acids, which are soap."
+  },
+  {
+    "id": "q-1782907817745-kd4p5i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The rate law derived from a proposed reaction mechanism must ultimately agree with the:",
+    "options": {
+      "A": "Experimentally determined rate law",
+      "B": "Theoretical rate law",
+      "C": "Activation energy value",
+      "D": "Equilibrium constant",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A proposed mechanism is only accepted if the rate law it predicts matches the rate law found by experiment, since reaction rates and orders are determined empirically, not just from balanced equations."
+  },
+  {
+    "id": "q-1782907817745-qbh89c",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Nernst equation relates cell potential to:",
+    "options": {
+      "A": "Concentration of reacting species",
+      "B": "Temperature only",
+      "C": "Pressure only",
+      "D": "Mass of electrodes",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Nernst equation, E = E° - (RT/nF) ln Q, shows how the actual cell potential (E) deviates from the standard potential (E°) depending on the concentrations (activities) of the reacting species, represented by the reaction quotient Q."
+  },
+  {
+    "id": "q-1782907817745-31alox",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Oxidation, in terms of electron transfer, involves:",
+    "options": {
+      "A": "Loss of electrons",
+      "B": "Gain of electrons",
+      "C": "Gain of protons",
+      "D": "No electron transfer",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "By the OILRIG mnemonic (Oxidation Is Loss, Reduction Is Gain), oxidation is defined as the loss of electrons by a species, which increases its oxidation number."
+  },
+  {
+    "id": "q-1782907817745-slulnc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is amphoteric?",
+    "options": {
+      "A": "H2O",
+      "B": "NaOH",
+      "C": "HCl",
+      "D": "KBr",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Water can act as both an acid (donating H+) and a base (accepting H+), depending on what it reacts with, making it amphoteric. NaOH is strictly basic and HCl is strictly acidic."
+  },
+  {
+    "id": "q-1782907817745-ccaj7e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Bohr model of the atom proposes that electrons occupy:",
+    "options": {
+      "A": "Quantized (discrete) energy levels",
+      "B": "Continuous energy ranges",
+      "C": "Fixed mass positions",
+      "D": "Random spin states only",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Bohr proposed that electrons move in fixed, quantized circular orbits around the nucleus, each corresponding to a specific discrete energy level, and that electrons can jump between levels by absorbing or emitting fixed amounts of energy."
+  },
+  {
+    "id": "q-1782907817745-4qripx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The typical carbon-carbon (C-C) single bond length is approximately:",
+    "options": {
+      "A": "154 pm",
+      "B": "100 pm",
+      "C": "200 pm",
+      "D": "300 pm",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A carbon-carbon single covalent bond, as found in alkanes like ethane, has a standard bond length of about 154 picometres (1.54 Å), which is longer than the C=C (about 134 pm) and C≡C (about 120 pm) bonds."
+  },
+  {
+    "id": "q-1782907817745-gzgor2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Hydrogen bonding is strongest in which of the following?",
+    "options": {
+      "A": "HF",
+      "B": "HCl",
+      "C": "HBr",
+      "D": "HI",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Hydrogen bonding strength depends on the electronegativity of the atom bonded to hydrogen; fluorine is the most electronegative element, making the H-F bond highly polar and giving HF the strongest hydrogen bonds among the hydrogen halides."
+  },
+  {
+    "id": "q-1782907817745-erk6oh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The allotrope of carbon that is soft, black, and used in pencils is:",
+    "options": {
+      "A": "Graphite",
+      "B": "Diamond",
+      "C": "Fullerene",
+      "D": "Graphene",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Graphite consists of layers of carbon atoms held together within layers by strong covalent bonds but between layers by weak van der Waals forces, allowing the layers to slide over each other, making it soft, black, and slippery."
+  },
+  {
+    "id": "q-1782907817745-zbf2vh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Claisen condensation reaction typically involves two molecules of:",
+    "options": {
+      "A": "Esters",
+      "B": "Ketones",
+      "C": "Aldehydes",
+      "D": "Alcohols",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In a Claisen condensation, two ester molecules react in the presence of a strong base; one ester provides a nucleophilic enolate that attacks the carbonyl carbon of the other, forming a β-keto ester and releasing an alkoxide."
+  },
+  {
+    "id": "q-1782907817745-51rxdk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following salts is neutral in aqueous solution?",
+    "options": {
+      "A": "NaCl",
+      "B": "NH4Cl",
+      "C": "Na2CO3",
+      "D": "AlCl3",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "NaCl is formed from a strong acid (HCl) and a strong base (NaOH); both its ions (Na+ and Cl-) are conjugates of strong acid/base and do not hydrolyse, so the resulting solution remains neutral (pH 7)."
+  },
+  {
+    "id": "q-1782907817745-km7b4m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The colour of transition metal complex ions generally arises from:",
+    "options": {
+      "A": "d-d electron transitions",
+      "B": "s-s transitions",
+      "C": "p-p transitions",
+      "D": "f-f transitions",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In transition metal complexes, the surrounding ligands split the d-orbitals into different energy levels (crystal field splitting); electrons absorbing visible light can jump between these d-orbitals (d-d transitions), and the light not absorbed gives the complex its observed colour."
+  },
+  {
+    "id": "q-1782907817745-n3rir3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Molten NaCl conducts electricity because:",
+    "options": {
+      "A": "The ions are free to move",
+      "B": "There are no ions present",
+      "C": "Electrons move freely through the lattice",
+      "D": "The molecules are neutral",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "When NaCl is melted, the rigid ionic lattice breaks down and the Na+ and Cl- ions become mobile, allowing them to carry electric charge through the liquid, unlike solid NaCl where the ions are fixed in place."
+  },
+  {
+    "id": "q-1782907817745-repyr8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The standard enthalpy of formation of an element in its most stable form is:",
+    "options": {
+      "A": "Zero",
+      "B": "-100 kJ/mol",
+      "C": "+100 kJ/mol",
+      "D": "Dependent on the element",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "By convention, the standard enthalpy of formation of any element in its most stable (reference) state is defined as zero, since no 'formation' reaction is needed to make an element from itself."
+  },
+  {
+    "id": "q-1782907817745-y4n295",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A negative Gibbs free energy change (delta G less than 0) for a reaction means the reaction is:",
+    "options": {
+      "A": "Spontaneous",
+      "B": "Non-spontaneous",
+      "C": "At equilibrium",
+      "D": "Impossible",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "According to thermodynamics, a reaction is thermodynamically favourable (spontaneous) under the given conditions when ΔG is negative, meaning the products are more stable (lower in free energy) than the reactants."
+  },
+  {
+    "id": "q-1782907817745-hlpv25",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Reaction rate generally increases with increasing reactant concentration for:",
+    "options": {
+      "A": "Elementary reactions",
+      "B": "All reactions equally",
+      "C": "Zero-order reactions",
+      "D": "No reactions",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "For elementary reactions, rate depends directly on the frequency of molecular collisions, which increases as reactant concentration increases, in line with collision theory; zero-order reactions, by contrast, have rates independent of concentration."
+  },
+  {
+    "id": "q-1782907817745-v6k6em",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A six-membered aromatic ring with alternating double bonds and 6 pi electrons is called:",
+    "options": {
+      "A": "Benzene",
+      "B": "Cyclohexane",
+      "C": "Cyclobutadiene",
+      "D": "A cumulative diene",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Benzene (C6H6) is a planar, six-membered ring with delocalized 6 pi electrons that satisfy the Huckel rule (4n+2 pi electrons) for aromaticity, giving it exceptional stability compared to non-aromatic rings like cyclohexane."
+  },
+  {
+    "id": "q-1782907817745-2s8gkf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ozone (O3) decomposes under UV light mainly through:",
+    "options": {
+      "A": "Homolytic bond fission",
+      "B": "Heterolytic bond fission",
+      "C": "Ionic bond breaking",
+      "D": "No bond breaking occurs",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "UV radiation supplies enough energy to break the O-O bond of ozone symmetrically, with each oxygen atom retaining one electron from the shared pair (homolytic fission), producing highly reactive free radicals."
+  },
+  {
+    "id": "q-1782907817745-iizteb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which gas is released with vigorous effervescence when a carbonate reacts with an acid?",
+    "options": {
+      "A": "CO2",
+      "B": "NH3",
+      "C": "O2",
+      "D": "N2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Carbonates react with acids to release carbon dioxide gas, which bubbles vigorously out of the solution; this effervescence, along with the gas turning limewater milky, is a standard test for carbonates."
+  },
+  {
+    "id": "q-1782907817745-h5ioss",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The lowering of vapour pressure of a solution depends mainly on the:",
+    "options": {
+      "A": "Mole fraction of the solute",
+      "B": "Mass of the solute",
+      "C": "Volume of the solute",
+      "D": "Density of the solute",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "According to Raoult's law, the extent of vapour pressure lowering of a solvent is proportional to the mole fraction of the non-volatile solute dissolved in it, not simply its mass or volume."
+  },
+  {
+    "id": "q-1782907817745-4zzm9d",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The coordination number in the complex ion [Ni(NH3)6]2+ is:",
+    "options": {
+      "A": "6",
+      "B": "4",
+      "C": "2",
+      "D": "8",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The complex [Ni(NH3)6]2+ has six ammonia ligands each donating a lone pair to the central Ni2+ ion, giving a coordination number of 6, typically arranged octahedrally."
+  },
+  {
+    "id": "q-1782907817745-k7osgf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following molecules is not chiral (achiral)?",
+    "options": {
+      "A": "2-butanol",
+      "B": "Lactic acid",
+      "C": "Meso-tartaric acid",
+      "D": "Alanine",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Meso-tartaric acid contains an internal plane of symmetry that makes it superimposable on its mirror image despite having stereocentres, so it is achiral, unlike 2-butanol, lactic acid, and alanine which are genuinely chiral."
+  },
+  {
+    "id": "q-1782907817745-ymd2bb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The molecular formula of glucose is:",
+    "options": {
+      "A": "C6H12O6",
+      "B": "C5H10O5",
+      "C": "C6H6O6",
+      "D": "C6H10O5",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Glucose, a simple monosaccharide sugar, has the molecular formula C6H12O6, consistent with the general carbohydrate formula Cn(H2O)n."
+  },
+  {
+    "id": "q-1782907817745-gm31f6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Henry's law states that the solubility of a gas in a liquid is directly proportional to its:",
+    "options": {
+      "A": "Partial pressure",
+      "B": "Temperature",
+      "C": "Volume",
+      "D": "Mass",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Henry's law is expressed as S = kP, showing that the solubility (S) of a gas in a liquid at a given temperature is directly proportional to the partial pressure (P) of that gas above the liquid."
+  },
+  {
+    "id": "q-1782907817745-etw2ep",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The boiling point of water increases when salt is dissolved in it because the salt:",
+    "options": {
+      "A": "Lowers the vapour pressure of the solution",
+      "B": "Lowers the density",
+      "C": "Reduces the volume",
+      "D": "Reduces surface tension",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Dissolved salt particles reduce the number of water molecules able to escape into the vapour phase at a given temperature, lowering the solution's vapour pressure; a higher temperature is then needed to reach the vapour pressure equal to atmospheric pressure, raising the boiling point (a colligative effect)."
+  },
+  {
+    "id": "q-1782907817745-2nhr7j",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which reagent is commonly used to oxidize a secondary alcohol to a ketone under mild conditions?",
+    "options": {
+      "A": "PCC (pyridinium chlorochromate)",
+      "B": "LiAlH4",
+      "C": "NaBH4",
+      "D": "H2/Pd",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "PCC is a mild oxidizing agent that converts secondary alcohols to ketones without over-oxidizing them further, unlike stronger oxidants; LiAlH4, NaBH4 and H2/Pd are reducing agents, not oxidants."
+  },
+  {
+    "id": "q-1782907817745-hsq1zr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following gaseous molecules is paramagnetic?",
+    "options": {
+      "A": "O2",
+      "B": "N2",
+      "C": "CO2",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Molecular oxygen (O2) has two unpaired electrons in its antibonding pi* molecular orbitals, according to molecular orbital theory, which makes it paramagnetic (attracted to a magnetic field), unlike N2, CO2 and CH4 which have all their electrons paired."
+  },
+  {
+    "id": "q-1782907817745-ksqk0q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ionization energy generally does what down a group of the periodic table?",
+    "options": {
+      "A": "Decreases",
+      "B": "Increases",
+      "C": "Stays constant",
+      "D": "Varies randomly",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Down a group, atomic radius increases as more electron shells are added, so the outermost electron is farther from the nucleus and more shielded, requiring less energy to remove it; hence ionization energy decreases down a group."
+  },
+  {
+    "id": "q-1782907817745-jb92j9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a covalent network (giant covalent) solid?",
+    "options": {
+      "A": "Diamond",
+      "B": "NaCl",
+      "C": "Ice",
+      "D": "Solid iodine (I2)",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Diamond is composed of carbon atoms joined by strong covalent bonds throughout its structure, forming a rigid three-dimensional network, unlike NaCl (ionic lattice) or ice and iodine (molecular solids held by weaker intermolecular forces)."
+  },
+  {
+    "id": "q-1782907817745-sm28ad",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mass defect in nuclear physics is directly related to:",
+    "options": {
+      "A": "Nuclear binding energy",
+      "B": "Atomic mass unit definition",
+      "C": "Molar mass",
+      "D": "Molecular mass",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The mass defect (the small mass 'missing' when nucleons combine to form a nucleus) is converted to energy according to Einstein's equation E = mc2, and this energy is the nuclear binding energy holding the nucleus together."
+  },
+  {
+    "id": "q-1782907817745-0pq5yh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following oxides is acidic?",
+    "options": {
+      "A": "SO3",
+      "B": "Na2O",
+      "C": "CaO",
+      "D": "ZnO",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "SO3 is a nonmetal oxide that reacts with water to form sulphuric acid (H2SO4), making it an acidic oxide. Na2O and CaO are basic metal oxides, while ZnO is amphoteric."
+  },
+  {
+    "id": "q-1782907817746-9fgv7t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following substances is a non-electrolyte?",
+    "options": {
+      "A": "Sugar (glucose/sucrose)",
+      "B": "NaCl",
+      "C": "HCl",
+      "D": "KOH",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Sugar dissolves in water as neutral molecules without breaking into ions, so it cannot conduct electricity and is classified as a non-electrolyte, unlike NaCl, HCl and KOH, which all dissociate into ions in solution."
+  },
+  {
+    "id": "q-1782907817746-l9yc8l",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In molecular orbital theory, which type of orbital is a bonding orbital?",
+    "options": {
+      "A": "Sigma (σ)",
+      "B": "Sigma-star (σ*)",
+      "C": "Pi-star (π*)",
+      "D": "None of these",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A bonding molecular orbital, such as a sigma (σ) orbital, forms from the constructive (in-phase) overlap of atomic orbitals, resulting in lower energy and increased electron density between the nuclei, which stabilizes the bond."
+  },
+  {
+    "id": "q-1782907817746-9m2pfh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which ion(s) have the electronic configuration [Ar]3d10?",
+    "options": {
+      "A": "Zn2+ only",
+      "B": "Cu+ only",
+      "C": "Both Zn2+ and Cu+",
+      "D": "Neither",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Zinc (Z=30) loses its two 4s electrons to form Zn2+ with configuration [Ar]3d10, while copper (Z=29) loses one 4s electron to form Cu+, also giving [Ar]3d10; both ions achieve a stable, fully filled d-subshell."
+  },
+  {
+    "id": "q-1782907817746-94tuqj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "During electrolysis, the electrode at which oxidation occurs is the:",
+    "options": {
+      "A": "Cathode",
+      "B": "Anode",
+      "C": "Electrolyte",
+      "D": "Salt bridge",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Oxidation (loss of electrons) always occurs at the anode during electrolysis, as negative ions (anions) migrate there and give up electrons, while reduction occurs at the cathode."
+  },
+  {
+    "id": "q-1782907817746-gw5qgr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The product formed when sodium reacts with cold water is:",
+    "options": {
+      "A": "NaOH and H2",
+      "B": "Na2O and H2",
+      "C": "NaCl and H2",
+      "D": "NaOH and O2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Sodium reacts vigorously with cold water to form sodium hydroxide (an alkaline solution) and hydrogen gas: 2Na + 2H2O -> 2NaOH + H2."
+  },
+  {
+    "id": "q-1782907817746-am9uyq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which substance contains both ionic and covalent bonds?",
+    "options": {
+      "A": "HCl",
+      "B": "NaCl",
+      "C": "NH4Cl",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "NH4Cl contains the ammonium ion (NH4+), in which nitrogen and hydrogen are joined by covalent (and one coordinate) bonds, while the NH4+ and Cl- ions are held together by an ionic bond, so the compound has both bond types."
+  },
+  {
+    "id": "q-1782907817746-e85ew4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which method is suitable for separating a mixture of iron filings and sulfur powder?",
+    "options": {
+      "A": "Sublimation",
+      "B": "Evaporation",
+      "C": "Magnetic separation",
+      "D": "Filtration",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Iron is magnetic while sulfur is not, so a magnet can be used to attract and remove the iron filings from the mixture, leaving the sulfur powder behind, without needing any chemical change."
+  },
+  {
+    "id": "q-1782907817746-2yiah5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What colour does litmus turn in an alkaline solution?",
+    "options": {
+      "A": "Red",
+      "B": "Blue",
+      "C": "Green",
+      "D": "Yellow",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Litmus is a natural indicator that turns blue in alkaline (basic) solutions and red in acidic solutions, due to structural changes in the dye molecule caused by changes in hydrogen ion concentration."
+  },
+  {
+    "id": "q-1782907817746-02yb1q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following has the highest boiling point?",
+    "options": {
+      "A": "H2S",
+      "B": "NH3",
+      "C": "H2O",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Water has extensive hydrogen bonding, involving two hydrogen atoms and two lone pairs per molecule, making its intermolecular forces stronger than those in H2S, NH3, or CH4, and giving it the highest boiling point of the four."
+  },
+  {
+    "id": "q-1782907817746-ozclna",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the electronic configuration of calcium (Z=20)?",
+    "options": {
+      "A": "2,8,8,2",
+      "B": "2,8,10",
+      "C": "2,8,6,4",
+      "D": "2,10,8",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Calcium has 20 electrons, which fill the shells in the order 2, 8, 8, 2, following the pattern of shell capacities (2, 8, 8, 2 for K, L, M, N shells) for this element."
+  },
+  {
+    "id": "q-1782907817746-83lsro",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following hydrocarbons is saturated?",
+    "options": {
+      "A": "Ethene",
+      "B": "Ethyne",
+      "C": "Ethane",
+      "D": "Benzene",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Ethane (C2H6) contains only single carbon-carbon and carbon-hydrogen bonds, making it a saturated hydrocarbon (alkane); ethene and ethyne contain double and triple bonds respectively, and benzene has delocalized pi bonds."
+  },
+  {
+    "id": "q-1782907817746-5niiuz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which halogen is the least reactive?",
+    "options": {
+      "A": "Fluorine",
+      "B": "Chlorine",
+      "C": "Bromine",
+      "D": "Iodine",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Reactivity of halogens decreases down the group because the atoms get larger and it becomes harder to attract an extra electron (lower electronegativity and weaker oxidizing power); iodine, being at the bottom of the common halogens, is the least reactive of the four listed."
+  },
+  {
+    "id": "q-1782907817746-1f0wuu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An isotope of hydrogen with 1 proton and 2 neutrons is:",
+    "options": {
+      "A": "Protium",
+      "B": "Deuterium",
+      "C": "Tritium",
+      "D": "A hydrogen ion",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Tritium is the hydrogen isotope with 1 proton and 2 neutrons (mass number 3). Protium (mass number 1) has no neutrons, and deuterium (mass number 2) has 1 neutron."
+  },
+  {
+    "id": "q-1782907817746-t6k27r",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is used to prevent rusting of iron?",
+    "options": {
+      "A": "Galvanization",
+      "B": "Distillation",
+      "C": "Polymerization",
+      "D": "Sublimation",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Galvanization coats iron with a layer of zinc, which is more reactive and corrodes preferentially, and also acts as a physical barrier that keeps oxygen and moisture away from the iron surface, preventing rust."
+  },
+  {
+    "id": "q-1782907817746-y1nyiw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The indicator used for strong acid-strong base titrations is typically:",
+    "options": {
+      "A": "Methyl orange",
+      "B": "Phenolphthalein",
+      "C": "Litmus",
+      "D": "Universal indicator",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Phenolphthalein has a sharp colour change (colourless to pink) within the steep pH range around the equivalence point of a strong acid-strong base titration, making it a suitable and commonly used indicator for this titration type."
+  },
+  {
+    "id": "q-1782907817746-u3bkrc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The pH of a neutral solution at 25°C is:",
+    "options": {
+      "A": "14",
+      "B": "7",
+      "C": "0",
+      "D": "1",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A neutral solution has equal concentrations of H+ and OH- ions; at 25°C, this corresponds to [H+] = 1 x 10^-7 mol/dm3, giving a pH of 7."
+  },
+  {
+    "id": "q-1782907817746-os8hkk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a noble gas?",
+    "options": {
+      "A": "Nitrogen",
+      "B": "Argon",
+      "C": "Oxygen",
+      "D": "Neon",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Argon, in Group 18 (0) of the periodic table, has a full outer electron shell, making it chemically unreactive and classifying it as a noble gas, unlike nitrogen and oxygen which are reactive diatomic gases."
+  },
+  {
+    "id": "q-1782907817746-jjfzdo",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the main component of limestone?",
+    "options": {
+      "A": "Na2CO3",
+      "B": "CaCO3",
+      "C": "CaCl2",
+      "D": "CaSO4",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Limestone is a sedimentary rock composed mainly of calcium carbonate (CaCO3), often formed from the remains of marine organisms such as shells and coral."
+  },
+  {
+    "id": "q-1782907817746-lrw86v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A catalyst increases the rate of a chemical reaction by:",
+    "options": {
+      "A": "Increasing temperature",
+      "B": "Lowering the activation energy",
+      "C": "Increasing pressure",
+      "D": "Changing the equilibrium position",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A catalyst provides an alternative reaction pathway with a lower activation energy, allowing more reactant particles to have enough energy to react per unit time, thereby speeding up the reaction without being consumed or shifting the equilibrium position."
+  },
+  {
+    "id": "q-1782907817746-jxll13",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not an alloy?",
+    "options": {
+      "A": "Steel",
+      "B": "Bronze",
+      "C": "Brass",
+      "D": "Diamond",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Diamond is a pure allotrope of carbon, not a mixture of metals, so it is not an alloy. Steel (iron and carbon), bronze (copper and tin), and brass (copper and zinc) are all metal alloys."
+  },
+  {
+    "id": "q-1782907817746-rx1yx4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A salt formed from a strong acid and a strong base is:",
+    "options": {
+      "A": "Acidic",
+      "B": "Basic",
+      "C": "Neutral",
+      "D": "Amphoteric",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When a strong acid (e.g. HCl) reacts with a strong base (e.g. NaOH), the resulting salt's ions do not hydrolyse in water, so the solution remains neutral with a pH of about 7."
+  },
+  {
+    "id": "q-1782907817746-cswplm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which gas turns limewater milky?",
+    "options": {
+      "A": "CO2",
+      "B": "O2",
+      "C": "N2",
+      "D": "CH4",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Carbon dioxide reacts with the calcium hydroxide in limewater to form insoluble calcium carbonate, which appears as a milky white precipitate; this is a standard laboratory test for CO2."
+  },
+  {
+    "id": "q-1782907817746-zbsczt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An example of a deliquescent substance is:",
+    "options": {
+      "A": "NaCl",
+      "B": "CuSO4",
+      "C": "NaOH",
+      "D": "CaCO3",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A deliquescent substance absorbs so much moisture from the air that it dissolves in the absorbed water to form a solution. Solid NaOH is a classic deliquescent substance, while CaCO3 is insoluble and NaCl is only mildly hygroscopic."
+  },
+  {
+    "id": "q-1782907817746-9284xg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The movement of particles from a region of higher concentration to a region of lower concentration is called:",
+    "options": {
+      "A": "Diffusion",
+      "B": "Filtration",
+      "C": "Osmosis",
+      "D": "Effusion",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Diffusion is the net movement of particles (molecules or ions) from an area of higher concentration to an area of lower concentration, driven by random particle motion, until concentration becomes uniform."
+  },
+  {
+    "id": "q-1782907817746-s50n96",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the oxidation state of chlorine in NaClO3?",
+    "options": {
+      "A": "+1",
+      "B": "-1",
+      "C": "+3",
+      "D": "+5",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In NaClO3, Na is +1 and each O is -2 (3 x -2 = -6). For the compound to be neutral: +1 + Cl - 6 = 0, so Cl = +5."
+  },
+  {
+    "id": "q-1782907817746-4iz9p7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these is a strong acid?",
+    "options": {
+      "A": "CH3COOH",
+      "B": "HNO3",
+      "C": "H2CO3",
+      "D": "HCN",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Nitric acid (HNO3) fully ionizes in water to release H+ ions, making it a strong acid, whereas ethanoic acid, carbonic acid, and hydrocyanic acid are weak acids that only partially ionize."
+  },
+  {
+    "id": "q-1782907817746-5n4urk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which process involves the loss of electrons?",
+    "options": {
+      "A": "Reduction",
+      "B": "Neutralization",
+      "C": "Oxidation",
+      "D": "Ionization",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Oxidation is defined as the process in which a species loses one or more electrons, resulting in an increase in its oxidation number."
+  },
+  {
+    "id": "q-1782907817746-1bsvvf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The ability of an atom to attract shared electrons in a covalent bond towards itself is called:",
+    "options": {
+      "A": "Ionization energy",
+      "B": "Electron affinity",
+      "C": "Electronegativity",
+      "D": "Atomic radius",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Electronegativity is a measure of how strongly an atom attracts the shared pair of electrons in a covalent bond; it differs from electron affinity, which relates to isolated atoms gaining an electron."
+  },
+  {
+    "id": "q-1782907817746-bgs1ol",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these compounds will give a white precipitate with AgNO3 solution?",
+    "options": {
+      "A": "NaCl",
+      "B": "CH4",
+      "C": "NH3",
+      "D": "NaOH",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Chloride ions from NaCl react with silver ions from AgNO3 to form insoluble silver chloride (AgCl), which appears as a white precipitate; this is a standard test for halide ions."
+  },
+  {
+    "id": "q-1782907817746-eaxyxq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The separation technique used to purify ethanol from a fermentation mixture is:",
+    "options": {
+      "A": "Sublimation",
+      "B": "Fractional distillation",
+      "C": "Filtration",
+      "D": "Decantation",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Fractional distillation separates ethanol from water and other components in a fermentation broth based on their different boiling points, using a fractionating column to improve separation efficiency."
+  },
+  {
+    "id": "q-1782907817746-m42gqt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not a greenhouse gas?",
+    "options": {
+      "A": "CH4",
+      "B": "N2O",
+      "C": "O2",
+      "D": "CO2",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Oxygen (O2) is a simple diatomic molecule that does not absorb infrared radiation effectively and so does not contribute to the greenhouse effect, unlike CH4, N2O and CO2, which are all recognized greenhouse gases."
+  },
+  {
+    "id": "q-1782907817746-j7yl5a",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The type of bond typically formed between two nonmetal atoms is:",
+    "options": {
+      "A": "Ionic",
+      "B": "Covalent",
+      "C": "Metallic",
+      "D": "Hydrogen bond",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Two nonmetal atoms usually have similar electronegativities and both need to gain electrons to complete their outer shells, so instead of transferring electrons they share them, forming a covalent bond."
+  },
+  {
+    "id": "q-1782907817746-5ixgj7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which substance is commonly added to water supplies to kill germs?",
+    "options": {
+      "A": "Salt",
+      "B": "Lime",
+      "C": "Chlorine",
+      "D": "Alum",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Chlorine is added to water treatment systems as a disinfectant because it kills bacteria and other pathogens; alum, by contrast, is used earlier in treatment to coagulate and remove suspended particles, not to disinfect."
+  },
+  {
+    "id": "q-1782907817746-mb3zbv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The electronic configuration of a chlorine atom (Z=17) is:",
+    "options": {
+      "A": "2,8,7",
+      "B": "2,7,8",
+      "C": "2,6,9",
+      "D": "2,8,8,1",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Chlorine has 17 electrons, filling the shells as 2 in the first shell, 8 in the second shell, and the remaining 7 in the third (outermost) shell, giving the configuration 2,8,7."
+  },
+  {
+    "id": "q-1782907817746-wem36m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In the periodic table, elements in the same group generally have the same:",
+    "options": {
+      "A": "Number of protons",
+      "B": "Similar physical properties only",
+      "C": "Number of valence electrons",
+      "D": "Atomic number",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Elements in the same group have the same number of electrons in their outermost (valence) shell, which is why they tend to show similar chemical properties and form similar types of compounds."
+  },
+  {
+    "id": "q-1782907817746-wcrk8t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the molecular formula of a compound with empirical formula CH and a relative molecular mass of 78?",
+    "options": {
+      "A": "CH",
+      "B": "C2H2",
+      "C": "C6H6",
+      "D": "C4H4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The empirical formula CH has a mass of 12+1=13. Dividing the molecular mass by this: 78/13 = 6, so the molecular formula is (CH) x 6 = C6H6, which is benzene."
+  },
+  {
+    "id": "q-1782907817746-jct6ed",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The process of heating an ore strongly in the absence of air is called:",
+    "options": {
+      "A": "Roasting",
+      "B": "Smelting",
+      "C": "Calcination",
+      "D": "Alloying",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Calcination involves heating an ore (often a carbonate) strongly without air to decompose it, for example CaCO3 -> CaO + CO2, whereas roasting heats an ore (often a sulfide) in the presence of air."
+  },
+  {
+    "id": "q-1782907817746-xyhy7z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the colour of methyl orange indicator in an acidic solution?",
+    "options": {
+      "A": "Yellow",
+      "B": "Orange",
+      "C": "Pink",
+      "D": "Red",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Methyl orange changes colour depending on pH: it appears red in strongly acidic solutions (below pH 3.1) and turns yellow in basic solutions (above pH 4.4), with orange as an intermediate transition colour."
+  },
+  {
+    "id": "q-1782907817746-5rz1un",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which metal ion is responsible for the green colour observed in a flame test?",
+    "options": {
+      "A": "Cu2+",
+      "B": "Ba2+",
+      "C": "Fe3+",
+      "D": "Cr3+",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Barium ions give a characteristic apple-green colour in a flame test, due to electrons being excited to higher energy levels and emitting green light as they fall back down; Cu2+ typically gives a blue-green flame, but Ba2+ is the standard answer for a pure green flame."
+  },
+  {
+    "id": "q-1782907817746-tfaa7g",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not a chemical property of an element?",
+    "options": {
+      "A": "Reactivity",
+      "B": "Valency",
+      "C": "Boiling point",
+      "D": "Ionization energy",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Boiling point is a physical property because it can be observed without the substance undergoing a chemical change or forming a new substance, unlike reactivity, valency, and ionization energy, which relate to how the element chemically interacts or bonds."
+  },
+  {
+    "id": "q-1782907817746-tlo6ol",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The formula of sodium trioxocarbonate(IV) is:",
+    "options": {
+      "A": "NaHCO3",
+      "B": "Na2CO3",
+      "C": "NaCl",
+      "D": "NaNO3",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Sodium trioxocarbonate(IV) is the systematic name for sodium carbonate, Na2CO3, where 'IV' refers to the +4 oxidation state of carbon and 'trioxo' indicates three oxygen atoms in the carbonate ion."
+  },
+  {
+    "id": "q-1782907817746-x6m8tm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the bond angle in methane (CH4)?",
+    "options": {
+      "A": "109.5 degrees",
+      "B": "120 degrees",
+      "C": "90 degrees",
+      "D": "104.5 degrees",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Methane has a tetrahedral shape because carbon has four bonding pairs and no lone pairs; electron pair repulsion theory predicts a bond angle of 109.5 degrees for a perfect tetrahedral arrangement."
+  },
+  {
+    "id": "q-1782907817746-7mz0k1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not an organic compound?",
+    "options": {
+      "A": "Ethanol",
+      "B": "Benzene",
+      "C": "Glucose",
+      "D": "NaOH",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "NaOH is an inorganic ionic compound containing no carbon-hydrogen framework, whereas ethanol, benzene, and glucose are all carbon-based (organic) compounds."
+  },
+  {
+    "id": "q-1782907817746-g2mso8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these compounds has the lowest boiling point?",
+    "options": {
+      "A": "H2O",
+      "B": "NH3",
+      "C": "CH4",
+      "D": "HF",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Methane (CH4) cannot form hydrogen bonds because carbon and hydrogen have similar electronegativities, so its intermolecular forces are only weak van der Waals forces, giving it the lowest boiling point among the four, unlike H2O, NH3 and HF which hydrogen bond."
+  },
+  {
+    "id": "q-1782907817746-mfg0l4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A hydrocarbon with the general formula CnH2n-2 is classified as an:",
+    "options": {
+      "A": "Alkane",
+      "B": "Alkene",
+      "C": "Alkyne",
+      "D": "Alcohol",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The general formula CnH2n-2 corresponds to alkynes, which contain a carbon-carbon triple bond and are therefore more unsaturated than alkenes (CnH2n) or alkanes (CnH2n+2)."
+  },
+  {
+    "id": "q-1782907817746-al2zny",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main raw materials for the manufacture of cement are:",
+    "options": {
+      "A": "Limestone and clay",
+      "B": "Limestone and coal",
+      "C": "Clay and sand",
+      "D": "Sand and soda",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Cement is manufactured by heating a mixture of limestone (calcium carbonate) and clay (containing silica and alumina) in a kiln to form clinker, which is then ground into cement powder."
+  },
+  {
+    "id": "q-1782907817746-thqa8j",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these substances does not undergo sublimation?",
+    "options": {
+      "A": "Iodine",
+      "B": "Camphor",
+      "C": "Sodium chloride",
+      "D": "Naphthalene",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Sodium chloride is an ionic solid with strong electrostatic forces holding its lattice together, requiring melting rather than direct solid-to-gas transition, unlike iodine, camphor and naphthalene, which are molecular solids that sublime readily."
+  },
+  {
+    "id": "q-1782907817746-xoisim",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In the electrolysis of acidified water, the gas collected at the cathode is:",
+    "options": {
+      "A": "Oxygen",
+      "B": "Hydrogen",
+      "C": "Chlorine",
+      "D": "Nitrogen",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "During electrolysis of acidified water, hydrogen ions (H+) are attracted to the cathode where they gain electrons (reduction) to form hydrogen gas, while oxygen is produced at the anode from oxidation of water molecules."
+  },
+  {
+    "id": "q-1782907817746-74mujg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which silver salt is used in photography due to its light sensitivity?",
+    "options": {
+      "A": "NaCl",
+      "B": "KNO3",
+      "C": "AgBr",
+      "D": "MgSO4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Silver bromide (AgBr) is light-sensitive; when exposed to light, it decomposes to release metallic silver, which is the basis of image formation on traditional photographic film."
+  },
+  {
+    "id": "q-1782907817746-fokjom",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which compound contains only sigma (single) bonds between its carbon atoms?",
+    "options": {
+      "A": "Ethane",
+      "B": "Ethene",
+      "C": "Ethyne",
+      "D": "Benzene",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Ethane (C2H6) has a single carbon-carbon bond, which is a sigma bond only, whereas ethene has an additional pi bond and ethyne has two additional pi bonds as part of their double and triple bonds respectively."
+  },
+  {
+    "id": "q-1782907817746-gq0ax9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main pollutant responsible for acidic rain (besides sulfur dioxide) is:",
+    "options": {
+      "A": "CO2",
+      "B": "CH4",
+      "C": "NO2",
+      "D": "H2S",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Nitrogen dioxide (NO2), released mainly from vehicle exhausts and combustion processes, dissolves in atmospheric moisture to form nitric acid, contributing significantly to acid rain alongside sulfur dioxide."
+  },
+  {
+    "id": "q-1782907817746-ny0zbj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In an endothermic reaction, the enthalpy change (delta H) is:",
+    "options": {
+      "A": "Zero",
+      "B": "Positive",
+      "C": "Negative",
+      "D": "Cannot be determined",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "An endothermic reaction absorbs heat from the surroundings, meaning the products have more enthalpy than the reactants, so delta H is positive by convention."
+  },
+  {
+    "id": "q-1782907817746-94rssa",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which substance is commonly used in the laboratory as a solid drying agent?",
+    "options": {
+      "A": "NaCl",
+      "B": "CaCl2",
+      "C": "HCl",
+      "D": "CuSO4",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Anhydrous calcium chloride (CaCl2) readily absorbs moisture from gases and solvents due to its strong affinity for water, making it a widely used laboratory drying agent."
+  },
+  {
+    "id": "q-1782907817746-udabc4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A reaction in which heat is absorbed from the surroundings is called:",
+    "options": {
+      "A": "Exothermic",
+      "B": "Endothermic",
+      "C": "Neutralization",
+      "D": "Decomposition",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "By definition, an endothermic reaction takes in (absorbs) heat energy from its surroundings, causing the surroundings to cool, in contrast to an exothermic reaction which releases heat."
+  },
+  {
+    "id": "q-1782907817746-7qtl4x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an allotrope of carbon?",
+    "options": {
+      "A": "Graphite",
+      "B": "Carbon dioxide",
+      "C": "Methane",
+      "D": "Calcium carbide",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Graphite is one of the allotropes of the element carbon (along with diamond and fullerenes), meaning it is composed purely of carbon atoms arranged in a different structural form, unlike compounds such as CO2, CH4, or CaC2."
+  },
+  {
+    "id": "q-1782907817746-zy4wln",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major constituent of ordinary glass is:",
+    "options": {
+      "A": "NaCl",
+      "B": "SiO2",
+      "C": "Al2O3",
+      "D": "CaO",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Ordinary (soda-lime) glass is made mainly from silicon dioxide (silica sand, SiO2), fused with smaller amounts of sodium carbonate and calcium oxide to lower the melting point and improve workability."
+  },
+  {
+    "id": "q-1782907817746-1si0ff",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A redox reaction fundamentally involves:",
+    "options": {
+      "A": "Loss and gain of protons",
+      "B": "Loss and gain of electrons",
+      "C": "Simple exchange of ions",
+      "D": "Change in physical state only",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Redox (reduction-oxidation) reactions involve the simultaneous loss of electrons by one species (oxidation) and gain of electrons by another (reduction); the total number of electrons lost must equal the number gained."
+  },
+  {
+    "id": "q-1782907817746-95fm9z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the correct IUPAC name of CH3CH2CH2OH?",
+    "options": {
+      "A": "Ethanol",
+      "B": "Methanol",
+      "C": "Propanol",
+      "D": "Butanol",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "CH3CH2CH2OH has three carbon atoms with the -OH group on a terminal carbon, making it propan-1-ol (propanol), the alcohol derived from propane."
+  },
+  {
+    "id": "q-1782907817746-gpyykh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The hydrocarbon that contains a carbon-carbon triple bond is:",
+    "options": {
+      "A": "Ethane",
+      "B": "Ethene",
+      "C": "Ethyne",
+      "D": "Propane",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Ethyne (acetylene, HC≡CH) is the simplest alkyne and contains a carbon-carbon triple bond, distinguishing it from ethane (single bond, alkane) and ethene (double bond, alkene)."
+  },
+  {
+    "id": "q-1782907817746-u8py59",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following pollutant gases is most associated with blood poisoning (carboxyhaemoglobin formation)?",
+    "options": {
+      "A": "CO",
+      "B": "NO",
+      "C": "SO2",
+      "D": "CO2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Carbon monoxide binds to haemoglobin far more strongly than oxygen does, forming carboxyhaemoglobin and reducing the blood's oxygen-carrying capacity, which can lead to poisoning and even death."
+  },
+  {
+    "id": "q-1782907817746-ar18za",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The process used in softening permanently hard water is:",
+    "options": {
+      "A": "Filtration",
+      "B": "Ion exchange",
+      "C": "Distillation",
+      "D": "Boiling",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Ion exchange resins replace the calcium and magnesium ions responsible for permanent hardness with sodium ions, effectively softening the water; boiling alone only removes temporary hardness caused by dissolved bicarbonates."
+  },
+  {
+    "id": "q-1782907817746-qrhot1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main constituent of natural rubber is:",
+    "options": {
+      "A": "Polyvinyl chloride",
+      "B": "Polyethylene",
+      "C": "Polyisoprene",
+      "D": "Polystyrene",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Natural rubber is a naturally occurring polymer of isoprene (2-methylbuta-1,3-diene) units, called polyisoprene, obtained from the latex of rubber trees."
+  },
+  {
+    "id": "q-1782907817746-h58imj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is used to detect the end-point in an acid-base titration?",
+    "options": {
+      "A": "Acid",
+      "B": "Base",
+      "C": "Indicator",
+      "D": "Salt",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An indicator changes colour sharply at, or very close to, the equivalence point of an acid-base titration, allowing the experimenter to visually detect when the reaction is exactly complete."
+  },
+  {
+    "id": "q-1782907817746-wp9w1p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is not a homogeneous mixture?",
+    "options": {
+      "A": "Brass",
+      "B": "Air",
+      "C": "Smoke",
+      "D": "Aqueous solution of sugar",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Smoke is a heterogeneous mixture consisting of visible solid particles dispersed in air, so its composition is not uniform throughout. Brass, air and sugar solution are all homogeneous mixtures with uniform composition."
+  },
+  {
+    "id": "q-1782907817746-vn5tut",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which pair correctly represents a physical property and a chemical property of a substance respectively?",
+    "options": {
+      "A": "Density and acidity",
+      "B": "Basicity and colour",
+      "C": "Colour and density",
+      "D": "Acidity and combustibility",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Density can be measured without changing the substance's identity (physical property), while acidity describes how a substance chemically reacts with bases or indicators (chemical property), making this the correct physical-then-chemical pairing."
+  },
+  {
+    "id": "q-1782907817746-z1rcjr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following species is not paramagnetic?",
+    "options": {
+      "A": "As+",
+      "B": "Cl-",
+      "C": "Ne2+",
+      "D": "Be+",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Cl- has the electron configuration of argon ([Ar]), with all electrons paired in filled subshells, making it diamagnetic. The other species listed have at least one unpaired electron, making them paramagnetic."
+  },
+  {
+    "id": "q-1782907817746-0693dd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Hydrogen (H2) is industrially used for making:",
+    "options": {
+      "A": "Margarine only",
+      "B": "Ammonia only",
+      "C": "Salts",
+      "D": "Margarine and ammonia",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Hydrogen is used in the hydrogenation of vegetable oils to produce margarine and is also combined with nitrogen in the Haber process to manufacture ammonia, so both uses are correct."
+  },
+  {
+    "id": "q-1782907817746-3uww8l",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which reaction below involves neither oxidation nor reduction?",
+    "options": {
+      "A": "CrO4^2- to Cr2O7^2-",
+      "B": "Cr to CrCl3",
+      "C": "Na to Na+",
+      "D": "2S2O3^2- to S4O6^2-",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In the conversion of chromate (CrO4^2-) to dichromate (Cr2O7^2-), chromium remains in the +6 oxidation state throughout; this is simply an acid-base condensation reaction, not a redox process, unlike the other options where oxidation states clearly change."
+  },
+  {
+    "id": "q-1782907817746-gxjb93",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Hydrogen peroxide (H2O2) can be used as a/an:",
+    "options": {
+      "A": "Oxidising agent",
+      "B": "Reducing agent",
+      "C": "Bleaching agent",
+      "D": "All of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Hydrogen peroxide is versatile: it can oxidize other substances (oxidizing agent), be oxidized itself by stronger oxidizers (reducing agent), and break down coloured organic compounds (bleaching agent), depending on the reaction conditions."
+  },
+  {
+    "id": "q-1782907817746-hpkcq1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In the reaction where acidified KMnO4 is decolourised by H2O2, hydrogen peroxide acts as a/an:",
+    "options": {
+      "A": "Oxidising agent",
+      "B": "Reducing agent",
+      "C": "Both oxidising and reducing agent",
+      "D": "None of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In this reaction, H2O2 is oxidized to oxygen gas while the purple permanganate ion (Mn7+) is reduced to the colourless Mn2+ ion, so hydrogen peroxide is acting as the reducing agent, causing the decolourisation."
+  },
+  {
+    "id": "q-1782907817746-ep17mj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The weight of silver displaced by a quantity of electricity that also displaces 5600 mL of O2 at STP will be:",
+    "options": {
+      "A": "5.4 g",
+      "B": "10.8 g",
+      "C": "54.9 g",
+      "D": "108.0 g",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "5600 mL of O2 at STP is 0.25 mol (5600/22400). Since O2 forms via loss of 4 electrons per mole of O2 at the anode, this requires 1 mole of electrons (1 Faraday). The same 1 Faraday of charge deposits 1 mole of Ag (Ag+ + e- -> Ag), which weighs 108 g."
+  },
+  {
+    "id": "q-1782907817746-0gen76",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "On electrolysis of dilute sulphuric acid using platinum electrodes, the product obtained at the anode is:",
+    "options": {
+      "A": "Hydrogen",
+      "B": "Oxygen",
+      "C": "Hydrogen sulphide",
+      "D": "Sulphur dioxide",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "At the inert platinum anode, water molecules (or hydroxide ions) are oxidized to release oxygen gas, while hydrogen gas is produced at the cathode from the reduction of hydrogen ions."
+  },
+  {
+    "id": "q-1782907817746-yjfsak",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Molecules in a molecular crystal are typically held together mainly by:",
+    "options": {
+      "A": "Hydrogen bonds only",
+      "B": "Electrostatic (ionic) attraction",
+      "C": "Van der Waals attraction",
+      "D": "Dipole-dipole attraction only",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In many molecular crystals, especially those of nonpolar molecules, the dominant intermolecular force holding the molecules together in the solid lattice is the relatively weak van der Waals (London dispersion) force, which is why such crystals often have low melting points."
+  },
+  {
+    "id": "q-1782907817746-gc96rs",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The conjugate acid of NH2- is:",
+    "options": {
+      "A": "NH3",
+      "B": "NH4OH",
+      "C": "NH4+",
+      "D": "NH2-",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A conjugate acid is formed by adding a proton (H+) to a base. Adding H+ to NH2- (which already carries one H and a negative charge) gives NH3, ammonia."
+  },
+  {
+    "id": "q-1782907817746-ju8arw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The maximum number of electrons that can have the azimuthal quantum number l = 3 (an f subshell) is:",
+    "options": {
+      "A": "14",
+      "B": "2",
+      "C": "10",
+      "D": "6",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "An f subshell (l=3) has 2l+1 = 7 orbitals, and each orbital can hold a maximum of 2 electrons, giving a maximum of 7 x 2 = 14 electrons."
+  },
+  {
+    "id": "q-1782907817746-kbq4nz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which quantum number describes the three-dimensional shape of an atomic orbital?",
+    "options": {
+      "A": "Azimuthal (angular momentum) quantum number",
+      "B": "Principal quantum number",
+      "C": "Spin quantum number",
+      "D": "Magnetic quantum number",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The azimuthal quantum number (l) determines the shape of an orbital (s, p, d, f), while the principal quantum number determines size/energy, the magnetic quantum number determines orientation, and the spin quantum number describes electron spin."
+  },
+  {
+    "id": "q-1782907817746-mwza7z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A catalyst alters which of the following in a chemical reaction?",
+    "options": {
+      "A": "Entropy",
+      "B": "Enthalpy",
+      "C": "Internal energy",
+      "D": "Activation energy",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "A catalyst works by providing an alternative reaction pathway with a lower activation energy, without changing the overall enthalpy, internal energy, or entropy change of the reaction itself."
+  },
+  {
+    "id": "q-1782907817746-a4q7a9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is used as a catalyst in the Contact Process (manufacture of sulphuric acid)?",
+    "options": {
+      "A": "V2O5 (vanadium(V) oxide)",
+      "B": "Fe2O3",
+      "C": "Ag2O",
+      "D": "SO3",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Vanadium(V) oxide (V2O5) is used as the catalyst in the Contact Process to speed up the oxidation of sulphur dioxide to sulphur trioxide, a key step in the industrial manufacture of sulphuric acid."
+  },
+  {
+    "id": "q-1782907817746-8aftht",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following was historically used as a catalyst in the Lead Chamber Process for sulphuric acid manufacture?",
+    "options": {
+      "A": "Nitrogen oxides",
+      "B": "Pt (platinum)",
+      "C": "Ni (nickel)",
+      "D": "V2O5",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In the older Lead Chamber Process, oxides of nitrogen acted as catalysts to help oxidize sulphur dioxide to sulphur trioxide, a role now performed by vanadium(V) oxide in the modern Contact Process."
+  },
+  {
+    "id": "q-1782907817746-jf3rro",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following hydrogen halides has the largest bond dissociation enthalpy?",
+    "options": {
+      "A": "HF",
+      "B": "HCl",
+      "C": "HBr",
+      "D": "HI",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "HF has the shortest and strongest bond among the hydrogen halides because fluorine is the smallest halogen atom, allowing closer, stronger orbital overlap, giving HF the largest bond dissociation enthalpy despite trends in electronegativity."
+  },
+  {
+    "id": "q-1782907817746-lqju8q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "For a spontaneous process, the negative change in Gibbs free energy is equal to the:",
+    "options": {
+      "A": "Heat content of the system",
+      "B": "Entropy change of the system",
+      "C": "Work of expansion",
+      "D": "Maximum useful (non-expansion) work obtainable",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The Gibbs free energy change represents the maximum amount of useful (non-expansion) work that can be extracted from a spontaneous process at constant temperature and pressure."
+  },
+  {
+    "id": "q-1782907817746-g0p9k1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The compound that contains both ionic and covalent bonds is:",
+    "options": {
+      "A": "KCl",
+      "B": "KCN",
+      "C": "CH4",
+      "D": "H2",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In potassium cyanide (KCN), the carbon and nitrogen atoms are joined by a covalent triple bond within the cyanide ion (CN-), while the K+ and CN- ions are held together by an ionic bond, so the compound has both bond types."
+  },
+  {
+    "id": "q-1782907817746-aw2aze",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In which solvent does NaCl show maximum solubility?",
+    "options": {
+      "A": "H2O",
+      "B": "C2H5OH (ethanol)",
+      "C": "CH3COCH3 (acetone)",
+      "D": "C2H5OC2H5 (ether)",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Water is a highly polar solvent with a high dielectric constant that effectively surrounds and stabilizes the Na+ and Cl- ions (hydration), giving NaCl much greater solubility in water than in less polar organic solvents like ethanol, acetone, or ether."
+  },
+  {
+    "id": "q-1782907817746-p0eji1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following salts will give the highest pH in water?",
+    "options": {
+      "A": "KCl",
+      "B": "NaCl",
+      "C": "Na2CO3",
+      "D": "CuSO4",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Na2CO3 is the salt of a strong base and a weak acid; the carbonate ion hydrolyses in water to produce hydroxide ions, making the solution basic with a high pH, unlike KCl and NaCl which are neutral, or CuSO4 which is acidic."
+  },
+  {
+    "id": "q-1782907817746-33uomt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The equilibrium between water and its vapour in an open vessel:",
+    "options": {
+      "A": "Can be achieved",
+      "B": "Depends only on pressure",
+      "C": "Cannot be achieved",
+      "D": "Depends only on temperature",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In an open vessel, water vapour continuously escapes into the surroundings and is not confined, so the vapour concentration above the liquid never builds up enough to establish a true dynamic equilibrium; this only happens in a closed system."
+  },
+  {
+    "id": "q-1782907817746-u2e4av",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "For a reversible reaction, if the concentrations of the reactants are doubled, the equilibrium constant:",
+    "options": {
+      "A": "Becomes one-fourth",
+      "B": "Is doubled",
+      "C": "Is halved",
+      "D": "Remains the same",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The equilibrium constant (K) depends only on temperature for a given reaction, not on the initial concentrations of reactants; changing concentrations shifts the position of equilibrium but does not change the value of K."
+  },
+  {
+    "id": "q-1782907817746-olvojy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The mixing of two or more gases is generally accompanied by:",
+    "options": {
+      "A": "A decrease in entropy",
+      "B": "A decrease in free energy",
+      "C": "A change in heat content only",
+      "D": "An increase in free energy",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "When gases mix, the increase in disorder (entropy) makes the process spontaneous at constant temperature and pressure, which corresponds to a decrease in the Gibbs free energy of the system (ΔG = ΔH - TΔS becomes more negative as ΔS increases)."
+  },
+  {
+    "id": "q-1782907817746-kbpchh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Electrolysis of brine (concentrated NaCl solution) produces:",
+    "options": {
+      "A": "Chlorine gas only",
+      "B": "Hydrogen gas only",
+      "C": "Sodium hydroxide only",
+      "D": "Chlorine gas, hydrogen gas, and sodium hydroxide",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In the electrolysis of brine, chlorine gas is released at the anode, hydrogen gas at the cathode, and sodium hydroxide accumulates in solution, all as useful industrial products of the chlor-alkali process."
+  },
+  {
+    "id": "q-1782907817746-ufa0mq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The acid mainly used in the manufacture of fertilizers and explosives is:",
+    "options": {
+      "A": "Nitric acid",
+      "B": "Sulfuric acid",
+      "C": "Phosphoric acid",
+      "D": "Hydrochloric acid",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Nitric acid is a key raw material for producing ammonium nitrate fertilizer and various nitrate-based explosives such as TNT and nitroglycerin, due to the reactive nitrate group it introduces."
+  },
+  {
+    "id": "q-1782907817746-2eytw2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Baking powder is typically composed of:",
+    "options": {
+      "A": "Sodium carbonate and sodium tartrate",
+      "B": "Sodium bicarbonate and sodium (or potassium) tartrate",
+      "C": "Sodium carbonate and tartaric acid",
+      "D": "Sodium carbonate and sodium benzoate",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Baking powder is a mixture of sodium bicarbonate (a base) and an acidic salt such as sodium/potassium tartrate (cream of tartar); when moistened and heated, they react to release carbon dioxide gas, causing dough to rise."
+  },
+  {
+    "id": "q-1782907817746-b17u8p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The standard conditions for measuring enthalpy changes typically include:",
+    "options": {
+      "A": "A pressure of 100 kPa",
+      "B": "A temperature of 298 K",
+      "C": "Substances in their normal physical states",
+      "D": "All of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Standard enthalpy changes are measured under a defined set of standard conditions: a pressure of 100 kPa (1 bar), a temperature of 298 K (25°C), and substances in their normal, most stable physical states."
+  },
+  {
+    "id": "q-1782907817747-qjsjeq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The application of the laws of thermodynamics to enthalpy changes in chemical reactions is particularly associated with:",
+    "options": {
+      "A": "Newton",
+      "B": "Hess",
+      "C": "Lewis",
+      "D": "Sophocles",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Hess's Law, formulated by Germain Hess, states that the total enthalpy change for a reaction is the same regardless of the route taken, applying the first law of thermodynamics (conservation of energy) to chemical enthalpy changes."
+  },
+  {
+    "id": "q-1782907817747-mhqql6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Oxygen gas is NOT released when which of the following compounds is heated?",
+    "options": {
+      "A": "(NH4)2Cr2O7 (ammonium dichromate)",
+      "B": "K2Cr2O7",
+      "C": "Zn(ClO3)2",
+      "D": "KClO3",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Heating ammonium dichromate produces chromium(III) oxide, nitrogen gas, and water vapour, but no oxygen gas, unlike K2Cr2O7, Zn(ClO3)2 and KClO3 which release oxygen on decomposition."
+  },
+  {
+    "id": "q-1782907817747-9t9sgk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Plaster of Paris (POP) has the chemical formula:",
+    "options": {
+      "A": "CaSO4.H2O",
+      "B": "CaSO4.2H2O",
+      "C": "CaSO4",
+      "D": "CaSO4.half H2O",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Plaster of Paris is calcium sulfate hemihydrate, CaSO4.1/2H2O, formed by partially dehydrating gypsum (CaSO4.2H2O) through controlled heating."
+  },
+  {
+    "id": "q-1782907817747-n6v2xz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The element beryllium (Be) shows a diagonal relationship with which element?",
+    "options": {
+      "A": "Na",
+      "B": "Al",
+      "C": "Mg",
+      "D": "B",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Beryllium shows a diagonal relationship with aluminium because both have small, highly charged ions with similar charge-to-size ratios, giving them similar chemical properties such as amphoteric oxides and covalent character in their compounds, despite being in different groups."
+  },
+  {
+    "id": "q-1782907817747-nlop2f",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Gun metal is an alloy of:",
+    "options": {
+      "A": "Copper and aluminium",
+      "B": "Copper and tin",
+      "C": "Copper, zinc and tin",
+      "D": "Copper, zinc and nickel",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Gun metal is a bronze-type alloy composed mainly of copper, along with tin and zinc, valued historically for casting cannons and still used today for bearings and fittings due to its strength and corrosion resistance."
+  },
+  {
+    "id": "q-1782907817747-yffqbx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Zinc and mercury do not show variable valency like typical d-block (transition) elements because:",
+    "options": {
+      "A": "They are soft metals",
+      "B": "Their d-shells are completely filled",
+      "C": "They have only two electrons in their outermost subshell",
+      "D": "Their d-shells are incomplete",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Zinc and mercury have completely filled 3d10 and 5d10 (or 4d10) subshells respectively, which are too stable to lose electrons from easily, so unlike true transition metals with incomplete d-shells, they show only one common oxidation state (+2)."
+  },
+  {
+    "id": "q-1782907817747-dtblyh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Paramagnetism is most commonly observed among:",
+    "options": {
+      "A": "s-block elements",
+      "B": "p-block elements",
+      "C": "d-block (transition) elements",
+      "D": "Any block equally",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Transition (d-block) elements and their compounds often have unpaired electrons in their partially filled d-orbitals, making paramagnetism a common property among them, unlike most s-block and p-block elements which tend to have paired electrons."
+  },
+  {
+    "id": "q-1782907817747-ik5tig",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In industrial processes, transition elements and their oxides are widely used as:",
+    "options": {
+      "A": "Surfactants",
+      "B": "Insecticides",
+      "C": "Catalysts",
+      "D": "None of the above",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Transition metals and their compounds are extensively used as catalysts (e.g. Fe in the Haber process, V2O5 in the Contact Process) because their variable oxidation states and available d-orbitals allow them to provide alternative, lower-energy reaction pathways."
+  },
+  {
+    "id": "q-1782907817747-4v6kgv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The most suitable vessel for storing concentrated sulphuric acid is made of:",
+    "options": {
+      "A": "Copper",
+      "B": "Aluminium",
+      "C": "Glass",
+      "D": "Earthenware",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Concentrated sulphuric acid does not react with glass, making glass vessels chemically suitable and safe for its storage, unlike reactive metals such as copper or aluminium which could corrode."
+  },
+  {
+    "id": "q-1782907817747-wq1sfe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The nitration of benzene is an example of:",
+    "options": {
+      "A": "Nucleophilic substitution",
+      "B": "Nucleophilic addition",
+      "C": "Electrophilic substitution",
+      "D": "Electrophilic addition",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In nitration, the electron-rich benzene ring attacks the electrophilic nitronium ion (NO2+), and one of the ring's hydrogen atoms is subsequently substituted by the nitro group, making it an electrophilic substitution reaction, typical of aromatic compounds."
+  },
+  {
+    "id": "q-1782907817747-iu3zgp",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The product formed by the reaction of an aldehyde with a primary amine is a/an:",
+    "options": {
+      "A": "Schiff base (imine)",
+      "B": "Ketone",
+      "C": "Carboxylic acid",
+      "D": "Aromatic acid",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Aldehydes react with primary amines through condensation, losing a molecule of water, to form an imine (also called a Schiff base), characterized by a C=N bond."
+  },
+  {
+    "id": "q-1782907817747-39cnuu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Natural rubber is a polymer of:",
+    "options": {
+      "A": "Vinyl acetate",
+      "B": "Propene",
+      "C": "Isoprene",
+      "D": "Styrene",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Natural rubber is composed of long chains of isoprene (2-methylbuta-1,3-diene) monomer units joined together, forming the polymer polyisoprene."
+  },
+  {
+    "id": "q-1782907817747-nbbu8b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Aluminium powder is used in thermite welding because it is a:",
+    "options": {
+      "A": "Strong reducing agent",
+      "B": "Strong oxidising agent",
+      "C": "Corrosion-resistant metal",
+      "D": "Good conductor of heat",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In thermite welding, aluminium powder reacts with iron(III) oxide in a highly exothermic reaction, reducing the iron oxide to molten iron because aluminium is a stronger reducing agent than iron, readily giving up electrons to reduce Fe2O3."
+  },
+  {
+    "id": "q-1782907817747-05bhj4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The metals zinc and tin are present together in which alloy?",
+    "options": {
+      "A": "Solder",
+      "B": "Brass",
+      "C": "Bronze",
+      "D": "Duralumin",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Solder is traditionally an alloy of tin and lead used for joining metal parts; among the options given, it is the alloy most associated with tin combined with another metal such as zinc in certain solder formulations, distinguishing it from brass (copper and zinc) and bronze (copper and tin)."
+  },
+  {
+    "id": "q-1782907817747-chci8w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In the electrolytic refining of metals, the impure metal is made the:",
+    "options": {
+      "A": "Cathode",
+      "B": "Salt bridge",
+      "C": "Anode",
+      "D": "Electrolyte",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "During electrolytic refining, the impure metal is connected as the anode so that it dissolves into the electrolyte as metal ions upon oxidation, while pure metal is then deposited at the cathode through reduction."
+  },
+  {
+    "id": "q-1782907817747-oiuvvm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is found in stainless steel, distinguishing it from ordinary steel?",
+    "options": {
+      "A": "Chromium",
+      "B": "Aluminium",
+      "C": "Carbon",
+      "D": "Nitrogen",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Stainless steel is defined by the addition of chromium (typically at least 10.5%) to iron, which forms a thin, self-healing protective oxide layer on the surface that resists rusting and corrosion."
+  },
+  {
+    "id": "q-1782907817747-84ok8r",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is NOT an alloy of copper?",
+    "options": {
+      "A": "Brass",
+      "B": "Bronze",
+      "C": "Solder",
+      "D": "Duralumin",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Solder is traditionally an alloy of tin and lead (or tin-based alloys without copper), so it is not classified as a copper alloy, unlike brass (copper and zinc) and bronze (copper and tin)."
+  },
+  {
+    "id": "q-1782907817747-0lgwa9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The two main metals present in bronze are:",
+    "options": {
+      "A": "Copper and zinc",
+      "B": "Copper and lead",
+      "C": "Copper and nickel",
+      "D": "Copper and tin",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Bronze is an alloy made primarily of copper combined with tin, which gives it greater hardness and corrosion resistance than pure copper, making it useful historically for tools, statues, and coins."
+  },
+  {
+    "id": "q-1782907817747-3k8869",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a saturated compound?",
+    "options": {
+      "A": "C3H6",
+      "B": "C3H5",
+      "C": "C2H5Cl",
+      "D": "C3H5Cl2",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "C2H5Cl (chloroethane) contains only single bonds between its carbon atoms, making it a saturated compound, whereas C3H6 and the other options contain double bonds or represent unsaturated/incomplete structures."
+  },
+  {
+    "id": "q-1782907817747-wvj96m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Sodium hydroxide solution is commonly used in the laboratory to test for the presence of which ion?",
+    "options": {
+      "A": "Ca2+",
+      "B": "Zn2+",
+      "C": "NH4-",
+      "D": "Cu2+",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Adding NaOH to a solution containing Cu2+ ions produces a characteristic pale blue precipitate of copper(II) hydroxide, which is insoluble in excess NaOH, making it a reliable test for Cu2+ ions."
+  },
+  {
+    "id": "q-1782907817747-a58bss",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is NOT obtained from the destructive distillation of coal?",
+    "options": {
+      "A": "Benzene",
+      "B": "Coal tar",
+      "C": "Coke",
+      "D": "Ammoniacal liquor",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Coke is actually the solid residue left behind after the destructive distillation of coal, while benzene, coal tar and ammoniacal liquor are all products driven off as volatile substances during the process; so coke is the main solid product, not a distillate."
+  },
+  {
+    "id": "q-1782907817747-s7n9ps",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Onions mainly store their food reserves in the:",
+    "options": {
+      "A": "Corm",
+      "B": "Stem",
+      "C": "Leaves (bulb scales)",
+      "D": "Root",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An onion bulb is made up of swollen, fleshy modified leaves (leaf bases) that store food reserves such as sugars, distinguishing it from a corm, which is a swollen underground stem."
+  },
+  {
+    "id": "q-1782907817747-iepbax",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which industrial process is used for the production of ammonia (NH3)?",
+    "options": {
+      "A": "Haber process",
+      "B": "Contact process",
+      "C": "Solvay process",
+      "D": "Ostwald process",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Haber process combines nitrogen and hydrogen gases over an iron catalyst at high temperature and pressure to synthesize ammonia (N2 + 3H2 -> 2NH3), forming the basis of most industrial ammonia and fertilizer production."
+  },
+  {
+    "id": "q-1782907817747-b85b8v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The natural shedding of leaves from a plant is known as:",
+    "options": {
+      "A": "Abscission",
+      "B": "Transpiration",
+      "C": "Photosynthesis",
+      "D": "Germination",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Abscission is the biological process by which a plant deliberately sheds parts such as leaves, flowers, or fruit, usually triggered by hormonal changes (such as reduced auxin and increased ethylene) especially as seasons change."
+  },
+  {
+    "id": "q-1782907817747-apmj6i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the atomic number of oxygen?",
+    "options": {
+      "A": "6",
+      "B": "8",
+      "C": "16",
+      "D": "10",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The atomic number of an element equals the number of protons in its nucleus. Oxygen has 8 protons, giving it the atomic number 8."
+  },
+  {
+    "id": "q-1782907817747-dvgmb5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is the correct molecular formula for methane?",
+    "options": {
+      "A": "CH4",
+      "B": "CH3OH",
+      "C": "CH3COOH",
+      "D": "C6H6",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Methane is the simplest alkane, consisting of one carbon atom bonded to four hydrogen atoms, giving the molecular formula CH4."
+  },
+  {
+    "id": "q-1782907817747-c7beet",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Chemistry",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the molar mass of sodium chloride (NaCl)?",
+    "options": {
+      "A": "56 g/mol",
+      "B": "58.5 g/mol",
+      "C": "60 g/mol",
+      "D": "45 g/mol",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The molar mass of NaCl is found by adding the relative atomic masses of sodium (23) and chlorine (35.5): 23 + 35.5 = 58.5 g/mol."
+  },
+  {
     "id": "q-1782901715153-sakm3t",
     "university": "Rivers State University",
     "year": "General",

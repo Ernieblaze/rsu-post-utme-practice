@@ -25,6 +25,7 @@ const SESSION_BATCH_SIZE = 6;
 
 export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
+  const [showCoursePicker, setShowCoursePicker] = useState(false);
   const selectedCourse = courseId ? findCourseById(courseId) : null;
 
   const [search, setSearch] = useState('');
@@ -77,12 +78,14 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
   function handleSelectCourse(id: string) {
     setSelectedCourseId(id);
     setCourseId(id);
+    setShowCoursePicker(false);
   }
 
   function handleChangeCourse() {
     clearSelectedCourseId();
     setCourseId(null);
     setSubject('all');
+    setShowCoursePicker(false);
   }
 
   return (
@@ -114,8 +117,28 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
             course={selectedCourse.course}
             onChangeCourse={handleChangeCourse}
           />
+        ) : showCoursePicker ? (
+          <div className="space-y-2">
+            <CoursePicker onSelect={handleSelectCourse} />
+            <button
+              onClick={() => setShowCoursePicker(false)}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-school-muted hover:text-school-navy dark:hover:text-slate-200"
+            >
+              <X size={12} /> Cancel — show all subjects
+            </button>
+          </div>
         ) : (
-          <CoursePicker onSelect={handleSelectCourse} />
+          <div className="flex items-center justify-between rounded-xl border border-dashed border-school-green/30 bg-school-light/60 px-4 py-3 dark:border-school-green/20 dark:bg-school-navy/40">
+            <span className="text-sm text-school-navy/70 dark:text-slate-400">
+              Showing all questions ·{' '}
+              <button
+                onClick={() => setShowCoursePicker(true)}
+                className="font-semibold text-school-green underline-offset-2 hover:underline"
+              >
+                Filter to my course
+              </button>
+            </span>
+          </div>
         )}
       </div>
 

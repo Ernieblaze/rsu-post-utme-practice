@@ -18,6 +18,12 @@ const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
   Biology: ['Biology'],
   Geography: ['Geography'],
   CRS: ['CRS'],
+  Economics: ['Economics'],
+  Government: ['Government'],
+  History: ['History'],
+  Literature: ['Literature', 'Literature in English'],
+  Commerce: ['Commerce'],
+  Accounting: ['Accounting', 'Financial Accounting'],
 };
 
 /** A JAMB combo slot is a generic elective ("Any Social Science subject") rather than a named subject. */
