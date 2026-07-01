@@ -25,6 +25,9 @@ export default defineConfig(async ({ mode }) => {
         ],
       },
       workbox: {
+        // The question bank JSON is large (2–5 MB) — raise the precache limit so
+        // the PWA service worker doesn't refuse to cache it as the bank grows.
+        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024, // 8 MB
         // Never cache Supabase or Paystack requests -- auth, data, and payments must always hit the network.
         runtimeCaching: [
           {
@@ -53,5 +56,19 @@ export default defineConfig(async ({ mode }) => {
     plugins,
     envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
     define: processEnvDefines,
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            // Put bank.json in its own chunk so the app shell loads fast
+            if (id.includes('bank.json')) return 'bank-data';
+            // Vendor split for large third-party libs
+            if (id.includes('node_modules/framer-motion')) return 'framer';
+            if (id.includes('node_modules/@supabase')) return 'supabase';
+            if (id.includes('node_modules/lucide-react')) return 'lucide';
+          },
+        },
+      },
+    },
   };
 })
