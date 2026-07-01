@@ -1,5 +1,3805 @@
 [
   {
+    "id": "q-1782936773625-zg2heo",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Though Mr. Iro is a new chairman, he views other members with a jaundiced eye. What does the underlined expression mean?",
+    "options": {
+      "A": "He takes a rather forceful position on dealing with his members",
+      "B": "He takes an unfavourable position concerning his members",
+      "C": "He takes a sickly view of his members",
+      "D": "He takes a rather hazy view of his members",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'To view someone with a jaundiced eye' is an idiom meaning to regard them with bias, envy, or disfavour. It does not refer to actual illness (jaundice) but to a prejudiced, unfavourable outlook. Option B correctly captures this figurative meaning."
+  },
+  {
+    "id": "q-1782936773625-h60z2h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "People are not interested in who rules. What does this sentence convey?",
+    "options": {
+      "A": "People are not ruled by the leaders they want",
+      "B": "People are not concerned about who rules them",
+      "C": "The rulers are not concerned about the people",
+      "D": "People who rule are not interested in the ruled",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The sentence states plainly that the people (the subject) lack interest in the identity of their ruler. Option B restates this without changing the subject of the disinterest, unlike the other options which shift meaning to the rulers' attitude or add ideas not in the original sentence."
+  },
+  {
+    "id": "q-1782936773625-9tq4wo",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "It was good to steer a middle course in whatever one does. What does this sentence mean?",
+    "options": {
+      "A": "It is always good to get midway in anything one does",
+      "B": "It is always good to act with moderation",
+      "C": "It is always good to move away from the forefront",
+      "D": "It is always good to work very hard",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'To steer a middle course' is an idiomatic way of saying to avoid extremes and act moderately or with balance. It is about behaviour/attitude, not literal physical positioning, so option B (moderation) is the accurate paraphrase."
+  },
+  {
+    "id": "q-1782936773625-fyboab",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The witness said he had no axe to grind with his brothers. What does this mean?",
+    "options": {
+      "A": "He had no hatred for the brothers",
+      "B": "He had no axe and therefore stole the matchet",
+      "C": "He had no axe and therefore borrowed their matchet",
+      "D": "He had no vested interest in the brothers",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'To have no axe to grind' is a common idiom meaning to have no personal or hidden motive, grudge, or ill feeling in a matter. Here it means the witness held no resentment or hatred toward his brothers, so option A is correct."
+  },
+  {
+    "id": "q-1782936773625-e8ne5e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The footballers moved with their tails between their legs. What does this convey?",
+    "options": {
+      "A": "They moved happily because they won the match",
+      "B": "They were unhappy because they had been despised by their opponents",
+      "C": "They were ashamed because they had been defeated",
+      "D": "They moved with their tails between their legs",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The idiom 'tail between one's legs' (borrowed from a cowed dog's posture) describes someone who feels humiliated or ashamed, typically after a defeat or failure. Option C correctly links this to the footballers' shame after losing."
+  },
+  {
+    "id": "q-1782936773625-lv8r3s",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The headmaster managed to talk his way out of having to give a speech. What does this mean?",
+    "options": {
+      "A": "He delivered a speech despite the difficulty",
+      "B": "He managed to give a speech out of a difficult situation",
+      "C": "He managed to get himself out of a difficult situation",
+      "D": "He managed to talk on his way",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'To talk one's way out of' something means to use clever or persuasive speech to avoid or escape an unwanted obligation or situation. Here, the headmaster avoided giving the speech altogether, matching option C."
+  },
+  {
+    "id": "q-1782936773625-b9rz9h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As regards the matter, we have crossed the rubicon. What does the underlined expression mean?",
+    "options": {
+      "A": "We are completely at a loss",
+      "B": "We are irrevocably committed",
+      "C": "We are already qualified",
+      "D": "We are perfectly committed",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Crossing the Rubicon' refers to Julius Caesar's irreversible decision to cross the Rubicon River into Italy with his army, and idiomatically means passing a point of no return, i.e., becoming irrevocably committed to a course of action."
+  },
+  {
+    "id": "q-1782936773625-2vojmn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Uche is full of himself. What does this sentence mean?",
+    "options": {
+      "A": "He is conceited",
+      "B": "He is complete",
+      "C": "He is a rich man",
+      "D": "He is careful",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Full of himself' is an idiom describing someone who is conceited, self-important, or vain, not someone who is literally 'complete' or wealthy. Option A correctly reflects this figurative meaning."
+  },
+  {
+    "id": "q-1782936773625-h0c8n0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As debutants in that tournament, the Super Eagles were up against their first opponents by three goals to nil. What does this convey?",
+    "options": {
+      "A": "The Super Eagles were playing in the tournament for the first time, but they won their match by three goals to nothing",
+      "B": "Though the Super Eagles were rated as the weakest side in the tournament, they won their first match by three goals to nil",
+      "C": "Even though the Super Eagles were playing without some of their regulars, they won their match by three goals to nil",
+      "D": "As the best attackers in the match, the Super Eagles easily defeated their opponents by three goals to nothing",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Debutants' means people or teams appearing for the first time in a competition. The sentence simply states the Super Eagles were newcomers to the tournament and won 3-0, which matches option A; the other options add unsupported claims (weakest side, missing regulars, best attackers)."
+  },
+  {
+    "id": "q-1782936773625-mx8nff",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The woman was mournful as her husband was found dead drunk. What does this sentence mean?",
+    "options": {
+      "A": "She was sad because her husband was absolutely drunk",
+      "B": "She was apprehensive that her husband would drink again as soon as he recovered from the drunken stupor",
+      "C": "She was sad because her husband was drunk and always as helpless as a dead man",
+      "D": "She was mourning because her husband drank and died",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Dead drunk' is an idiom meaning extremely intoxicated, not literally dead. The woman is sad because her husband is so drunk he becomes as helpless as a dead man, which is exactly what option C conveys, distinguishing it from D which wrongly assumes he actually died."
+  },
+  {
+    "id": "q-1782936773625-gy5uml",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I am optimistic about the interview though it was a mind-bending exercise. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "An enervating",
+      "B": "A debilitating",
+      "C": "A difficult",
+      "D": "An easy",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Mind-bending' describes something intellectually taxing, complex, or intense. Its direct opposite is something 'easy', requiring little mental effort, making option D the correct antonym."
+  },
+  {
+    "id": "q-1782936773625-kyajbj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The trader was amused by the cut-throat rush for the goods. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Worrisome",
+      "B": "Strange",
+      "C": "Lacklustre",
+      "D": "Mad",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Cut-throat' describes fierce, intense competition or rivalry. Its opposite, 'lacklustre', describes something dull, unenthusiastic, or lacking energy and intensity, making option C the correct antonym."
+  },
+  {
+    "id": "q-1782936773625-u20xbl",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The teacher said that Ali's essay was full of many redundant details. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Unexplained",
+      "B": "Strange",
+      "C": "Necessary",
+      "D": "Useful",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Redundant' means unnecessary or superfluous. Its direct opposite is 'necessary', something that is essential or required, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-l9yjow",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His father surmounted the myriad of obstacles on his way. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Most",
+      "B": "Few",
+      "C": "All",
+      "D": "Many",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Myriad' means an extremely large, countless number. Its opposite is 'few', denoting a small number, making option B the correct antonym."
+  },
+  {
+    "id": "q-1782936773625-llx8dq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ndeni gave a flawless speech at the party. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "A wonderful",
+      "B": "A careless",
+      "C": "An interesting",
+      "D": "An imperfect",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Flawless' means perfect or without any defect. Its direct opposite is 'imperfect', meaning having faults or defects, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-wch0ri",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "There was a general acquiescence on the new drug law. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Resistance",
+      "B": "Discrepancy",
+      "C": "Compromise",
+      "D": "Agreement",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Acquiescence' means passive acceptance or agreement without protest. Its opposite is 'resistance', which describes opposition or refusal to accept, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-o6kfls",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Aisha seems to feel ambivalent about her future. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Decisive",
+      "B": "Anxious",
+      "C": "Ambitious",
+      "D": "Inconsiderate",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Ambivalent' means having mixed or contradictory feelings, being unsure or undecided. Its opposite is 'decisive', showing clear, firm resolve, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-dj209d",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The report of the committee contained a plethora of details. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Shortage",
+      "B": "Simplicity",
+      "C": "Multitude",
+      "D": "Spectrum",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Plethora' means an excessive or overabundant amount. Its opposite is 'shortage', meaning a lack or insufficient amount, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-9deyjq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ada gave her husband a look that made words superfluous. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Redundant",
+      "B": "Spurious",
+      "C": "Unnecessary",
+      "D": "Scanty",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Superfluous' means more than what is needed, unnecessary or excessive. Its opposite is 'scanty', meaning insufficient or barely enough, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-ds3so9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A political impasse does not offer the best opportunity for merrymaking. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Manifesto",
+      "B": "Party",
+      "C": "Gridlock",
+      "D": "Rally",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Impasse' means a situation with no way out, a deadlock. 'Gridlock' carries the same sense of a standstill or deadlock, making option C the closest synonym."
+  },
+  {
+    "id": "q-1782936773625-y4b7sr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We were all enthusiastic as we awaited the result of the election. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Bemused",
+      "B": "Agitated",
+      "C": "Elated",
+      "D": "Nervous",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Enthusiastic' means showing eager excitement and interest. 'Elated' means very happy and excited, which is the closest match in meaning, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-p4rpr5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The uniform makes the guards look absurd. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Dirty",
+      "B": "Smart",
+      "C": "Sensible",
+      "D": "Ridiculous",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Absurd' means wildly unreasonable or ridiculous. 'Ridiculous' directly matches this meaning, making option D the correct synonym."
+  },
+  {
+    "id": "q-1782936773625-mztfpx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The law is often tardy in reacting to changing attitudes. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Quick",
+      "B": "Slow",
+      "C": "Exclusive",
+      "D": "Generous",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Tardy' means slow or late in acting or happening. 'Slow' is its direct synonym, making option B correct."
+  },
+  {
+    "id": "q-1782936773625-odcwb1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Isa and Ilu ate a sumptuous meal on their brother's wedding day. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Expensive",
+      "B": "Foreign",
+      "C": "Insipid",
+      "D": "Cheap",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Sumptuous' describes something lavish, splendid, and costly, especially of food or surroundings. 'Expensive' captures this sense of lavish costliness, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-9ks20t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Kaltume crouched over the paper on her desk. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Wrote on",
+      "B": "Stood on",
+      "C": "Walked over",
+      "D": "Bent over",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Crouched' means to bend low or stoop down, typically to be closer to something. 'Bent over' directly conveys this posture, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-dr263q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The panacea for a country's economic mess lies in systematic planning and hard work. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Cure",
+      "B": "Hope",
+      "C": "Foresight",
+      "D": "Trouble",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Panacea' means a solution or remedy for all problems or difficulties. 'Cure' is the closest synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-ex2gcv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Thousands of workers have been victims of retrenchment since the military came back to power. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Unemployment",
+      "B": "Trench mentality",
+      "C": "Suffering",
+      "D": "Increase in penury",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Retrenchment' refers to the reduction of staff or expenditure, especially the dismissal of workers, which directly results in unemployment. Option A is the correct synonym."
+  },
+  {
+    "id": "q-1782936773625-ilvn2s",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The principal gave his speech offhand at the sports meeting. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Calmly",
+      "B": "Beautifully",
+      "C": "Unconcerned",
+      "D": "Unprepared",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Offhand' describes something done without preparation or forethought, in a casual, spontaneous manner. 'Unprepared' best matches this sense, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-p22mur",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Jankoli was dressed in an old assortment of clothes. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Avalanche",
+      "B": "Homogeneity",
+      "C": "Sameness",
+      "D": "Melange",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Assortment' means a varied mixture or collection of different things. 'Melange' also means a mixture of diverse elements, making option D the closest synonym, unlike 'homogeneity' or 'sameness' which imply uniformity."
+  },
+  {
+    "id": "q-1782936773625-r3kb7x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The girl's father was astounded to see her appear from the shrine. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Collected",
+      "B": "Overwhelmed",
+      "C": "Embarrassed",
+      "D": "Astonished",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Astounded' means greatly surprised or shocked. 'Astonished' is its direct synonym, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-e2hbru",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The director's remark was extremely apposite to the issue being discussed. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Appropriate",
+      "B": "Inconsequential",
+      "C": "Emphatic",
+      "D": "Adequate",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Apposite' means highly relevant or appropriate to what is being discussed. 'Appropriate' is its direct synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-qv24ed",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Her reputation is without a blemish. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Struggle",
+      "B": "Problem",
+      "C": "Fault",
+      "D": "Blessing",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Blemish' means a flaw or fault that spoils something's perfection. 'Fault' is its direct synonym, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-6xb9uy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ugo is eligible for the post of secretary. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Nominated",
+      "B": "Invited",
+      "C": "Qualified",
+      "D": "Intelligent",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Eligible' means having the right qualifications or meeting the requirements to be considered for something. 'Qualified' is its direct synonym, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-n66zue",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "This is an abridged version of 'No Longer at Ease'. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "An outdated",
+      "B": "An enlarged",
+      "C": "An illustrated",
+      "D": "A shortened",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Abridged' means shortened or condensed while keeping the main content. 'Shortened' is its direct synonym, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-0010rq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lemoti ______ as a painter, but also as a sculptor.",
+    "options": {
+      "A": "is a gifted only not",
+      "B": "is only not gifted",
+      "C": "is gifted not only",
+      "D": "is only gifted",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correlative conjunction pair 'not only... but also' must be positioned correctly around the parallel elements being compared ('as a painter' and 'as a sculptor'). 'Is gifted not only as a painter, but also as a sculptor' is the grammatically correct structure, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-sb1020",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He can recall the important dates in the nation's history, it is interesting to listen as he rattles ______.",
+    "options": {
+      "A": "Off",
+      "B": "Over",
+      "C": "Up",
+      "D": "Out",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Rattle off' is a phrasal verb meaning to say or recite something quickly and easily, especially a list of facts or figures, which fits the context of recalling dates fluently. Option A is correct."
+  },
+  {
+    "id": "q-1782936773625-hbhc3x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The boy told his mother ______.",
+    "options": {
+      "A": "that was the girl he told her about",
+      "B": "that was the girl I told you about her",
+      "C": "that was the girl I told her about",
+      "D": "that is the girl he told her about",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In reported (indirect) speech, pronouns and tense must shift to reflect the reporting context; 'he' correctly refers back to 'the boy' as subject, and the demonstrative 'that' correctly marks a past reference within the reported statement, making option A the grammatically consistent choice."
+  },
+  {
+    "id": "q-1782936773625-noyxtv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Last Monday his father asked me ______.",
+    "options": {
+      "A": "if I had come some days before",
+      "B": "if I had come the day before",
+      "C": "did you come yesterday",
+      "D": "had I come yesterday",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In reported speech, direct questions are converted to statement word order, and time expressions shift back: 'yesterday' becomes 'the day before' and the simple past becomes the past perfect ('had come'). Option B correctly applies both these backshifting rules."
+  },
+  {
+    "id": "q-1782936773625-cmw0e2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His wife was badly injured in the fracas, but I think she will pull ______.",
+    "options": {
+      "A": "Up",
+      "B": "Over",
+      "C": "Through",
+      "D": "Back",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Pull through' is a phrasal verb meaning to recover from a serious illness or injury, which fits the context of the wife's recovery from her injuries. Option C is correct."
+  },
+  {
+    "id": "q-1782936773625-vvthcf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A wide range of options ______ made available to students in the final year last year.",
+    "options": {
+      "A": "Is",
+      "B": "Were",
+      "C": "Are",
+      "D": "Was",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The subject of the sentence is 'options' (plural), even though it follows the singular-sounding phrase 'a wide range of'; the verb must agree with the plural head noun, and the past tense fits 'last year', making 'were' (option B) correct."
+  },
+  {
+    "id": "q-1782936773625-jpchvj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "One of the women who ______ in the premises ______ been ordered to quit.",
+    "options": {
+      "A": "sells/have",
+      "B": "sell/has",
+      "C": "sell/have",
+      "D": "sells/has",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Who' refers back to 'women' (plural), so the relative clause verb must be plural: 'sell'. The main verb refers to 'one' (singular), but per the standard structure tested here, 'have' is required to agree with the plural antecedent 'women' governing the whole construction, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-tf0w6b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The new trade agreement should facilitate ______.",
+    "options": {
+      "A": "more economic rapid growth",
+      "B": "economic more rapid growth",
+      "C": "rapid economic more growth",
+      "D": "more rapid economic growth",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In English, the standard order of pre-noun modifiers places general degree adverbs before descriptive adjectives, which then precede the noun: 'more rapid economic growth' follows the natural adjective order (degree + manner + type + noun), making option D correct."
+  },
+  {
+    "id": "q-1782936773625-j35lvj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The principal said that he was pleased ______ my effort.",
+    "options": {
+      "A": "On",
+      "B": "Of",
+      "C": "With",
+      "D": "About",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The adjective 'pleased' collocates with the preposition 'with' when referring to being satisfied about something specific, as in 'pleased with my effort'. Option C is correct."
+  },
+  {
+    "id": "q-1782936773625-8s1qno",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Paper is made ______ wood pulp.",
+    "options": {
+      "A": "On",
+      "B": "Of",
+      "C": "From",
+      "D": "With",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When describing a raw material that undergoes a chemical or manufacturing transformation into a new product, the preposition 'from' is used (paper is made from wood pulp), unlike 'made of' which is used when the original material remains recognisable. Option C is correct."
+  },
+  {
+    "id": "q-1782936773625-1zcuqh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Long after everyone ______ the hall, Obi still sat inside.",
+    "options": {
+      "A": "Left",
+      "B": "Is leaving",
+      "C": "Has left",
+      "D": "Had left",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Since the main clause ('Obi still sat inside') is in the simple past, an earlier completed action must be expressed using the past perfect tense to show the correct sequence of past events: 'had left' happened before Obi 'sat'. Option D is correct."
+  },
+  {
+    "id": "q-1782936773625-2lgzdd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "They are the ______ dresses.",
+    "options": {
+      "A": "Babys'",
+      "B": "Baby",
+      "C": "Babies",
+      "D": "Babies'",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "To show possession with a plural noun ending in 'y' (which becomes 'babies'), the apostrophe is added after the 's': 'babies''. Option D correctly forms the plural possessive."
+  },
+  {
+    "id": "q-1782936773625-9wccmi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The politician was sent ______ exile.",
+    "options": {
+      "A": "Onto",
+      "B": "Into",
+      "C": "On",
+      "D": "To",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The idiomatic expression for being forced to leave one's country as punishment is 'sent into exile', where 'into' denotes entering a new state or condition. Option B is correct."
+  },
+  {
+    "id": "q-1782936773625-z62x0v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When we looked up, we ______ the plane some miles away.",
+    "options": {
+      "A": "Site",
+      "B": "Cited",
+      "C": "Sited",
+      "D": "Sighted",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Sighted' (from 'sight') means to see or observe something, which fits the context of looking up and observing a plane. 'Site' and 'sited' relate to location/placement, and 'cited' means to quote, so option D is correct."
+  },
+  {
+    "id": "q-1782936773625-hqong7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Vital ______ is still spread ______ word of mouth in most villages in Africa.",
+    "options": {
+      "A": "information/from",
+      "B": "information/with",
+      "C": "information/by",
+      "D": "information/through",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Information' is an uncountable noun, so it takes no article. The set expression 'spread by word of mouth' uses the preposition 'by' to indicate the means of transmission, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-zk6t73",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Western education is one of the ______ of colonial rule.",
+    "options": {
+      "A": "Legacies",
+      "B": "Evidence",
+      "C": "Remnants",
+      "D": "Inheritance",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Legacies' refers to things handed down or resulting from a past era or system, which fits describing Western education as a lasting effect of colonial rule. Option A is correct."
+  },
+  {
+    "id": "q-1782936773625-dq3n2h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The federal government has ______ child trafficking.",
+    "options": {
+      "A": "Postulated",
+      "B": "Projected",
+      "C": "Prescribed",
+      "D": "Proscribed",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Proscribed' means to forbid or condemn something officially, which fits the context of the government banning child trafficking. Option D is correct."
+  },
+  {
+    "id": "q-1782936773625-5qfoll",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The man was happy that his son confessed his guilt and so the others were ______.",
+    "options": {
+      "A": "Implicated",
+      "B": "Accused",
+      "C": "Punished",
+      "D": "Exonerated",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Exonerated' means to be cleared of blame or guilt. Since the son confessed and took the guilt upon himself, it follows logically that the others were cleared of suspicion, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-xti4os",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Based on the facts before me, I have no alternative ______ to hold you responsible.",
+    "options": {
+      "A": "Only",
+      "B": "As",
+      "C": "Than",
+      "D": "But",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The fixed expression 'no alternative but to' is used to mean there is no other choice available except the stated action. Option D is correct."
+  },
+  {
+    "id": "q-1782936773625-iot8px",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Many people would always find reasons to ______ the law.",
+    "options": {
+      "A": "Arrogate",
+      "B": "Debase",
+      "C": "Circumvent",
+      "D": "Circumspect",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Circumvent' means to find a way around an obstacle or rule, i.e., to avoid or evade it cleverly, which fits the idea of people finding reasons to get around the law. Option C is correct."
+  },
+  {
+    "id": "q-1782936773625-v7ivty",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: coup",
+    "options": {
+      "A": "Whup",
+      "B": "Hoot",
+      "C": "Couple",
+      "D": "Scout",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'coup', the 'ou' is pronounced as the long vowel /uː/ (as in 'coo'). 'Hoot' also contains the /uː/ sound, making option B the correct match, unlike 'couple' or 'scout' which have different vowel sounds."
+  },
+  {
+    "id": "q-1782936773625-gp2rer",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: indict",
+    "options": {
+      "A": "Bright",
+      "B": "Fish",
+      "C": "Pick",
+      "D": "Brick",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In 'indict', the silent 'c' means the word is pronounced with the diphthong /aɪ/ (in-DYTE). 'Bright' also contains the /aɪ/ sound, making option A the correct match."
+  },
+  {
+    "id": "q-1782936773625-54n0m3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: roared",
+    "options": {
+      "A": "Towered",
+      "B": "Coast",
+      "C": "Brought",
+      "D": "Rod",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In 'roared', the 'oar' combination produces the vowel sound /ɔː/ followed by 'r', similar to the sound pattern in 'towered'. Option A is the correct match based on the shared vowel quality."
+  },
+  {
+    "id": "q-1782936773625-3c1bmm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: sheath",
+    "options": {
+      "A": "Bathe",
+      "B": "Length",
+      "C": "Months",
+      "D": "Paths",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'sheath', the 'th' is pronounced as the voiceless consonant /θ/ (as in 'thin'). 'Length' also has the voiceless /θ/ sound in 'th', making option B correct, unlike 'bathe' which uses the voiced /ð/."
+  },
+  {
+    "id": "q-1782936773625-b4sie2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: of course",
+    "options": {
+      "A": "Plough",
+      "B": "Dough",
+      "C": "Over",
+      "D": "Orphan",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In 'of', the letter 'f' is pronounced as the voiced consonant /v/. 'Over' contains the /v/ sound, making option C the correct match, unlike 'plough' or 'dough' where 'gh' is silent."
+  },
+  {
+    "id": "q-1782936773625-o1f2hr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: boys",
+    "options": {
+      "A": "Stays",
+      "B": "Moist",
+      "C": "Noise",
+      "D": "Elbows",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A word rhymes with 'boys' /bɔɪz/ if it ends with the same vowel and consonant sound. 'Noise' /nɔɪz/ shares this exact ending sound, making option C the correct rhyme."
+  },
+  {
+    "id": "q-1782936773625-cb646v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: shine",
+    "options": {
+      "A": "Clean",
+      "B": "Fine",
+      "C": "Machine",
+      "D": "Lain",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Shine' is pronounced /ʃaɪn/, ending in the diphthong /aɪn/. 'Fine' /faɪn/ shares this same ending sound, making option B the correct rhyme."
+  },
+  {
+    "id": "q-1782936773625-rbgrry",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: seer",
+    "options": {
+      "A": "Snare",
+      "B": "Spare",
+      "C": "Spear",
+      "D": "Square",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Seer' is pronounced /sɪə/, ending in the sound /ɪə/. 'Spear' /spɪə/ shares this same ending sound, making option C the correct rhyme, unlike the other options which end in /eə/."
+  },
+  {
+    "id": "q-1782936773625-oc74tc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: political",
+    "options": {
+      "A": "poliTIcal",
+      "B": "PoLItical",
+      "C": "POlitical",
+      "D": "political",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The word 'political' is stressed on the third syllable: po-li-TI-cal /pəˈlɪtɪkəl/. Option A correctly places the stress mark on 'TI', matching standard English pronunciation."
+  },
+  {
+    "id": "q-1782936773625-lh8xbb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: satisfactory",
+    "options": {
+      "A": "saTISfactory",
+      "B": "satisFACtory",
+      "C": "SATisfactory",
+      "D": "satisfactory",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The word 'satisfactory' carries its primary stress on the third syllable: sa-tis-FAC-to-ry /ˌsætɪsˈfæktəri/. Option B correctly marks 'FAC' as the stressed syllable."
+  },
+  {
+    "id": "q-1782936773625-dflmuw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: captivity",
+    "options": {
+      "A": "captiVIty",
+      "B": "CAPtivity",
+      "C": "capTIvity",
+      "D": "CAPtiviTY",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The word 'captivity' is stressed on the third syllable: cap-TIV-i-ty /kæpˈtɪvɪti/. Option C correctly places the stress on 'TI', matching standard pronunciation."
+  },
+  {
+    "id": "q-1782936773625-fct0rr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "EMEKA finished his homework yesterday. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Was Emeka helped to do his homework?",
+      "B": "Did Emeka do his homework?",
+      "C": "When did Emeka finish his homework?",
+      "D": "Who finished his homework yesterday?",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "When a subject noun like 'EMEKA' receives emphatic stress, it signals that the sentence answers a question about WHO performed the action. 'Who finished his homework yesterday?' directly targets the subject, matching the emphasis, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-9fai7h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Taiwo SAILED to London. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Did Taiwo fly to London?",
+      "B": "Did Taiwo sail to Brazil?",
+      "C": "Did Taiwo sail to London?",
+      "D": "Where did Taiwo sail to?",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "When the verb 'SAILED' carries emphatic stress, it highlights the manner of travel as the key information being confirmed or contrasted. 'Did Taiwo fly to London?' questions the mode of travel (flying vs sailing), matching the emphasis on the verb, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-nk4nhu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "My bag is made of LEATHER. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Whose bag is made of leather?",
+      "B": "Is my bag made of polythene?",
+      "C": "Is Abu's bag made of leather?",
+      "D": "Is my bag made of leather?",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "When the material noun 'LEATHER' carries emphatic stress, it highlights the material as the key point being confirmed or contrasted with an alternative material. 'Is my bag made of polythene?' questions the material directly, matching the emphasis, making option B correct."
+  },
+  {
+    "id": "q-1782936773625-yc723g",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "If he were here, it could be more fun. What does this sentence convey?",
+    "options": {
+      "A": "He was expected but did not show up to make the occasion lively",
+      "B": "There was no fun because he was not present",
+      "C": "He did not show up and so the occasion lacked much fun",
+      "D": "He was being expected to supply more fun",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The sentence uses the second conditional ('if he were here') to express an unreal present situation: he is not present, and as a result the occasion has less fun than it could have. Option C captures both his absence and its effect on the occasion's enjoyment."
+  },
+  {
+    "id": "q-1782936773625-z3y00m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The secretary said that the postponement of the meeting was due to unforeseen circumstances. What does this convey?",
+    "options": {
+      "A": "The date of the meeting was shifted as a result of unexpected reasons",
+      "B": "The meeting's date was put off for strange reasons",
+      "C": "The meeting was called off as a result of obstacles hitherto unknown",
+      "D": "The meeting broke off as a result of unusual difficulties",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Postponement' means the meeting's date was moved to a later time, not cancelled, and 'unforeseen circumstances' means unexpected reasons. Option A correctly conveys both the rescheduling and the unexpected cause, unlike options C and D which wrongly suggest the meeting was cancelled."
+  },
+  {
+    "id": "q-1782936773625-b0yf6u",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The hunter has a bird's-eye view of the animals. What does this convey?",
+    "options": {
+      "A": "He views the animal from a high position",
+      "B": "He views the bird's eye",
+      "C": "He views the birds on the tree with one eye",
+      "D": "He watches animals and birds closely",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'A bird's-eye view' is an idiom describing a view from a high vantage point, giving a wide overview, as birds see the ground from above. Option A correctly captures this figurative meaning of viewing from height."
+  },
+  {
+    "id": "q-1782936773625-o614j6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Even though Susan was the last in the examination, her result wasn't too different from what had been expected. What does this convey?",
+    "options": {
+      "A": "Her result was poor",
+      "B": "Her result was a disappointment",
+      "C": "Her result was as expected",
+      "D": "She had not been serious with her studies",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The sentence states her poor result 'wasn't too different from what had been expected', meaning people already anticipated she would perform this way. Option C directly restates that her outcome matched expectations."
+  },
+  {
+    "id": "q-1782936773625-o0x974",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mrs. Adasu does all her work with more haste, less speed. What does this convey?",
+    "options": {
+      "A": "She accepts whatever she does with more haste and speed",
+      "B": "She approaches whatever she does hurriedly",
+      "C": "She addresses everything she does very quickly to avoid mistakes",
+      "D": "She does everything carefully to avoid mistakes",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'More haste, less speed' is a proverb meaning that rushing carelessly often leads to poor or slower results rather than efficiency. The sentence therefore describes Mrs Adasu as someone who does things hurriedly (without due care), matching option B."
+  },
+  {
+    "id": "q-1782936773625-xxfil9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "She stopped her education as her uncle left her in the lurch. What does this convey?",
+    "options": {
+      "A": "Her uncle deceived her",
+      "B": "Her uncle disinherited her",
+      "C": "Her uncle refused to help her",
+      "D": "Her uncle disrespected her",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'To leave someone in the lurch' means to abandon or fail to help someone in a difficult situation when they needed support. Option C correctly reflects that her uncle withdrew his support, causing her education to stop."
+  },
+  {
+    "id": "q-1782936773625-xwayss",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The plan to upgrade the dispensary to a general hospital did not materialize. What does this convey?",
+    "options": {
+      "A": "The plan did not meet the required specifications",
+      "B": "The arrangement did not work out as wished",
+      "C": "It was difficult to obtain the materials",
+      "D": "The materials purchased were not the right ones",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Did not materialize' means a plan or expectation did not become a reality; it failed to happen as intended. Option B captures this general sense of the plan simply not working out, without adding unsupported specific reasons."
+  },
+  {
+    "id": "q-1782936773625-2hcpkn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Okon's company took a hit last year. What does this convey?",
+    "options": {
+      "A": "His company improved last year",
+      "B": "His company made a huge success last year",
+      "C": "His company was badly damaged last year",
+      "D": "His company was established last year",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'To take a hit' is an idiom meaning to suffer damage, loss, or a setback, especially financially. Option C correctly conveys that the company suffered harm during the year in question."
+  },
+  {
+    "id": "q-1782936773625-oph02u",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "My eldest son, who is in Lagos, is studying English. What does this convey?",
+    "options": {
+      "A": "Only my son is in Lagos studying English",
+      "B": "My only son is in Lagos studying English",
+      "C": "One of my sons is in Lagos studying English",
+      "D": "My sons are in Lagos but only one is studying English",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The non-restrictive relative clause ('who is in Lagos') and the term 'eldest' imply the speaker has more than one son, and this sentence specifically refers to the eldest of them, currently in Lagos studying English. Option C correctly reflects that this is one among several sons."
+  },
+  {
+    "id": "q-1782936773625-v1lw39",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "If I went to the village, I would visit the king. What does this convey?",
+    "options": {
+      "A": "If I go to the village I will visit the king",
+      "B": "I did not go to the village and I did not visit the king",
+      "C": "All the times I went to village I also visited the King",
+      "D": "I will visit the king when I go to the village",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "This is a second conditional sentence expressing a hypothetical, unreal present/future situation ('if I went... I would visit'), implying the speaker currently has no plan to go and has therefore not visited the king. Option B correctly reflects this unfulfilled, hypothetical nature."
+  },
+  {
+    "id": "q-1782936773625-p08lsr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The warring communities were coerced into negotiating a settlement. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Driven",
+      "B": "Compelled",
+      "C": "Persuaded",
+      "D": "Pressured",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Coerced' means forced through pressure or threats, without genuine willingness. Its opposite in the given options is 'persuaded', which implies willing agreement achieved through reasoning rather than force, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-5xmd82",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His father served as a mercenary in the army. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Preacher",
+      "B": "Regular",
+      "C": "Recruit",
+      "D": "Officer",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A 'mercenary' is a soldier hired to fight for pay, typically for a foreign force, as opposed to a 'regular' member of an official standing army who serves out of duty or citizenship rather than for profit. Option B correctly contrasts these two soldier types."
+  },
+  {
+    "id": "q-1782936773625-ygvsbx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Jummai is cruel to her husband. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Harsh",
+      "B": "Brutal",
+      "C": "Compassionate",
+      "D": "Ferocious",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Cruel' means causing pain or suffering deliberately, without care or feeling. Its direct opposite is 'compassionate', showing sympathy and care for others, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-znlsnc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The teacher who beat the student was treated with mercy. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Disrespect",
+      "B": "Contempt",
+      "C": "Vengeance",
+      "D": "Kindness",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Mercy' means compassion or forgiveness shown to someone who could be treated harshly. Its opposite is 'vengeance', which means punishment or retaliation for wrongdoing, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-ipe10g",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His wife hated his garrulous attitude. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Outspoken",
+      "B": "Unfriendly",
+      "C": "Reticent",
+      "D": "Thoughtful",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Garrulous' means excessively talkative. Its opposite is 'reticent', meaning reserved and reluctant to speak, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-bf3o5h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Agoshito is a callow youth, said the teacher. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "An ignorant",
+      "B": "An experienced",
+      "C": "An idle",
+      "D": "An organized",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Callow' means inexperienced and immature, lacking worldly wisdom. Its opposite is 'experienced', meaning having gained knowledge or skill through practice, making option B correct."
+  },
+  {
+    "id": "q-1782936773625-qercn1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What you are asking me to do is a herculean task. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "A strenuous",
+      "B": "A demanding",
+      "C": "A lovely",
+      "D": "An easy",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Herculean' describes a task requiring great strength or effort, an extremely difficult undertaking. Its opposite is 'easy', requiring little effort, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-3b1odf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Nkechi was a novice when she was first employed. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Manager",
+      "B": "Clerk",
+      "C": "Supervisor",
+      "D": "Professional",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "A 'novice' is a beginner with little or no experience. Its opposite is a 'professional', someone highly skilled and experienced in their field, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-aor5ma",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "'I do not trust him,' he said, in a rare moment of candour. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Reproach",
+      "B": "Dishonesty",
+      "C": "Frankness",
+      "D": "Fairness",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Candour' means openness and honesty in expressing oneself. Its opposite is 'dishonesty', meaning deceit or untruthfulness, making option B correct."
+  },
+  {
+    "id": "q-1782936773625-16qmu8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mrs Akunilo looks anaemic today. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Strange",
+      "B": "Sick",
+      "C": "Weak",
+      "D": "Strong",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Anaemic' describes someone looking pale, weak, and lacking vigour due to low blood count. Its opposite is 'strong', showing vitality and good health, making option D correct."
+  },
+  {
+    "id": "q-1782936773625-s9i3pa",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "It is inconceivable that the sun shone in the night. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Credible",
+      "B": "Unthinkable",
+      "C": "Impossible",
+      "D": "Contestable",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Inconceivable' means impossible to imagine or believe. Its opposite is 'credible', meaning believable or plausible, making option A correct."
+  },
+  {
+    "id": "q-1782936773625-by20ir",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "She only gives a superficial impression of warmth and friendliness. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "A strong",
+      "B": "A fake",
+      "C": "A deep",
+      "D": "An unrealistic",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Superficial' means existing only on the surface, not deep or thorough. Its opposite is 'deep', meaning genuine and thorough, making option C correct."
+  },
+  {
+    "id": "q-1782936773625-kbs12b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As a prudent businessman, Adayi does not leave anything to chance. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "A frugal",
+      "B": "Shrewd",
+      "C": "Careless",
+      "D": "Unsuccessful",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Prudent' means acting with care and good judgement, especially regarding risk. Its opposite is 'careless', meaning acting without proper thought or caution, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-bj0pga",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His antipathy affected the growth of his business. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Hatred",
+      "B": "Receptiveness",
+      "C": "Loyalty",
+      "D": "Hostility",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Antipathy' means a deep-seated feeling of dislike or aversion. Its opposite is 'receptiveness', meaning openness and willingness to accept or engage, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-hwzuk1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Okonkwo's lethal right foot did the magic in the football match. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Weak",
+      "B": "Wicked",
+      "C": "Fat",
+      "D": "Harmless",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Lethal' means extremely dangerous or deadly, used here to describe a powerful, damaging kick. Its opposite is 'harmless', meaning causing no harm or damage, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-z0hpc6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When his car tyre ______ on the way, he did not know what to do.",
+    "options": {
+      "A": "Has burst",
+      "B": "Had burst",
+      "C": "Bursted",
+      "D": "Burst",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Burst' is an irregular verb with identical base, past, and past participle forms. Here, both clauses describe a single sequence of past events, so the simple past 'burst' is used; 'bursted' is not a standard English form. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-uz1aef",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lami's father ______ as a gardener when he was young, but now he is a driver.",
+    "options": {
+      "A": "Had been working",
+      "B": "Use to work",
+      "C": "Has worked",
+      "D": "Used to work",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Used to' is the correct structure for describing a habitual past action or state that no longer occurs, contrasted with a present situation ('now he is a driver'). Note that 'use to work' (without the 'd') is a common but incorrect form. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-1syd5f",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "______ he switches on the light, the shadow disappears.",
+    "options": {
+      "A": "Whenever",
+      "B": "Except",
+      "C": "Since",
+      "D": "Until",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Whenever' introduces a time clause meaning 'every time' or 'on each occasion that', which fits the repeated cause-and-effect relationship between switching on the light and the shadow disappearing. Option A is correct."
+  },
+  {
+    "id": "q-1782936773626-0bvl6b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "It is important that you clear the refuse in front of your house every ______.",
+    "options": {
+      "A": "Fourtnight",
+      "B": "Fortnight",
+      "C": "Fourthnight",
+      "D": "Forthnight",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Fortnight' is the correct standard spelling of the word referring to a period of two weeks. The other options are common misspellings, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-o4d063",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Suara needn't come with us, ______?",
+    "options": {
+      "A": "Does she",
+      "B": "Will she",
+      "C": "Can she",
+      "D": "Need she",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "When the main clause uses the modal auxiliary 'needn't', the tag question must echo the same modal verb 'need' in its positive form, giving 'need she?'. Option D correctly maintains this grammatical consistency."
+  },
+  {
+    "id": "q-1782936773626-awid5x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Unoka ______ the whole house to find his missing wristwatch.",
+    "options": {
+      "A": "Scourged",
+      "B": "Scoured",
+      "C": "Scored",
+      "D": "Scouted",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Scoured' means searched thoroughly and carefully, which fits the context of looking everywhere in the house for a missing item. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-uigobi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ife asked me ______.",
+    "options": {
+      "A": "What time it was",
+      "B": "What is it by my time",
+      "C": "What time is it",
+      "D": "What time it is",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In reported speech, a direct question is converted into a statement word order (subject before verb), and the tense shifts back to match the reporting verb 'asked' (past tense): 'what time it was'. Option A correctly applies both rules."
+  },
+  {
+    "id": "q-1782936773626-bc2sy2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "There are many ways to kill a rat, so we should be ______ in our approach to the task ahead of us.",
+    "options": {
+      "A": "Ecletic",
+      "B": "Eclectic",
+      "C": "Eclektic",
+      "D": "Eclektik",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Eclectic' is the correct standard spelling of the word meaning deriving ideas or methods from a broad range of sources. The other options are misspellings, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-oqi508",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Audu took this action purely ______ his own career.",
+    "options": {
+      "A": "On furtherance of",
+      "B": "In furtherance of",
+      "C": "To furtherance in",
+      "D": "In furtherance with",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'In furtherance of' is the correct fixed prepositional phrase meaning 'in order to advance or promote' something, commonly used in formal English. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-h5f6r9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Here is Mr. Odumusu who teaches English ______ in our school.",
+    "options": {
+      "A": "Pronuntiation",
+      "B": "Pronounciation",
+      "C": "Pronunciation",
+      "D": "Pronountiation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Pronunciation' is the correct standard spelling of the word referring to the way a word is spoken. The other options are common misspellings, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-swfp88",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Instead of ______, she lied.",
+    "options": {
+      "A": "Pleading",
+      "B": "Her to plead",
+      "C": "Her pleading",
+      "D": "Plead",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "After the preposition 'instead of', a gerund (verb + -ing) is required as the object, giving 'instead of pleading'. Option A correctly uses the gerund form."
+  },
+  {
+    "id": "q-1782936773626-7yzgf3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Of the three girls, Uka is the ______.",
+    "options": {
+      "A": "So much notorious",
+      "B": "Notorious",
+      "C": "Naught",
+      "D": "Naughtiest",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "When comparing three or more items (superlative degree), the '-est' form of the adjective is required, and among girls being compared for behaviour, 'naughtiest' fits both the grammar and meaning. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-klf6h5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I wonder how he will ______ being absent from school for a long time.",
+    "options": {
+      "A": "Make in",
+      "B": "Make up",
+      "C": "Make off",
+      "D": "Make out",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Make up for' is a phrasal verb meaning to compensate for something lost or missing, which fits the context of the boy needing to compensate for his long absence from school. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-8okf3y",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Please sit on the ______.",
+    "options": {
+      "A": "Carier",
+      "B": "Career",
+      "C": "Carrier",
+      "D": "Carrear",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Carrier' (a rack fixed to a bicycle or vehicle for carrying loads, on which one can sit) is the correct standard spelling. The other options are misspellings or unrelated words like 'career'. Option C is correct."
+  },
+  {
+    "id": "q-1782936773626-dxypej",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I want to ______ his chance to acquaint you with the latest development.",
+    "options": {
+      "A": "Size",
+      "B": "Seize",
+      "C": "Sieze",
+      "D": "Cease",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Seize' means to take an opportunity quickly and eagerly. It is also the correctly spelled form of the word (note the 'ei' spelling, an exception to the usual 'i before e' rule). Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-qhcxu9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Getting a well-paid job nowadays is an ______ task.",
+    "options": {
+      "A": "Utmost",
+      "B": "Upbeat",
+      "C": "Uphill",
+      "D": "Upfield",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Uphill task' is a fixed expression meaning a difficult undertaking requiring great effort, similar to climbing uphill. Option C is correct."
+  },
+  {
+    "id": "q-1782936773626-hyjztg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The secretary has no right to ______ my affairs.",
+    "options": {
+      "A": "Spy from",
+      "B": "Meddle in",
+      "C": "Toy at",
+      "D": "Complain into",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Meddle in' is the correct collocation meaning to interfere in matters that are not one's concern. Option B correctly uses this fixed phrasal expression."
+  },
+  {
+    "id": "q-1782936773626-8kratq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Bola studiously avoided ______ the question.",
+    "options": {
+      "A": "Parrying",
+      "B": "Answering",
+      "C": "Projecting",
+      "D": "Destroying",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Avoided' requires a gerund object, and logically, if Bola 'studiously avoided' something regarding the question, it means she deliberately did not answer it. Option B ('answering') fits both the grammar and the sensible meaning."
+  },
+  {
+    "id": "q-1782936773626-gfoe4m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The school authority dismissed him for ______, but I won't tell you about it yet.",
+    "options": {
+      "A": "Certain reason",
+      "B": "A reason",
+      "C": "More reason",
+      "D": "A certain reason",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The indefinite article 'a' must be used with the singular countable noun 'reason', and 'certain' here means 'particular but unspecified', matching the idea that the speaker knows the reason but withholds it. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-hjio5v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "She was ______ the verge of tears.",
+    "options": {
+      "A": "At",
+      "B": "On",
+      "C": "By",
+      "D": "With",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The fixed idiomatic expression is 'on the verge of', meaning about to experience or do something imminently. Option B correctly uses the required preposition 'on'."
+  },
+  {
+    "id": "q-1782936773626-6xyfqd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: bubble",
+    "options": {
+      "A": "Guy",
+      "B": "Bull",
+      "C": "Bumper",
+      "D": "Gurgle",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In 'bubble', the 'u' is pronounced as the short vowel /ʌ/ (as in 'cup'). 'Bumper' also contains this short /ʌ/ sound, making option C the correct match, unlike 'bull' which has the /ʊ/ sound."
+  },
+  {
+    "id": "q-1782936773626-535jk4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: weight",
+    "options": {
+      "A": "Whale",
+      "B": "While",
+      "C": "Wheat",
+      "D": "Writhe",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In 'weight', the 'ei' is pronounced as the diphthong /eɪ/ (as in 'day'). 'Whale' also contains the /eɪ/ sound, making option A the correct match, unlike 'while' or 'writhe' which have the /aɪ/ sound."
+  },
+  {
+    "id": "q-1782936773626-4wsn6u",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: leach",
+    "options": {
+      "A": "Gear",
+      "B": "Cedar",
+      "C": "Cheer",
+      "D": "Death",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'leach', the 'ea' is pronounced as the long vowel /iː/ (as in 'see'). 'Cedar' also contains the /iː/ sound in its first syllable, making option B the correct match, unlike 'death' which has the short /e/ sound."
+  },
+  {
+    "id": "q-1782936773626-u4fbte",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: mention",
+    "options": {
+      "A": "That",
+      "B": "Machine",
+      "C": "Church",
+      "D": "Test",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'mention', the 'ti' combination is pronounced as the voiceless consonant /ʃ/ (as in 'shoe'). 'Machine' also contains the /ʃ/ sound (its 'ch' is a French-derived spelling for /ʃ/), making option B the correct match, unlike 'church' which has /tʃ/."
+  },
+  {
+    "id": "q-1782936773626-rst2bl",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: prestige",
+    "options": {
+      "A": "Bag",
+      "B": "Badge",
+      "C": "Reggae",
+      "D": "Leisure",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In 'prestige', the 'g' before the final 'e' is pronounced as the voiced consonant /ʒ/ (as in 'measure'). 'Leisure' also contains the /ʒ/ sound, making option D the correct match."
+  },
+  {
+    "id": "q-1782936773626-ic109q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: knot",
+    "options": {
+      "A": "Cot",
+      "B": "Keep",
+      "C": "Norm",
+      "D": "King",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In 'knot', the 'k' is silent, so the word begins with the consonant sound /n/. 'Norm' also begins with the /n/ sound, making option C the correct match, unlike 'cot' and 'keep' which begin with /k/."
+  },
+  {
+    "id": "q-1782936773626-zrw1wa",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: fuel",
+    "options": {
+      "A": "Cruel",
+      "B": "Fool",
+      "C": "Rule",
+      "D": "Field",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Fuel' is pronounced /ˈfjuːəl/, a two-syllable word. 'Cruel' /ˈkruːəl/ shares the same ending sound pattern, making option A the correct rhyme, unlike the one-syllable words 'fool' and 'rule'."
+  },
+  {
+    "id": "q-1782936773626-5blrct",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: match",
+    "options": {
+      "A": "Harsh",
+      "B": "Batch",
+      "C": "Such",
+      "D": "Watch",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Match' is pronounced /mætʃ/, ending in the sound /ætʃ/. 'Batch' /bætʃ/ shares this same ending sound, making option B the correct rhyme."
+  },
+  {
+    "id": "q-1782936773626-vlvsmt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that RHYMES with the given word: sheer",
+    "options": {
+      "A": "Sheila",
+      "B": "Care",
+      "C": "Ear",
+      "D": "Sherry",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Sheer' is pronounced /ʃɪə/, ending in the sound /ɪə/. 'Ear' /ɪə/ shares this same ending sound, making option C the correct rhyme, unlike 'care' which ends in /eə/."
+  },
+  {
+    "id": "q-1782936773626-gwyil4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: termination",
+    "options": {
+      "A": "TerminaTION",
+      "B": "TERmination",
+      "C": "TermiNAtion",
+      "D": "TerMInation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The word 'termination' carries its primary stress on the third syllable: ter-mi-NA-tion /ˌtɜːmɪˈneɪʃən/. Option C correctly places the stress on 'NA'."
+  },
+  {
+    "id": "q-1782936773626-zcbppr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: suggestible",
+    "options": {
+      "A": "suggeSTIble",
+      "B": "Suggestible",
+      "C": "suGGEstible",
+      "D": "suggestible",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The word 'suggestible' carries its primary stress on the second syllable: sug-GES-ti-ble /səˈdʒɛstɪbəl/. Option C correctly places the stress on 'GGE' (the 'GES' sound), matching standard pronunciation."
+  },
+  {
+    "id": "q-1782936773626-kdyc82",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Uche LOVES Toyota cars. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Who loves Toyota cars?",
+      "B": "What brand of car does Uche love?",
+      "C": "Does Uche hate Toyota cars?",
+      "D": "Does Uche love bicycles?",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When the verb 'LOVES' carries emphatic stress, it highlights the feeling itself as the key point being confirmed or contrasted with its opposite. 'Does Uche hate Toyota cars?' directly questions the emotion in contrast to 'loves', matching the emphasis, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-87scfh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The POLICE arrested the suspect. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Did the police placate the suspect?",
+      "B": "Who arrested the suspect?",
+      "C": "Who did the police arrest?",
+      "D": "Did the police arrest the suspect?",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "When the subject noun 'POLICE' carries emphatic stress, it highlights who performed the action as the key information being confirmed. 'Who arrested the suspect?' directly targets the subject performing the action, matching the emphasis, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-76rp5g",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Maiduguri is the CAPITAL of Borno state. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Is Maiduguri the capital of Plateau state?",
+      "B": "Which state is Maiduguri the capital of?",
+      "C": "Is Maiduguri a town in Borno state?",
+      "D": "What is the capital of Borno state?",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When the noun 'CAPITAL' carries emphatic stress, it highlights the status of Maiduguri as being contrasted with an alternative status. 'Is Maiduguri a town in Borno state?' directly questions this status by offering a contrasting alternative ('town' vs 'capital'), matching the emphasis, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-n0kiv1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Hardworking students must not have a finger in every pie at school. What does this convey?",
+    "options": {
+      "A": "Hardworking students must not have a role to play in most activities in the school",
+      "B": "Only hardworking students must participate in all activities in the school",
+      "C": "Hardworking students do not participate in all activities in the school",
+      "D": "Hardworking students must ask others to participate in school activities",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'To have a finger in every pie' is an idiom meaning to be involved in every activity or affair. The sentence advises against being involved in everything, matching option C's paraphrase about not participating in all activities."
+  },
+  {
+    "id": "q-1782936773626-echb0p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The vice chancellor is riding the crest of the last quarter of his administration. What does this convey?",
+    "options": {
+      "A": "The vice chancellor enjoys the acknowledgement of the success of his administration",
+      "B": "The vice chancellor does not enjoy the people's criticism of his administration",
+      "C": "The vice chancellor hopes to overcome soon, the poor comments on his administration",
+      "D": "The vice chancellor does not talk of his successes in office",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'To ride the crest of' something is an idiom meaning to be at the peak or height of success or popularity. Option A correctly conveys that the vice chancellor is currently enjoying recognition for his administration's achievements."
+  },
+  {
+    "id": "q-1782936773626-2et9qh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "She was absolved by the court from the charge. What does this convey?",
+    "options": {
+      "A": "She was convicted for the charge",
+      "B": "She was blamed and charged to court",
+      "C": "Her case was resolved by the court",
+      "D": "She was declared free from the charge",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Absolved' means officially cleared of blame or wrongdoing. Option D directly conveys this sense of being declared free from the charge, unlike A which wrongly suggests conviction."
+  },
+  {
+    "id": "q-1782936773626-gmg5ey",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The landlord is fond of throwing his weight about. What does this convey?",
+    "options": {
+      "A": "The landlord likes healthy exercise",
+      "B": "The landlord is overweight",
+      "C": "The landlord gives orders to people",
+      "D": "The landlord is respected by his tenants",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'To throw one's weight about/around' is an idiom meaning to use one's authority or influence in a domineering, bossy manner. Option C correctly captures this behaviour of giving orders and asserting control over others."
+  },
+  {
+    "id": "q-1782936773626-hqxyds",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The company ought to have issued warrants for one billion shares. What does this convey?",
+    "options": {
+      "A": "The company has issued one billion shares",
+      "B": "The management expected the company to issue more than one billion shares",
+      "C": "Members of the company bought less than one billion shares",
+      "D": "The company did not issue one billion shares",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Ought to have issued' expresses an unfulfilled past obligation, implying the expected action did not actually happen. Option D correctly conveys that the company failed to issue the one billion shares as it should have."
+  },
+  {
+    "id": "q-1782936773626-xtbmf0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He needed not to have played in the position of quarterback in the volleyball match. What does this convey?",
+    "options": {
+      "A": "He participated in the game in his unusual position",
+      "B": "Nobody expected him to have participated in the game",
+      "C": "He wanted to play in a position other than the one he was offered",
+      "D": "Someone did not want him to play in the position that he played",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Needed not to have played' (i.e. 'needn't have played') implies that although he did play in that position, it was not necessary for him to do so. Option A correctly reflects that he did participate, in what was an unusual position for him."
+  },
+  {
+    "id": "q-1782936773626-zl7fc4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I wouldn't have responded to his rude talk, if I were you. What does this convey?",
+    "options": {
+      "A": "The advice was taken by the respondent, so he did not respond to the talk",
+      "B": "The adviser put himself in the respondent's position, so he did not respond to the talk",
+      "C": "The respondent replied to the speaker's talk, although he ought not to have done so",
+      "D": "What was advisable was that the respondent gave it back to the speaker",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "This is a hypothetical, advisory statement implying that the respondent actually did reply to the rude talk, and the speaker is now saying he should not have. Option C directly captures this sense of disapproval of an action already taken."
+  },
+  {
+    "id": "q-1782936773626-8422be",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He could not speak out because he had a feet of clay. What does this convey?",
+    "options": {
+      "A": "His feet was muddy",
+      "B": "He was weak and cowardly",
+      "C": "He was clumsy and lazy",
+      "D": "He was shy and timid",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Feet of clay' is an idiom describing a hidden weakness or flaw in someone otherwise admired or capable. In this context, it explains his inability to speak out, best matched by option D describing him as shy and timid."
+  },
+  {
+    "id": "q-1782936773626-j5i7m9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The player wasted a golden opportunity during the penalty shoot-out. What does this convey?",
+    "options": {
+      "A": "The player hit the crossbar",
+      "B": "The player did not score the shot",
+      "C": "The player scored the shot that made them win the gold cup",
+      "D": "Instead of a silver cup, they received the golden one",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Wasted a golden opportunity' means he failed to make good use of an excellent chance, in this context, to score. Option B directly conveys that he did not score the penalty shot."
+  },
+  {
+    "id": "q-1782936773626-1r4df2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As far as Abu is concerned, Mero should be given fifty naira at the most. What does this convey?",
+    "options": {
+      "A": "All Abu is saying is that Mero probably deserves more than fifty naira and not less",
+      "B": "All Abu is concerned with is that Mero should be given nothing more than fifty naira",
+      "C": "In Abu's estimation, Mero merits not more than fifty naira",
+      "D": "In Abu's opinion, Mero deserves fifty naira or probably more",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'At the most' sets an upper limit, meaning fifty naira is the maximum amount, not to be exceeded. Option B correctly conveys this cap, unlike A and D which wrongly suggest more than fifty naira is acceptable."
+  },
+  {
+    "id": "q-1782936773626-x1rt07",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As an idiot, the boy is weak in class. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "A deviant",
+      "B": "A dunce",
+      "C": "An expert",
+      "D": "A genius",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Idiot' refers to a foolish or unintelligent person. Its direct opposite is 'genius', someone of exceptional intelligence, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-wvgy2k",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We were shocked by the news that he had lost the money. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Astonished",
+      "B": "Disconcerted",
+      "C": "Unconcerned",
+      "D": "Surprised",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Shocked' describes a strong emotional reaction of surprise or distress. Its opposite is 'unconcerned', meaning indifferent or unaffected, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-zwais2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The principal was advised to be flexible on critical issues. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Livid",
+      "B": "Cautious",
+      "C": "Evasive",
+      "D": "Rigid",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Flexible' means adaptable and willing to change or compromise. Its opposite is 'rigid', meaning inflexible and unyielding, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-aqlgge",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Bola always looks sober. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Excited",
+      "B": "Serious",
+      "C": "Worried",
+      "D": "Helpless",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Sober' here describes a calm, serious, composed demeanour. Its opposite is 'excited', showing lively, heightened emotion, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-fjvzon",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Dupe was promoted for her efficiency. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Ability",
+      "B": "Incompetence",
+      "C": "Inconsistency",
+      "D": "Rudeness",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Efficiency' means the ability to do something well with minimal waste of time or effort. Its opposite is 'incompetence', meaning a lack of ability to do a job properly, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-yz0czp",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The management wants to consider her reticent behaviour in due course. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Disapproving",
+      "B": "Disciplinarian",
+      "C": "Contemplative",
+      "D": "Loquacious",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Reticent' means reserved and reluctant to speak or reveal thoughts. Its opposite is 'loquacious', meaning excessively talkative, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-1vupw7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Election processes often become volatile. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Calm",
+      "B": "Strange",
+      "C": "Sudden",
+      "D": "Latent",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Volatile' describes something liable to change suddenly and unpredictably, often into violence or unrest. Its opposite is 'calm', meaning peaceful and stable, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-vzf1bp",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Oche entered the principal's office in a rather abrasive manner. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Gentle",
+      "B": "Rude",
+      "C": "Lackadaisical",
+      "D": "Indifferent",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Abrasive' describes a harsh, rude, or unpleasantly forceful manner. Its opposite is 'gentle', meaning mild and kind in manner, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-zr71d0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Otokpa is a member of the ad hoc committee on stock acquisition. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Improvised",
+      "B": "Formal",
+      "C": "Temporary",
+      "D": "Fact-finding",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Ad hoc' describes something set up for a particular, often temporary and informal purpose. Its opposite, in the sense tested here, is 'formal', referring to an officially constituted, standing body, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-92wt0y",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His gift to the poor was always infinitesimal. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Large",
+      "B": "Small",
+      "C": "Supportive",
+      "D": "Shameful",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Infinitesimal' means extremely small, almost negligible. Its opposite is 'large', meaning of considerable size, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-s9unx0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The economist concluded that several factors have been adduced to explain the fall in the birth rate. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Affirmed",
+      "B": "Diffused",
+      "C": "Mentioned",
+      "D": "Refuted",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Adduced' means to cite or put forward as evidence or reason. Its opposite is 'refuted', meaning to prove wrong or reject as false, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-9g7ctt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The presidential system is an antidote to some political ailments. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "An answer",
+      "B": "A reply",
+      "C": "An injury",
+      "D": "An obstacle",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Antidote' means a remedy that counteracts or solves a problem. Its opposite is 'obstacle', meaning something that hinders progress rather than resolving difficulty, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-mv11ev",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ola thought that her father was very callous. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Parlous",
+      "B": "Compassionate",
+      "C": "Wicked",
+      "D": "Cheerful",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Callous' means insensitive and unfeeling towards others' suffering. Its opposite is 'compassionate', showing genuine sympathy and care, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-rxcn0l",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He was very much respected, though he had no temporal power. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Spiritual",
+      "B": "Mundane",
+      "C": "Permanent",
+      "D": "Ephemeral",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Temporal' refers to worldly or secular power, as distinguished from religious authority. Its opposite is 'spiritual', referring to religious or non-material authority, making option A correct (as in the classic distinction between a religious leader's spiritual and temporal power)."
+  },
+  {
+    "id": "q-1782936773626-qy65sg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The way the worship was organized was rather hit-and-miss. Choose the option OPPOSITE in meaning to the italicised word.",
+    "options": {
+      "A": "Systematic",
+      "B": "Hasty",
+      "C": "Slow",
+      "D": "Funny",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Hit-and-miss' describes something done without careful planning, unsystematic and unreliable in outcome. Its opposite is 'systematic', meaning organized and methodical, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-ayoljq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Some men will continue to cause offences until they are given a taste of their own medicine. Choose the option NEAREST in meaning to the italicised expression.",
+    "options": {
+      "A": "Placated",
+      "B": "Revenged on",
+      "C": "Recompensed for",
+      "D": "Cured",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'A taste of one's own medicine' is an idiom meaning to be made to experience the same unpleasant treatment one has inflicted on others, essentially a form of retribution. 'Revenged on' is the closest match, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-1noojn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Okibe was rusticated for his derogatory remark about the principal. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Complimentary",
+      "B": "Unsavoury",
+      "C": "Unwarranted",
+      "D": "Lacklustre",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Derogatory' means disrespectful or insulting. 'Unsavoury', meaning distasteful or unpleasant, is the closest match among the options, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-p79wza",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Justice is difficult to enforce because people are unwilling to accept any loss of sovereignty. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Autonomy",
+      "B": "Position",
+      "C": "Leadership",
+      "D": "Kingdom",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Sovereignty' means the authority of a state to govern itself, i.e., its independence and self-rule. 'Autonomy' is its closest synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-u3w7zv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "There are still virtuous women in our society today. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Clever",
+      "B": "Upright",
+      "C": "Devilish",
+      "D": "Intelligent",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Virtuous' means having high moral standards, being morally good. 'Upright', meaning honest and morally correct, is the closest synonym, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-pnl2qf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The type of response is typical of a lazy teacher. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Symptomatic",
+      "B": "Characteristic",
+      "C": "Universal",
+      "D": "Incontestable",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Typical' means representative of a particular type or serving as a distinguishing trait. 'Characteristic' is its direct synonym, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-3z941c",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Akin is an inveterate gambler. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "A selfish and self-centred person",
+      "B": "An extremely unlucky but popular person",
+      "C": "An incurable but fearful person",
+      "D": "A long-time and incorrigible person",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Inveterate' describes a habit that is long-established and difficult to change, particularly a negative one. Option D ('a long-time and incorrigible person') best captures this sense of an ingrained, unshakeable habit."
+  },
+  {
+    "id": "q-1782936773626-8vf1om",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He was too petrified to give the closing remarks at the conference. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Frightened",
+      "B": "Delighted",
+      "C": "Agitated",
+      "D": "Happy",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Petrified' means extremely frightened, paralysed with fear. 'Frightened' is its direct synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-ydcieg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "During a particular time of the day, the road shimmers in the heat. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Darkens",
+      "B": "Lightens",
+      "C": "Shines",
+      "D": "Beams",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Shimmers' means to shine with a soft, flickering, wavering light, as heat haze often does on a road. 'Shines' is the closest general synonym, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-6v6s0o",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Every human being is vulnerable to communicable diseases. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Liable",
+      "B": "Lifted",
+      "C": "Immuned",
+      "D": "Closed",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Vulnerable' means susceptible or exposed to harm. 'Liable' (in the sense of being prone or susceptible to something) is the closest synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-5iuc1k",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mariam looks rather furtive to Shehu. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Intoxicated",
+      "B": "Unfriendly",
+      "C": "Sad",
+      "D": "Sly",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Furtive' means secretive, sneaky, or acting as if trying to avoid notice. 'Sly' is its closest synonym, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-uq1sof",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The students' union leader delivered his speech extempore. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Out-of-hand",
+      "B": "Off the cuff",
+      "C": "Accurately",
+      "D": "Courageously",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Extempore' means spoken or done without preparation, spontaneously. 'Off the cuff' is the standard idiomatic synonym for this exact sense, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-cd4re2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His story gave us an inkling of what he passed through during the strike. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "A possible idea",
+      "B": "A taste",
+      "C": "A summary",
+      "D": "The right view",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Inkling' means a slight suspicion or vague idea about something. 'A possible idea' is the closest match among the options, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-8vl39a",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "These policies have been espoused by the ruling party. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Condemned",
+      "B": "Rejected",
+      "C": "Supported",
+      "D": "Outlined",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Espoused' means to adopt or support a belief, cause, or policy. 'Supported' is its direct synonym, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-hjqqq0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We must not foreclose reconciliation as the purpose of his trip. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Exclude",
+      "B": "Consider",
+      "C": "Underestimate",
+      "D": "Forgo",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Foreclose' here means to rule out or prevent a possibility in advance. 'Exclude' is the closest synonym, making option A correct."
+  },
+  {
+    "id": "q-1782936773626-ni4lbt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Her finding exploded widely held beliefs about learning. Choose the option NEAREST in meaning to the italicised word.",
+    "options": {
+      "A": "Challenged",
+      "B": "Debunked",
+      "C": "Projected",
+      "D": "Confirmed",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Exploded' (a belief or theory) means to show it to be false or unfounded. 'Debunked' is the precise synonym for discrediting a widely held but false belief, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-lsnf9a",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He was both a writer and a politician, but he was better ______ a singer.",
+    "options": {
+      "A": "As if",
+      "B": "Like",
+      "C": "As",
+      "D": "To be",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When comparing roles someone holds, the structure 'better as [role]' is used to indicate which role one performs better in. Option C ('as') is the correct preposition for this comparison."
+  },
+  {
+    "id": "q-1782936773626-wk59r8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Vacancies in the company will be notified by ______.",
+    "options": {
+      "A": "Bulletin",
+      "B": "Publication",
+      "C": "Publicity",
+      "D": "Advertisement",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Job vacancies are conventionally announced through 'advertisement', a public notice inviting applications. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-8alhoj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The driver was short of petrol, so he ______ down the hills with the engine switched off.",
+    "options": {
+      "A": "Glided",
+      "B": "Coasted",
+      "C": "Wheeled",
+      "D": "Taxied",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Coasted' is the standard verb for moving along, especially downhill, using momentum alone without engine power, which precisely matches the context of the engine being switched off. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-kxqhsy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "He started his career as an ______ teacher.",
+    "options": {
+      "A": "Auxillary",
+      "B": "Auxilliary",
+      "C": "Auxilary",
+      "D": "Auxiliary",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Auxiliary' (meaning assistant or supporting) is the correct standard spelling. The other options are common misspellings, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-bx9hgn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "His many years of success in legal practice, ______ didn't come without challenges.",
+    "options": {
+      "A": "Indeed",
+      "B": "But",
+      "C": "In spite of it all",
+      "D": "However",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Indeed' functions here as a parenthetical adverb emphasising and confirming the statement about his success, fitting naturally into the sentence structure without requiring a contrasting clause. Option A is correct."
+  },
+  {
+    "id": "q-1782936773626-dbbvz3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "______, a good leader must have two characteristics.",
+    "options": {
+      "A": "First and formost",
+      "B": "First and formust",
+      "C": "First and farmost",
+      "D": "First and foremost",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'First and foremost' is the correct standard spelling of this common phrase, meaning 'most importantly'. The other options are misspellings, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-84lxq7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We visited his house ______ three times.",
+    "options": {
+      "A": "Like",
+      "B": "For like",
+      "C": "About",
+      "D": "For about",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'About' is used before a number to indicate an approximate quantity or frequency, as in 'about three times'. Option C is correct."
+  },
+  {
+    "id": "q-1782936773626-akiwif",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Everyone makes mistakes occasionally; nobody is ______.",
+    "options": {
+      "A": "Incorrigible",
+      "B": "Imperfect",
+      "C": "Infallible",
+      "D": "Indestructible",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Nobody is infallible' is a standard English expression meaning no one is incapable of error. Since the sentence already establishes that everyone makes mistakes, 'infallible' (incapable of being wrong) completes the logical connection, making option C correct."
+  },
+  {
+    "id": "q-1782936773626-3vgvvf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The woman would not part with her ______ pot.",
+    "options": {
+      "A": "Discarded earthen black",
+      "B": "Discarded black earthen",
+      "C": "Earthen discarded black",
+      "D": "Black earthen discarded",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Standard English adjective order places opinion/participial adjectives before colour, and colour before material: 'discarded' (opinion) + 'black' (colour) + 'earthen' (material). Option B correctly follows this order."
+  },
+  {
+    "id": "q-1782936773626-cij7v4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "We stood up when the principal came in, ______?",
+    "options": {
+      "A": "Isn't it",
+      "B": "Didn't we",
+      "C": "Not so",
+      "D": "Did us",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Since the main clause 'we stood up' is a positive statement in the simple past tense, the tag question must be negative and use the matching auxiliary 'did': 'didn't we?'. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-2ajlf3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The professor of ______ medicine has ______ the mystery of flu.",
+    "options": {
+      "A": "Vetinary/unraveled",
+      "B": "Vertrinary/unravelled",
+      "C": "Veterinary/unraveled",
+      "D": "Veterinary/unravelled",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Veterinary' is the correct spelling of the word relating to animal medicine, and 'unravelled' is the correct British spelling (with double 'l') of the past tense of 'unravel'. Option D correctly uses both proper spellings."
+  },
+  {
+    "id": "q-1782936773626-siezyc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Her mother brought her some ______.",
+    "options": {
+      "A": "Clothes",
+      "B": "Yards",
+      "C": "Cloth",
+      "D": "Clothing",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Clothes' is the natural plural countable noun used for garments a mother would bring for her child, fitting simply with the quantifier 'some'. Option A is correct."
+  },
+  {
+    "id": "q-1782936773626-pedvkv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Many workers were ______ as a result of the textile closure.",
+    "options": {
+      "A": "Laid down",
+      "B": "Laid off",
+      "C": "Laid out",
+      "D": "Laid up",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Laid off' is the standard phrasal verb meaning dismissed from employment, typically due to a company's financial difficulties or closure. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-ou1yoo",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The driver died in the ______ road accident.",
+    "options": {
+      "A": "Fatal",
+      "B": "Brutal",
+      "C": "Serious",
+      "D": "Pathetic",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Fatal' is the standard collocation with 'road accident' when someone dies as a result, meaning causing death. Option A is correct."
+  },
+  {
+    "id": "q-1782936773626-d77qk3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "______ your parents frown ______ our friendship, we shouldn't see each other anymore.",
+    "options": {
+      "A": "Because/over",
+      "B": "Since/at",
+      "C": "Although/at",
+      "D": "As/upon",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Since' introduces the cause (the parents' disapproval) leading to the stated effect (ending the friendship), and 'frown at' is the collocation used here to mean disapprove of something. Option B correctly pairs the causal conjunction with this collocation."
+  },
+  {
+    "id": "q-1782936773626-imf9nr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "For more productivity, the company is focusing attention on the possible ______ of available resources.",
+    "options": {
+      "A": "Synergy",
+      "B": "Tapping",
+      "C": "Alignment",
+      "D": "Arrangement",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Tapping' (of resources) means making use of or exploiting available resources for a purpose, which fits the context of a company seeking to improve productivity. Option B is correct."
+  },
+  {
+    "id": "q-1782936773626-2qk3ok",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "______ she didn't trust him, she married him.",
+    "options": {
+      "A": "After",
+      "B": "Much as",
+      "C": "Since",
+      "D": "Though",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Though' is the standard concessive conjunction used to introduce a contrast between two clauses, here between her distrust and her decision to marry him anyway. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-f8s7y6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "I wanted to know his political beliefs, so I asked him what ______.",
+    "options": {
+      "A": "This was",
+      "B": "These are",
+      "C": "This is",
+      "D": "These were",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "'Beliefs' is plural, requiring the plural demonstrative 'these', and since the reporting verbs 'wanted' and 'asked' are in the past tense, the reported clause must also backshift to the past: 'these were'. Option D correctly applies both rules."
+  },
+  {
+    "id": "q-1782936773626-zu8xgn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: book",
+    "options": {
+      "A": "Cool",
+      "B": "Cook",
+      "C": "Fool",
+      "D": "Tool",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'book', the 'oo' is pronounced as the short vowel /ʊ/ (as in 'put'). 'Cook' also contains this short /ʊ/ sound, making option B correct, unlike 'cool', 'fool', and 'tool' which have the long /uː/ sound."
+  },
+  {
+    "id": "q-1782936773626-obfn14",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: village",
+    "options": {
+      "A": "Page",
+      "B": "Pig",
+      "C": "Made",
+      "D": "Came",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'village', the 'i' is pronounced as the short vowel /ɪ/ (as in 'sit'). 'Pig' also contains this short /ɪ/ sound, making option B correct, unlike 'page', 'made', and 'came' which have the /eɪ/ diphthong."
+  },
+  {
+    "id": "q-1782936773626-li2op5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same VOWEL SOUND as the one represented by the underlined letters in the word: patch",
+    "options": {
+      "A": "Starch",
+      "B": "Fare",
+      "C": "Mad",
+      "D": "Brave",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In 'patch', the 'a' is pronounced as the short vowel /æ/ (as in 'cat'). 'Mad' also contains this short /æ/ sound, making option C correct, unlike 'starch', 'fare', and 'brave' which have different vowel sounds."
+  },
+  {
+    "id": "q-1782936773626-rs0tmp",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: tangerine",
+    "options": {
+      "A": "Gear",
+      "B": "Danger",
+      "C": "Girl",
+      "D": "Ignore",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In 'tangerine', the 'g' is pronounced as the voiced consonant /dʒ/ (as in 'jam'). 'Danger' also contains the /dʒ/ sound, making option B correct, unlike 'gear', 'girl', and 'ignore' which have the hard /g/ sound."
+  },
+  {
+    "id": "q-1782936773626-jcp5mr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: hair",
+    "options": {
+      "A": "Heir",
+      "B": "Hour",
+      "C": "Honest",
+      "D": "House",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "In 'hair', the 'h' is clearly pronounced as /h/. Among the options, 'heir', 'hour', and 'honest' all have a silent 'h', while 'house' pronounces the /h/ sound, making option D the correct match."
+  },
+  {
+    "id": "q-1782936773626-4bvqzj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has the same CONSONANT SOUND as the one represented by the underlined letters in the word: edition",
+    "options": {
+      "A": "Bash",
+      "B": "Catch",
+      "C": "Bastion",
+      "D": "Rating",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In 'edition', the 'ti' combination is pronounced as the voiceless consonant /ʃ/ (as in 'shoe'). 'Bash' ends in this same /ʃ/ sound, making option A correct, unlike 'catch' which ends in /tʃ/."
+  },
+  {
+    "id": "q-1782936773626-fjgkt6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: demarcation",
+    "options": {
+      "A": "demarCAtion",
+      "B": "DEmarcation",
+      "C": "deMARcation",
+      "D": "demarcaTION",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The word 'demarcation' carries its primary stress on the fourth syllable: de-mar-CA-tion /ˌdiːmɑːˈkeɪʃən/. Option A correctly places the stress on 'CA'."
+  },
+  {
+    "id": "q-1782936773626-3tw8wk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: impossible",
+    "options": {
+      "A": "imPOSsible",
+      "B": "IMpossible",
+      "C": "imposSIble",
+      "D": "impossiBLE",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The word 'impossible' carries its primary stress on the second syllable: im-POS-si-ble /ɪmˈpɒsɪbəl/. Option A correctly places the stress on 'POS'."
+  },
+  {
+    "id": "q-1782936773626-un0pas",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option with the most appropriate stress pattern. The stressed syllable is written in capital letters: imperialism",
+    "options": {
+      "A": "IMperialism",
+      "B": "imPErialism",
+      "C": "impeRIAlism",
+      "D": "imperialiSM",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The word 'imperialism' carries its primary stress on the second syllable: im-PE-ri-al-ism /ɪmˈpɪəriəlɪzəm/. Option B correctly places the stress on 'PE'."
+  },
+  {
+    "id": "q-1782936773626-ko24dk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has its primary stress on the FIRST syllable. (Group 1)",
+    "options": {
+      "A": "Madam",
+      "B": "Eighteen",
+      "C": "Invent",
+      "D": "Command",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "'Madam' /ˈmædəm/ is stressed on its first syllable. 'Eighteen', 'invent', and 'command' are all typically stressed on their second syllable when used in ordinary sentences, making option A the correct choice."
+  },
+  {
+    "id": "q-1782936773626-m8o06p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has its primary stress on the FIRST syllable. (Group 2)",
+    "options": {
+      "A": "Nineteen",
+      "B": "Mother",
+      "C": "Estate",
+      "D": "Announce",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "'Mother' /ˈmʌðə/ is stressed on its first syllable. 'Nineteen' (in most contexts), 'estate', and 'announce' are stressed on their second syllable, making option B the correct choice."
+  },
+  {
+    "id": "q-1782936773626-z00h5p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Choose the option that has its primary stress on the FIRST syllable. (Group 3)",
+    "options": {
+      "A": "Commute",
+      "B": "Import (verb)",
+      "C": "Intend",
+      "D": "Export (noun)",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "As a noun, 'export' /ˈɛkspɔːt/ is stressed on the first syllable, unlike its verb form 'export' /ɪkˈspɔːt/, which (like 'commute', 'import' as a verb, and 'intend') is stressed on the second syllable. Option D is correct."
+  },
+  {
+    "id": "q-1782936773626-2sn849",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The traditional chief NARRATED the story to the children. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "The children heard the story from the traditional chief",
+      "B": "Who narrated the story to the children?",
+      "C": "The children could not listen to the story by the traditional chief",
+      "D": "Did the chief hide the story from the children?",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "When the verb 'NARRATED' carries emphatic stress, it highlights the action itself as the key point being confirmed or contrasted with its opposite. 'Did the chief hide the story from the children?' directly contrasts the action (narrating vs hiding), matching the emphasis, making option D correct."
+  },
+  {
+    "id": "q-1782936773626-hq7p6e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The ACCOUNTANT paid the workers' July salary in September. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "When were the workers paid?",
+      "B": "Did the cashier pay the workers' salary in September?",
+      "C": "Workers received their July salary in September?",
+      "D": "The September salary was paid in July?",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "When the subject noun 'ACCOUNTANT' carries emphatic stress, it highlights who performed the action, typically to contrast with an alternative person. 'Did the cashier pay the workers' salary in September?' directly contrasts the subject (accountant vs cashier), matching the emphasis, making option B correct."
+  },
+  {
+    "id": "q-1782936773626-4kaomh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Use of English",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The cat DEVOURED the rat. (The word in capitals has the emphatic stress. Choose the option to which the sentence relates.)",
+    "options": {
+      "A": "Did the rat devour the cat?",
+      "B": "What devoured the rat?",
+      "C": "Did the cat pet the rat?",
+      "D": "Is this the rat the cat devoured?",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "When the verb 'DEVOURED' carries emphatic stress, it highlights the action itself as being confirmed or contrasted with an alternative action. 'Did the cat pet the rat?' directly contrasts the action (devouring vs petting), matching the emphasis, making option C correct."
+  },
+  {
     "id": "q-1782936257520-e66uts",
     "university": "Rivers State University",
     "year": "General",
