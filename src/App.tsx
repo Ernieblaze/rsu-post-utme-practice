@@ -26,7 +26,7 @@ import { AiTutor } from './components/AiTutor';
 import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
-import { canStartTest, getAccessStatus, isSubscriptionActive } from './lib/access';
+import { canStartTest, getAccessStatus, isSubscriptionActive, setPremiumLocally, clearPremiumLocally } from './lib/access';
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
@@ -225,31 +225,16 @@ function AppContent() {
       userId,
       amountKobo,
       onSuccess: () => {
-        void (async () => {
-          // Access is granted server-side by the Paystack webhook.
-          // Poll the profile a few times until the webhook has updated it.
-          let granted = false;
-          for (let attempt = 0; attempt < 6; attempt++) {
-            const p = await refreshProfile();
-            if (p && isSubscriptionActive(p)) {
-              granted = true;
-              break;
-            }
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-          }
-          setPaywallLoading(false);
-          if (!granted) {
-            window.alert(
-              'Payment received. Your access will unlock shortly — please refresh the page in a moment.'
-            );
-            setPaywallPending(false);
-            routerNavigate('/');
-            return;
-          }
-          setPaywallPending(false);
-          // If payment came from the post-test paywall, send them straight to results
-          routerNavigate(cameFromPaywall && result ? '/results' : '/');
-        })();
+        // Grant access IMMEDIATELY via localStorage — this fires the moment
+        // Paystack confirms payment, no webhook delay needed.
+        setPremiumLocally();
+        setPaywallLoading(false);
+        setPaywallPending(false);
+        // Send straight to results if payment came from the post-test paywall.
+        routerNavigate(cameFromPaywall && result ? '/results' : '/');
+        // Refresh Supabase profile in the background so server-side state
+        // eventually catches up once the webhook processes.
+        void refreshProfile();
       },
       onError: (message) => {
         setPaywallLoading(false);

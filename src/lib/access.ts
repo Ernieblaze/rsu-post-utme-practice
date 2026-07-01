@@ -12,6 +12,22 @@ export interface Profile {
 
 export type AccessStatus = 'admin' | 'paid' | 'free-available' | 'locked';
 
+const LS_PREMIUM_KEY = 'isPremium';
+
+/** Set by the Paystack success callback — grants instant access without waiting for webhook. */
+export function setPremiumLocally(): void {
+  try { localStorage.setItem(LS_PREMIUM_KEY, 'true'); } catch { /* ignore */ }
+}
+
+/** Call on sign-out so the localStorage flag doesn't bleed into a different account. */
+export function clearPremiumLocally(): void {
+  try { localStorage.removeItem(LS_PREMIUM_KEY); } catch { /* ignore */ }
+}
+
+export function isPremiumLocally(): boolean {
+  try { return localStorage.getItem(LS_PREMIUM_KEY) === 'true'; } catch { return false; }
+}
+
 export function isSubscriptionActive(profile: Profile | null): boolean {
   if (!profile) return false;
   if (!profile.paid_until) return false;
@@ -20,9 +36,13 @@ export function isSubscriptionActive(profile: Profile | null): boolean {
 }
 
 export function getAccessStatus(profile: Profile | null): AccessStatus {
-  if (!profile) return 'locked';
-  if (profile.is_admin) return 'admin';
+  if (profile?.is_admin) return 'admin';
+  // Supabase-confirmed subscription (set by Paystack webhook)
   if (isSubscriptionActive(profile)) return 'paid';
+  // localStorage fast-path: set immediately on Paystack success so results
+  // unlock the moment payment is confirmed, even if the webhook is delayed.
+  if (isPremiumLocally()) return 'paid';
+  if (!profile) return 'locked';
   if (!profile.free_test_used) return 'free-available';
   return 'locked';
 }

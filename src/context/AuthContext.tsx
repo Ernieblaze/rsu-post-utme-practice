@@ -3,6 +3,7 @@ import type { Session, User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabaseClient';
 import type { Profile } from '../lib/access';
 import { consumeJustSignedUpFlag, getPendingReferralCode, markJustSignedUp } from '../lib/referral';
+import { clearPremiumLocally } from '../lib/access';
 
 interface AuthResult {
   error: string | null;
@@ -146,6 +147,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   async function signOut(): Promise<AuthResult> {
+    clearPremiumLocally(); // remove localStorage flag so it doesn't persist to next user
     const { error } = await supabase.auth.signOut();
     return { error: error ? error.message : null };
   }
