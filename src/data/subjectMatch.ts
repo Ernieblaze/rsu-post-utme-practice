@@ -11,7 +11,7 @@ import type { Course } from './rsuData';
 const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
   'Use of English': ['English', 'Use of English'],
   'RSU General Knowledge': ['About RSU', 'RSU Rules', 'RSU General Knowledge'],
-  'Current Affairs': ['Current Affairs'],
+  'Current Affairs': ['Current Affairs', 'Nigeria Current Affairs'],
   Mathematics: ['Mathematics'],
   Physics: ['Physics'],
   Chemistry: ['Chemistry'],
