@@ -16,6 +16,7 @@ import { Leaderboard } from './components/Leaderboard';
 import { ToastProvider } from './components/Toast';
 import { AuthModal } from './components/AuthModal';
 import { Upgrade } from './components/Upgrade';
+import { Paywall } from './components/Paywall';
 import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
 import { LegalPage } from './components/LegalPage';
@@ -89,6 +90,8 @@ function AppContent() {
   const [bank, setBank] = useState(() => getBank());
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
+  const [paywallPending, setPaywallPending] = useState(false);
+  const [paywallLoading, setPaywallLoading] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -170,16 +173,20 @@ function AppContent() {
     saveAttempt(attempt);
     setAttempts(getAttempts());
     setResult(attempt);
-    routerNavigate('/results');
-    if (user && profile && getAccessStatus(profile) === 'free-available') {
+
+    const status = getAccessStatus(profile);
+    const isPremium = status === 'admin' || status === 'paid';
+
+    // Consume free trial regardless of whether they pay for results
+    if (user && profile && status === 'free-available') {
       void (async () => {
         await supabase.from('profiles').update({ free_test_used: true }).eq('id', user.id);
         await refreshProfile();
       })();
     }
+
+    // Best-effort server-side attempt log
     if (user) {
-      // Best-effort: log this attempt server-side for site-wide usage analytics.
-      // Quiz history itself still lives in localStorage — this is purely additive.
       void (async () => {
         await supabase.from('attempts').insert({
           user_id: user.id,
@@ -192,6 +199,13 @@ function AppContent() {
         });
       })();
     }
+
+    if (isPremium) {
+      routerNavigate('/results');
+    } else {
+      setPaywallPending(true);
+      routerNavigate('/results');
+    }
   }
 
   function handleUpgrade() {
@@ -202,7 +216,10 @@ function AppContent() {
     const email = user.email;
     const userId = user.id;
     const amountKobo = Number(import.meta.env.VITE_APP_PRICE ?? '200000');
+    // Capture at call-time so the closure knows where to redirect after payment
+    const cameFromPaywall = paywallPending;
 
+    setPaywallLoading(true);
     startPaystackPayment({
       email,
       userId,
@@ -220,15 +237,22 @@ function AppContent() {
             }
             await new Promise((resolve) => setTimeout(resolve, 1500));
           }
+          setPaywallLoading(false);
           if (!granted) {
             window.alert(
               'Payment received. Your access will unlock shortly — please refresh the page in a moment.'
             );
+            setPaywallPending(false);
+            routerNavigate('/');
+            return;
           }
-          routerNavigate('/');
+          setPaywallPending(false);
+          // If payment came from the post-test paywall, send them straight to results
+          routerNavigate(cameFromPaywall && result ? '/results' : '/');
         })();
       },
       onError: (message) => {
+        setPaywallLoading(false);
         window.alert('Payment could not be completed: ' + message);
       },
     });
@@ -306,14 +330,26 @@ function AppContent() {
             element={
               result && activeTest ? (
                 <motion.div key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <Results
-                    attempt={result}
-                    test={activeTest}
-                    onRetake={retakeTest}
-                    onHome={() => routerNavigate('/')}
-                    onProgress={() => routerNavigate('/progress')}
-                    onReviseSubject={reviseSubject}
-                  />
+                  {paywallPending ? (
+                    <Paywall
+                      priceLabel="₦2,000"
+                      loading={paywallLoading}
+                      onUpgrade={handleUpgrade}
+                      onHome={() => {
+                        setPaywallPending(false);
+                        routerNavigate('/');
+                      }}
+                    />
+                  ) : (
+                    <Results
+                      attempt={result}
+                      test={activeTest}
+                      onRetake={retakeTest}
+                      onHome={() => routerNavigate('/')}
+                      onProgress={() => routerNavigate('/progress')}
+                      onReviseSubject={reviseSubject}
+                    />
+                  )}
                 </motion.div>
               ) : (
                 <Navigate to="/" replace />

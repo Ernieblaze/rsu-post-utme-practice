@@ -127,8 +127,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       password,
       options: { emailRedirectTo: `${window.location.origin}/email-confirmed` },
     });
-    if (!error) markJustSignedUp();
-    return { error: error ? error.message : null };
+    if (!error) {
+      markJustSignedUp();
+      return { error: null };
+    }
+    const status = (error as { status?: number }).status;
+    // 500 = SMTP failure (Supabase couldn't send the confirmation email)
+    if (status === 500 || !error.message || error.message === '{}') {
+      return { error: 'We could not send your confirmation email right now. Please try again in a few minutes.' };
+    }
+    // Surface the real message for everything else (wrong password, rate limit, etc.)
+    return { error: error.message };
   }
 
   async function signIn(email: string, password: string): Promise<AuthResult> {
