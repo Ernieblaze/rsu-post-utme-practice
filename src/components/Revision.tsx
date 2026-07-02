@@ -6,9 +6,11 @@ import {
   X,
   CheckCircle,
   Lightbulb,
+  Play,
+  Shuffle,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { BankQuestion } from '../types';
+import type { BankQuestion, Test } from '../types';
 import { subjectColor } from '../lib/helpers';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
@@ -20,11 +22,40 @@ interface RevisionProps {
   bank: BankQuestion[];
   onBack: () => void;
   initialSubject?: string;
+  onStart?: (test: Test) => void;
 }
 
 const SESSION_BATCH_SIZE = 6;
 
-export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildRevisionTest(questions: BankQuestion[], title: string): Test {
+  const picked = shuffle(questions);
+  return {
+    id: `revision-practice-${Date.now()}`,
+    title,
+    description: `${picked.length} question${picked.length === 1 ? '' : 's'} from Revision.`,
+    durationMinutes: 999,
+    questions: picked.map((q, idx) => ({
+      id: idx + 1,
+      subject: q.subject,
+      topic: q.topic || undefined,
+      text: q.text,
+      options: { ...q.options },
+      answer: q.answer,
+      explanation: q.explanation,
+    })),
+  };
+}
+
+export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProps) {
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
   const [showCoursePicker, setShowCoursePicker] = useState(false);
   const selectedCourse = courseId ? findCourseById(courseId) : null;
@@ -266,6 +297,25 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
         </div>
       </div>
 
+      {/* ── Practice bar ── shown whenever there are questions to practice */}
+      {onStart && filtered.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-school-green/20 bg-school-pale/60 px-4 py-3 dark:border-school-green/20 dark:bg-school-navy/60"
+        >
+          <span className="text-sm font-semibold text-school-navy dark:text-slate-200">
+            <span className="font-bold text-school-green">{filtered.length}</span> question{filtered.length !== 1 ? 's' : ''} match your filter
+          </span>
+          <button
+            onClick={() => onStart(buildRevisionTest(filtered, `Practice — ${subject !== 'all' ? subject : 'All subjects'}`))}
+            className="flex items-center gap-1.5 rounded-xl bg-school-green px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-school-green/90"
+          >
+            <Shuffle size={14} /> Practice all {filtered.length} (shuffled)
+          </button>
+        </motion.div>
+      )}
+
       {filtered.length === 0 ? (
         <motion.div
           initial={{ opacity: 0 }}
@@ -339,6 +389,14 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
                       <Lightbulb size={14} />
                       {isExpanded ? 'Hide explanation' : 'Show explanation'}
                     </button>
+                    {onStart && (
+                      <button
+                        onClick={() => onStart(buildRevisionTest([q], `Practice: ${q.subject}`))}
+                        className="flex items-center gap-1.5 rounded-lg bg-school-green/10 px-3 py-1.5 text-xs font-bold text-school-green hover:bg-school-green/20 dark:bg-school-green/15 dark:hover:bg-school-green/25"
+                      >
+                        <Play size={12} fill="currentColor" /> Practice this question
+                      </button>
+                    )}
                   </div>
 
                   <AnimatePresence>

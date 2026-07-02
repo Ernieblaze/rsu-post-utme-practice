@@ -360,7 +360,7 @@ function AppContent() {
                   (() => {
                     const status = getAccessStatus(profile);
                     return status === 'admin' || status === 'paid' ? (
-                      <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} />
+                      <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} onStart={guardedStartDynamicTest} />
                     ) : (
                       <Paywall
                         variant="revision"
