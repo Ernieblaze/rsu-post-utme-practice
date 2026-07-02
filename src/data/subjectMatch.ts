@@ -29,7 +29,7 @@ const CANONICAL_TO_BANK_SUBJECTS: Record<string, string[]> = {
   Accounting: ['Accounting', 'Financial Accounting'],
   // New subjects (questions coming soon)
   'Computer Studies': ['Computer Studies', 'Computer Science'],
-  IRS: ['IRS', 'Islamic Religious Studies'],
+  IRS: ['IRS', 'Islamic Religious Studies', 'Islamic Religious Knowledge'],
 };
 
 /** A JAMB combo slot is a generic elective ("Any Social Science subject") rather than a named subject. */

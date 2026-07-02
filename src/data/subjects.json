@@ -1,20 +1,20 @@
 [
-  { "subject": "Use of English",          "category": "General" },
-  { "subject": "Nigeria Current Affairs",  "category": "General" },
-  { "subject": "About RSU & Rules",        "category": "General" },
+  { "subject": "Use of English",              "category": "General" },
+  { "subject": "Nigeria Current Affairs",      "category": "General" },
+  { "subject": "About RSU & Rules",            "category": "General" },
 
-  { "subject": "Mathematics",             "category": "Science" },
-  { "subject": "Physics",                 "category": "Science" },
-  { "subject": "Chemistry",               "category": "Science" },
-  { "subject": "Biology",                 "category": "Science" },
-  { "subject": "Computer Studies",        "category": "Science" },
+  { "subject": "Mathematics",                  "category": "Science" },
+  { "subject": "Physics",                      "category": "Science" },
+  { "subject": "Chemistry",                    "category": "Science" },
+  { "subject": "Biology",                      "category": "Science" },
+  { "subject": "Computer Studies",             "category": "Science" },
 
-  { "subject": "Government",              "category": "Arts" },
-  { "subject": "Economics",               "category": "Arts" },
-  { "subject": "Literature in English",   "category": "Arts" },
-  { "subject": "History",                 "category": "Arts" },
-  { "subject": "Geography",               "category": "Arts" },
-  { "subject": "CRS",                     "category": "Arts" },
-  { "subject": "IRS",                     "category": "Arts" },
-  { "subject": "Commerce",                "category": "Arts" }
+  { "subject": "Government",                   "category": "Arts" },
+  { "subject": "Economics",                    "category": "Arts" },
+  { "subject": "Literature in English",        "category": "Arts" },
+  { "subject": "History",                      "category": "Arts" },
+  { "subject": "Geography",                    "category": "Arts" },
+  { "subject": "CRS",                          "category": "Arts" },
+  { "subject": "Islamic Religious Knowledge",  "category": "Arts" },
+  { "subject": "Commerce",                     "category": "Arts" }
 ]
