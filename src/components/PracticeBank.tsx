@@ -6,6 +6,7 @@ import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
 import { filterForPractice, buildPracticeTest } from '../data/practiceBuilder';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
+import { categoryForSubject } from '../data/questionBank';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
 interface PracticeBankProps {
@@ -175,7 +176,7 @@ function PracticeForm({
       </div>
 
       <div className="p-6">
-        {/* Subject toggles */}
+        {/* Subject toggles — grouped by category */}
         <div className="mb-2 flex items-center justify-between">
           <span className="text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
             Subjects
@@ -195,24 +196,43 @@ function PracticeForm({
             </button>
           </div>
         </div>
-        <div className="mb-5 flex flex-wrap gap-2">
-          {allSubjects.map((s) => {
-            const active = selectedSubjects.includes(s);
-            return (
-              <button
-                key={s}
-                onClick={() => toggleSubject(s)}
-                className={`rounded-full border px-3 py-1.5 text-sm font-semibold transition ${
-                  active
-                    ? 'border-school-green bg-school-green text-white'
-                    : 'border-school-green/20 bg-school-light text-school-navy hover:bg-school-pale dark:border-school-green/30 dark:bg-school-navy/60 dark:text-slate-200'
-                }`}
-              >
-                {s}
-              </button>
-            );
-          })}
-        </div>
+
+        {(['General', 'Science', 'Arts'] as const).map((cat) => {
+          const catSubjects = allSubjects.filter((s) => categoryForSubject(s) === cat);
+          if (catSubjects.length === 0) return null;
+          const catColors: Record<string, string> = {
+            General: 'text-amber-600 dark:text-amber-400',
+            Science: 'text-blue-600 dark:text-blue-400',
+            Arts:    'text-purple-600 dark:text-purple-400',
+          };
+          return (
+            <div key={cat} className="mb-4">
+              <p className={`mb-1.5 text-[10px] font-bold uppercase tracking-widest ${catColors[cat]}`}>
+                {cat === 'General' ? '📋 General (compulsory for all)' : cat === 'Science' ? '🔬 Science' : '📚 Arts & Social Science'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {catSubjects.map((s) => {
+                  const active = selectedSubjects.includes(s);
+                  return (
+                    <button
+                      key={s}
+                      onClick={() => toggleSubject(s)}
+                      className={`rounded-full border px-3 py-1.5 text-sm font-semibold transition ${
+                        active
+                          ? 'border-school-green bg-school-green text-white'
+                          : 'border-school-green/20 bg-school-light text-school-navy hover:bg-school-pale dark:border-school-green/30 dark:bg-school-navy/60 dark:text-slate-200'
+                      }`}
+                    >
+                      {s}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+
+        <div className="mb-1" />
 
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block">

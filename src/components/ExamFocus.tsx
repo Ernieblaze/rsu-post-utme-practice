@@ -90,7 +90,7 @@ export function ExamFocus({ bank, onStart }: ExamFocusProps) {
           <div className="rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40">
             <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">What to expect</h2>
             <ul className="mt-3 space-y-1.5 text-sm text-school-navy/80 dark:text-slate-300">
-              <li>• Up to 50 questions: your JAMB subjects + Current Affairs + RSU General Knowledge</li>
+              <li>• Up to 50 questions: your JAMB subjects + Nigeria Current Affairs + About RSU &amp; Rules</li>
               <li>• Strict 30-minute countdown timer</li>
               <li>• One question at a time, with clear progress</li>
               <li>• Full score breakdown and explanations at the end</li>

@@ -12,6 +12,7 @@ import type { BankQuestion } from '../types';
 import { subjectColor } from '../lib/helpers';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
+import { categoryForSubject } from '../data/questionBank';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
@@ -178,11 +179,17 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
             className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
           >
             <option value="all">{relevantSubjects ? 'All your subjects' : 'All subjects'}</option>
-            {subjects.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
+            {(['General', 'Science', 'Arts'] as const).map((cat) => {
+              const catSubs = subjects.filter((s) => categoryForSubject(s) === cat);
+              if (catSubs.length === 0) return null;
+              return (
+                <optgroup key={cat} label={cat === 'General' ? '📋 General' : cat === 'Science' ? '🔬 Science' : '📚 Arts & Social Science'}>
+                  {catSubs.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </optgroup>
+              );
+            })}
           </select>
           <select
             value={topic}
@@ -225,11 +232,17 @@ export function Revision({ bank, onBack, initialSubject }: RevisionProps) {
             className="w-full rounded-xl border border-school-green/20 bg-school-light py-2.5 px-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
           >
             <option value="all">{relevantSubjects ? 'All your subjects' : 'All subjects'}</option>
-            {subjects.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
+            {(['General', 'Science', 'Arts'] as const).map((cat) => {
+              const catSubs = subjects.filter((s) => categoryForSubject(s) === cat);
+              if (catSubs.length === 0) return null;
+              return (
+                <optgroup key={cat} label={cat === 'General' ? '📋 General' : cat === 'Science' ? '🔬 Science' : '📚 Arts & Social Science'}>
+                  {catSubs.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </optgroup>
+              );
+            })}
           </select>
           <select
             value={topic}
