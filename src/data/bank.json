@@ -1,5 +1,3805 @@
 [
   {
+    "id": "q-1782987435402-h1xicc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A map with a scale of 1:40,000 is reduced to one quarter of its size. What is its new scale?",
+    "options": {
+      "A": "1:10,000",
+      "B": "1:50,000",
+      "C": "1:160,000",
+      "D": "1:200,000",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Reducing the size of a map makes the scale smaller in the sense of representing more ground per unit, so the denominator increases. Since the map is reduced to one quarter, the scale denominator is multiplied by 4: 40,000 x 4 = 160,000, giving a new scale of 1:160,000."
+  },
+  {
+    "id": "q-1782987435402-u86fzw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In a pie chart showing livestock production, cattle account for 40%. If the total number of livestock is 6 million, what is the number of cattle produced?",
+    "options": {
+      "A": "2,200,000",
+      "B": "2,300,000",
+      "C": "2,400,000",
+      "D": "2,500,000",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The number of cattle is found by multiplying the total livestock population by the percentage share of cattle: 40% of 6,000,000 = 0.40 x 6,000,000 = 2,400,000."
+  },
+  {
+    "id": "q-1782987435402-578iqe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In a pie chart showing livestock production, pigs are 5%, camels 10% and donkeys 10% of a total of 6 million livestock. What is the total number of pigs, camels and donkeys?",
+    "options": {
+      "A": "1,600,000",
+      "B": "1,500,000",
+      "C": "1,400,000",
+      "D": "1,300,000",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Adding the percentages: 5% + 10% + 10% = 25%. 25% of 6,000,000 = 0.25 x 6,000,000 = 1,500,000."
+  },
+  {
+    "id": "q-1782987435402-odaug9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An instrument used for setting out a right angle in the surveying of a parcel of land is a(n) _____",
+    "options": {
+      "A": "ranging pole",
+      "B": "optical square",
+      "C": "measuring rod",
+      "D": "Abney level",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The optical square is a hand-held surveying instrument fitted with mirrors that allows a surveyor to sight two objects at a right angle to each other, making it the standard tool for setting out right angles in chain surveying."
+  },
+  {
+    "id": "q-1782987435402-3qkltm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An example of a great circle is _____",
+    "options": {
+      "A": "the equator",
+      "B": "the earth",
+      "C": "Latitude 66 1/2",
+      "D": "Latitude 23 1/2",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A great circle is any circle drawn on the globe whose plane passes through the centre of the earth, dividing it into two equal hemispheres. The equator is the only latitude that qualifies, since all other parallels of latitude are small circles."
+  },
+  {
+    "id": "q-1782987435402-cp64fi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A metamorphosed form of shale is _____",
+    "options": {
+      "A": "Slate",
+      "B": "Marble",
+      "C": "Quartzite",
+      "D": "Gneiss",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Shale is a fine-grained sedimentary rock formed from compressed clay/mud. Under heat and pressure (metamorphism), shale is transformed into slate, a fine-grained metamorphic rock used for roofing."
+  },
+  {
+    "id": "q-1782987435402-qd1ec8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Sandstone can be classified as _____",
+    "options": {
+      "A": "Argillaceous",
+      "B": "Calcareous",
+      "C": "Carbonaceous",
+      "D": "Arenaceous",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Sedimentary rocks are classified by the dominant particle type: arenaceous rocks are formed mainly of sand-sized grains. Sandstone, made largely of cemented sand grains, is therefore classified as arenaceous."
+  },
+  {
+    "id": "q-1782987435402-uank4z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A form of chemical weathering is _____",
+    "options": {
+      "A": "Fragmentation",
+      "B": "Exfoliation",
+      "C": "Carbonation",
+      "D": "Shattering",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Chemical weathering involves reactions that alter the mineral composition of rocks. Carbonation occurs when rainwater containing dissolved carbon dioxide (forming weak carbonic acid) reacts with minerals such as calcium carbonate in limestone, dissolving the rock. Fragmentation, exfoliation and shattering are physical/mechanical weathering processes."
+  },
+  {
+    "id": "q-1782987435403-z76e8q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Ocean currents most strongly affect the coast they wash when _____",
+    "options": {
+      "A": "prevailing winds are offshore",
+      "B": "prevailing winds are onshore",
+      "C": "there are no prevailing winds",
+      "D": "the ocean floods the shore",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Ocean currents influence coastal climate mainly through the winds that blow across them. When prevailing winds are onshore (blowing from sea to land), they carry the temperature and moisture characteristics of the current onto the coast, moderating or altering the coastal climate."
+  },
+  {
+    "id": "q-1782987435403-cllbdj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A wind vane is used to record the _____",
+    "options": {
+      "A": "speed of the wind",
+      "B": "type of wind",
+      "C": "force of wind",
+      "D": "direction of the wind",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "A wind vane is a simple instrument with a freely rotating arrow that aligns itself with the wind, always pointing into the direction from which the wind blows. Wind speed is instead measured with an anemometer."
+  },
+  {
+    "id": "q-1782987435403-i1ncfm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the climate of a station with an annual rainfall of about 2,650 mm fairly well distributed all year round and a mean annual temperature of 27°C?",
+    "options": {
+      "A": "Tropical wet and dry",
+      "B": "Tropical monsoon",
+      "C": "Tropical humid (equatorial)",
+      "D": "Mediterranean woodland",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "High, evenly distributed rainfall throughout the year combined with consistently high temperatures (around 27°C with little seasonal variation) is the defining characteristic of the tropical humid (equatorial) climate, found near the equator."
+  },
+  {
+    "id": "q-1782987435403-fy177x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following types of vegetation is characterized by acidic soils?",
+    "options": {
+      "A": "Sahel Savanna",
+      "B": "Coniferous forest",
+      "C": "Temperate grassland",
+      "D": "Steppe",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Coniferous forests shed needle-like leaves that decompose slowly and release organic acids, producing highly acidic, nutrient-poor podzol soils beneath them. Savanna and grassland soils are generally less acidic."
+  },
+  {
+    "id": "q-1782987435403-hz376e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When both the macro pores and micro pores of a soil are filled with water, the soil is said to be _____",
+    "options": {
+      "A": "leached",
+      "B": "at field capacity",
+      "C": "water logged",
+      "D": "eroded",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A soil is water logged when all its pore spaces (both large macro-pores and small micro-pores) are saturated with water, leaving no room for air, which restricts root respiration and plant growth."
+  },
+  {
+    "id": "q-1782987435403-pzdfbs",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A mature soil with distinct horizons occurring in a particular climatic zone, but influenced strongly by topography, is called _____",
+    "options": {
+      "A": "Zonal soil",
+      "B": "Intrazonal soil",
+      "C": "Azonal soil",
+      "D": "Alluvial soil",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Intrazonal soils are mature, well-developed soils with distinct horizons whose character is controlled more by local factors such as topography, drainage or parent rock than by the regional climate, distinguishing them from zonal soils which are climate-controlled."
+  },
+  {
+    "id": "q-1782987435403-p1j60f",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following resources is non-renewable?",
+    "options": {
+      "A": "Wind energy",
+      "B": "Solar energy",
+      "C": "Hydro energy",
+      "D": "Nuclear energy",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Nuclear energy is generated from radioactive elements such as uranium, which exist in finite, exhaustible quantities in the earth's crust, making it a non-renewable resource, unlike wind, solar and hydro power which are continuously replenished."
+  },
+  {
+    "id": "q-1782987435403-ztu73w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The introduction of materials that have negative impacts on the ecosystem is known as _____",
+    "options": {
+      "A": "Pollution",
+      "B": "Combination",
+      "C": "Transpiration",
+      "D": "Evaporation",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Pollution is defined as the introduction of harmful substances or contaminants into the natural environment that cause adverse change and damage ecosystems, human health, or property."
+  },
+  {
+    "id": "q-1782987435403-l2lz0w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An example of a climatic hazard is _____",
+    "options": {
+      "A": "Volcanic eruption",
+      "B": "Earthquake",
+      "C": "Hurricane",
+      "D": "Coastal erosion",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Climatic hazards arise from atmospheric processes. A hurricane (tropical cyclone) is driven by atmospheric pressure and temperature systems, whereas volcanic eruptions and earthquakes are geological hazards linked to tectonic activity."
+  },
+  {
+    "id": "q-1782987435403-xk0v1n",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In which of the following regions is high population density attributable to agricultural development?",
+    "options": {
+      "A": "The Ruhr",
+      "B": "The Nile Basin",
+      "C": "The Amazon Basin",
+      "D": "The Midlands of England",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The Nile Basin has supported dense populations for millennia because its fertile, annually replenished alluvial soils and reliable irrigation water make it highly productive for agriculture, unlike the Ruhr and Midlands, whose density is due to industry."
+  },
+  {
+    "id": "q-1782987435403-frkt69",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following statements best describes the population of South East Asia?",
+    "options": {
+      "A": "High density and high growth rate",
+      "B": "High density and low growth rate",
+      "C": "Low density and high growth rate",
+      "D": "Low density and low growth rate",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "South East Asia is characterised by fertile river valleys and deltas (e.g. the Mekong, Irrawaddy) that support intensive rice cultivation, resulting in both high population density and a high natural growth rate typical of developing regions."
+  },
+  {
+    "id": "q-1782987435403-vvw2s1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following population characteristics is associated with developed countries?",
+    "options": {
+      "A": "Declining birth rate and high death rate",
+      "B": "High birth rate and declining death rate",
+      "C": "High birth rate and low birth rate",
+      "D": "Low birth rate and low death rate",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Developed countries have generally completed the demographic transition, with improved healthcare lowering death rates and social/economic factors (education, family planning, urbanisation) lowering birth rates, resulting in slow, stable population growth."
+  },
+  {
+    "id": "q-1782987435403-orkre2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Urban settlements mainly engage in _____",
+    "options": {
+      "A": "Primary economic activities",
+      "B": "Secondary economic activities",
+      "C": "Tertiary economic activities",
+      "D": "Quaternary economic activities",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Urban centres are typically dominated by tertiary (service) activities such as trade, banking, administration and transport, which serve the concentrated populations, in contrast to rural areas which focus on primary activities like farming."
+  },
+  {
+    "id": "q-1782987435403-wx0p1y",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lagos, Sydney, Singapore, Hong Kong and Calabar are cities of considerable importance mainly because they _____",
+    "options": {
+      "A": "are crossroads of international airlines",
+      "B": "have seaports",
+      "C": "are densely populated",
+      "D": "are administrative capitals",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "All these cities grew to prominence chiefly as major seaports, which gave them strategic advantages for international trade, commerce and the growth of ancillary industries."
+  },
+  {
+    "id": "q-1782987435403-1fv2f6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following arranges settlement types in descending order of complexity of function?",
+    "options": {
+      "A": "Metropolis, city, town, village and hamlet",
+      "B": "Metropolis, town, city, hamlet and village",
+      "C": "Metropolis, city, village, hamlet and town",
+      "D": "Hamlet, village, town, city and metropolis",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Settlement hierarchy ranks places by size and range of functions/services offered. From the most complex to the least complex: metropolis > city > town > village > hamlet."
+  },
+  {
+    "id": "q-1782987435403-wxkhxr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following economic activities are classified as primary?",
+    "options": {
+      "A": "Farming, transportation, fishing and manufacturing",
+      "B": "Lumbering, banking, transportation and farming",
+      "C": "Fishing, lumbering, farming and mining",
+      "D": "Mining, trading, farming and lumbering",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Primary economic activities involve the direct extraction or harvesting of natural resources. Fishing, lumbering, farming and mining all fall into this category, unlike manufacturing, banking, transportation and trading, which are secondary or tertiary activities."
+  },
+  {
+    "id": "q-1782987435403-e7z39k",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When a manufacturing enterprise produces goods that form raw materials for other enterprises, this is referred to as _____",
+    "options": {
+      "A": "Value added",
+      "B": "Sub-contracting",
+      "C": "Forward linkage",
+      "D": "Backward linkage",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A forward linkage exists when an industry's output becomes the input (raw material) for another industry further along the production chain, as opposed to a backward linkage where an industry draws its raw materials from suppliers behind it."
+  },
+  {
+    "id": "q-1782987435403-5lmioj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Most less developed nations are trade debtors mainly because _____",
+    "options": {
+      "A": "of their continuous link with their colonial masters",
+      "B": "of the gross imbalance in international trade",
+      "C": "they import manufactured goods from industrialized nations",
+      "D": "their currencies are weak",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Many developing countries export cheap raw materials while importing costly manufactured/finished goods from industrialised nations, creating a persistent trade imbalance that leaves them as net debtors in international trade."
+  },
+  {
+    "id": "q-1782987435403-lrxm60",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Liberia, Malaysia and Indonesia are known for the production of _____",
+    "options": {
+      "A": "Cocoa",
+      "B": "Rubber",
+      "C": "Coffee",
+      "D": "Tea",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Liberia, Malaysia and Indonesia have tropical climates well suited to the rubber tree (Hevea brasiliensis) and are historically among the world's leading natural rubber producers."
+  },
+  {
+    "id": "q-1782987435403-vwmpch",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major means of transporting goods from the Rhine industrial region to other European cities is by _____",
+    "options": {
+      "A": "Waterways",
+      "B": "Road",
+      "C": "Air",
+      "D": "Rail",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Rhine River is one of Europe's busiest commercial waterways, providing cheap, high-capacity bulk transport that links the industrial Ruhr/Rhine region to ports and cities across Western Europe."
+  },
+  {
+    "id": "q-1782987435403-v4ixti",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Mediterranean fruits are exported mainly to Western Europe rather than Africa because _____",
+    "options": {
+      "A": "Africa produces more fruits than the Mediterranean region",
+      "B": "Europe is closer to the Mediterranean than most parts of Africa",
+      "C": "transport facilities between Africa and Western Europe are better",
+      "D": "there is higher demand for fruits in Western Europe than in Africa",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Proximity strongly influences trade patterns: Western Europe lies much closer to the Mediterranean basin than most of Africa, reducing transport costs and time, which makes it the natural and dominant export market for Mediterranean fruit."
+  },
+  {
+    "id": "q-1782987435403-slb1ay",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The contribution of agriculture to Nigeria's GDP has remained largely low owing to _____",
+    "options": {
+      "A": "low price of agricultural produce",
+      "B": "lack of access to markets",
+      "C": "its predominantly subsistence nature",
+      "D": "inadequate labour supply",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Nigerian agriculture is still practised mainly at a subsistence level using traditional methods on small plots, producing mostly for family consumption rather than for the market, which limits its overall contribution to national output."
+  },
+  {
+    "id": "q-1782987435403-hmmdqc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A boat-building industry is least likely to be situated in _____",
+    "options": {
+      "A": "Taraba State",
+      "B": "Kogi State",
+      "C": "Kano State",
+      "D": "Kebbi State",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Boat building requires proximity to large rivers, lakes or the coast for both raw material transport and testing/use of the finished boats. Kano State lies in the semi-arid far north with no major navigable river, making it the least suitable location."
+  },
+  {
+    "id": "q-1782987435403-mcp51b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Nguru and Kaura Namoda settlements in Northern Nigeria are most notable for being _____",
+    "options": {
+      "A": "high production centres for groundnuts",
+      "B": "terminal points for railway transportation",
+      "C": "towns with the worst problems of water scarcity",
+      "D": "quarrying settlements",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Nguru and Kaura Namoda developed historically as railway terminal towns on branch lines of the Nigerian railway network, which boosted their growth as collection and distribution centres for the surrounding region."
+  },
+  {
+    "id": "q-1782987435403-gssnhe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The scattered settlement pattern of the Tiv people of the Middle Belt is owing to _____",
+    "options": {
+      "A": "the security situation in the region",
+      "B": "the agricultural practices of the region",
+      "C": "directives of its political leaders",
+      "D": "religious beliefs of the people",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The Tiv practise extensive shifting/bush-fallow cultivation, which requires households to live close to scattered farm plots rather than clustering together, producing the characteristic dispersed settlement pattern of the region."
+  },
+  {
+    "id": "q-1782987435403-x4zesv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In East Africa, a greater variety of crops is grown than in West Africa mainly because of _____",
+    "options": {
+      "A": "different soil types",
+      "B": "moderate rainfall",
+      "C": "different ranges of altitude",
+      "D": "different agricultural systems",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "East Africa's varied relief, including highlands, plateaus and the Rift Valley, produces a wide range of altitudinal climatic zones from hot lowlands to cool highlands, allowing a much greater diversity of crops to be grown than in the generally lower-lying West Africa."
+  },
+  {
+    "id": "q-1782987435403-8x1b85",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following African countries is landlocked?",
+    "options": {
+      "A": "Zambia",
+      "B": "Gabon",
+      "C": "Sudan",
+      "D": "Mozambique",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Zambia has no direct access to the sea and is entirely surrounded by other countries (DR Congo, Tanzania, Malawi, Mozambique, Zimbabwe, Botswana, Namibia, Angola), making it a landlocked country, unlike Gabon, Sudan and Mozambique which all have coastlines."
+  },
+  {
+    "id": "q-1782987435403-7joluq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The relief system in East Africa is characterized by _____",
+    "options": {
+      "A": "Ridges",
+      "B": "Basins",
+      "C": "Rift valleys",
+      "D": "Escarpments",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "East Africa is dominated by the Great Rift Valley system, a massive tectonic trench running through the region, associated with volcanic mountains and lakes such as Lake Victoria and Lake Tanganyika."
+  },
+  {
+    "id": "q-1782987435403-u4ab22",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lake Kariba is located in _____",
+    "options": {
+      "A": "Tanzania",
+      "B": "Uganda",
+      "C": "Kenya",
+      "D": "Zambia",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Lake Kariba is a large man-made reservoir formed by the Kariba Dam on the Zambezi River, on the border between Zambia and Zimbabwe."
+  },
+  {
+    "id": "q-1782987435403-wnln29",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Improved agricultural production in Cote d'Ivoire is mainly due to _____",
+    "options": {
+      "A": "abundant and reliable rainfall",
+      "B": "good and effective transportation routes",
+      "C": "availability of migrant labour",
+      "D": "good organization and effective management",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Cote d'Ivoire's leading position in cocoa and coffee production is largely credited to well-organised agricultural policy, extension services and effective management of production and marketing systems, alongside favourable natural conditions."
+  },
+  {
+    "id": "q-1782987435403-odhxel",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Chain survey is most convenient for measurements on _____",
+    "options": {
+      "A": "a rocky environment",
+      "B": "plains",
+      "C": "embankments",
+      "D": "irregular slopes",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Chain surveying relies on measuring straight lines directly with a chain or tape, which works best over relatively flat, open, obstruction-free ground such as plains, and is less practical on rocky terrain or steep, irregular slopes."
+  },
+  {
+    "id": "q-1782987435403-h3hexm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The earth's crust consists essentially of _____",
+    "options": {
+      "A": "magnesium and silica",
+      "B": "silica and aluminium",
+      "C": "calcium and aluminium",
+      "D": "magnesium and calcium",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The earth's continental crust (the sial layer) is composed predominantly of silica and aluminium compounds, giving it a lighter density than the underlying sima layer, which is rich in silica and magnesium."
+  },
+  {
+    "id": "q-1782987435403-k249sb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The rock type formed through the deposition and compression of clastic particles is _____",
+    "options": {
+      "A": "anthracite",
+      "B": "sandstone",
+      "C": "limestone",
+      "D": "mudstone",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Sandstone is a clastic sedimentary rock formed when sand-sized mineral or rock particles are deposited, compacted and cemented together over time, distinguishing it from limestone (chemical/organic origin) and anthracite (altered coal)."
+  },
+  {
+    "id": "q-1782987435403-h72563",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following rock types is formed through the ejection of magma onto the surface of the earth?",
+    "options": {
+      "A": "Lignite",
+      "B": "Granite",
+      "C": "Slate",
+      "D": "Basalt",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Basalt is an extrusive (volcanic) igneous rock that forms when magma is ejected onto the earth's surface as lava and cools rapidly, producing a fine-grained texture, unlike granite which cools slowly deep underground."
+  },
+  {
+    "id": "q-1782987435403-zcz6qf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Rocks that are composed of particles derived from previously existing rocks are referred to as _____",
+    "options": {
+      "A": "metamorphic rocks",
+      "B": "intrusive igneous rocks",
+      "C": "sedimentary rocks",
+      "D": "extrusive igneous rocks",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Sedimentary rocks form from the weathering, erosion, transport and deposition of fragments (sediments) of pre-existing rocks, which are later compacted and cemented into new rock."
+  },
+  {
+    "id": "q-1782987435403-wy0hjb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An ox-bow lake is usually located in a _____",
+    "options": {
+      "A": "volcanic crater",
+      "B": "karst valley",
+      "C": "river flood plain",
+      "D": "desert oasis",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An ox-bow lake forms on the flood plain of a meandering river, when a wide meander loop is cut off from the main channel and abandoned, leaving a crescent-shaped lake on the flat flood plain."
+  },
+  {
+    "id": "q-1782987435403-5v02z0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The phenomenon of change in direction of wave fronts as they approach the sea shore is known as _____",
+    "options": {
+      "A": "wave refraction",
+      "B": "tidal wave movement",
+      "C": "wave drifting",
+      "D": "retrogradation",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Wave refraction is the bending of wave fronts as they enter shallower water near the coast, caused by the wave slowing down where the seabed is shallower, which concentrates wave energy on headlands and disperses it in bays."
+  },
+  {
+    "id": "q-1782987435403-91dy0z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The storm which occurs over the China Sea between latitudes 8° and 15° N and S of the equator is a _____",
+    "options": {
+      "A": "tropical thunderstorm",
+      "B": "tornado",
+      "C": "typhoon",
+      "D": "temperate thunderstorm",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Typhoons are tropical cyclones that develop over warm ocean waters in the western Pacific/China Sea region within roughly 8-15 degrees of the equator, where the Coriolis force is strong enough to initiate rotation but sea temperatures remain high."
+  },
+  {
+    "id": "q-1782987435403-a5acet",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A major characteristic of the tropical continental climate is the _____",
+    "options": {
+      "A": "occurrence of high diurnal temperatures throughout the year",
+      "B": "absence of cloud cover throughout the year",
+      "C": "prevalence of high and constant temperatures throughout the year",
+      "D": "occurrence of alternating wet and dry seasons throughout the year",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The tropical continental (Sudan/Savanna) climate is distinguished by a marked alternation between a wet season and a pronounced dry season each year, unlike the equatorial climate which has rain throughout the year."
+  },
+  {
+    "id": "q-1782987435403-18ixvu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Plants that are highly tolerant of drought and can survive in dry habitats are referred to as _____",
+    "options": {
+      "A": "hydrophytes",
+      "B": "mesophytes",
+      "C": "tropophytes",
+      "D": "xerophytes",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Xerophytes are plants specially adapted (e.g. thick cuticles, reduced leaves, deep roots) to survive in arid, water-scarce environments such as deserts."
+  },
+  {
+    "id": "q-1782987435403-pv6hr1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An important characteristic of the B-horizon in tropical ferruginous soils is the _____",
+    "options": {
+      "A": "eluviation of oxides",
+      "B": "concentration of organic matter",
+      "C": "accumulation of oxides",
+      "D": "predominance of parent material",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "In tropical ferruginous (laterised) soils, iron and aluminium oxides leached from the upper A-horizon accumulate in the B-horizon, giving it a characteristic reddish colour and often forming a hardened layer."
+  },
+  {
+    "id": "q-1782987435403-9v9hx2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The texture of the soil depends on the constituents of _____",
+    "options": {
+      "A": "sand, silt and humus",
+      "B": "sand, clay and stones",
+      "C": "sand, silt and clay",
+      "D": "sand, clay and quartz",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Soil texture is classified according to the relative proportions of the three main mineral particle sizes: sand, silt and clay, which determine properties like drainage and water retention."
+  },
+  {
+    "id": "q-1782987435403-4gv30z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The most significant economic use of ocean water is for _____",
+    "options": {
+      "A": "drinking",
+      "B": "bathing",
+      "C": "transportation",
+      "D": "recreation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Oceans form the world's largest and cheapest medium for bulk transport of goods and people between continents, making maritime transportation their most significant economic use."
+  },
+  {
+    "id": "q-1782987435403-pm4f2i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major terrestrial ecosystems are often referred to as _____",
+    "options": {
+      "A": "biomes",
+      "B": "biomass",
+      "C": "grasslands",
+      "D": "boreal forests",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A biome is a large-scale terrestrial ecosystem characterised by distinctive climate, vegetation and animal life, such as tropical rainforest, savanna, desert and tundra biomes."
+  },
+  {
+    "id": "q-1782987435403-9gtlr9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Global warming directly results in _____",
+    "options": {
+      "A": "melting ice caps and rising sea level",
+      "B": "corrosion of roofing sheets",
+      "C": "increase in atmospheric pressure",
+      "D": "population explosion and rapid urbanization",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Rising global temperatures cause polar ice caps and glaciers to melt and ocean water to expand thermally, both of which directly raise global sea levels, threatening low-lying coastal areas."
+  },
+  {
+    "id": "q-1782987435403-jws755",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Accelerated soil erosion mainly results from a combination of _____",
+    "options": {
+      "A": "bad farming practices and mulching",
+      "B": "intensive cultivation and cover crops",
+      "C": "bad farming practices and fertilizers",
+      "D": "intensive cultivation and overgrazing",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Intensive cultivation that exhausts and exposes topsoil, combined with overgrazing that strips protective vegetation cover, exposes bare soil to wind and water action, greatly accelerating the natural rate of soil erosion."
+  },
+  {
+    "id": "q-1782987435403-edqpmb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following factors discourages population concentration in an area?",
+    "options": {
+      "A": "Grasslands",
+      "B": "Frozen soils",
+      "C": "Mineral deposits",
+      "D": "Alluvial plains",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Permanently frozen soils (permafrost) are unsuitable for agriculture and construction, and support little vegetation, making such areas inhospitable and discouraging dense human settlement, unlike fertile alluvial plains or mineral-rich areas."
+  },
+  {
+    "id": "q-1782987435403-67dm6m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The ratio of registered births to the population of women of child-bearing age is known as the _____",
+    "options": {
+      "A": "fertility rate",
+      "B": "mortality rate",
+      "C": "growth rate",
+      "D": "morbidity rate",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The fertility rate specifically measures the number of live births relative to the female population of reproductive (child-bearing) age, distinguishing it from the crude birth rate which is measured against the total population."
+  },
+  {
+    "id": "q-1782987435403-27uiuw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The number of deaths, births, immigrants and emigrants over a specified time interval determines the population's _____",
+    "options": {
+      "A": "density",
+      "B": "change",
+      "C": "growth",
+      "D": "structure",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Population change over a period is calculated from the balance of births, deaths, immigration and emigration (natural increase plus net migration), giving the overall change in population size."
+  },
+  {
+    "id": "q-1782987435403-jj56vi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is mainly associated with tourism?",
+    "options": {
+      "A": "Rural settlement",
+      "B": "Commercial settlement",
+      "C": "Holiday resort",
+      "D": "Confluence town",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A holiday resort is a settlement whose primary function is to attract and accommodate tourists and vacationers, built around leisure and recreational facilities."
+  },
+  {
+    "id": "q-1782987435403-712ihg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The merging of two or more extensive urban areas results in a _____",
+    "options": {
+      "A": "city",
+      "B": "megalopolis",
+      "C": "conurbation",
+      "D": "metropolis",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A conurbation is formed when two or more originally separate towns or cities expand and physically merge into one continuous built-up urban area, such as London or the Ruhr conurbation."
+  },
+  {
+    "id": "q-1782987435403-bx988r",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An industry is optimally located where _____",
+    "options": {
+      "A": "profit is minimized",
+      "B": "cost is maximized",
+      "C": "revenue is minimized",
+      "D": "profit is maximized",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The optimum location for an industry, according to classical industrial location theory, is the site where the difference between total revenue and total cost is greatest, i.e. where profit is maximized."
+  },
+  {
+    "id": "q-1782987435403-xz7g6l",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The lack of access to food in some parts of the world mainly emanates from _____",
+    "options": {
+      "A": "low development of natural resources",
+      "B": "educational inequality",
+      "C": "poor transportation system",
+      "D": "economic inequality",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Food insecurity in many parts of the world is largely driven by economic inequality, where poverty prevents people from being able to afford or access sufficient food even where it is produced or available."
+  },
+  {
+    "id": "q-1782987435403-35slfk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The standard railway gauge is most common in _____",
+    "options": {
+      "A": "North America and Europe",
+      "B": "Europe and Africa",
+      "C": "Africa and North America",
+      "D": "South America and Africa",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The standard gauge (1.435 m) railway track width is the most widely used gauge internationally and is predominant across North America and most of Europe, while many African and South American railways use narrower gauges."
+  },
+  {
+    "id": "q-1782987435403-587kig",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "More than half of the world's trade takes place _____",
+    "options": {
+      "A": "among developing countries",
+      "B": "among developed countries",
+      "C": "between developed and developing countries",
+      "D": "between Asiatic and African countries",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The bulk of global trade by value occurs among the industrialised, developed nations (e.g. within North America, Europe and East Asia), which have the largest economies and greatest purchasing power."
+  },
+  {
+    "id": "q-1782987435403-5pp43i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Cane chairs, wooden masks and ornamental brass trays found in Nigeria are products of _____",
+    "options": {
+      "A": "manufacturing industries",
+      "B": "processing industries",
+      "C": "local crafts",
+      "D": "foreign lands",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "These are traditional handmade items produced by local artisans using indigenous skills and simple tools, classifying them as products of local craft industries rather than large-scale manufacturing."
+  },
+  {
+    "id": "q-1782987435403-zbt6fn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Petroleum is extracted in Nigeria by _____",
+    "options": {
+      "A": "drilling",
+      "B": "refining",
+      "C": "mining",
+      "D": "dredging",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Crude petroleum is extracted from underground reservoirs by drilling wells down to the oil-bearing rock, after which the oil is pumped to the surface; refining is a separate process that converts crude oil into usable products."
+  },
+  {
+    "id": "q-1782987435403-rsqsmm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In Nigeria, the major products taken to markets from the south to the north are _____",
+    "options": {
+      "A": "beef, onions, groundnuts and grains",
+      "B": "plantains, garri, kolanuts and palm oil",
+      "C": "oranges, vegetables and beef",
+      "D": "potatoes, rice and onions",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Southern Nigeria's humid forest zone produces tree and root crops such as plantains, cassava (garri), kolanuts and palm oil, which are transported north in exchange for northern products like grains and livestock."
+  },
+  {
+    "id": "q-1782987435403-h8ajmy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The average elevation of the eastern scarplands of Nigeria ranges from _____",
+    "options": {
+      "A": "300m - 400m",
+      "B": "400m - 500m",
+      "C": "500m - 600m",
+      "D": "600m - 700m",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Nigeria's Eastern (Udi-Nsukka) scarplands, formed of resistant sandstone escarpments, generally rise to elevations of roughly 400 to 500 metres above sea level."
+  },
+  {
+    "id": "q-1782987435403-2d3mit",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The best method of overcoming natural difficulties in Nigerian agriculture includes _____",
+    "options": {
+      "A": "terracing, irrigation and research",
+      "B": "irrigation, crop rotation and over-cultivation",
+      "C": "devegetation, research and mixed cropping",
+      "D": "crop rotation, fire clearing and mixed cropping",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Terracing controls erosion on slopes, irrigation compensates for unreliable rainfall, and agricultural research develops improved crop varieties and techniques, together addressing the major natural constraints facing Nigerian farming."
+  },
+  {
+    "id": "q-1782987435403-avvk2q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Lagos area has emerged as the most prominent destination for internal migration in Nigeria because it is _____",
+    "options": {
+      "A": "close to the coast and is densely populated",
+      "B": "agriculturally productive and close to the coast",
+      "C": "on a high plain and is highly industrialized",
+      "D": "highly industrialized and highly urbanized",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Lagos attracts massive internal migration primarily because it is Nigeria's leading centre of industry, commerce and urban opportunity, offering far more employment prospects than most other parts of the country."
+  },
+  {
+    "id": "q-1782987435403-3g5g3y",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Inter-regional trade in Nigeria has mostly been promoted by the fact that _____",
+    "options": {
+      "A": "different regions have different ethnic groups",
+      "B": "there is improved inter-regional transportation",
+      "C": "different regions produce different commodities",
+      "D": "there is improved internal security",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Trade is driven by regional specialisation: because Nigeria's regions differ in climate, soils and resources, they produce different goods (e.g. cash crops in the south, grains and livestock in the north), creating a natural basis for exchange between them."
+  },
+  {
+    "id": "q-1782987435403-srrdee",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The largest rift valley system in the world is found in _____",
+    "options": {
+      "A": "West Africa",
+      "B": "North Africa",
+      "C": "East Africa",
+      "D": "South Africa",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The East African Rift System stretches for thousands of kilometres from the Red Sea through Ethiopia, Kenya, Tanzania and beyond, making it the world's largest continental rift valley system."
+  },
+  {
+    "id": "q-1782987435403-f8ox2z",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Sahel region of Africa is especially prone to _____",
+    "options": {
+      "A": "drought",
+      "B": "flooding",
+      "C": "earthquakes",
+      "D": "volcanoes",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Sahel is a semi-arid transitional zone south of the Sahara with low, highly variable rainfall, making it particularly susceptible to prolonged droughts and desertification."
+  },
+  {
+    "id": "q-1782987435403-lq24r9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Algeria's major oil fields are located at _____",
+    "options": {
+      "A": "Hassi Messaoud",
+      "B": "Touggourt",
+      "C": "Marsa el Brega",
+      "D": "Gulf of Sirte",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Hassi Messaoud, in the Algerian Sahara, is Algeria's largest and most important oil field, discovered in 1956 and remaining the country's leading source of crude petroleum."
+  },
+  {
+    "id": "q-1782987435403-xww09b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Liberia, Malaysia and Indonesia are the two major plantation crop producers of _____",
+    "options": {
+      "A": "cocoa and coffee",
+      "B": "cotton and coffee",
+      "C": "cocoa and groundnut",
+      "D": "rubber and cotton",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "West Africa (e.g. Ghana, Cote d'Ivoire) is a leading world producer of cocoa, while East Africa (e.g. Kenya, Uganda) is well known for coffee production, making cocoa and coffee the two major plantation crops of these regions respectively."
+  },
+  {
+    "id": "q-1782987435403-n9656e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The most densely populated river delta in Africa is the _____",
+    "options": {
+      "A": "Niger Delta",
+      "B": "Chari-Logone Delta",
+      "C": "Nile Delta",
+      "D": "Zambezi Delta",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Nile Delta in Egypt supports extremely high population densities because its fertile, irrigated alluvial soils allow intensive agriculture to sustain millions of people in a relatively small area."
+  },
+  {
+    "id": "q-1782987435403-zbq58w",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The length between two points on a topographical map is 5 cm. What is the actual ground distance if the scale of the map is 1:50,000?",
+    "options": {
+      "A": "2.5 km",
+      "B": "3.0 km",
+      "C": "3.5 km",
+      "D": "5.0 km",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Ground distance = map distance x scale denominator = 5 cm x 50,000 = 250,000 cm. Converting to kilometres: 250,000 cm ÷ 100,000 (cm per km) = 2.5 km."
+  },
+  {
+    "id": "q-1782987435403-g3v96i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The earth's crust consists essentially of which two elements, forming the sial layer?",
+    "options": {
+      "A": "Silicon and Magnesium",
+      "B": "Silicon and Aluminium",
+      "C": "Silicon and Iron",
+      "D": "Silicon and Nickel",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The continental crust, known as 'sial', is named for and dominated by silicon (Si) and aluminium (Al) compounds, giving it a lower density than the underlying oceanic 'sima' crust rich in silicon and magnesium."
+  },
+  {
+    "id": "q-1782987435403-kmgt21",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Sun-dial is used for recording the _____",
+    "options": {
+      "A": "amount of sunshine in a place",
+      "B": "duration of sunshine in a place",
+      "C": "position of the sun in a place",
+      "D": "intensity of sunshine within a period of time",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A sun-dial works by casting a shadow from a fixed pointer (gnomon) that moves as the sun's apparent position in the sky changes through the day, allowing it to indicate local time based on the sun's position."
+  },
+  {
+    "id": "q-1782987435403-cybtlb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The actual amount of water vapour present in the air, expressed in grams per cubic metre, is called _____",
+    "options": {
+      "A": "humidity",
+      "B": "actual humidity",
+      "C": "relative humidity",
+      "D": "absolute humidity",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Absolute humidity measures the actual mass of water vapour contained in a given volume of air (g/m3), as opposed to relative humidity, which expresses this as a percentage of the maximum the air could hold at that temperature."
+  },
+  {
+    "id": "q-1782987435403-32wst0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Pine, fir, larch and spruce are commonly found in _____",
+    "options": {
+      "A": "deciduous forest",
+      "B": "equatorial forest",
+      "C": "coniferous forest",
+      "D": "mangrove forest",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Pine, fir, larch and spruce are cone-bearing (coniferous) trees typical of the cool temperate coniferous (boreal/taiga) forest belt of the Northern Hemisphere."
+  },
+  {
+    "id": "q-1782987435403-75a6rt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major components of soil are _____",
+    "options": {
+      "A": "organic matter, texture, structure and air",
+      "B": "texture, organic matter, water and air",
+      "C": "water, air, mineral matter and organic matter",
+      "D": "water, texture, nutrients and mineral matter",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Soil is essentially made up of four components: mineral matter (weathered rock particles), organic matter (humus), water and air, all of which occupy the pore spaces between soil particles."
+  },
+  {
+    "id": "q-1782987435403-vhpyxu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The soil-forming process in the hot, humid tropics, where rainfall and temperature are high throughout the year, is known as _____",
+    "options": {
+      "A": "laterization",
+      "B": "podzolization",
+      "C": "calcification",
+      "D": "salinization",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Laterization is the intense weathering and leaching process typical of hot, humid tropical climates, in which silica is removed and iron/aluminium oxides accumulate, producing red, iron-rich lateritic soils."
+  },
+  {
+    "id": "q-1782987435403-69djxu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An example of an atmospheric resource is _____",
+    "options": {
+      "A": "water",
+      "B": "coal",
+      "C": "tin",
+      "D": "petroleum",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Atmospheric resources are those derived directly from the atmosphere, such as rainfall (water), solar energy and wind, distinguishing them from mineral resources like coal, tin and petroleum which come from the earth's crust."
+  },
+  {
+    "id": "q-1782987435403-r8q28j",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Igneous rocks are differentiated from sedimentary rocks mainly by their _____",
+    "options": {
+      "A": "appearance and origin",
+      "B": "shape and size",
+      "C": "density and appearance",
+      "D": "area and density",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Igneous rocks form from the cooling and solidification of molten magma, while sedimentary rocks form from compacted deposited sediments; these different origins give the two rock groups distinct crystalline versus layered appearances."
+  },
+  {
+    "id": "q-1782987435403-n7qr0m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The massive removal of tree and forest cover without replacement is referred to as _____",
+    "options": {
+      "A": "afforestation",
+      "B": "deforestation",
+      "C": "bush clearing",
+      "D": "bush burning",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Deforestation is the large-scale clearing of forests, typically for agriculture, logging or urban development, without replanting to replace the lost tree cover."
+  },
+  {
+    "id": "q-1782987435403-jb2s19",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The total population of a country can most reliably be obtained from its _____",
+    "options": {
+      "A": "sample survey",
+      "B": "birth rate",
+      "C": "birth and death rates",
+      "D": "National Census",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "A National Census is a complete, official enumeration of every person in a country at a given time, making it the most accurate and comprehensive source of total population figures, unlike sample surveys or vital rate estimates."
+  },
+  {
+    "id": "q-1782987435403-k360jz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The major factor that affected the growth of Africa's population during pre-colonial times was _____",
+    "options": {
+      "A": "inter-tribal wars",
+      "B": "famine",
+      "C": "epidemics",
+      "D": "natural hazards",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Frequent inter-tribal wars and conflicts in pre-colonial Africa caused significant loss of life and displacement, which was a major check on population growth during that period."
+  },
+  {
+    "id": "q-1782987435403-8mnmng",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following terms relates population size to land area?",
+    "options": {
+      "A": "Census",
+      "B": "Density",
+      "C": "Intensity",
+      "D": "Demography",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Population density is specifically defined as the number of people per unit area of land (e.g. persons per km2), directly relating population size to the land area it occupies."
+  },
+  {
+    "id": "q-1782987435403-dsm42o",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The problems of unemployment, housing shortage, traffic congestion and environmental degradation are mainly associated with _____",
+    "options": {
+      "A": "slums",
+      "B": "urbanization",
+      "C": "industrialization",
+      "D": "political disturbances",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Rapid urbanization, especially when it outpaces the growth of infrastructure and job opportunities in cities, typically brings problems such as unemployment, housing shortages, traffic congestion and environmental degradation."
+  },
+  {
+    "id": "q-1782987435403-nm2a2f",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Rural settlements are important to urban centres mainly because they provide _____",
+    "options": {
+      "A": "roads",
+      "B": "transport",
+      "C": "labour",
+      "D": "capital",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Rural areas supply urban centres with labour, as people migrate from villages to cities in search of employment, as well as food and raw materials to support urban industries and populations."
+  },
+  {
+    "id": "q-1782987435403-bq2l7v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Settlements that develop along communication routes such as roads or rivers are likely to be _____",
+    "options": {
+      "A": "oval",
+      "B": "linear",
+      "C": "nucleated",
+      "D": "dispersed",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Settlements that grow along a road, railway or river tend to stretch out lengthwise following the route, producing a linear (ribbon) settlement pattern."
+  },
+  {
+    "id": "q-1782987435403-tvj9on",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The greatest advantage of road transportation over other modes is that it is _____",
+    "options": {
+      "A": "cheaper",
+      "B": "more flexible",
+      "C": "less risky",
+      "D": "faster",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Road transport can reach virtually any location and offers door-to-door delivery without needing fixed terminals, giving it far greater flexibility of route and destination compared to rail, water or air transport."
+  },
+  {
+    "id": "q-1782987435403-9wvqx0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The best breeds of dairy cattle can be found in _____",
+    "options": {
+      "A": "South America",
+      "B": "Asia",
+      "C": "Australia",
+      "D": "Europe",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Europe, particularly countries like Denmark, the Netherlands and Switzerland, has long been renowned for developing and rearing the world's best specialised dairy cattle breeds, such as Holstein-Friesian and Jersey."
+  },
+  {
+    "id": "q-1782987435403-0nzrgk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The greatest benefit of mixed farming is that _____",
+    "options": {
+      "A": "it is very cheap to practice",
+      "B": "the animals produce the manure for crop production",
+      "C": "it combines the advantages of crop and animal husbandry",
+      "D": "the animals feed from crop farming",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Mixed farming integrates both crop cultivation and livestock rearing on the same farm, allowing the farmer to benefit from both enterprises simultaneously, including using animal manure for crops and crop residues/by-products to feed animals."
+  },
+  {
+    "id": "q-1782987435403-y8bi2v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is the busiest and most important world shipping route?",
+    "options": {
+      "A": "The South Atlantic route",
+      "B": "The Cape route",
+      "C": "The North Atlantic route",
+      "D": "The Panama Canal route",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The North Atlantic route, linking the industrialised economies of North America and Western Europe, carries the greatest volume of world shipping traffic due to the high level of trade between these two regions."
+  },
+  {
+    "id": "q-1782987435403-8rmqbv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following groups of countries is a major producer of rubber?",
+    "options": {
+      "A": "Malaysia, Liberia and Indonesia",
+      "B": "Indonesia, Malaysia and Zimbabwe",
+      "C": "Malaysia, Niger and Liberia",
+      "D": "South Africa, Liberia and China",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Malaysia, Liberia and Indonesia all have hot, humid tropical climates ideal for the rubber tree and are historically among the world's top producers of natural rubber."
+  },
+  {
+    "id": "q-1782987435403-13i83n",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The greatest industrial areas of the world are found in _____",
+    "options": {
+      "A": "Africa and the Caribbean",
+      "B": "the Ruhr industrial region and South Africa",
+      "C": "Western Europe and the United States of America",
+      "D": "Japan and Australia",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Western Europe (led by regions like the Ruhr and the UK Midlands) and the United States of America have historically been the world's two largest concentrations of heavy and manufacturing industry."
+  },
+  {
+    "id": "q-1782987435403-kfp51p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Livestock rearing in Nigeria is still predominantly the occupation of _____",
+    "options": {
+      "A": "small holder farmers",
+      "B": "sedentary rearers",
+      "C": "large-scale farmers",
+      "D": "nomadic herders",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Livestock rearing in Nigeria, especially cattle, is still dominated by nomadic (Fulani) herders who move their herds seasonally in search of pasture and water, rather than by settled, large-scale commercial ranching."
+  },
+  {
+    "id": "q-1782987435403-nteent",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following Nigerian cities has the highest concentration of industries?",
+    "options": {
+      "A": "Kano",
+      "B": "Lagos",
+      "C": "Kaduna",
+      "D": "Port-Harcourt",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Lagos, as Nigeria's former capital and its commercial nerve centre, has by far the highest concentration of manufacturing and other industries in the country, owing to its port facilities, large market and infrastructure."
+  },
+  {
+    "id": "q-1782987435404-2q5wa5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The location of the cement industry in Ewekoro, Nigeria, is largely influenced by _____",
+    "options": {
+      "A": "nearness to source of water",
+      "B": "adequate transportation facilities",
+      "C": "nearness to raw materials",
+      "D": "government policy",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Ewekoro cement factory was sited close to large local deposits of limestone, its principal raw material, since transporting bulky raw materials over long distances would be far more costly than transporting the finished product."
+  },
+  {
+    "id": "q-1782987435404-9t670p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following winds is responsible for the dry season in Nigeria?",
+    "options": {
+      "A": "Tropical maritime airmass",
+      "B": "Tropical continental airmass",
+      "C": "Equatorial easterlies",
+      "D": "Harmattan",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The Harmattan is the dry, dusty, north-easterly wind that blows from the Sahara Desert across West Africa during the dry season, bringing low humidity, dust haze and cooler nighttime temperatures."
+  },
+  {
+    "id": "q-1782987435404-u3m0rs",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following groups is known for nomadic grazing in East Africa?",
+    "options": {
+      "A": "The Masai of Kenya",
+      "B": "The Akans of Ghana",
+      "C": "The Hausas of Nigeria",
+      "D": "The Arabs of Algeria",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Masai are a well-known pastoral people of Kenya and Tanzania whose traditional way of life centres on nomadic and semi-nomadic cattle grazing across the East African savannas."
+  },
+  {
+    "id": "q-1782987435404-fauccq",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following African countries has gold as its major foreign exchange earner?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Tanzania",
+      "C": "Niger",
+      "D": "South Africa",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "South Africa has historically been the world's leading gold producer, and gold mining has long been a dominant source of the country's foreign exchange earnings and economic development."
+  },
+  {
+    "id": "q-1782987435404-4f0r9h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is the largest country by land area in West Africa?",
+    "options": {
+      "A": "Mali",
+      "B": "Niger",
+      "C": "Mauritania",
+      "D": "Nigeria",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Niger covers approximately 1.27 million square kilometres, making it the largest country in West Africa by land area, even though Nigeria has a far larger population."
+  },
+  {
+    "id": "q-1782987435404-o170aa",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following clouds is closely associated with thunderstorms?",
+    "options": {
+      "A": "Cumulonimbus",
+      "B": "Stratocumulus",
+      "C": "Cirronimbus",
+      "D": "Altostratus",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Cumulonimbus clouds are tall, dense clouds that develop from strong convectional uplift and are associated with heavy rain, lightning, thunder and sometimes hail, making them the classic thunderstorm cloud."
+  },
+  {
+    "id": "q-1782987435404-838qwn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following landforms results from wind deposition?",
+    "options": {
+      "A": "Playa",
+      "B": "Bajada",
+      "C": "Barchan",
+      "D": "Fan",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A barchan is a crescent-shaped sand dune formed by wind depositing sand in a consistent direction, typical of desert environments, whereas playas and fans are largely associated with water action."
+  },
+  {
+    "id": "q-1782987435404-oy9xwx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "One major feature of manufacturing industries in West Africa is that they _____",
+    "options": {
+      "A": "have wide markets for their products",
+      "B": "are capital intensive",
+      "C": "are evenly spread over major towns",
+      "D": "produce mainly for the domestic market",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Manufacturing in West Africa is generally geared towards meeting local demand for basic consumer goods, producing mainly for the domestic market rather than for large-scale export, unlike industries in more industrialised regions."
+  },
+  {
+    "id": "q-1782987435404-mtlmsv",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A desert country which has a high population density supported by irrigation is _____",
+    "options": {
+      "A": "Sudan",
+      "B": "Egypt",
+      "C": "Namibia",
+      "D": "Kuwait",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Egypt lies mostly within the Sahara Desert, yet it sustains one of Africa's highest population densities because irrigation from the Nile River supports intensive agriculture along the narrow river valley and delta."
+  },
+  {
+    "id": "q-1782987435404-5dym69",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following minerals is produced in the Niger Republic?",
+    "options": {
+      "A": "Copper",
+      "B": "Iron ore",
+      "C": "Crude oil",
+      "D": "Uranium",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Niger Republic is one of the world's significant producers of uranium, mined mainly in the Agadez region, which has been a key source of foreign exchange for the country."
+  },
+  {
+    "id": "q-1782987435404-v9nkgu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The speed of wind is usually measured using a(n) _____",
+    "options": {
+      "A": "wind vane",
+      "B": "wind rose",
+      "C": "anemometer",
+      "D": "thermometer",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An anemometer, typically fitted with rotating cups, measures wind speed directly, whereas a wind vane shows wind direction and a wind rose is a diagram summarising wind data over time."
+  },
+  {
+    "id": "q-1782987435404-zx48a6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "If the temperature at sea level is 10°C, what is the approximate temperature of the air at a height of 200 metres above sea level (using the normal lapse rate of about 6.4°C per 1000 m)?",
+    "options": {
+      "A": "11.2°C",
+      "B": "13.2°C",
+      "C": "5.8°C",
+      "D": "8.7°C",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Using the environmental lapse rate of approximately 6.4°C per 1000 m, the temperature drop over 200 m is (200/1000) x 6.4 = 1.28°C. Subtracting this from the sea-level temperature: 10°C - 1.28°C ≈ 8.7°C."
+  },
+  {
+    "id": "q-1782987435404-05a2jj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Chemical weathering processes include all of the following EXCEPT _____",
+    "options": {
+      "A": "Oxidation",
+      "B": "Transportation",
+      "C": "Carbonation",
+      "D": "Hydration",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Oxidation, carbonation and hydration are all chemical reactions that alter the mineral composition of rocks. Transportation, however, is the movement of weathered material by agents such as water, wind or ice, and is not itself a weathering process."
+  },
+  {
+    "id": "q-1782987435404-xeolm1",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A deflation hollow is produced by _____",
+    "options": {
+      "A": "glacial erosion",
+      "B": "wave erosion",
+      "C": "wind erosion",
+      "D": "solution",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A deflation hollow is a shallow depression scoured out of loose, unconsolidated material by the removal (deflation) of fine particles by strong winds, characteristic of arid and semi-arid regions."
+  },
+  {
+    "id": "q-1782987435404-238kfk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A line joining points of equal atmospheric pressure on a map is called a(n) _____",
+    "options": {
+      "A": "isopach",
+      "B": "isopleth",
+      "C": "isobar",
+      "D": "isohyet",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "An isobar specifically connects points of equal atmospheric pressure on a weather map, used to identify pressure systems such as highs and lows, unlike an isohyet (equal rainfall) or isotherm (equal temperature)."
+  },
+  {
+    "id": "q-1782987435404-jegcbf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is NOT a product of river deposition?",
+    "options": {
+      "A": "Flood plain",
+      "B": "Delta",
+      "C": "Levee",
+      "D": "Gorge",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Flood plains, deltas and levees are all landforms built up from sediment deposited by a river. A gorge, by contrast, is a deep, narrow valley formed by river erosion (down-cutting), not deposition."
+  },
+  {
+    "id": "q-1782987435404-ash5b3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following countries has a large number of people of African descent due to the transatlantic slave trade?",
+    "options": {
+      "A": "Spain",
+      "B": "Canada",
+      "C": "Brazil",
+      "D": "Chile",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Brazil received the largest number of enslaved Africans of any country during the transatlantic slave trade, giving it today one of the largest populations of African descent outside Africa."
+  },
+  {
+    "id": "q-1782987435404-0pwqxu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The contents of a Stevenson's screen include a thermometer and a _____",
+    "options": {
+      "A": "anemometer",
+      "B": "wind vane",
+      "C": "hygrometer",
+      "D": "rain gauge",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A Stevenson's screen is a louvred, shaded enclosure that houses instruments needing protection from direct sunlight and rain, typically including dry- and wet-bulb thermometers and a hygrometer for measuring humidity; instruments like rain gauges and anemometers are kept outside it."
+  },
+  {
+    "id": "q-1782987435404-38yaj3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following factors is least important in the location of industries?",
+    "options": {
+      "A": "Power",
+      "B": "Raw materials",
+      "C": "Market",
+      "D": "Climate",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "While power supply, availability of raw materials and access to markets are all critical locational factors for industry, climate generally has comparatively little direct influence on where most industries choose to locate."
+  },
+  {
+    "id": "q-1782987435404-5dm8fr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Petroleum is usually found in abundance in _____",
+    "options": {
+      "A": "intrusive igneous rocks",
+      "B": "anticlinal structures associated with igneous rock",
+      "C": "anticlinal structures of sedimentary rocks",
+      "D": "synclinal structures of sedimentary rocks",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Petroleum, being less dense than water, migrates upward through porous sedimentary rock and accumulates in the crest of anticlinal folds (upward arches) capped by impermeable rock, making anticlines in sedimentary strata the classic oil trap."
+  },
+  {
+    "id": "q-1782987435404-9xn6bk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "One of the places noted for irrigation agriculture in Africa is the _____",
+    "options": {
+      "A": "Zaire Basin",
+      "B": "Southern part of Sudan",
+      "C": "Ghezira Plains",
+      "D": "Great Rift Valley",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Ghezira Plains, lying between the Blue and White Nile in Sudan, is one of Africa's largest and most famous irrigation schemes, developed for the large-scale cultivation of cotton and other crops."
+  },
+  {
+    "id": "q-1782987435404-ffykbd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The two dams found on the upper and lower Nile respectively are _____",
+    "options": {
+      "A": "Sennar and Aswan",
+      "B": "Aswan and Jebel Aulia",
+      "C": "Sennar and Jebel Aulia",
+      "D": "Gezira and Sennar",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Sennar Dam lies on the Blue Nile in the upper reaches within Sudan, while the Aswan High Dam is located further downstream (lower Nile) in Egypt; together they regulate the Nile's flow for irrigation and power."
+  },
+  {
+    "id": "q-1782987435404-9u4mv5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The most dreaded pest in the cotton belt of the USA is the _____",
+    "options": {
+      "A": "Weaver bird",
+      "B": "White ant",
+      "C": "Boll Weevil",
+      "D": "Beetle",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The boll weevil is a small beetle whose larvae feed on cotton buds and bolls, and it historically devastated cotton production across the southern United States cotton belt, making it the most feared cotton pest there."
+  },
+  {
+    "id": "q-1782987435404-xrae8v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A town that is situated where two rivers meet is called a _____",
+    "options": {
+      "A": "Confluence town",
+      "B": "Bridge town",
+      "C": "Nodal town",
+      "D": "Coastal town",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A confluence town develops specifically at the point where two rivers join, a location often favoured for trade and settlement due to the convergence of water routes and fertile land."
+  },
+  {
+    "id": "q-1782987435404-kytip7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A World Title Boxing contest took place in New York (75°W time zone) on a Tuesday between 21:30 and 22:30 hours and was televised live. When did viewers in Lagos (15°E time zone) watch the contest live?",
+    "options": {
+      "A": "Monday between 03:30 and 04:30 hours",
+      "B": "Wednesday between 03:30 and 04:30 hours",
+      "C": "Tuesday between 15:30 and 16:30 hours",
+      "D": "Tuesday between 21:30 and 22:30 hours",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The longitude difference between 75°W and 15°E is 90°. At 15° per hour, this equals a 6-hour time difference, with Lagos ahead of New York. Adding 6 hours to 21:30-22:30 Tuesday gives 03:30-04:30, which rolls over into the early hours of Wednesday in Lagos."
+  },
+  {
+    "id": "q-1782987435404-3c91jf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The rainfall regime showing rain throughout the year with two rainfall peaks (double maxima), separated by a short relative dry spell, is typical of stations near the _____",
+    "options": {
+      "A": "equator experiencing the double passage of the sun overhead",
+      "B": "tropics with a single wet season",
+      "C": "poles with continuous snowfall",
+      "D": "deserts with erratic storms",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Stations close to the equator experience the sun overhead twice a year (at the equinoxes), which produces two periods of maximum convectional rainfall separated by relatively drier spells, giving a double-maxima rainfall regime typical of equatorial Nigeria (e.g. Warri, Niger Delta)."
+  },
+  {
+    "id": "q-1782987435404-1nq0dm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which Nigerian city, located in the Niger Delta, typically records a rainfall regime with rain throughout the year and double maxima, high humidity and mean temperatures around 26-28°C?",
+    "options": {
+      "A": "Warri",
+      "B": "Lokoja",
+      "C": "Ibadan",
+      "D": "Kaduna",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Warri, situated in the humid equatorial Niger Delta, experiences abundant rainfall spread throughout the year with two peaks, alongside consistently high temperatures and humidity, distinguishing its climate from the more seasonal tropical climates of Lokoja, Ibadan and Kaduna."
+  },
+  {
+    "id": "q-1782987435404-75gch0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The type of coal that burns with great heat and very little smoke is _____",
+    "options": {
+      "A": "anthracite",
+      "B": "lignite",
+      "C": "steam coal",
+      "D": "peat",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Anthracite is the highest-ranked and most carbon-rich type of coal, and it burns with intense heat and produces very little smoke compared to lower-grade coals such as lignite and peat."
+  },
+  {
+    "id": "q-1782987435404-xzadoh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The most serious environmental effect posed by hazardous wastes is _____",
+    "options": {
+      "A": "contamination of ground water",
+      "B": "destruction of habitat",
+      "C": "air pollution",
+      "D": "increased use of land for landfills",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Hazardous wastes that leach into the soil can seep down and contaminate underground aquifers, polluting groundwater that communities depend on for drinking water, which is considered one of the most serious and long-lasting environmental effects."
+  },
+  {
+    "id": "q-1782987435404-jlw0hd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The growth rate of population is determined by _____",
+    "options": {
+      "A": "improved agriculture",
+      "B": "the number of deaths per 1000",
+      "C": "birth and death rates",
+      "D": "technological know-how",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The natural growth rate of a population is calculated as the difference between the crude birth rate and the crude death rate over a given period, expressed as a percentage."
+  },
+  {
+    "id": "q-1782987435404-q7kgew",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A population problem faced by some developed countries today is _____",
+    "options": {
+      "A": "a very slow replacement rate",
+      "B": "overpopulation",
+      "C": "high death rates",
+      "D": "high dependency ratio due to youth",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Many developed countries now have birth rates so low that they fall below replacement level (about 2.1 children per woman), leading to an ageing population and, in some cases, eventual population decline without immigration."
+  },
+  {
+    "id": "q-1782987435404-vauqps",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a favourable condition for a settlement site?",
+    "options": {
+      "A": "Dense natural vegetation",
+      "B": "Marshy fadama area",
+      "C": "Adequate water supply",
+      "D": "Mountainous terrain",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A reliable and adequate water supply is one of the most essential requirements for the establishment and growth of any human settlement, for drinking, sanitation, agriculture and other daily needs."
+  },
+  {
+    "id": "q-1782987435404-vlrtrn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "In which of the following countries is perennial irrigation extensively practiced?",
+    "options": {
+      "A": "India",
+      "B": "Bangladesh",
+      "C": "The Sudan",
+      "D": "Holland",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Sudan, particularly in the Ghezira scheme between the Blue and White Nile, is renowned for extensive perennial (year-round) irrigation systems that supply water continuously for crop production regardless of the rainy season."
+  },
+  {
+    "id": "q-1782987435404-mw6qka",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Dispersed rural settlements are most likely to be found in areas with _____",
+    "options": {
+      "A": "limited agricultural land and poor surface drainage",
+      "B": "abundant agricultural land and good surface drainage",
+      "C": "a large agricultural population and restricted access",
+      "D": "a small agricultural population and poor surface drainage",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Where farmland is abundant and well-drained, individual farm households can spread out and settle close to their own fields rather than clustering together, producing a dispersed rather than nucleated settlement pattern."
+  },
+  {
+    "id": "q-1782987435404-ezgb1x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Dairy farming is an example of intensive farming commonly practiced in _____",
+    "options": {
+      "A": "Brazil",
+      "B": "Denmark",
+      "C": "Spain",
+      "D": "Niger",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Denmark has long been famous for its highly intensive, specialised dairy farming industry, supported by favourable cool, moist conditions and well-organised cooperative marketing systems."
+  },
+  {
+    "id": "q-1782987435404-uz1x8o",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "As a country develops economically, a smaller percentage of its workforce tends to be employed in _____",
+    "options": {
+      "A": "mining",
+      "B": "agriculture",
+      "C": "manufacturing",
+      "D": "services",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Economic development is generally accompanied by a structural shift of the labour force away from agriculture (the primary sector) towards industry and, later, services, as productivity in agriculture rises and other sectors expand."
+  },
+  {
+    "id": "q-1782987435404-nueihu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Developing countries mostly engage in primary economic activities mainly because of _____",
+    "options": {
+      "A": "underdevelopment",
+      "B": "interdependence",
+      "C": "overdependency",
+      "D": "colonization",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Low levels of industrial and technological development in most developing countries mean their economies remain heavily reliant on primary activities such as farming, fishing and mineral extraction, rather than manufacturing or advanced services."
+  },
+  {
+    "id": "q-1782987435404-uqq353",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "High annual rainfall of at least 1,520 mm, well distributed throughout the year with the heaviest during the growing season, is most suitable for the production of _____",
+    "options": {
+      "A": "wheat",
+      "B": "maize",
+      "C": "barley",
+      "D": "rice",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Rice is a water-loving crop that thrives with abundant, well-distributed rainfall, especially heavy rain during its growing season, unlike wheat, maize and barley, which generally require less water."
+  },
+  {
+    "id": "q-1782987435404-q2e5dr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main factor influencing the location of manufacturing industries in West Africa is _____",
+    "options": {
+      "A": "good transportation network",
+      "B": "rapid population growth",
+      "C": "adequate physical development",
+      "D": "nearness to raw materials",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Since much of West African manufacturing (e.g. food and beverage processing, textiles) is based on processing agricultural or mineral raw materials, industries tend to locate close to the source of these raw materials to minimise transport costs."
+  },
+  {
+    "id": "q-1782987435404-567gje",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An agricultural practice that allows a wide range of crops to be grown together without fallowing is _____",
+    "options": {
+      "A": "shifting cultivation",
+      "B": "crop rotation",
+      "C": "mixed cropping",
+      "D": "intensive cultivation",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Mixed cropping involves growing several different crops together on the same piece of land at the same time, which helps maintain soil fertility and reduces the need for the land to be left fallow."
+  },
+  {
+    "id": "q-1782987435404-bbbdnt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Arable farming and animal husbandry widely practiced together in Britain and many parts of Europe is referred to as _____",
+    "options": {
+      "A": "mixed farming",
+      "B": "crop farming",
+      "C": "orchard farming",
+      "D": "pastoral farming",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Mixed farming combines the growing of crops (arable farming) with the rearing of livestock (animal husbandry) on the same farm, a system long characteristic of British and much of Western European agriculture."
+  },
+  {
+    "id": "q-1782987435404-z4nb4u",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following best explains the reason for the decrease in the practice of bush fallowing in Nigeria?",
+    "options": {
+      "A": "Mechanized farming",
+      "B": "The availability of agricultural inputs",
+      "C": "Rapid growth of population",
+      "D": "Lack of interest in crop production",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Rapid population growth increases pressure on available farmland, forcing farmers to cultivate land more continuously and shorten or abandon the fallow (resting) periods traditionally used to restore soil fertility."
+  },
+  {
+    "id": "q-1782987435404-lk4vif",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Secondary economic activities are those that involve the _____",
+    "options": {
+      "A": "packaging of finished goods",
+      "B": "distribution of raw materials",
+      "C": "distribution of finished goods",
+      "D": "processing of raw materials",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "Secondary economic activities transform raw materials extracted through primary activities into finished or semi-finished manufactured goods, distinguishing them from primary (extraction) and tertiary (services/distribution) activities."
+  },
+  {
+    "id": "q-1782987435404-6gzk3e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason for the seasonal migration of nomadic herdsmen is _____",
+    "options": {
+      "A": "the search for water and good grazing",
+      "B": "the inability of government to provide shelter",
+      "C": "the search for a safe environment",
+      "D": "high rainfall in some regions",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Nomadic pastoralists move their herds seasonally to follow the availability of pasture and water, which vary with the wet and dry seasons, in order to keep their livestock adequately fed and watered throughout the year."
+  },
+  {
+    "id": "q-1782987435404-griill",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main industry associated with the Ruhr Valley region of Germany is _____",
+    "options": {
+      "A": "iron and steel",
+      "B": "oil refining",
+      "C": "food manufacturing",
+      "D": "ship building",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Ruhr Valley became one of the world's greatest industrial regions largely on the strength of its iron and steel industry, built upon local coal deposits and imported iron ore."
+  },
+  {
+    "id": "q-1782987435404-wmt4ix",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The largest producer of timber in Africa is _____",
+    "options": {
+      "A": "Kenya",
+      "B": "Senegal",
+      "C": "Cote d'Ivoire",
+      "D": "South Africa",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Cote d'Ivoire's extensive tropical rainforest zone made it, for much of the twentieth century, Africa's leading exporter and producer of tropical hardwood timber."
+  },
+  {
+    "id": "q-1782987435404-ev976v",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The high population density in the Nile Valley is largely a result of _____",
+    "options": {
+      "A": "industrial growth in the valley",
+      "B": "multipurpose dams supporting irrigation and agriculture",
+      "C": "multiple transportation development",
+      "D": "shaduf irrigation alone",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Multipurpose dams such as the Aswan High Dam regulate the Nile's flow, control flooding, generate hydroelectric power and provide reliable water for large-scale irrigated agriculture, which sustains the dense populations living along the Nile Valley."
+  },
+  {
+    "id": "q-1782987435404-8jkjte",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following population characteristics is best related to most African countries?",
+    "options": {
+      "A": "Low birth rate and low death rate",
+      "B": "High birth rate and low death rate",
+      "C": "Low death rate and high death rate",
+      "D": "High death rate and high death rate",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Most African countries are still in an intermediate stage of the demographic transition, where death rates have fallen due to improved healthcare, but birth rates remain relatively high, producing rapid population growth."
+  },
+  {
+    "id": "q-1782987435404-j3louf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The closed traverse method in surveying is based on the principle that _____",
+    "options": {
+      "A": "the compass is read at each point in turn, and back bearings are taken as a check",
+      "B": "the compass is read once and forward bearings are taken",
+      "C": "the compass is read at each point and plotted as a check",
+      "D": "the compass is read at each point and turned back at each point",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "In a closed traverse, bearings are taken at each survey station in sequence, and back bearings (readings taken looking back to the previous station) are recorded at each point as a check to detect and correct errors, since the traverse must close back on its starting point."
+  },
+  {
+    "id": "q-1782987435404-5zeha9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The equatorial circumference of the earth is approximately _____",
+    "options": {
+      "A": "20,084 km",
+      "B": "30,084 km",
+      "C": "40,084 km",
+      "D": "60,084 km",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The earth's equatorial circumference is approximately 40,075 km (commonly rounded to about 40,084 km in geography texts), reflecting the earth's slightly oblate spheroid shape."
+  },
+  {
+    "id": "q-1782987435404-vddlho",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following rocks is most suitable for the construction of roads and buildings?",
+    "options": {
+      "A": "Limestone",
+      "B": "Basalt",
+      "C": "Granite",
+      "D": "Graphite",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Granite is a hard, durable, coarse-grained igneous rock that resists weathering and compression well, making it one of the most widely used building and road construction stones."
+  },
+  {
+    "id": "q-1782987435404-t1byyz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Mountains formed as a result of compressional forces acting on the earth's crust are known as _____",
+    "options": {
+      "A": "Block Mountains",
+      "B": "Fold Mountains",
+      "C": "Residual Mountains",
+      "D": "Volcanic Mountains",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Fold mountains, such as the Alps and Himalayas, form when compressional forces from converging tectonic plates squeeze and buckle sedimentary rock layers upward into folds."
+  },
+  {
+    "id": "q-1782987435404-ywpqdc",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Mediterranean Sea has higher salinity than the open oceans mainly because _____",
+    "options": {
+      "A": "the surrounding soils are salty",
+      "B": "there is low rainfall in the region",
+      "C": "the area has high temperature leading to high evaporation",
+      "D": "of dead animal fossils",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Mediterranean region experiences high temperatures and a hot, dry summer climate, which causes a high rate of evaporation from its relatively enclosed sea, concentrating dissolved salts and raising overall salinity compared to the open oceans."
+  },
+  {
+    "id": "q-1782987435404-5euet8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The term used to describe the tropical rainforest vegetation of the Amazon Basin is _____",
+    "options": {
+      "A": "pampas",
+      "B": "coniferous",
+      "C": "selvas",
+      "D": "vale",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "'Selvas' is the specific term used for the dense equatorial rainforest of the Amazon Basin in South America, comparable to how the term 'savanna' describes tropical grasslands elsewhere."
+  },
+  {
+    "id": "q-1782987435404-tug8hk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The level of development of a soil profile (its horizons) is primarily determined by _____",
+    "options": {
+      "A": "climate",
+      "B": "time",
+      "C": "parent material",
+      "D": "organic matter",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The degree to which a soil profile develops distinct horizons depends fundamentally on the length of time weathering and soil-forming processes have acted on the parent material, alongside climate and other factors."
+  },
+  {
+    "id": "q-1782987435404-l8kgz2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Volcanoes are considered natural resources mainly because they provide _____",
+    "options": {
+      "A": "tourism opportunities",
+      "B": "mountainous landscape",
+      "C": "fertile soil",
+      "D": "carbon dioxide",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Weathered volcanic material breaks down into mineral-rich, highly fertile soils, which is why regions around volcanoes, such as parts of East Africa and Indonesia, often support dense agricultural populations."
+  },
+  {
+    "id": "q-1782987435404-st203h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is a component of a biotic community within an ecosystem?",
+    "options": {
+      "A": "Rocks",
+      "B": "Water",
+      "C": "Gases",
+      "D": "Animals",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "A biotic community consists of the living organisms within an ecosystem, including plants, animals and micro-organisms, as opposed to abiotic (non-living) components such as rocks, water and gases."
+  },
+  {
+    "id": "q-1782987435404-k0c7rd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following indices is most commonly used as a direct measure of a country's level of development?",
+    "options": {
+      "A": "Total population",
+      "B": "Population density",
+      "C": "Life expectancy",
+      "D": "Types of building",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Life expectancy is a widely used indicator of a country's development level, reflecting the overall standard of healthcare, nutrition and living conditions of its population, unlike total population or density which are size-related, not development-related, measures."
+  },
+  {
+    "id": "q-1782987435404-9odiiy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A river feature commonly found in the middle course of a river, characterised by lateral erosion and gentle gradient, includes _____",
+    "options": {
+      "A": "waterfalls and rapids",
+      "B": "interlocking spurs and meanders",
+      "C": "estuary and mudflats",
+      "D": "V-shaped valleys and potholes",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In its middle course, a river has a gentler gradient and greater volume than in its youthful upper course, causing it to erode sideways (laterally) rather than downward, producing interlocking spurs where the valley is still narrow, and meanders where it widens."
+  },
+  {
+    "id": "q-1782987435404-utatro",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The instrument used to record the amount of rainfall received at a station is the _____",
+    "options": {
+      "A": "barometer",
+      "B": "rain gauge",
+      "C": "hygrometer",
+      "D": "anemometer",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A rain gauge is a simple, calibrated container specifically designed to collect and measure the amount of precipitation (rainfall) received at a location over a given period."
+  },
+  {
+    "id": "q-1782987435404-ksd8pm",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The point at which a river enters the sea, characterised by the mixing of fresh and salt water, is called a(n) _____",
+    "options": {
+      "A": "delta",
+      "B": "estuary",
+      "C": "meander",
+      "D": "gorge",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "An estuary is the wide, tidal mouth of a river where it meets the sea, characterised by the mixing of fresh river water with saline seawater, distinguishing it from a delta, which is built up from deposited river sediment."
+  },
+  {
+    "id": "q-1782987435404-zftc5c",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Rocks such as marble and quartzite are formed through the process of _____",
+    "options": {
+      "A": "erosion",
+      "B": "metamorphism",
+      "C": "weathering",
+      "D": "deposition",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Metamorphism is the process by which existing rocks are transformed by intense heat and/or pressure without melting; limestone becomes marble and sandstone becomes quartzite through this process."
+  },
+  {
+    "id": "q-1782987435404-fj2flt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The season in which the sun is directly overhead the Tropic of Cancer is known as the _____",
+    "options": {
+      "A": "spring equinox",
+      "B": "summer solstice",
+      "C": "autumn equinox",
+      "D": "winter solstice",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The summer solstice (around 21 June) occurs when the earth's axial tilt causes the sun to be directly overhead the Tropic of Cancer (23.5°N), marking the longest day in the Northern Hemisphere."
+  },
+  {
+    "id": "q-1782987435404-ibb8de",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The imaginary line of zero degrees longitude, from which time zones around the world are measured, is called the _____",
+    "options": {
+      "A": "Equator",
+      "B": "International Date Line",
+      "C": "Prime (Greenwich) Meridian",
+      "D": "Tropic of Cancer",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The Prime Meridian (0° longitude), passing through Greenwich, London, is the reference line from which all other longitudes and standard time zones around the world are measured."
+  },
+  {
+    "id": "q-1782987435404-jpas3x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A landform produced when a river erodes through the outer bank of a meander and deposits material on the inner bank is a(n) _____",
+    "options": {
+      "A": "delta",
+      "B": "point bar",
+      "C": "estuary",
+      "D": "waterfall",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "As a river flows around a meander bend, faster-flowing water erodes the outer bank while slower-flowing water on the inner bank deposits sediment, gradually building up a point bar (slip-off slope) there."
+  },
+  {
+    "id": "q-1782987435404-g5jtjb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The zone of the atmosphere in which most weather phenomena occur, extending up to about 12-16 km above the earth's surface, is the _____",
+    "options": {
+      "A": "stratosphere",
+      "B": "troposphere",
+      "C": "mesosphere",
+      "D": "ionosphere",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The troposphere is the lowest layer of the atmosphere, extending roughly 12-16 km from the earth's surface, and it is where nearly all weather processes, including clouds, rain and storms, take place."
+  },
+  {
+    "id": "q-1782987435404-0wxm45",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A settlement pattern in which houses and buildings cluster tightly around a central point such as a market or crossroads is described as _____",
+    "options": {
+      "A": "dispersed",
+      "B": "linear",
+      "C": "nucleated",
+      "D": "isolated",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "A nucleated settlement pattern is characterised by dwellings clustered closely together around a focal point, such as a market, water source, or crossroads, in contrast to dispersed patterns where buildings are spread apart."
+  },
+  {
+    "id": "q-1782987435404-hdvrau",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A crop grown mainly for industrial raw material rather than direct food consumption, such as cotton or rubber, is called a _____",
+    "options": {
+      "A": "food crop",
+      "B": "cash crop",
+      "C": "subsistence crop",
+      "D": "cover crop",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A cash crop is grown primarily for sale (often to industry or for export) rather than for the farmer's own subsistence, and typically serves as a raw material input, as with cotton for textiles or rubber for manufacturing."
+  },
+  {
+    "id": "q-1782987435404-1itw2e",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The gradual sinking or subsidence of land relative to sea level, leading to the drowning of river valleys, produces a coastline known as a _____",
+    "options": {
+      "A": "ria coastline",
+      "B": "fjord coastline",
+      "C": "emergent coastline",
+      "D": "delta coastline",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A ria coastline forms when a rise in sea level (or land subsidence) floods the lower parts of pre-existing river valleys, creating long, funnel-shaped inlets, distinct from fjords which are drowned glacial valleys."
+  },
+  {
+    "id": "q-1782987435404-5oic8c",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The type of migration in which people move permanently from rural areas to urban areas in search of better opportunities is called _____",
+    "options": {
+      "A": "seasonal migration",
+      "B": "rural-urban migration",
+      "C": "transhumance",
+      "D": "nomadism",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Rural-urban migration refers to the permanent movement of people from rural to urban areas, usually driven by the search for employment, education, or better living standards, a major process shaping urbanization in developing countries."
+  },
+  {
+    "id": "q-1782987435404-nazr34",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The chief agent responsible for the formation of stalactites and stalagmites in limestone caves is _____",
+    "options": {
+      "A": "wind erosion",
+      "B": "chemical solution and deposition of calcium carbonate",
+      "C": "glacial deposition",
+      "D": "mechanical weathering",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Stalactites (hanging from the ceiling) and stalagmites (rising from the floor) form when water containing dissolved calcium carbonate drips slowly in limestone caves, and the mineral is gradually re-deposited as the water evaporates."
+  },
+  {
+    "id": "q-1782987435404-atcx82",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A region where evergreen broad-leaved trees form a dense, multi-layered canopy and receive heavy rainfall throughout the year is best described as _____",
+    "options": {
+      "A": "temperate grassland",
+      "B": "tropical rainforest",
+      "C": "tundra",
+      "D": "hot desert",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Tropical rainforests, found near the equator, are characterised by abundant year-round rainfall and high temperatures that support dense, multi-layered evergreen forest with a closed canopy and very high biodiversity."
+  },
+  {
+    "id": "q-1782987435404-276n0j",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main cause of the harmattan wind experienced in West Africa is the movement of the _____",
+    "options": {
+      "A": "tropical maritime airmass from the Atlantic",
+      "B": "tropical continental airmass from the Sahara",
+      "C": "polar airmass from Europe",
+      "D": "equatorial airmass from the south",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The harmattan originates as the dry, dusty tropical continental (cT) airmass that develops over the Sahara Desert and blows south-westward across West Africa during the dry season."
+  },
+  {
+    "id": "q-1782987435404-zuwo3y",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason the Inter-Tropical Discontinuity (ITD) moves north and south across West Africa during the year is _____",
+    "options": {
+      "A": "the rotation of the earth on its axis",
+      "B": "the apparent movement of the overhead sun between the tropics",
+      "C": "the presence of ocean currents",
+      "D": "variations in atmospheric pressure at the poles",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The Inter-Tropical Discontinuity (where the tropical maritime and tropical continental airmasses meet) migrates north and south following the apparent movement of the overhead sun between the Tropic of Cancer and Tropic of Capricorn through the year, driving West Africa's wet and dry seasons."
+  },
+  {
+    "id": "q-1782987435404-0lxrnh",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A soil formed and deposited by rivers, typically very fertile and found on flood plains, is called _____",
+    "options": {
+      "A": "laterite soil",
+      "B": "alluvial soil",
+      "C": "podzol soil",
+      "D": "desert soil",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Alluvial soils are formed from fine sediment (silt, sand and clay) deposited by rivers, particularly on flood plains and deltas, and are generally very fertile, supporting intensive agriculture."
+  },
+  {
+    "id": "q-1782987435404-qqn2rn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The scientific study of the interaction between organisms and their environment is called _____",
+    "options": {
+      "A": "geology",
+      "B": "ecology",
+      "C": "meteorology",
+      "D": "demography",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Ecology is the branch of biology/geography concerned with the relationships between living organisms and their physical and biological environment, including how organisms interact with one another and their habitat."
+  },
+  {
+    "id": "q-1782987435404-b6dxys",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following best describes 'transhumance'?",
+    "options": {
+      "A": "Permanent migration from rural to urban areas",
+      "B": "The seasonal movement of livestock between fixed summer and winter pastures",
+      "C": "The daily movement of workers between home and workplace",
+      "D": "The one-time resettlement of refugees",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Transhumance is a specific form of pastoral movement in which herders move their livestock seasonally between well-defined pastures, typically lowland pastures in winter and highland pastures in summer, unlike nomadism which lacks fixed routes."
+  },
+  {
+    "id": "q-1782987435404-rbz6y0",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The layer of the atmosphere that contains the ozone layer, which absorbs most of the sun's harmful ultraviolet radiation, is the _____",
+    "options": {
+      "A": "troposphere",
+      "B": "stratosphere",
+      "C": "mesosphere",
+      "D": "thermosphere",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The ozone layer lies within the stratosphere, the atmospheric layer above the troposphere, and it plays a critical role in absorbing and filtering out most of the sun's harmful ultraviolet (UV) radiation."
+  },
+  {
+    "id": "q-1782987435404-1h89dy",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The representative fraction (R.F.) of a map with a scale of 1 cm to 4 km is _____",
+    "options": {
+      "A": "1:4,000",
+      "B": "1:40,000",
+      "C": "1:400,000",
+      "D": "1:4,000,000",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "1 km equals 100,000 cm, so 4 km equals 400,000 cm. Since 1 cm on the map represents 400,000 cm on the ground, the representative fraction is 1:400,000."
+  },
+  {
+    "id": "q-1782987435404-gsn1s5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A river's load that is dragged or rolled along the river bed is transported by the process known as _____",
+    "options": {
+      "A": "traction",
+      "B": "suspension",
+      "C": "solution",
+      "D": "saltation",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Traction refers to the movement of the largest, heaviest river load particles, such as pebbles and boulders, which are too big to be lifted and are instead dragged or rolled along the river bed."
+  },
+  {
+    "id": "q-1782987435404-scokxb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The bending and folding of rock strata due to compressional earth movements, without breaking, produces _____",
+    "options": {
+      "A": "faults",
+      "B": "folds",
+      "C": "joints",
+      "D": "dykes",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "When compressional forces act on rock layers that are ductile enough to bend rather than break, the strata are folded into upward arches (anticlines) and downward troughs (synclines), producing folds."
+  },
+  {
+    "id": "q-1782987435404-se41d9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A break or fracture in rock strata along which relative displacement has occurred is called a _____",
+    "options": {
+      "A": "fold",
+      "B": "fault",
+      "C": "joint",
+      "D": "syncline",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A fault is a fracture in the earth's crust along which the rock on one side has moved relative to the rock on the other side, unlike a fold, which involves bending of rock layers without a break."
+  },
+  {
+    "id": "q-1782987435404-37vgdb",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The lowest layer of cloud, typically grey and associated with continuous, gentle rainfall or drizzle, is called _____",
+    "options": {
+      "A": "cirrus",
+      "B": "cumulus",
+      "C": "stratus",
+      "D": "cumulonimbus",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Stratus clouds are low-lying, flat, grey cloud layers that typically bring continuous light rain or drizzle, unlike the fluffy cumulus or the towering, storm-bringing cumulonimbus."
+  },
+  {
+    "id": "q-1782987435404-lxh1rd",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The term used to describe a long period of below-average rainfall leading to water shortage is _____",
+    "options": {
+      "A": "flood",
+      "B": "drought",
+      "C": "monsoon",
+      "D": "cyclone",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A drought is a prolonged period of abnormally low rainfall that leads to a shortage of water, adversely affecting agriculture, water supply and ecosystems."
+  },
+  {
+    "id": "q-1782987435404-qpnln2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following is an example of a renewable natural resource?",
+    "options": {
+      "A": "Coal",
+      "B": "Natural gas",
+      "C": "Forest",
+      "D": "Petroleum",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Forests are renewable resources because, if sustainably managed, trees can be replanted and regrown over time, unlike fossil fuels such as coal, natural gas and petroleum, which take millions of years to form and are effectively non-renewable on a human timescale."
+  },
+  {
+    "id": "q-1782987435404-17frev",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The gradual wearing away and removal of soil by the action of wind, water or ice is known as _____",
+    "options": {
+      "A": "weathering",
+      "B": "erosion",
+      "C": "deposition",
+      "D": "denudation",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Erosion specifically refers to the wearing away and transportation of soil or rock material by natural agents such as water, wind and ice, distinct from weathering, which is the in-situ breakdown of rock without transportation."
+  },
+  {
+    "id": "q-1782987435404-1dxf8b",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A settlement that grows up specifically to serve as a centre for the collection, processing and distribution of agricultural produce from its surrounding area is called a _____",
+    "options": {
+      "A": "market town",
+      "B": "mining town",
+      "C": "port town",
+      "D": "garrison town",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A market town develops primarily as a trading centre where agricultural produce from the surrounding rural hinterland is collected, bought, sold and distributed."
+  },
+  {
+    "id": "q-1782987435404-oedkxi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason why the equatorial regions receive high and consistent rainfall throughout the year is _____",
+    "options": {
+      "A": "the presence of ocean currents",
+      "B": "intense convectional uplift due to high temperatures",
+      "C": "the influence of trade winds only",
+      "D": "the effect of relief on air masses",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "In equatorial regions, intense solar heating causes moist air to rise rapidly by convection, cool, condense and fall as heavy rainfall; because the sun is high overhead throughout the year in this zone, this process occurs consistently, giving reliable year-round rainfall."
+  },
+  {
+    "id": "q-1782987435404-a8qjwl",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following best describes 'desertification'?",
+    "options": {
+      "A": "The natural expansion of existing deserts due to climate cycles only",
+      "B": "The process by which fertile land becomes desert, often due to drought, deforestation or unsuitable agriculture",
+      "C": "The irrigation of desert land for agriculture",
+      "D": "The mapping of desert boundaries",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Desertification is the process by which previously productive or fertile land degrades into desert-like conditions, driven by a combination of factors such as prolonged drought, deforestation, overgrazing and poor land-use practices."
+  },
+  {
+    "id": "q-1782987435404-qfop2x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main type of farming practiced in the Guinea Savanna belt of Nigeria is _____",
+    "options": {
+      "A": "shifting cultivation and mixed cropping",
+      "B": "large-scale plantation farming",
+      "C": "nomadic pastoralism only",
+      "D": "fishing and boat building",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The Guinea Savanna belt of Nigeria, with its moderate rainfall and grassland-woodland vegetation, is dominated by traditional shifting cultivation and mixed cropping of crops such as yam, maize, guinea corn and groundnuts."
+  },
+  {
+    "id": "q-1782987435404-l349s2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A map that shows the height and shape of the land surface using contour lines is called a _____",
+    "options": {
+      "A": "political map",
+      "B": "topographical map",
+      "C": "thematic map",
+      "D": "cadastral map",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A topographical map is specifically designed to represent the physical features of an area, including relief (height and shape of the land), typically shown through contour lines, along with other features such as rivers, roads and settlements."
+  },
+  {
+    "id": "q-1782987435404-rvjdgf",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Contour lines on a map that are drawn close together indicate _____",
+    "options": {
+      "A": "a gentle slope",
+      "B": "a steep slope",
+      "C": "a flat plain",
+      "D": "a river valley",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Since contour lines join points of equal elevation at fixed height intervals, closely spaced contours mean elevation changes rapidly over a short horizontal distance, indicating a steep slope; widely spaced contours indicate a gentle slope."
+  },
+  {
+    "id": "q-1782987435404-g6a8zo",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The vertical distance between two consecutive contour lines on a map is known as the _____",
+    "options": {
+      "A": "gradient",
+      "B": "vertical interval",
+      "C": "representative fraction",
+      "D": "datum level",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The vertical interval (also called the contour interval) is the fixed difference in height between successive contour lines on a topographical map, used together with horizontal distance to calculate gradient."
+  },
+  {
+    "id": "q-1782987435404-q5dan2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A narrow strip of raised land bordering a river channel, built up naturally by repeated flood deposits, is called a _____",
+    "options": {
+      "A": "levee",
+      "B": "terrace",
+      "C": "delta",
+      "D": "spit",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "A levee is a natural embankment of coarse sediment built up along the banks of a river during repeated flooding, as the heaviest material is deposited closest to the channel when floodwaters lose speed on overflowing."
+  },
+  {
+    "id": "q-1782987435404-ctaf3j",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following countries in Africa is the leading producer of cocoa?",
+    "options": {
+      "A": "Nigeria",
+      "B": "Ghana",
+      "C": "Cote d'Ivoire",
+      "D": "Cameroon",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "Cote d'Ivoire has been the world's and Africa's leading producer and exporter of cocoa for decades, followed by Ghana, owing to its extensive humid forest zone well suited to cocoa cultivation."
+  },
+  {
+    "id": "q-1782987435404-rmhjjs",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason the Sahara Desert is classified as a hot desert is that it _____",
+    "options": {
+      "A": "lies within the tropics and receives very low, unreliable rainfall with high temperatures",
+      "B": "lies close to the equator with heavy year-round rainfall",
+      "C": "is located at high altitude with permanent snow",
+      "D": "has moderate rainfall and cool temperatures throughout the year",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Hot deserts like the Sahara are defined by their location within subtropical high-pressure belts, where descending dry air produces very low and unreliable rainfall, combined with intensely high daytime temperatures."
+  },
+  {
+    "id": "q-1782987435404-xh6qk6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main function of a 'primate city' in a country's urban hierarchy is that it is _____",
+    "options": {
+      "A": "the smallest city in the country",
+      "B": "a city that is disproportionately larger and more dominant than all other cities in the country",
+      "C": "a city found only along the coast",
+      "D": "a city with no industry",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "A primate city is one that is far larger in population and dominance (economically, politically and culturally) than any other city in the country, often more than twice the size of the second-largest city, such as Lagos in Nigeria."
+  },
+  {
+    "id": "q-1782987435404-2k5gqg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main advantage of pipeline transport over road transport for petroleum products is that it is _____",
+    "options": {
+      "A": "more flexible in reaching remote destinations",
+      "B": "cheaper and more efficient for moving large volumes of liquid or gas over long distances",
+      "C": "faster for short distances only",
+      "D": "better suited for carrying solid goods",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Pipelines are specifically designed for the continuous, bulk movement of liquids and gases such as crude oil and natural gas, offering lower per-unit transport costs and greater efficiency over long distances than road tankers, though they lack the flexibility of road transport for varied destinations."
+  },
+  {
+    "id": "q-1782987435404-ey9my7",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of the following best defines 'gross domestic product' (GDP)?",
+    "options": {
+      "A": "The total value of all goods and services produced within a country's borders in a given period",
+      "B": "The total population of a country",
+      "C": "The total land area of a country",
+      "D": "The total amount of money in circulation in a country",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Gross Domestic Product (GDP) measures the total monetary value of all finished goods and services produced within a country's borders during a specific time period, and is a key indicator used to assess the size and health of a national economy."
+  },
+  {
+    "id": "q-1782987435404-b5urm2",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason coastal regions generally experience a more moderate (less extreme) climate than continental interior regions is _____",
+    "options": {
+      "A": "the moderating influence of the sea on temperature",
+      "B": "the higher altitude of coastal areas",
+      "C": "the absence of vegetation along coasts",
+      "D": "the influence of mountain ranges near the coast",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "Water heats up and cools down much more slowly than land. This moderating maritime influence keeps coastal areas cooler in summer and milder in winter compared with interior continental locations, which experience more extreme temperature ranges."
+  },
+  {
+    "id": "q-1782987435404-3e6yh8",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "Geography",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The main reason a river's velocity generally increases towards its lower course, despite the gentler gradient, is that _____",
+    "options": {
+      "A": "the river bed becomes rougher downstream",
+      "B": "the volume of water and reduced friction from a smoother, wider channel outweigh the gentler slope",
+      "C": "the river narrows sharply near the mouth",
+      "D": "gravity has less effect on the river downstream",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "Although the gradient becomes gentler downstream, the river's volume (discharge) increases as tributaries join it, and its channel becomes smoother and wider, reducing frictional resistance; these factors combine to allow velocity to increase or remain high despite the reduced slope."
+  },
+  {
     "id": "q-1782977207085-lq9rwi",
     "university": "Rivers State University",
     "year": "General",
