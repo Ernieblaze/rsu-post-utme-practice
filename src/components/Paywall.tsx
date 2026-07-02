@@ -4,7 +4,7 @@ import {
   BookOpen, Target, Brain, BarChart3, Sparkles, Clock, Users,
 } from 'lucide-react';
 
-export type PaywallVariant = 'post-test' | 'revision';
+export type PaywallVariant = 'post-test' | 'revision' | 'upgrade' | 'ai-tutor';
 
 interface PaywallProps {
   onUpgrade: () => void;
@@ -67,7 +67,7 @@ const BENEFITS = [
 ];
 
 const STATS = [
-  { value: '2,334+', label: 'Practice Questions' },
+  { value: '5,000+', label: 'Past Questions' },
   { value: '12', label: 'Subjects' },
   { value: '15 yrs', label: 'Past Papers' },
 ];
@@ -82,7 +82,19 @@ const COPY: Record<PaywallVariant, { badge: string; headline: string; sub: strin
   'revision': {
     badge: 'Premium Feature',
     headline: 'Revision Mode is for Premium students',
-    sub: 'Study all 2,334+ questions by subject with instant answers and explanations. Everything you need to master RSU Post-UTME — in one place.',
+    sub: 'Study all 5,000+ past questions by subject with instant answers and explanations — everything you need to master RSU Post-UTME.',
+    homeLabel: 'Go back',
+  },
+  'upgrade': {
+    badge: 'Premium Access',
+    headline: 'Unlock everything — one payment, one full year',
+    sub: 'Get instant access to 5,000+ past questions, Revision, Exam Focus, AI Study Bot, and detailed performance analytics.',
+    homeLabel: 'Go back',
+  },
+  'ai-tutor': {
+    badge: 'Premium Feature',
+    headline: 'AI Study Bot is a Premium feature',
+    sub: 'Upgrade to ask unlimited study questions across all subjects and get instant, personalised explanations — available 24/7.',
     homeLabel: 'Go back',
   },
 };

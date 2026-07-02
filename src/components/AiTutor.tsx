@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Sparkles, Send, Crown, Bot, User as UserIcon } from 'lucide-react';
+import { ArrowLeft, Sparkles, Send, Bot, User as UserIcon } from 'lucide-react';
 import type { Profile } from '../lib/access';
-import { isSubscriptionActive } from '../lib/access';
+import { getAccessStatus } from '../lib/access';
 import { supabase } from '../lib/supabaseClient';
+import { Paywall } from './Paywall';
 
 interface AiTutorProps {
   profile: Profile | null;
+  onUpgrade: () => void;
 }
 
 interface ChatMessage {
@@ -17,9 +19,10 @@ interface ChatMessage {
 
 const MAX_HISTORY_SENT = 10;
 
-export function AiTutor({ profile }: AiTutorProps) {
+export function AiTutor({ profile, onUpgrade }: AiTutorProps) {
   const navigate = useNavigate();
-  const unlocked = !!profile && (profile.is_admin || isSubscriptionActive(profile));
+  const status = getAccessStatus(profile);
+  const unlocked = status === 'admin' || status === 'paid';
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -99,19 +102,12 @@ export function AiTutor({ profile }: AiTutorProps) {
       </div>
 
       {!unlocked ? (
-        <div className="rounded-2xl border border-school-border bg-school-surface p-8 text-center shadow-sm dark:border-school-green/20 dark:bg-school-navy/40">
-          <Crown className="mx-auto mb-3 text-school-gold" size={36} />
-          <h2 className="font-sora text-lg font-bold text-school-navy dark:text-white">Premium feature</h2>
-          <p className="mt-1 text-sm text-school-navy/70 dark:text-slate-300">
-            The AI Study Helper is part of premium access. Upgrade to ask unlimited study questions across every subject.
-          </p>
-          <button
-            onClick={() => navigate('/upgrade')}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-school-green px-6 py-2.5 font-bold text-white shadow-sm hover:bg-school-green/90"
-          >
-            <Crown size={16} /> Get Premium
-          </button>
-        </div>
+        <Paywall
+          variant="ai-tutor"
+          priceLabel="₦2,000"
+          onUpgrade={onUpgrade}
+          onHome={() => window.history.back()}
+        />
       ) : (
         <div className="flex flex-1 flex-col rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40">
           <div ref={listRef} className="flex max-h-[60vh] min-h-[40vh] flex-col gap-3 overflow-y-auto p-4">

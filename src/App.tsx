@@ -442,6 +442,7 @@ function AppContent() {
                     onBack={() => routerNavigate('/')}
                     onUpgrade={handleUpgrade}
                     priceLabel="₦2,000"
+                    loading={paywallLoading}
                   />
                 )}
               </motion.div>
@@ -505,7 +506,7 @@ function AppContent() {
             path="/ai-tutor"
             element={
               <motion.div key="ai-tutor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <AiTutor profile={profile} />
+                <AiTutor profile={profile} onUpgrade={() => handleUpgrade('/ai-tutor')} />
               </motion.div>
             }
           />
