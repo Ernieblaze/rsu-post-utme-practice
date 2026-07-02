@@ -26,7 +26,7 @@ import { AiTutor } from './components/AiTutor';
 import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
-import { canStartTest, getAccessStatus, isSubscriptionActive, setPremiumLocally, clearPremiumLocally } from './lib/access';
+import { canStartTest, getAccessStatus, isSubscriptionActive, setPremiumLocally } from './lib/access';
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
@@ -180,23 +180,31 @@ function AppContent() {
     // Consume free trial regardless of whether they pay for results
     if (user && profile && status === 'free-available') {
       void (async () => {
-        await supabase.from('profiles').update({ free_test_used: true }).eq('id', user.id);
-        await refreshProfile();
+        try {
+          await supabase.from('profiles').update({ free_test_used: true }).eq('id', user.id);
+          await refreshProfile();
+        } catch {
+          /* network hiccup — trial state will reconcile on next profile load */
+        }
       })();
     }
 
     // Best-effort server-side attempt log
     if (user) {
       void (async () => {
-        await supabase.from('attempts').insert({
-          user_id: user.id,
-          test_id: attempt.testId,
-          test_title: attempt.testTitle,
-          score: attempt.score,
-          total: attempt.total,
-          percentage: attempt.percentage,
-          time_spent_seconds: attempt.timeSpentSeconds,
-        });
+        try {
+          await supabase.from('attempts').insert({
+            user_id: user.id,
+            test_id: attempt.testId,
+            test_title: attempt.testTitle,
+            score: attempt.score,
+            total: attempt.total,
+            percentage: attempt.percentage,
+            time_spent_seconds: attempt.timeSpentSeconds,
+          });
+        } catch {
+          /* logging is best-effort; ignore failures */
+        }
       })();
     }
 
@@ -228,8 +236,9 @@ function AppContent() {
       amountKobo,
       onSuccess: () => {
         // Grant access IMMEDIATELY via localStorage — fires the moment
-        // Paystack confirms payment, no webhook delay needed.
-        setPremiumLocally();
+        // Paystack confirms payment, no webhook delay needed. Scoped to this
+        // user so it can never unlock premium for anyone else on the device.
+        setPremiumLocally(userId);
         setPaywallLoading(false);
         setPaywallPending(false);
         routerNavigate(destination);

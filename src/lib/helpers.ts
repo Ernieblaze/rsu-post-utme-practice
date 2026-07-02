@@ -47,13 +47,15 @@ export function calculateResult(
     .map(([subject, { total, correct }]) => ({ subject, total, correct }))
     .sort((a, b) => a.subject.localeCompare(b.subject));
 
+  const total = test.questions.length;
+
   return {
     id: `${test.id}-${Date.now()}`,
     testId: test.id,
     testTitle: test.title,
     score,
-    total: test.questions.length,
-    percentage: Math.round((score / test.questions.length) * 100),
+    total,
+    percentage: total > 0 ? Math.round((score / total) * 100) : 0,
     timeSpentSeconds,
     durationSeconds,
     date: new Date().toISOString(),

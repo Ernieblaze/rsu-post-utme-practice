@@ -80,9 +80,21 @@ Deno.serve(async (req: Request) => {
     return new Response('Missing user_id in metadata', { status: 400 });
   }
 
-  // 5. Mark the student as Premium for one full year
   const supabase = createClient(SUPABASE_URL, SUPABASE_SVC_KEY);
 
+  // 5. Read the buyer's current state BEFORE updating. This lets us tell a
+  //    first-time purchase apart from a renewal or a duplicate webhook, so
+  //    the referral commission is only ever paid once.
+  const { data: buyer } = await supabase
+    .from('profiles')
+    .select('referred_by, paid_until')
+    .eq('id', userId)
+    .single();
+
+  const wasAlreadyActive =
+    !!buyer?.paid_until && new Date(buyer.paid_until).getTime() > Date.now();
+
+  // 6. Mark the student as Premium for one full year
   const paidUntil = new Date();
   paidUntil.setFullYear(paidUntil.getFullYear() + 1);
 
@@ -103,28 +115,23 @@ Deno.serve(async (req: Request) => {
     `✓ Premium activated | user=${userId} | ref=${data.reference} | until=${paidUntil.toISOString()}`,
   );
 
-  // 6. Referral commission — if this user was referred, credit 25% to the referrer
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('referred_by, referral_balance')
-    .eq('id', userId)
-    .single();
-
-  if (profile?.referred_by) {
-    const commission = Math.round((data.amount ?? 0) * 0.25); // 25% of payment
+  // 7. Referral commission — pay 25% to the referrer, but ONLY on a genuine
+  //    first purchase (not renewals, and not duplicate webhook deliveries).
+  if (buyer?.referred_by && !wasAlreadyActive) {
+    const commission = Math.round((data.amount ?? 0) * 0.25);
     const { data: referrer } = await supabase
       .from('profiles')
       .select('referral_balance')
-      .eq('id', profile.referred_by)
+      .eq('id', buyer.referred_by)
       .single();
 
     if (referrer !== null) {
       await supabase
         .from('profiles')
         .update({ referral_balance: (referrer.referral_balance ?? 0) + commission })
-        .eq('id', profile.referred_by);
+        .eq('id', buyer.referred_by);
 
-      console.log(`✓ Referral commission ₦${commission / 100} credited to ${profile.referred_by}`);
+      console.log(`✓ Referral commission ₦${commission / 100} credited to ${buyer.referred_by}`);
     }
   }
 

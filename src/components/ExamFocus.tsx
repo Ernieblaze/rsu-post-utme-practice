@@ -43,6 +43,13 @@ export function ExamFocus({ bank, onStart }: ExamFocusProps) {
   function handleStart() {
     if (!selected) return;
     const { test } = buildExamFocusTest(bank, selected.course);
+    // Guard: never launch an empty quiz (would render blank and break scoring).
+    if (test.questions.length === 0) {
+      window.alert(
+        'There are no questions available for this course yet. Please try another course or check back soon.'
+      );
+      return;
+    }
     onStart(test);
   }
 
