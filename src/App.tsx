@@ -208,7 +208,7 @@ function AppContent() {
     }
   }
 
-  function handleUpgrade() {
+  function handleUpgrade(afterPayDestination?: string) {
     if (!user?.email) {
       setAuthModalOpen(true);
       return;
@@ -216,8 +216,10 @@ function AppContent() {
     const email = user.email;
     const userId = user.id;
     const amountKobo = Number(import.meta.env.VITE_APP_PRICE ?? '200000');
-    // Capture at call-time so the closure knows where to redirect after payment
+    // Capture destination at call-time so the closure is stable
     const cameFromPaywall = paywallPending;
+    const destination = afterPayDestination
+      ?? (cameFromPaywall && result ? '/results' : '/');
 
     setPaywallLoading(true);
     startPaystackPayment({
@@ -225,15 +227,13 @@ function AppContent() {
       userId,
       amountKobo,
       onSuccess: () => {
-        // Grant access IMMEDIATELY via localStorage — this fires the moment
+        // Grant access IMMEDIATELY via localStorage — fires the moment
         // Paystack confirms payment, no webhook delay needed.
         setPremiumLocally();
         setPaywallLoading(false);
         setPaywallPending(false);
-        // Send straight to results if payment came from the post-test paywall.
-        routerNavigate(cameFromPaywall && result ? '/results' : '/');
-        // Refresh Supabase profile in the background so server-side state
-        // eventually catches up once the webhook processes.
+        routerNavigate(destination);
+        // Refresh Supabase profile in background so server-side eventually catches up.
         void refreshProfile();
       },
       onError: (message) => {
@@ -317,6 +317,7 @@ function AppContent() {
                 <motion.div key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                   {paywallPending ? (
                     <Paywall
+                      variant="post-test"
                       priceLabel="₦2,000"
                       loading={paywallLoading}
                       onUpgrade={handleUpgrade}
@@ -355,7 +356,22 @@ function AppContent() {
             path="/revision"
             element={
               <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} />
+                {authLoading || profileLoading ? null : (
+                  (() => {
+                    const status = getAccessStatus(profile);
+                    return status === 'admin' || status === 'paid' ? (
+                      <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} />
+                    ) : (
+                      <Paywall
+                        variant="revision"
+                        priceLabel="₦2,000"
+                        loading={paywallLoading}
+                        onUpgrade={() => handleUpgrade('/revision')}
+                        onHome={() => routerNavigate('/')}
+                      />
+                    );
+                  })()
+                )}
               </motion.div>
             }
           />
