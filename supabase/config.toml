@@ -1,0 +1,3 @@
+# Supabase project config — used by the CLI for deployments.
+# Do NOT commit secrets here. Use: supabase secrets set KEY=value
+project_id = "wqouknqvuqaaxqsevkxs"
