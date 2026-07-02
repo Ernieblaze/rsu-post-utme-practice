@@ -1,5 +1,784 @@
 [
   {
+    "id": "q-1782977207085-lq9rwi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these was not a decision reached concerning the ban of the compulsory sale of handouts, course-based textbooks and practical manuals by the Senate?",
+    "options": {
+      "A": "Any lecturer found contravening the ban shall be expelled by the Governing Council of the University",
+      "B": "3-5 member task force shall be constituted to monitor the implementation of the decision",
+      "C": "the university shall purchase twenty or more copies of textbooks by lecturers to be deposited in the main or departmental library",
+      "D": "students caught collaborating with lecturers to contravene the ban will be subjected to disciplinary measures prescribed by the Senate",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. The Senate decisions on the ban typically include monitoring mechanisms, library deposits of textbooks, and disciplinary actions for students and lecturers, but expulsion by the Governing Council is not listed as a direct outcome in the policy. This promotes ethical academic practices and access to resources."
+  },
+  {
+    "id": "q-1782977207085-5nolcz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these is a wrong category of courses?",
+    "options": {
+      "A": "R: Registered courses",
+      "B": "E: Elective course",
+      "C": "Compulsory courses",
+      "D": "None of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. RSU categorizes courses as Registered, Elective, and Compulsory. All listed are valid categories, ensuring students meet core requirements while having flexibility in electives for a balanced curriculum."
+  },
+  {
+    "id": "q-1782977207085-oqufzw",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student may withdraw from the Rivers State University with the permission of the Faculty Board and Senate, but may apply for registration within one year of the withdrawal",
+    "options": {
+      "A": "true",
+      "B": "false",
+      "C": "",
+      "D": "",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A (true). University regulations allow temporary withdrawal with approvals, providing a one-year window for re-registration to support students facing challenges while maintaining academic continuity."
+  },
+  {
+    "id": "q-1782977207085-ih8a6t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "From the current web ranking of universities (webometrics) in Nigeria, the Rivers State University emerged position.",
+    "options": {
+      "A": "12th",
+      "B": "16th",
+      "C": "18th",
+      "D": "13th",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. RSU's position in webometrics rankings reflects its growth as a technological university in Nigeria, highlighting improvements in research output and online presence."
+  },
+  {
+    "id": "q-1782977207085-o3lvh4",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All results, excluding those of final year sub-degree and undergraduates programmes, approved by the Faculty Board are submitted to the approval.",
+    "options": {
+      "A": "senate business committee",
+      "B": "senate committee of assessment and graduation requirements",
+      "C": "deans of Faculties committee",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. The Senate Committee of Assessment and Graduation Requirements oversees result approvals to ensure fairness and compliance with university standards for progression and graduation."
+  },
+  {
+    "id": "q-1782977207085-2v7pur",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The head of Department, Dean of Faculty, Faculty Examination Officer, and Secretary to the Faculty Board retain copies of the results of all students to avoid unofficial releases of results",
+    "options": {
+      "A": "true",
+      "B": "false",
+      "C": "",
+      "D": "",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A (true). Retaining copies by key officers prevents unauthorized releases and maintains integrity in the examination and result management process."
+  },
+  {
+    "id": "q-1782977207085-brg1sn",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The departmental Examination Officer collects answer booklets from the",
+    "options": {
+      "A": "faculty librarian",
+      "B": "faculty examination officer",
+      "C": "dean of faculty",
+      "D": "head of Department",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. The Faculty Examination Officer coordinates collection to centralize script handling before departmental processing, ensuring secure and organized exam administration."
+  },
+  {
+    "id": "q-1782977207085-d13uha",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student in a four-year degree programme in the Rivers State university who is unable to complete his programme in 12 semesters maybe allowed an additional semesters, but shall be eligible to a classified degree.",
+    "options": {
+      "A": "2 semesters. Pass degree",
+      "B": "2 semesters; classified degree",
+      "C": "4 semesters; pass degree",
+      "D": "4 semesters; classified degree",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Regulations allow limited extensions (e.g., 2 extra semesters) while preserving eligibility for classified degrees, balancing support for students with academic standards."
+  },
+  {
+    "id": "q-1782977207085-7aelp5",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The rivers state university is the only university in Nigeria that offers first degree programmes in",
+    "options": {
+      "A": "marine engineering and secretarial administration",
+      "B": "educational foundations and crop/soil science",
+      "C": "aeronautical and telecommunication engineering",
+      "D": "forestry and environment and land surveying and chemistry",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. RSU stands out for unique programs like Marine Engineering, reflecting its focus as a technological university in the Niger Delta region."
+  },
+  {
+    "id": "q-1782977207085-woflgu",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The students' result considered and approved by the Faculty Board of Examiners are presented to the Dean of the Faculty",
+    "options": {
+      "A": "True",
+      "B": "False",
+      "C": "",
+      "D": "",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A (True). Faculty Board approvals are channeled through the Dean for further processing, ensuring hierarchical oversight in result management."
+  },
+  {
+    "id": "q-1782977207085-j2opba",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All examination scripts are to be marked and submitted to the Head of Department normally within of a given examination.",
+    "options": {
+      "A": "4 days",
+      "B": "2 days",
+      "C": "3 days",
+      "D": "one week",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. A one-week window allows thorough marking while ensuring timely result processing for students."
+  },
+  {
+    "id": "q-1782977207085-1il9h6",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All results approved by the Faculty Board are submitted to the Senate Committee of Assessment and Graduation Requirements within of the last date of the reexamination for approval.",
+    "options": {
+      "A": "2 weeks",
+      "B": "3 weeks",
+      "C": "1 week",
+      "D": "2 to 4 weeks",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. The flexible 2-4 week timeline accommodates thorough review before Senate-level approval."
+  },
+  {
+    "id": "q-1782977207085-y0gmbe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student who does not register all his courses within the period stipulated will be made to",
+    "options": {
+      "A": "forfeit 5% of his total class attendance in all course",
+      "B": "pay a specific sum for late registration",
+      "C": "forfeit his admission that year",
+      "D": "suffer any penalty prescribed by the Head of Department",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Late registration penalties encourage timely compliance with academic calendars."
+  },
+  {
+    "id": "q-1782977207085-rwhhwr",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "What is the likely punishment meted on a student who fails to sit down while invigilators are retrieving scripts from students at the end of an examination?",
+    "options": {
+      "A": "F grade",
+      "B": "suspension",
+      "C": "dismissal",
+      "D": "demotion",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Such disruptions can lead to suspension to maintain order and fairness during exam conclusion."
+  },
+  {
+    "id": "q-1782977207085-4hd9pj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Online registration for bed spaces for hostel accommodation as a fresh student is done with the use of",
+    "options": {
+      "A": "student's school ID card",
+      "B": "JAMB registration number",
+      "C": "School fees receipt number",
+      "D": "designated hostel number by GENDER",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. JAMB number links to admission data for fair hostel allocation."
+  },
+  {
+    "id": "q-1782977207085-za9f02",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "An external examiner approved by the Senate, is appointed each session for a maximum of sessions consecutively.",
+    "options": {
+      "A": "four",
+      "B": "two",
+      "C": "three",
+      "D": "any number of",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. Limiting to three sessions ensures fresh perspectives and prevents conflicts of interest."
+  },
+  {
+    "id": "q-1782977207085-jbcxhj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Head of Department compiles all final results of all students and for all courses in a department within days.",
+    "options": {
+      "A": "15",
+      "B": "10",
+      "C": "12",
+      "D": "10 to 15",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. The range allows flexibility while ensuring prompt compilation for Faculty Board review."
+  },
+  {
+    "id": "q-1782977207085-15r24d",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The responsibilities of the Examination Committee set up by the department includes all of the following, except",
+    "options": {
+      "A": "to publicize the list of invigilators",
+      "B": "to liase with the Senate Committee on Calendar and Time-table to ensure no conflicts in courses",
+      "C": "to prepare examination halls and sitting arrangements of students",
+      "D": "to approve the appointment of external examiners for the department",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. External examiner appointments are handled at Senate level, not departmental committees."
+  },
+  {
+    "id": "q-1782977207085-kmal1h",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student is said to be on clear standing if he maintains and passes all the courses he takes in the university.",
+    "options": {
+      "A": "at least a CGPA of 1.00",
+      "B": "at least a CGPA of 1.49",
+      "C": "at least a CGPA of 2.00",
+      "D": "at least a CGPA of 1.15",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. A minimum CGPA of 2.00 ensures students meet the standard for good academic standing and progression."
+  },
+  {
+    "id": "q-1782977207085-umnnxz",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "All of these statements are true, except",
+    "options": {
+      "A": "the sale of handouts by teaching staff is an offence",
+      "B": "all lecturers must make available office addresses and contact time to their students",
+      "C": "teaching staff are allowed to change time tables to suit themselves as long as students are able to meet up",
+      "D": "teaching staff cannot delegate the supervision of examinations to non-academic staff",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. Timetable changes require proper approval to avoid disruptions; arbitrary changes are not permitted."
+  },
+  {
+    "id": "q-1782977207085-c8ddgk",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The ad hoc committee on handouts and textbooks inaugurated by the Vice Chancellor was to",
+    "options": {
+      "A": "to consider any matters related to the compulsory sale of handouts and textbooks that may be referred to it by the Vice Chancellor",
+      "B": "to examine the decision made by the Senate banning the compulsory sale of handouts and textbooks",
+      "C": "to forward the names of lecturers who contravene the ban of the compulsory sale of handouts and textbooks",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. The committee's broad mandate supports enforcement of the ban on compulsory sales."
+  },
+  {
+    "id": "q-1782977207085-xoji3t",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Lecturers who have to mark examination scripts for courses with large number of students can",
+    "options": {
+      "A": "delegate non-academic staff to mark scripts",
+      "B": "supervise students in a higher level in marking the scripts",
+      "C": "engage in conference marking of the scripts",
+      "D": "all of the above",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. Conference marking is permitted for efficiency, but delegation to non-academics is restricted."
+  },
+  {
+    "id": "q-1782977207085-weyuxg",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Failure to clear and register online within the period specified for students will result in the following, except",
+    "options": {
+      "A": "affected persons will be regarded as non-students",
+      "B": "affected persons may be allowed to defer their admission",
+      "C": "affected persons will not attend lectures and take school examinations",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. Strict registration deadlines ensure all options A-C apply to maintain academic order."
+  },
+  {
+    "id": "q-1782977207085-4jlx7i",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A transfer from one department to another will involve all of the following except the",
+    "options": {
+      "A": "committee of Deans",
+      "B": "Senate",
+      "C": "Pro-Chancellor and Chairman of Council",
+      "D": "Registrar",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. Transfers are handled internally by committees and Senate; Pro-Chancellor involvement is not required."
+  },
+  {
+    "id": "q-1782977207085-rho8rx",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which of these statements is not true about internal examiners in the Rivers State University?",
+    "options": {
+      "A": "They are of the rank of Senior Lecturers and above",
+      "B": "they constitute the departmental or faculty board of examiners",
+      "C": "they sign examination cards for records of lectures attended by registered students if satisfactory",
+      "D": "they submit grades, answer scripts, marking schemes and copies of their question papers to the Chief Examiner for storage",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. Internal examiners may include qualified lecturers below Senior rank depending on departmental policies."
+  },
+  {
+    "id": "q-1782977207085-lfqang",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "For a five-year programme in the Rivers State University, a CCE student for Direct Entry into year three is expected to earn a minimum of credit units.",
+    "options": {
+      "A": "190",
+      "B": "100",
+      "C": "130",
+      "D": "160",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. Direct Entry students must meet adjusted credit requirements to align with program duration."
+  },
+  {
+    "id": "q-1782977207085-2lwbel",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Which is the largest state in Nigeria?",
+    "options": {
+      "A": "Lagos",
+      "B": "Rivers",
+      "C": "Kano",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. Borno State is the largest by land area in Nigeria."
+  },
+  {
+    "id": "q-1782977207085-7gkftj",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "How many states were created by General Yakubu Gowon in Nigeria, May 1967?",
+    "options": {
+      "A": "12",
+      "B": "13",
+      "C": "14",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. Gowon created 12 states in 1967 as part of restructuring the federation."
+  },
+  {
+    "id": "q-1782977207085-zk6og3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who was the first Executive President of Nigeria?",
+    "options": {
+      "A": "Chief Olusegun Obasanjo",
+      "B": "Alhaji Shehu Shagari",
+      "C": "Goodluck Jonathan",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Shehu Shagari became Nigeria's first Executive President in 1979 under the Second Republic."
+  },
+  {
+    "id": "q-1782977207085-jeo9pt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "When was facebook founded?",
+    "options": {
+      "A": "2004",
+      "B": "2005",
+      "C": "2006",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. Facebook was founded by Mark Zuckerberg and others in February 2004."
+  },
+  {
+    "id": "q-1782977207085-wd0t0m",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "How many regional divisions does Africa have?",
+    "options": {
+      "A": "6",
+      "B": "5",
+      "C": "4",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Africa has five regions: Northern, Southern, Eastern, Western, and Central as per UN classification."
+  },
+  {
+    "id": "q-1782977207085-rzfbnt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current managing director of NNPC?",
+    "options": {
+      "A": "Maikanti Bawa",
+      "B": "Maikanti Baru",
+      "C": "Bawa Muhammad",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. As of recent records, the Group CEO/MD has been updated; verify current holder via official sources."
+  },
+  {
+    "id": "q-1782977207085-hl9mqt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who was the longest serving senate President of Nigeria?",
+    "options": {
+      "A": "Bukola Saraki",
+      "B": "David Mark",
+      "C": "Ken Nnamani",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. David Mark served the longest as Senate President from 2007 to 2015."
+  },
+  {
+    "id": "q-1782977207085-eyup7q",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current Prime Minister of the United Kingdom?",
+    "options": {
+      "A": "Margret May",
+      "B": "Boris Johnson",
+      "C": "Duncan Philip",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "D",
+    "explanation": "The correct answer is D. The UK PM changes; current holder as of 2026 should be verified."
+  },
+  {
+    "id": "q-1782977207085-7p9p1p",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who is the current Secretary-General of the United Nations?",
+    "options": {
+      "A": "Antonio Guterres",
+      "B": "Tony Cadmus",
+      "C": "Micheal Well",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. Antonio Guterres has served as UN Secretary-General since 2017."
+  },
+  {
+    "id": "q-1782977207085-nr4kz9",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The Senate of the Rivers State University is otherwise referred to as the",
+    "options": {
+      "A": "Committee of Deans",
+      "B": "Governing Council",
+      "C": "Faculty Board",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. The Senate functions as the Committee of Deans in academic governance."
+  },
+  {
+    "id": "q-1782977207085-4toumi",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Following the request of a student or the Head of Department for the reassessment of a student's quality of work, the faculty is expected to meet the request within a period of ____.",
+    "options": {
+      "A": "one week",
+      "B": "two weeks",
+      "C": "one month",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Timely reassessment (typically 2 weeks) ensures prompt resolution of academic grievances."
+  },
+  {
+    "id": "q-1782977207085-isdcnt",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "Who designed the Nigerian National Flag?",
+    "options": {
+      "A": "Michael Taiwo Akinkunmi",
+      "B": "Nnamdi Azikiwe",
+      "C": "Obafemi Awolowo",
+      "D": "none of the above",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. Michael Taiwo Akinkunmi won the 1959 design competition for Nigeria's flag."
+  },
+  {
+    "id": "q-1782977207085-9q4r0x",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "The capital of Rivers State is:",
+    "options": {
+      "A": "Aba",
+      "B": "Port Harcourt",
+      "C": "Yenagoa",
+      "D": "Owerri",
+      "E": ""
+    },
+    "answer": "B",
+    "explanation": "The correct answer is B. Port Harcourt serves as the capital and economic hub of Rivers State."
+  },
+  {
+    "id": "q-1782977207085-7httqe",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "RSU is the first Technological University in",
+    "options": {
+      "A": "Nigeria",
+      "B": "Africa",
+      "C": "West Africa",
+      "D": "Niger Delta",
+      "E": ""
+    },
+    "answer": "A",
+    "explanation": "The correct answer is A. RSU holds the distinction as Nigeria's first technological university."
+  },
+  {
+    "id": "q-1782977207085-jkg7l3",
+    "university": "Rivers State University",
+    "year": "General",
+    "subject": "About RSU & Rules",
+    "topic": "",
+    "difficulty": "medium",
+    "type": "single",
+    "text": "A student must obtain a minimum CGPA of _____ for graduation in most programmes.",
+    "options": {
+      "A": "1.00",
+      "B": "1.50",
+      "C": "2.00",
+      "D": "2.50",
+      "E": ""
+    },
+    "answer": "C",
+    "explanation": "The correct answer is C. CGPA 2.00 is the standard threshold for degree classification eligibility."
+  },
+  {
     "id": "q-1782971139468-zxrzlu",
     "university": "Rivers State University",
     "year": "General",
