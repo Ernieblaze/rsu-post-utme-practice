@@ -311,7 +311,16 @@ function AppContent() {
             element={
               activeTest ? (
                 <motion.div key="quiz" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <Quiz test={activeTest} onFinish={finishTest} onCancel={() => routerNavigate('/')} />
+                  <Quiz
+                    test={activeTest}
+                    onFinish={finishTest}
+                    onCancel={() => routerNavigate('/')}
+                    isPremium={(() => { const s = getAccessStatus(profile); return s === 'admin' || s === 'paid'; })()}
+                    userId={user?.id ?? ''}
+                    onUpgrade={() => handleUpgrade('/quiz')}
+                    paywallLoading={paywallLoading}
+                    priceLabel="₦2,000"
+                  />
                 </motion.div>
               ) : (
                 <Navigate to="/" replace />

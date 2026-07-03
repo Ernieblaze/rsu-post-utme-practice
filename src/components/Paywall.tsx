@@ -4,7 +4,7 @@ import {
   BookOpen, Target, Brain, BarChart3, Sparkles, Clock, Users,
 } from 'lucide-react';
 
-export type PaywallVariant = 'post-test' | 'revision' | 'upgrade' | 'ai-tutor';
+export type PaywallVariant = 'free-limit' | 'post-test' | 'revision' | 'upgrade' | 'ai-tutor';
 
 interface PaywallProps {
   onUpgrade: () => void;
@@ -72,7 +72,14 @@ const STATS = [
   { value: '15 yrs', label: 'Past Papers' },
 ];
 
-const COPY: Record<PaywallVariant, { badge: string; headline: string; sub: string; homeLabel: string }> = {
+const COPY: Record<PaywallVariant, { badge: string; headline: string; sub: string; homeLabel: string; ctaLabel?: string }> = {
+  'free-limit': {
+    badge: "You're doing great! 🔥",
+    headline: '4 questions down — ready for the real test?',
+    sub: "You've answered your 4 free questions. Unlock the full test, your complete score with explanations, timed mock results, every subject, performance analytics and the AI Study Bot — everything you need to pass, for one full year.",
+    homeLabel: 'Maybe later',
+    ctaLabel: 'Continue Test & See My Full Result →',
+  },
   'post-test': {
     badge: 'Your result is waiting',
     headline: 'Unlock your score and see where you went wrong',
@@ -209,7 +216,11 @@ export function Paywall({ onUpgrade, onHome, priceLabel, loading, variant = 'pos
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-school-green px-6 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-school-green/90 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <Zap size={17} fill="currentColor" />
-            {loading ? 'Processing payment…' : `Upgrade to Premium — ${priceLabel}`}
+            {loading
+              ? 'Processing payment…'
+              : copy.ctaLabel
+                ? `${copy.ctaLabel} ${priceLabel}`
+                : `Upgrade to Premium — ${priceLabel}`}
           </motion.button>
 
           <p className="mt-2 text-center text-[11px] text-school-muted">

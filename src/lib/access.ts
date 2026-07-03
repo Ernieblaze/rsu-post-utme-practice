@@ -10,6 +10,8 @@ export interface Profile {
   referral_balance: number;
 }
 
+import { freeQuestionsRemaining } from './freeTrial';
+
 export type AccessStatus = 'admin' | 'paid' | 'free-available' | 'locked';
 
 // Stores the ID of the user who just paid, so the flag can never grant
@@ -48,7 +50,10 @@ export function getAccessStatus(profile: Profile | null): AccessStatus {
   // Scoped to this exact user so it can't grant free access to anyone else.
   if (isPremiumLocally(profile?.id)) return 'paid';
   if (!profile) return 'locked';
-  if (!profile.free_test_used) return 'free-available';
+  // New model: the free trial is a quota of individual questions (see
+  // freeTrial.ts), not a single whole test. Still 'free-available' while
+  // they have free questions left; 'locked' once the quota is used up.
+  if (freeQuestionsRemaining(profile.id) > 0) return 'free-available';
   return 'locked';
 }
 

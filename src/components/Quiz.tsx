@@ -14,19 +14,58 @@ import { useToast } from './Toast';
 import type { OptionKey, Test, Attempt } from '../types';
 import { calculateResult, formatTime } from '../lib/helpers';
 import { getTestState, saveTestState, clearTestState } from '../lib/storage';
+import { FREE_QUESTION_LIMIT, getFreeQuestionsUsed, incrementFreeQuestions } from '../lib/freeTrial';
+import { Paywall } from './Paywall';
 
 interface QuizProps {
   test: Test;
   onFinish: (attempt: Attempt) => void;
   onCancel: () => void;
+  /** Premium users have no free-question limit. */
+  isPremium: boolean;
+  /** Current user's ID — used to persist the free-question count per account. */
+  userId: string;
+  /** Opens the real Paystack payment flow (from App). */
+  onUpgrade: () => void;
+  /** True while a Paystack payment is being processed. */
+  paywallLoading?: boolean;
+  priceLabel: string;
 }
 
 const RING_RADIUS = 34;
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
 
-export function Quiz({ test, onFinish, onCancel }: QuizProps) {
+export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, paywallLoading, priceLabel }: QuizProps) {
   const durationSeconds = test.durationMinutes * 60;
   const notify = useToast();
+
+  // ── Free-trial question quota (non-premium only) ──────────────────────────
+  // How many free questions this user had already used before this session.
+  const [freeUsedAtStart] = useState(() => (isPremium ? 0 : getFreeQuestionsUsed(userId)));
+  // Question indices answered *in this session* that counted toward the quota.
+  const [answeredFreeIdx, setAnsweredFreeIdx] = useState<Set<number>>(() => new Set());
+  const [showFreeLimitPaywall, setShowFreeLimitPaywall] = useState(false);
+  // Total free questions used so far (persisted + this session).
+  const freeUsed = freeUsedAtStart + answeredFreeIdx.size;
+  const freeLimitReached = !isPremium && freeUsed >= FREE_QUESTION_LIMIT;
+
+  // If the user pays mid-quiz, premium flips true — drop the paywall and the cap.
+  useEffect(() => {
+    if (isPremium) setShowFreeLimitPaywall(false);
+  }, [isPremium]);
+
+  /**
+   * Guard navigation for non-premium users. Returns true if they may move to
+   * `targetIndex`. Once the free quota is used up they can only revisit the
+   * questions they already answered — reaching a new one opens the paywall.
+   */
+  function guardFreeNav(targetIndex: number): boolean {
+    if (isPremium) return true;
+    if (!freeLimitReached) return true;
+    if (answeredFreeIdx.has(targetIndex)) return true;
+    setShowFreeLimitPaywall(true);
+    return false;
+  }
 
   const [state, setState] = useState(() => {
     const saved = getTestState();
@@ -131,14 +170,30 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
   const ringOffset = RING_CIRCUMFERENCE * (1 - ringProgress);
 
   function selectOption(key: OptionKey) {
+    const idx = state.currentIndex;
+    const alreadyCounted = answeredFreeIdx.has(idx);
+
+    // Non-premium: block answering a NEW question once the free quota is used.
+    if (!isPremium && !alreadyCounted && freeLimitReached) {
+      setShowFreeLimitPaywall(true);
+      return;
+    }
+
     setState((s) => ({
       ...s,
       answers: { ...s.answers, [currentQuestion.id]: key },
       visited: Array.from(new Set([...s.visited, s.currentIndex])),
     }));
+
+    // Count this question toward the free quota the first time it's answered.
+    if (!isPremium && !alreadyCounted) {
+      incrementFreeQuestions(userId);
+      setAnsweredFreeIdx((prev) => new Set(prev).add(idx));
+    }
   }
 
   function goTo(index: number) {
+    if (!guardFreeNav(index)) return;
     setDirection(index > state.currentIndex ? 1 : -1);
     setState((s) => ({
       ...s,
@@ -150,6 +205,7 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
 
   function next() {
     if (state.currentIndex < test.questions.length - 1) {
+      if (!guardFreeNav(state.currentIndex + 1)) return;
       setDirection(1);
       setState((s) => ({
         ...s,
@@ -161,6 +217,7 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
 
   function prev() {
     if (state.currentIndex > 0) {
+      if (!guardFreeNav(state.currentIndex - 1)) return;
       setDirection(-1);
       setState((s) => ({
         ...s,
@@ -225,6 +282,17 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
               <p className="text-xs text-school-navy/70 dark:text-slate-400">
                 Q {state.currentIndex + 1} of {test.questions.length} • {answeredCount} answered • {flaggedCount} flagged
               </p>
+              {!isPremium && (
+                <span
+                  className={`mt-1 inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
+                    freeLimitReached
+                      ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300'
+                      : 'bg-school-gold/15 text-school-gold'
+                  }`}
+                >
+                  Free trial: {Math.min(freeUsed, FREE_QUESTION_LIMIT)}/{FREE_QUESTION_LIMIT} questions used
+                </span>
+              )}
             </div>
           </div>
 
@@ -537,6 +605,21 @@ export function Quiz({ test, onFinish, onCancel }: QuizProps) {
               </button>
             </div>
           </motion.div>
+        </div>
+      )}
+
+      {/* Free-trial paywall — shown when a non-premium user hits the 4-question limit */}
+      {showFreeLimitPaywall && !isPremium && (
+        <div className="fixed inset-0 z-[60] overflow-y-auto bg-school-navy/80 backdrop-blur-sm">
+          <div className="flex min-h-full items-start justify-center py-6">
+            <Paywall
+              variant="free-limit"
+              priceLabel={priceLabel}
+              loading={paywallLoading}
+              onUpgrade={onUpgrade}
+              onHome={onCancel}
+            />
+          </div>
         </div>
       )}
     </div>
