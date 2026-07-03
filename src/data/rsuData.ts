@@ -134,20 +134,20 @@ export const RSU_FACULTIES: Faculty[] = [
         id: 'basic-medical-sciences',
         name: 'Basic Medical Sciences',
         courses: [
-          course('bsc-human-anatomy', 'B.Sc. Human Anatomy', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('bsc-human-physiology', 'B.Sc. Human Physiology', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('bsc-medical-biochemistry', 'B.Sc. Medical Biochemistry', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('bnsc-nursing-science', 'B.NSc. Nursing Science', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('bsc-public-health-science', 'B.Sc. Public Health Science', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('brs-radiography', 'B.RS. Radiography', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
-          course('bsc-physiotherapy', 'B.Sc. Physiotherapy', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
+          course('bsc-human-anatomy', 'B.Sc. Human Anatomy', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('bsc-human-physiology', 'B.Sc. Human Physiology', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('bsc-medical-biochemistry', 'B.Sc. Medical Biochemistry', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('bnsc-nursing-science', 'B.NSc. Nursing Science', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('bsc-public-health-science', 'B.Sc. Public Health Science', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('brs-radiography', 'B.RS. Radiography', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
+          course('bsc-physiotherapy', 'B.Sc. Physiotherapy', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
         ],
       },
       {
         id: 'clinical-sciences',
         name: 'Clinical Sciences',
         courses: [
-          course('mbbs-medicine-surgery', 'MBBS Medicine and Surgery', ['Use of English', 'Biology', 'Physics', 'Chemistry']),
+          course('mbbs-medicine-surgery', 'MBBS Medicine and Surgery', ['Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics']),
         ],
       },
       {
@@ -155,7 +155,7 @@ export const RSU_FACULTIES: Faculty[] = [
         name: 'Others',
         courses: [
           course('bmls-medical-laboratory-science', 'B.MLS. Medical Laboratory Science', [
-            'Use of English', 'Biology', 'Physics', 'Chemistry',
+            'Use of English', 'Biology', 'Physics', 'Chemistry', 'Mathematics',
           ]),
         ],
       },
