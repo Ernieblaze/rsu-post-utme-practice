@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target, HelpCircle, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuthControl } from './AuthControl';
+import { ExamCountdown } from './ExamCountdown';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
@@ -24,6 +25,7 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="sticky top-0 z-50 border-b border-school-green/20 bg-white/95 shadow-sm backdrop-blur-md dark:border-school-green/30 dark:bg-school-navy/95"
     >
+      <ExamCountdown />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <motion.button
           whileHover={{ scale: 1.02 }}

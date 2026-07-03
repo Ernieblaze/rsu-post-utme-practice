@@ -263,6 +263,24 @@ export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, p
     return 'unvisited';
   };
 
+  // Teaser for the free-limit paywall: score on the questions answered so far,
+  // plus the subject they slipped up on most — a curiosity hook to convert.
+  const freeTeaser = (() => {
+    const qById = new Map(test.questions.map((q) => [q.id, q] as const));
+    let correct = 0;
+    let answered = 0;
+    const missBySubject: Record<string, number> = {};
+    for (const [qid, ans] of Object.entries(state.answers)) {
+      const q = qById.get(Number(qid));
+      if (!q) continue;
+      answered += 1;
+      if (q.answer === ans) correct += 1;
+      else missBySubject[q.subject] = (missBySubject[q.subject] || 0) + 1;
+    }
+    const weakSubject = Object.entries(missBySubject).sort((a, b) => b[1] - a[1])[0]?.[0];
+    return { correct, answered, weakSubject };
+  })();
+
   return (
     <div className="flex min-h-screen flex-col bg-watercolor pb-20 md:pb-0">
       {/* Top bar */}
@@ -618,6 +636,7 @@ export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, p
               loading={paywallLoading}
               onUpgrade={onUpgrade}
               onHome={onCancel}
+              teaser={freeTeaser}
             />
           </div>
         </div>

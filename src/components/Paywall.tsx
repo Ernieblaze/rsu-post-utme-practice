@@ -6,12 +6,20 @@ import {
 
 export type PaywallVariant = 'free-limit' | 'post-test' | 'revision' | 'upgrade' | 'ai-tutor';
 
+/** Optional teaser shown on the free-limit paywall: their score so far + weakest subject. */
+export interface PaywallTeaser {
+  correct: number;
+  answered: number;
+  weakSubject?: string;
+}
+
 interface PaywallProps {
   onUpgrade: () => void;
   onHome: () => void;
   priceLabel: string;
   loading?: boolean;
   variant?: PaywallVariant;
+  teaser?: PaywallTeaser;
 }
 
 const BENEFITS = [
@@ -106,7 +114,7 @@ const COPY: Record<PaywallVariant, { badge: string; headline: string; sub: strin
   },
 };
 
-export function Paywall({ onUpgrade, onHome, priceLabel, loading, variant = 'post-test' }: PaywallProps) {
+export function Paywall({ onUpgrade, onHome, priceLabel, loading, variant = 'post-test', teaser }: PaywallProps) {
   const copy = COPY[variant];
 
   return (
@@ -138,6 +146,23 @@ export function Paywall({ onUpgrade, onHome, priceLabel, loading, variant = 'pos
             <p className="mt-2 text-sm leading-relaxed text-white/80">
               {copy.sub}
             </p>
+
+            {/* Teaser: their score so far + weakest subject (free-limit only) */}
+            {teaser && teaser.answered > 0 && (
+              <div className="mt-4 rounded-xl border border-school-gold/30 bg-white/10 p-3.5">
+                <div className="flex items-center gap-2">
+                  <span className="font-sora text-2xl font-extrabold text-school-gold">
+                    {teaser.correct} of {teaser.answered}
+                  </span>
+                  <span className="text-sm font-semibold text-white/90">correct so far 👀</span>
+                </div>
+                <p className="mt-1 text-xs leading-relaxed text-white/75">
+                  {teaser.weakSubject
+                    ? `You slipped up in ${teaser.weakSubject} — unlock the full test to see exactly what you missed and master it before exam day.`
+                    : 'Great start! Unlock the full test to keep your streak going and see every explanation.'}
+                </p>
+              </div>
+            )}
 
             {/* Stats row */}
             <div className="mt-5 grid grid-cols-3 gap-2">
