@@ -249,6 +249,16 @@ export function Home({ attempts, onViewProgress }: HomeProps) {
           onClick={() => navigate('/ai-tutor')}
           accent="bg-purple-600 text-white"
         />
+        <SectionPromoCard
+          icon={<Calendar size={26} />}
+          eyebrow="Free daily"
+          badge="Free"
+          title="Question of the Day"
+          description="A fresh free question every single day, picked for your course. Answer it, see the explanation instantly — build your daily habit."
+          cta="Answer Today's Question"
+          onClick={() => navigate('/daily')}
+          accent="bg-school-gold text-school-navy"
+        />
       </motion.section>
 
       {/* Recent history preview */}

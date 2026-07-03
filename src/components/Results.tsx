@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Home, RotateCcw, BarChart3, CheckCircle, XCircle, Clock, Award, HelpCircle, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Home, RotateCcw, BarChart3, CheckCircle, XCircle, Clock, Award, HelpCircle, ChevronDown, ChevronUp, BookOpen, Share2 } from 'lucide-react';
 import { motion, animate } from 'framer-motion';
+import { toPng } from 'html-to-image';
 import type { Attempt, Test } from '../types';
 import { formatTime, performanceBand, subjectColor } from '../lib/helpers';
 
@@ -16,6 +17,37 @@ interface ResultsProps {
 export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseSubject }: ResultsProps) {
   const [displayedScore, setDisplayedScore] = useState(0);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [sharing, setSharing] = useState(false);
+  const shareCardRef = useRef<HTMLDivElement>(null);
+
+  async function shareScore() {
+    if (!shareCardRef.current || sharing) return;
+    setSharing(true);
+    const siteUrl = window.location.origin;
+    const caption = `I scored ${attempt.percentage}% (${attempt.score}/${attempt.total}) on my RSU Post-UTME practice! 🔥 Think you can beat me? Practice free here: ${siteUrl}`;
+    try {
+      const dataUrl = await toPng(shareCardRef.current, { pixelRatio: 2, cacheBust: true });
+      const blob = await (await fetch(dataUrl)).blob();
+      const file = new File([blob], 'my-rsu-score.png', { type: 'image/png' });
+
+      // Mobile: native share sheet (WhatsApp, Facebook, etc.) with image + caption
+      if (typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], text: caption });
+      } else {
+        // Desktop fallback: download the image and copy the caption
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'my-rsu-score.png';
+        a.click();
+        try { await navigator.clipboard.writeText(caption); } catch { /* ignore */ }
+        window.alert('Score image downloaded! The caption was copied — paste it when you share. 🔥');
+      }
+    } catch {
+      // User cancelling the share sheet also lands here — stay silent unless it's a real failure.
+    } finally {
+      setSharing(false);
+    }
+  }
 
   useEffect(() => {
     const controls = animate(0, attempt.score, {
@@ -100,6 +132,15 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-2">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={shareScore}
+                disabled={sharing}
+                className="flex items-center justify-center gap-2 rounded-xl bg-school-gold px-4 py-2.5 font-bold text-school-navy shadow-sm hover:opacity-90 disabled:opacity-60"
+              >
+                <Share2 size={16} /> {sharing ? 'Preparing…' : 'Share my score 🔥'}
+              </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -259,6 +300,64 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
               )}
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Hidden shareable score card — rendered off-screen, snapshotted to PNG.
+          Uses inline hex colours so html-to-image renders it reliably. */}
+      <div style={{ position: 'fixed', left: '-9999px', top: 0, pointerEvents: 'none' }} aria-hidden>
+        <div
+          ref={shareCardRef}
+          style={{
+            width: 540,
+            height: 540,
+            background: 'linear-gradient(150deg, #002b5c 0%, #003f7a 55%, #046a38 100%)',
+            color: '#ffffff',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            padding: 44,
+            boxSizing: 'border-box',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div
+              style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                width: 56, height: 56, borderRadius: 14, background: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(212,175,55,0.5)',
+              }}
+            >
+              <span style={{ fontSize: 15, fontWeight: 800, letterSpacing: -0.5 }}>RSU</span>
+              <span style={{ fontSize: 7, fontWeight: 700, letterSpacing: 1.5, color: '#d4af37' }}>POST-UTME</span>
+            </div>
+            <div style={{ fontSize: 15, fontWeight: 700, letterSpacing: 0.5 }}>RSU Post-UTME Practice</div>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: '#d4af37' }}>
+              {band.label} — {band.message}
+            </div>
+            <div style={{ fontSize: 128, fontWeight: 800, lineHeight: 1, margin: '6px 0' }}>
+              {attempt.percentage}%
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,0.85)' }}>
+              {attempt.score} / {attempt.total} correct
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 26, fontWeight: 800, marginBottom: 10 }}>Think you can beat me? 🔥</div>
+            <div
+              style={{
+                display: 'inline-block', background: '#d4af37', color: '#002b5c',
+                fontSize: 16, fontWeight: 800, padding: '10px 22px', borderRadius: 999,
+              }}
+            >
+              rsu-post-utme-practice.vercel.app
+            </div>
+          </div>
         </div>
       </div>
     </main>

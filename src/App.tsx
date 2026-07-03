@@ -23,6 +23,7 @@ import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
+import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
@@ -40,7 +41,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'daily';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -60,6 +61,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/terms': 'terms',
   '/guide': 'guide',
   '/ai-tutor': 'ai-tutor',
+  '/daily': 'daily',
   '/email-confirmed': 'email-confirmed',
   '/reset-password': 'reset-password',
 };
@@ -120,6 +122,7 @@ function AppContent() {
       terms: `Terms of Service | ${base}`,
       guide: `How to Use | ${base}`,
       'ai-tutor': `AI Study Helper | ${base}`,
+      daily: `Question of the Day | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
       'reset-password': `Reset Password | ${base}`,
     };
@@ -525,6 +528,15 @@ function AppContent() {
             element={
               <motion.div key="ai-tutor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <AiTutor profile={profile} onUpgrade={() => handleUpgrade('/ai-tutor')} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/daily"
+            element={
+              <motion.div key="daily" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <QuestionOfTheDay bank={bank} onRequireAuth={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
