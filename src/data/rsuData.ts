@@ -15,7 +15,12 @@
 export interface Course {
   id: string;
   name: string;
-  /** Always 4 entries. A slash-joined string ("Chemistry/Biology/Economics") means "any one of these". */
+  /**
+   * Usually 4 entries (JAMB requires 4), but some courses list a 5th when RSU's
+   * Post-UTME screening tests an extra subject — e.g. medical courses screen on
+   * Mathematics in addition to English/Biology/Physics/Chemistry.
+   * A slash-joined string ("Chemistry/Biology/Economics") means "any one of these".
+   */
   jambSubjects: string[];
   olevelRequirements?: string;
   notes?: string;
