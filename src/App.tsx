@@ -87,6 +87,12 @@ function AppContent() {
 
   const view: View = PATH_TO_VIEW[location.pathname] ?? 'home';
 
+  // True while we still don't know the user's real access. On a hard refresh,
+  // auth resolves a moment BEFORE the profile finishes loading — without this,
+  // guarded routes (owner/admin/revision) briefly see "no profile" and wrongly
+  // redirect home. Waiting for the profile keeps you on the page you refreshed.
+  const gateLoading = authLoading || profileLoading || (!!user && !profile);
+
   const [dynamicTest, setDynamicTest] = useState<Test | null>(null);
   const [result, setResult] = useState<Attempt | null>(null);
   const [dark, setDark] = useState(getDarkMode);
@@ -382,7 +388,7 @@ function AppContent() {
             path="/revision"
             element={
               <motion.div key="revision" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                {authLoading || profileLoading ? null : (
+                {gateLoading ? null : (
                   (() => {
                     const status = getAccessStatus(profile);
                     return status === 'admin' || status === 'paid' ? (
@@ -432,7 +438,7 @@ function AppContent() {
           <Route
             path="/admin"
             element={
-              authLoading || profileLoading ? null : profile?.is_admin ? (
+              gateLoading ? null : profile?.is_admin ? (
                 <motion.div key="admin" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                   <Admin onBack={() => routerNavigate('/owner')} onBankChanged={refreshBank} />
                 </motion.div>
@@ -491,7 +497,7 @@ function AppContent() {
           <Route
             path="/owner"
             element={
-              authLoading || profileLoading ? null : profile?.is_admin ? (
+              gateLoading ? null : profile?.is_admin ? (
                 <motion.div key="owner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                   <OwnerDashboard onBack={() => routerNavigate('/')} />
                 </motion.div>
