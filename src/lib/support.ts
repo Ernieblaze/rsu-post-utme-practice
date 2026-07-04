@@ -8,7 +8,7 @@
  * Leave it as an empty string to hide the floating WhatsApp button until
  * the number is ready.
  */
-export const WHATSAPP_NUMBER = '';
+export const WHATSAPP_NUMBER = '2347051925741';
 
 export const SUPPORT_EMAIL = 'rsupostutmepractice@gmail.com';
 
