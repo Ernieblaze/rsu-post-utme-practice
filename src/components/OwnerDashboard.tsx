@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2 } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -18,6 +18,9 @@ interface UserRow {
   free_test_used: boolean;
   is_admin: boolean;
   created_at: string;
+  referral_code: string | null;
+  referred_by: string | null;
+  referral_balance: number;
 }
 
 interface TransactionRow {
@@ -56,12 +59,13 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actingOn, setActingOn] = useState<string | null>(null);
+  const [userSearch, setUserSearch] = useState('');
 
   function loadAll() {
     return Promise.all([
       supabase
         .from('profiles')
-        .select('id, email, has_paid, paid_until, free_test_used, is_admin, created_at')
+        .select('id, email, has_paid, paid_until, free_test_used, is_admin, created_at, referral_code, referred_by, referral_balance')
         .order('created_at', { ascending: false }),
       supabase
         .from('transactions')
@@ -127,6 +131,40 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return { total, avgScore, mostPopular };
   }, [attemptRows]);
 
+  // Manually grant one year of Premium — the safety net when a payment went
+  // through on Paystack but the webhook didn't update the profile.
+  async function grantPremium(userId: string) {
+    setActingOn(userId);
+    const paidUntil = new Date();
+    paidUntil.setFullYear(paidUntil.getFullYear() + 1);
+    const iso = paidUntil.toISOString();
+    const { error: err } = await supabase
+      .from('profiles')
+      .update({ has_paid: true, paid_until: iso })
+      .eq('id', userId);
+    if (err) {
+      window.alert('Could not grant premium: ' + err.message);
+    } else {
+      setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, has_paid: true, paid_until: iso } : u)));
+    }
+    setActingOn(null);
+  }
+
+  async function revokePremium(userId: string) {
+    if (!window.confirm('Remove Premium access from this user?')) return;
+    setActingOn(userId);
+    const { error: err } = await supabase
+      .from('profiles')
+      .update({ has_paid: false, paid_until: null })
+      .eq('id', userId);
+    if (err) {
+      window.alert('Could not revoke premium: ' + err.message);
+    } else {
+      setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, has_paid: false, paid_until: null } : u)));
+    }
+    setActingOn(null);
+  }
+
   async function setWithdrawalStatus(id: string, status: 'paid' | 'rejected') {
     setActingOn(id);
     const request = withdrawals.find((w) => w.id === id);
@@ -157,6 +195,26 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     });
     return map;
   }, [users]);
+
+  const filteredUsers = useMemo(() => {
+    const q = userSearch.trim().toLowerCase();
+    if (!q) return users;
+    return users.filter((u) => (u.email ?? '').toLowerCase().includes(q));
+  }, [users, userSearch]);
+
+  // Everyone who has successfully referred someone (earned a balance) or been
+  // referred, so you can see your referral activity at a glance.
+  const referrers = useMemo(
+    () =>
+      users
+        .filter((u) => (u.referral_balance ?? 0) > 0)
+        .sort((a, b) => (b.referral_balance ?? 0) - (a.referral_balance ?? 0)),
+    [users]
+  );
+  const totalReferralOwed = useMemo(
+    () => users.reduce((sum, u) => sum + (u.referral_balance ?? 0), 0),
+    [users]
+  );
 
   const totalRevenueNaira = useMemo(
     () => transactions.reduce((sum, t) => sum + t.amount, 0) / 100,
@@ -468,20 +526,32 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             animate={{ opacity: 1, y: 0 }}
             className="mt-6 rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
           >
-            <div className="flex items-center justify-between border-b border-school-border px-5 py-4 dark:border-school-green/20">
+            <div className="flex flex-col gap-3 border-b border-school-border px-5 py-4 dark:border-school-green/20 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">All Users</h2>
-              <span className="text-sm font-medium text-school-muted">{users.length} total</span>
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-muted" />
+                  <input
+                    value={userSearch}
+                    onChange={(e) => setUserSearch(e.target.value)}
+                    placeholder="Search by email…"
+                    className="w-full rounded-xl border border-school-border bg-school-light py-2 pl-9 pr-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white sm:w-56"
+                  />
+                </div>
+                <span className="flex-none text-sm font-medium text-school-muted">{filteredUsers.length} shown</span>
+              </div>
             </div>
 
             {loading ? (
               <p className="px-5 py-8 text-center text-sm text-school-muted">Loading users…</p>
-            ) : users.length === 0 ? (
-              <p className="px-5 py-8 text-center text-sm text-school-muted">No users yet.</p>
+            ) : filteredUsers.length === 0 ? (
+              <p className="px-5 py-8 text-center text-sm text-school-muted">No users match your search.</p>
             ) : (
               <>
                 <div className="divide-y divide-school-border sm:hidden dark:divide-school-green/20">
-                  {users.map((u) => {
+                  {filteredUsers.map((u) => {
                     const status = getAccessStatus(u);
+                    const isPremiumNow = status === 'admin' || status === 'paid';
                     return (
                       <div key={u.id} className="space-y-1.5 px-5 py-3">
                         <div className="flex items-center justify-between gap-2">
@@ -496,9 +566,23 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                           <span>Paid until: {u.paid_until ? formatDate(u.paid_until) : '—'}</span>
                           <span>Joined: {formatDate(u.created_at)}</span>
                         </div>
-                        <div className="text-xs text-school-muted">
-                          Free trial used: {u.free_test_used ? 'Yes' : 'No'}
+                        <div className="flex items-center justify-between text-xs text-school-muted">
+                          <span>Referral earned: ₦{((u.referral_balance ?? 0) / 100).toLocaleString()}</span>
+                          {u.referred_by && <span>Referred by: {emailById.get(u.referred_by) ?? '—'}</span>}
                         </div>
+                        {status !== 'admin' && (
+                          <button
+                            onClick={() => (isPremiumNow ? revokePremium(u.id) : grantPremium(u.id))}
+                            disabled={actingOn === u.id}
+                            className={`mt-1 inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold disabled:opacity-50 ${
+                              isPremiumNow
+                                ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300'
+                                : 'bg-school-green text-white'
+                            }`}
+                          >
+                            {isPremiumNow ? <><Undo2 size={13} /> Revoke Premium</> : <><Crown size={13} /> Grant Premium</>}
+                          </button>
+                        )}
                       </div>
                     );
                   })}
@@ -511,13 +595,15 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                         <th className="px-5 py-3">Email</th>
                         <th className="px-5 py-3">Status</th>
                         <th className="px-5 py-3">Paid until</th>
-                        <th className="px-5 py-3">Free trial used</th>
+                        <th className="px-5 py-3">Referral</th>
                         <th className="px-5 py-3">Joined</th>
+                        <th className="px-5 py-3">Action</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-school-border dark:divide-school-green/20">
-                      {users.map((u) => {
+                      {filteredUsers.map((u) => {
                         const status = getAccessStatus(u);
+                        const isPremiumNow = status === 'admin' || status === 'paid';
                         return (
                           <tr key={u.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
                             <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
@@ -529,8 +615,39 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                             <td className="px-5 py-3 text-school-muted">
                               {u.paid_until ? formatDate(u.paid_until) : '—'}
                             </td>
-                            <td className="px-5 py-3 text-school-muted">{u.free_test_used ? 'Yes' : 'No'}</td>
+                            <td className="px-5 py-3 text-school-muted">
+                              {(u.referral_balance ?? 0) > 0 && (
+                                <span className="font-semibold text-school-green">
+                                  ₦{((u.referral_balance ?? 0) / 100).toLocaleString()}
+                                </span>
+                              )}
+                              {u.referred_by && (
+                                <span className="block text-[11px]">via {emailById.get(u.referred_by) ?? '—'}</span>
+                              )}
+                              {!(u.referral_balance ?? 0) && !u.referred_by && '—'}
+                            </td>
                             <td className="px-5 py-3 text-school-muted">{formatDate(u.created_at)}</td>
+                            <td className="px-5 py-3">
+                              {status === 'admin' ? (
+                                <span className="text-xs text-school-muted">—</span>
+                              ) : (
+                                <button
+                                  onClick={() => (isPremiumNow ? revokePremium(u.id) : grantPremium(u.id))}
+                                  disabled={actingOn === u.id}
+                                  className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold disabled:opacity-50 ${
+                                    isPremiumNow
+                                      ? 'bg-rose-100 text-rose-700 hover:bg-rose-200 dark:bg-rose-900/30 dark:text-rose-300'
+                                      : 'bg-school-green text-white hover:bg-school-green/90'
+                                  }`}
+                                >
+                                  {actingOn === u.id
+                                    ? '…'
+                                    : isPremiumNow
+                                    ? <><Undo2 size={13} /> Revoke</>
+                                    : <><Crown size={13} /> Grant Premium</>}
+                                </button>
+                              )}
+                            </td>
                           </tr>
                         );
                       })}
@@ -538,6 +655,40 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                   </table>
                 </div>
               </>
+            )}
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="flex items-center justify-between border-b border-school-border px-5 py-4 dark:border-school-green/20">
+              <div className="flex items-center gap-2">
+                <Gift size={18} className="text-school-green" />
+                <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Referral Activity</h2>
+              </div>
+              <span className="text-sm font-medium text-school-muted">
+                ₦{(totalReferralOwed / 100).toLocaleString()} earned across all referrers
+              </span>
+            </div>
+            {referrers.length === 0 ? (
+              <p className="px-5 py-8 text-center text-sm text-school-muted">
+                No referral earnings yet. When someone signs up through a user's link and pays, that user shows up here.
+              </p>
+            ) : (
+              <div className="divide-y divide-school-border dark:divide-school-green/20">
+                {referrers.map((u) => (
+                  <div key={u.id} className="flex items-center justify-between px-5 py-3 text-sm">
+                    <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
+                      {u.email ?? '—'}
+                    </span>
+                    <span className="flex-none font-bold text-school-green">
+                      ₦{((u.referral_balance ?? 0) / 100).toLocaleString()} earned
+                    </span>
+                  </div>
+                ))}
+              </div>
             )}
           </motion.section>
 
