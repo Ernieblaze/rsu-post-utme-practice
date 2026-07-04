@@ -45,8 +45,12 @@ interface WithdrawalRow {
 
 interface AttemptRow {
   id: string;
+  user_id: string | null;
   test_title: string | null;
+  score: number | null;
+  total: number | null;
   percentage: number;
+  created_at: string;
 }
 
 export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
@@ -60,6 +64,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [error, setError] = useState<string | null>(null);
   const [actingOn, setActingOn] = useState<string | null>(null);
   const [userSearch, setUserSearch] = useState('');
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
 
   function loadAll() {
     return Promise.all([
@@ -76,7 +81,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
         .from('withdrawal_requests')
         .select('id, user_id, amount, status, requested_at, bank_name, account_number, account_name')
         .order('requested_at', { ascending: false }),
-      supabase.from('attempts').select('id, test_title, percentage'),
+      supabase.from('attempts').select('id, user_id, test_title, score, total, percentage, created_at'),
     ]);
   }
 
@@ -214,6 +219,21 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const totalReferralOwed = useMemo(
     () => users.reduce((sum, u) => sum + (u.referral_balance ?? 0), 0),
     [users]
+  );
+
+  // Derive the open user from `users` so the modal stays fresh after grant/revoke.
+  const selectedUser = useMemo(
+    () => (selectedUserId ? users.find((u) => u.id === selectedUserId) ?? null : null),
+    [selectedUserId, users]
+  );
+  const selectedUserAttempts = useMemo(
+    () =>
+      selectedUserId
+        ? attemptRows
+            .filter((a) => a.user_id === selectedUserId)
+            .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+        : [],
+    [selectedUserId, attemptRows]
   );
 
   const totalRevenueNaira = useMemo(
@@ -555,9 +575,12 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                     return (
                       <div key={u.id} className="space-y-1.5 px-5 py-3">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
+                          <button
+                            onClick={() => setSelectedUserId(u.id)}
+                            className="min-w-0 flex-1 truncate text-left font-medium text-school-green hover:underline"
+                          >
                             {u.email ?? '—'}
-                          </span>
+                          </button>
                           <span className="flex-none">
                             <StatusBadge status={status} />
                           </span>
@@ -607,7 +630,12 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                         return (
                           <tr key={u.id} className="hover:bg-school-light dark:hover:bg-school-navy/30">
                             <td className="px-5 py-3 font-medium text-school-navy dark:text-white">
-                              {u.email ?? '—'}
+                              <button
+                                onClick={() => setSelectedUserId(u.id)}
+                                className="text-left text-school-green hover:underline"
+                              >
+                                {u.email ?? '—'}
+                              </button>
                             </td>
                             <td className="px-5 py-3">
                               <StatusBadge status={status} />
@@ -722,7 +750,117 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
           </motion.section>
         </>
       )}
+
+      {/* ── Per-user activity modal ── */}
+      {selectedUser && (() => {
+        const u = selectedUser;
+        const status = getAccessStatus(u);
+        const isPremiumNow = status === 'admin' || status === 'paid';
+        return (
+          <div
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 p-4"
+            onClick={() => setSelectedUserId(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white shadow-2xl dark:bg-school-navy"
+            >
+              <div className="flex items-start justify-between gap-3 border-b border-school-border px-5 py-4 dark:border-school-green/20">
+                <div className="min-w-0">
+                  <h3 className="truncate font-sora text-lg font-bold text-school-navy dark:text-white">
+                    {u.email ?? '—'}
+                  </h3>
+                  <div className="mt-1"><StatusBadge status={status} /></div>
+                </div>
+                <button
+                  onClick={() => setSelectedUserId(null)}
+                  className="flex-none rounded-full p-1.5 text-school-muted hover:bg-school-pale dark:hover:bg-white/10"
+                  aria-label="Close"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="space-y-4 px-5 py-4">
+                {/* Account facts */}
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <Fact label="Joined" value={formatDate(u.created_at)} />
+                  <Fact label="Paid until" value={u.paid_until ? formatDate(u.paid_until) : '—'} />
+                  <Fact label="Free trial used" value={u.free_test_used ? 'Yes' : 'No'} />
+                  <Fact label="Referral earned" value={`₦${((u.referral_balance ?? 0) / 100).toLocaleString()}`} />
+                  {u.referred_by && (
+                    <Fact label="Referred by" value={emailById.get(u.referred_by) ?? '—'} />
+                  )}
+                  {u.referral_code && <Fact label="Referral code" value={u.referral_code} />}
+                </div>
+
+                {/* Grant / revoke */}
+                {status !== 'admin' && (
+                  <button
+                    onClick={() => (isPremiumNow ? revokePremium(u.id) : grantPremium(u.id))}
+                    disabled={actingOn === u.id}
+                    className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold disabled:opacity-50 ${
+                      isPremiumNow
+                        ? 'bg-rose-100 text-rose-700 hover:bg-rose-200 dark:bg-rose-900/30 dark:text-rose-300'
+                        : 'bg-school-green text-white hover:bg-school-green/90'
+                    }`}
+                  >
+                    {actingOn === u.id
+                      ? 'Working…'
+                      : isPremiumNow
+                      ? <><Undo2 size={15} /> Revoke Premium access</>
+                      : <><Crown size={15} /> Grant Premium (1 year)</>}
+                  </button>
+                )}
+
+                {/* Their activity */}
+                <div>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-widest text-school-muted">
+                    Test activity ({selectedUserAttempts.length})
+                  </p>
+                  {selectedUserAttempts.length === 0 ? (
+                    <p className="rounded-xl bg-school-light px-4 py-6 text-center text-sm text-school-muted dark:bg-school-navy/60">
+                      This user hasn't completed any tests yet.
+                    </p>
+                  ) : (
+                    <div className="space-y-2">
+                      {selectedUserAttempts.map((a) => (
+                        <div
+                          key={a.id}
+                          className="flex items-center justify-between gap-3 rounded-xl bg-school-light px-4 py-2.5 text-sm dark:bg-school-navy/60"
+                        >
+                          <div className="min-w-0">
+                            <p className="truncate font-medium text-school-navy dark:text-white">
+                              {a.test_title ?? 'Test'}
+                            </p>
+                            <p className="text-xs text-school-muted">{formatDateTime(a.created_at)}</p>
+                          </div>
+                          <span className="flex-none font-bold text-school-green">
+                            {a.score != null && a.total != null ? `${a.score}/${a.total}` : ''}{' '}
+                            <span className="text-school-muted">({a.percentage}%)</span>
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        );
+      })()}
     </main>
+  );
+}
+
+function Fact({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg bg-school-light px-3 py-2 dark:bg-school-navy/60">
+      <div className="text-[10px] font-bold uppercase tracking-wide text-school-muted">{label}</div>
+      <div className="truncate font-semibold text-school-navy dark:text-white">{value}</div>
+    </div>
   );
 }
 
