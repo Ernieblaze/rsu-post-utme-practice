@@ -50,6 +50,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
   const { user, loading: authLoading } = useAuth();
 
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
+  const [question, setQuestion] = useState<BankQuestion | null>(null);
   const [record, setRecord] = useState<DailyRecord | null>(null);
   const [picked, setPicked] = useState<OptionKey | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -62,41 +63,39 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
     [selectedCourse, bank]
   );
 
-  // Determine today's question: reuse the stored one for today, else pick a new
-  // random question from the course's subjects and lock it in for the day.
-  const question: BankQuestion | null = useMemo(() => {
-    if (!user || !selectedCourse) return null;
-    const today = todayKey();
-    const rec = readRecord(user.id);
-
-    if (rec && rec.date === today) {
-      const existing = bank.find((q) => q.id === rec.questionId);
-      if (existing) return existing;
-    }
-
-    const pool = bank.filter((q) => q.type === 'single' && subjects.includes(q.subject));
-    const chosen = pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
-    if (chosen) {
-      const newRec: DailyRecord = { date: today, questionId: chosen.id, answered: false };
-      writeRecord(user.id, newRec);
-    }
-    return chosen;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, selectedCourse, subjects, bank]);
-
-  // Sync local UI state from the stored record (e.g. already answered today).
+  // Pick today's question and sync the answered/revealed state. Side effects
+  // (localStorage + random pick) live here in an effect, never during render.
   useEffect(() => {
-    if (!user) return;
-    const rec = readRecord(user.id);
-    setRecord(rec);
-    if (rec && rec.date === todayKey() && rec.answered && rec.selected) {
+    if (!user || !selectedCourse) {
+      setQuestion(null);
+      return;
+    }
+    const today = todayKey();
+    let rec = readRecord(user.id);
+    let chosen: BankQuestion | null = null;
+
+    // Reuse today's stored question if it still exists in the bank.
+    if (rec && rec.date === today) {
+      chosen = bank.find((q) => q.id === rec!.questionId) ?? null;
+    }
+    // Otherwise pick a fresh random question from the course's subjects.
+    if (!chosen) {
+      const pool = bank.filter((q) => q.type === 'single' && subjects.includes(q.subject));
+      chosen = pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
+      rec = chosen ? { date: today, questionId: chosen.id, answered: false } : null;
+      if (chosen && rec) writeRecord(user.id, rec);
+    }
+
+    setQuestion(chosen);
+    setRecord(rec ?? null);
+    if (rec && rec.date === today && rec.answered && rec.selected) {
       setPicked(rec.selected);
       setRevealed(true);
     } else {
       setPicked(null);
       setRevealed(false);
     }
-  }, [user, question]);
+  }, [user, selectedCourse, subjects, bank]);
 
   function handleSelectCourse(id: string) {
     setSelectedCourseId(id);
