@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import {
   Lock, Star, Check, Home, Zap,
-  BookOpen, Target, Brain, BarChart3, Sparkles, Clock, Users,
+  BookOpen, Target, Brain, BarChart3, Sparkles, Clock, Users, ExternalLink,
 } from 'lucide-react';
+import { isInAppBrowser } from '../lib/browser';
 
 export type PaywallVariant = 'free-limit' | 'post-test' | 'revision' | 'upgrade' | 'ai-tutor';
 
@@ -232,6 +233,16 @@ export function Paywall({ onUpgrade, onHome, priceLabel, loading, variant = 'pos
               / year — one-time
             </span>
           </div>
+
+          {isInAppBrowser() && (
+            <div className="mb-3 flex items-start gap-2 rounded-xl border border-amber-300/60 bg-amber-50 px-3 py-2.5 text-xs text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
+              <ExternalLink size={14} className="mt-0.5 flex-none" />
+              <span>
+                Payment may not open here. For it to work, tap the <strong>⋮</strong> menu and choose{' '}
+                <strong>“Open in Chrome / Browser”</strong> first, then pay.
+              </span>
+            </div>
+          )}
 
           <motion.button
             whileHover={{ scale: loading ? 1 : 1.02 }}

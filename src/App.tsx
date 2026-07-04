@@ -4,6 +4,9 @@ import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { InAppBrowserBanner } from './components/InAppBrowserBanner';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import { WelcomeModal } from './components/WelcomeModal';
 import { Home } from './components/Home';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
@@ -286,6 +289,8 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-school-radial text-school-navy">
       <ScrollToTop />
+      <InAppBrowserBanner />
+      {view !== 'quiz' && <WelcomeModal />}
       {view !== 'quiz' && (
         <Header
           dark={dark}
@@ -569,6 +574,7 @@ function AppContent() {
       </AnimatePresence>
 
       {view !== 'quiz' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && <WhatsAppButton />}
 
       <AuthModal
         open={authModalOpen}
