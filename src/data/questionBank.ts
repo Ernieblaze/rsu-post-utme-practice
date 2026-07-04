@@ -163,7 +163,12 @@ export function getYearlyTests(bank: BankQuestion[]): Test[] {
   return Array.from(byYear.keys())
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
     .map((year) => {
-      const yearQuestions = byYear.get(year)!;
+      // Group each year's questions BY SUBJECT (like the real RSU exam) instead
+      // of leaving subjects mixed together.
+      const yearQuestions = byYear
+        .get(year)!
+        .slice()
+        .sort((a, b) => a.subject.localeCompare(b.subject));
       const questions: Question[] = yearQuestions.map((q, idx) => ({
         id: idx + 1,
         subject: q.subject,
@@ -175,8 +180,8 @@ export function getYearlyTests(bank: BankQuestion[]): Test[] {
       }));
       return {
         id: `exam-year-${year}`,
-        title: `RSU POST-UTME – ${year} – Mixed – ${questions.length} Questions – 30 Minutes`,
-        description: `Official ${year} RSU Post-UTME past questions compiled from the question bank, with the answer key.`,
+        title: `RSU POST-UTME – ${year} – ${questions.length} Questions – 30 Minutes`,
+        description: `Official ${year} RSU Post-UTME past questions, grouped by subject like the real exam, with the answer key.`,
         durationMinutes: 30,
         questions,
       };

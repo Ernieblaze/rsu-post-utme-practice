@@ -40,7 +40,11 @@ export function buildPracticeTest(
   const pool = filterForPractice(bank, filter);
   if (pool.length === 0) return null;
 
-  const picked = shuffle(pool).slice(0, Math.min(count, pool.length));
+  // Randomly pick the requested number, then GROUP them by subject (like the
+  // real RSU exam) instead of leaving them scrambled across subjects.
+  const picked = shuffle(pool)
+    .slice(0, Math.min(count, pool.length))
+    .sort((a, b) => a.subject.localeCompare(b.subject));
   const questions: Question[] = picked.map((q, idx) => ({
     id: idx + 1,
     subject: q.subject,

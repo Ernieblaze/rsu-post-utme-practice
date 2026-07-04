@@ -2,9 +2,12 @@ import type { BankQuestion, Question, Test } from '../types';
 import type { Course } from './rsuData';
 import { isGenericSlot, poolForSlot, questionsForSubject } from './subjectMatch';
 
-const JAMB_QUOTA = 36;
-const CURRENT_AFFAIRS_QUOTA = 7;
-const GENERAL_KNOWLEDGE_QUOTA = 7;
+// Real RSU Post-UTME shape: 50 questions in 30 minutes, kept SEPARATED by
+// subject (not scrambled together). The JAMB subjects share 40 questions
+// (~10 each for a 4-subject combo), plus 5 Current Affairs and 5 About RSU.
+const JAMB_QUOTA = 40;
+const CURRENT_AFFAIRS_QUOTA = 5;
+const GENERAL_KNOWLEDGE_QUOTA = 5;
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -24,6 +27,8 @@ export interface ExamBlueprintGap {
 export interface ExamBlueprintResult {
   test: Test;
   gaps: ExamBlueprintGap[];
+  /** Bank IDs used in this exam, so the caller can mark them "seen" for next time. */
+  usedIds: string[];
 }
 
 function toQuestion(q: BankQuestion, idx: number): Question {
@@ -39,27 +44,43 @@ function toQuestion(q: BankQuestion, idx: number): Question {
 }
 
 /**
- * Build a personalized Exam Focus test for a course: ~36 questions spread
- * across its JAMB subject slots, plus 7 Current Affairs and 7 RSU General
- * Knowledge. Slots without enough (or any) published questions yet are
- * simply skipped rather than padded or blocked — the exam comes out
- * shorter than 50 until that subject's content is uploaded, and the gap
- * is reported back so the UI can say so plainly.
+ * Build a personalized Exam Focus mock for a course, mirroring the real RSU
+ * Post-UTME structure:
+ *
+ *  - 50 questions / 30 minutes
+ *  - Questions are GROUPED BY SUBJECT in a fixed order (English section, then
+ *    the next subject's section, and so on) — never mixed together. This is
+ *    the key difference from the old shuffled format.
+ *  - Each subject's own questions are randomised internally for variety.
+ *  - `seenIds` (from the student's past attempts) are de-prioritised, so a
+ *    retake serves fresh questions first and only repeats once the pool for a
+ *    subject is exhausted.
+ *
+ * Subjects without enough published questions yet are simply shorter rather
+ * than blocking the exam, and the gap is reported back.
  */
-export function buildExamFocusTest(bank: BankQuestion[], course: Course): ExamBlueprintResult {
+export function buildExamFocusTest(
+  bank: BankQuestion[],
+  course: Course,
+  seenIds: Set<string> = new Set()
+): ExamBlueprintResult {
   const namedSlots = course.jambSubjects.filter((slot) => !isGenericSlot(slot));
   const gaps: ExamBlueprintGap[] = [];
-  const picked: BankQuestion[] = [];
-  // Tracks every question already used so repeated/overlapping slots (e.g. Law's
-  // "two of Government/CRS/History" produces the same slot string twice) never
-  // pick the same question into the exam more than once.
+  // Grouped, in order: each entry is one subject section's questions.
+  const sections: BankQuestion[][] = [];
+  // Prevents the same question appearing twice when slots overlap (e.g. Law's
+  // "two of Government/CRS/History" repeats the same slot string).
   const usedIds = new Set<string>();
 
-  function takeUnused(pool: BankQuestion[], count: number): BankQuestion[] {
-    const fresh = pool.filter((q) => !usedIds.has(q.id));
-    const take = shuffle(fresh).slice(0, count);
-    take.forEach((q) => usedIds.add(q.id));
-    return take;
+  // Take `count` questions from a pool, preferring ones the student hasn't
+  // seen in past attempts, and never reusing one already picked for this exam.
+  function take(pool: BankQuestion[], count: number): BankQuestion[] {
+    const available = pool.filter((q) => !usedIds.has(q.id));
+    const unseen = shuffle(available.filter((q) => !seenIds.has(q.id)));
+    const seen = shuffle(available.filter((q) => seenIds.has(q.id)));
+    const chosen = [...unseen, ...seen].slice(0, count);
+    chosen.forEach((q) => usedIds.add(q.id));
+    return chosen;
   }
 
   if (namedSlots.length > 0) {
@@ -70,36 +91,39 @@ export function buildExamFocusTest(bank: BankQuestion[], course: Course): ExamBl
       const want = perSlot + (remainder > 0 ? 1 : 0);
       if (remainder > 0) remainder -= 1;
       const pool = poolForSlot(bank, slot);
-      const take = takeUnused(pool, want);
-      picked.push(...take);
-      if (take.length < want) {
-        gaps.push({ slot, requested: want, available: pool.filter((q) => !usedIds.has(q.id)).length + take.length });
+      const chosen = take(pool, want);
+      if (chosen.length > 0) sections.push(chosen);
+      if (chosen.length < want) {
+        gaps.push({ slot, requested: want, available: chosen.length });
       }
     });
   }
 
   const currentAffairsPool = questionsForSubject(bank, 'Current Affairs');
-  const currentAffairs = takeUnused(currentAffairsPool, CURRENT_AFFAIRS_QUOTA);
+  const currentAffairs = take(currentAffairsPool, CURRENT_AFFAIRS_QUOTA);
+  if (currentAffairs.length > 0) sections.push(currentAffairs);
   if (currentAffairs.length < CURRENT_AFFAIRS_QUOTA) {
-    gaps.push({ slot: 'Current Affairs', requested: CURRENT_AFFAIRS_QUOTA, available: currentAffairsPool.length });
+    gaps.push({ slot: 'Current Affairs', requested: CURRENT_AFFAIRS_QUOTA, available: currentAffairs.length });
   }
 
   const generalKnowledgePool = questionsForSubject(bank, 'RSU General Knowledge');
-  const generalKnowledge = takeUnused(generalKnowledgePool, GENERAL_KNOWLEDGE_QUOTA);
+  const generalKnowledge = take(generalKnowledgePool, GENERAL_KNOWLEDGE_QUOTA);
+  if (generalKnowledge.length > 0) sections.push(generalKnowledge);
   if (generalKnowledge.length < GENERAL_KNOWLEDGE_QUOTA) {
-    gaps.push({ slot: 'RSU General Knowledge', requested: GENERAL_KNOWLEDGE_QUOTA, available: generalKnowledgePool.length });
+    gaps.push({ slot: 'RSU General Knowledge', requested: GENERAL_KNOWLEDGE_QUOTA, available: generalKnowledge.length });
   }
 
-  const all = shuffle([...picked, ...currentAffairs, ...generalKnowledge]);
-  const questions = all.map((q, idx) => toQuestion(q, idx));
+  // Flatten the subject sections IN ORDER — grouped, not shuffled together.
+  const ordered = sections.flat();
+  const questions = ordered.map((q, idx) => toQuestion(q, idx));
 
   const test: Test = {
     id: `exam-focus-${course.id}-${Date.now()}`,
     title: `Exam Focus: ${course.name}`,
-    description: `Personalized ${questions.length}-question mock exam for ${course.name}, built from your JAMB subject combination plus Current Affairs and RSU General Knowledge.`,
+    description: `Realistic ${questions.length}-question RSU Post-UTME mock for ${course.name} — subjects grouped just like the real exam, with fresh questions each attempt.`,
     durationMinutes: 30,
     questions,
   };
 
-  return { test, gaps };
+  return { test, gaps, usedIds: [...usedIds] };
 }

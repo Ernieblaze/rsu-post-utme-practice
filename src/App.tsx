@@ -410,7 +410,7 @@ function AppContent() {
             path="/exam-focus"
             element={
               <motion.div key="exam-focus" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <ExamFocus bank={bank} onStart={guardedStartDynamicTest} />
+                <ExamFocus bank={bank} onStart={guardedStartDynamicTest} userId={user?.id ?? ''} />
               </motion.div>
             }
           />

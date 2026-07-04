@@ -7,16 +7,19 @@ import { findCourseById } from '../data/rsuData';
 import { slotCoverageForCourse } from '../data/subjectMatch';
 import { buildExamFocusTest } from '../data/examBlueprint';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
+import { getSeenQuestionIds, recordSeenQuestionIds } from '../lib/examHistory';
 import { CoursePicker, CourseSummaryCard, FacultyBrowseHint } from './CourseSelector';
 
 interface ExamFocusProps {
   bank: BankQuestion[];
   onStart: (test: Test) => void;
+  /** Current user's ID — used to serve fresh questions across attempts. */
+  userId: string;
 }
 
 const MIN_QUESTIONS_PER_SUBJECT = 5;
 
-export function ExamFocus({ bank, onStart }: ExamFocusProps) {
+export function ExamFocus({ bank, onStart, userId }: ExamFocusProps) {
   const navigate = useNavigate();
   const [courseId, setCourseId] = useState<string | null>(() => getSelectedCourseId());
 
@@ -42,7 +45,9 @@ export function ExamFocus({ bank, onStart }: ExamFocusProps) {
 
   function handleStart() {
     if (!selected) return;
-    const { test } = buildExamFocusTest(bank, selected.course);
+    // Serve fresh questions the student hasn't seen in past attempts first.
+    const seen = getSeenQuestionIds(userId);
+    const { test, usedIds } = buildExamFocusTest(bank, selected.course, seen);
     // Guard: never launch an empty quiz (would render blank and break scoring).
     if (test.questions.length === 0) {
       window.alert(
@@ -50,6 +55,7 @@ export function ExamFocus({ bank, onStart }: ExamFocusProps) {
       );
       return;
     }
+    recordSeenQuestionIds(userId, usedIds);
     onStart(test);
   }
 
