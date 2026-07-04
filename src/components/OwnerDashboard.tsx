@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2 } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -140,17 +140,20 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   // through on Paystack but the webhook didn't update the profile.
   async function grantPremium(userId: string) {
     setActingOn(userId);
-    const paidUntil = new Date();
-    paidUntil.setFullYear(paidUntil.getFullYear() + 1);
-    const iso = paidUntil.toISOString();
-    const { error: err } = await supabase
-      .from('profiles')
-      .update({ has_paid: true, paid_until: iso })
-      .eq('id', userId);
+    // Uses a SECURITY DEFINER function so an admin can update another user's
+    // row (direct table updates are blocked by row-level security).
+    const { error: err } = await supabase.rpc('admin_set_premium', {
+      target_id: userId,
+      make_premium: true,
+    });
     if (err) {
       window.alert('Could not grant premium: ' + err.message);
     } else {
-      setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, has_paid: true, paid_until: iso } : u)));
+      const paidUntil = new Date();
+      paidUntil.setFullYear(paidUntil.getFullYear() + 1);
+      setUsers((prev) =>
+        prev.map((u) => (u.id === userId ? { ...u, has_paid: true, paid_until: paidUntil.toISOString() } : u))
+      );
     }
     setActingOn(null);
   }
@@ -158,10 +161,10 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   async function revokePremium(userId: string) {
     if (!window.confirm('Remove Premium access from this user?')) return;
     setActingOn(userId);
-    const { error: err } = await supabase
-      .from('profiles')
-      .update({ has_paid: false, paid_until: null })
-      .eq('id', userId);
+    const { error: err } = await supabase.rpc('admin_set_premium', {
+      target_id: userId,
+      make_premium: false,
+    });
     if (err) {
       window.alert('Could not revoke premium: ' + err.message);
     } else {
@@ -235,6 +238,80 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
         : [],
     [selectedUserId, attemptRows]
   );
+
+  // ── "Paid but not Premium" detector ──
+  // Only genuine SUCCESSFUL Paystack transactions are considered (the query
+  // already filters status = 'success'), so a mere payment attempt never
+  // counts. Flags anyone with a real payment who isn't currently Premium.
+  const paidButNotPremium = useMemo(() => {
+    const premiumIds = new Set(
+      users.filter((u) => ['paid', 'admin'].includes(getAccessStatus(u))).map((u) => u.id)
+    );
+    const flagged = new Map<string, { email: string; amount: number; ref: string; date: string }>();
+    transactions.forEach((t) => {
+      if (t.user_id && !premiumIds.has(t.user_id) && !flagged.has(t.user_id)) {
+        flagged.set(t.user_id, {
+          email: emailById.get(t.user_id) ?? t.user_id,
+          amount: t.amount,
+          ref: t.paystack_reference ?? '',
+          date: t.created_at,
+        });
+      }
+    });
+    return [...flagged.entries()].map(([id, info]) => ({ id, ...info }));
+  }, [users, transactions, emailById]);
+
+  // ── Growth: signups + revenue for today / this week / this month ──
+  const growth = useMemo(() => {
+    const now = new Date();
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const weekAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+
+    const countSince = (rows: { created_at: string }[], since: number) =>
+      rows.filter((r) => new Date(r.created_at).getTime() >= since).length;
+    const revenueSince = (since: number) =>
+      transactions
+        .filter((t) => new Date(t.created_at).getTime() >= since)
+        .reduce((s, t) => s + t.amount, 0) / 100;
+
+    return {
+      signupsToday: countSince(users, startOfToday),
+      signupsWeek: countSince(users, weekAgo),
+      signupsMonth: countSince(users, startOfMonth),
+      revenueToday: revenueSince(startOfToday),
+      revenueWeek: revenueSince(weekAgo),
+      revenueMonth: revenueSince(startOfMonth),
+    };
+  }, [users, transactions]);
+
+  // ── Email lists for CSV export ──
+  const paidEmails = useMemo(
+    () => users.filter((u) => getAccessStatus(u) === 'paid' && u.email).map((u) => u.email as string),
+    [users]
+  );
+  const unpaidEmails = useMemo(
+    () =>
+      users
+        .filter((u) => ['free-available', 'locked'].includes(getAccessStatus(u)) && u.email)
+        .map((u) => u.email as string),
+    [users]
+  );
+
+  function downloadCsv(filename: string, emails: string[]) {
+    if (emails.length === 0) {
+      window.alert('No emails to export in this group yet.');
+      return;
+    }
+    const csv = 'email\n' + emails.join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   const totalRevenueNaira = useMemo(
     () => transactions.reduce((sum, t) => sum + t.amount, 0) / 100,
@@ -541,6 +618,78 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             )}
           </motion.section>
 
+          {/* ── Growth: signups + revenue over time ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="mb-4 flex items-center gap-2">
+              <TrendingUp size={18} className="text-school-green" />
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Growth</h2>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <GrowthCard label="Signups today" value={String(growth.signupsToday)} />
+              <GrowthCard label="Signups this week" value={String(growth.signupsWeek)} />
+              <GrowthCard label="Signups this month" value={String(growth.signupsMonth)} />
+              <GrowthCard label="Revenue today" value={`₦${growth.revenueToday.toLocaleString()}`} money />
+              <GrowthCard label="Revenue this week" value={`₦${growth.revenueWeek.toLocaleString()}`} money />
+              <GrowthCard label="Revenue this month" value={`₦${growth.revenueMonth.toLocaleString()}`} money />
+            </div>
+          </motion.section>
+
+          {/* ── Paid but NOT Premium detector ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`mt-6 rounded-2xl border shadow-sm ${
+              paidButNotPremium.length > 0
+                ? 'border-amber-300 bg-amber-50 dark:border-amber-500/40 dark:bg-amber-500/10'
+                : 'border-school-border bg-school-surface dark:border-school-green/20 dark:bg-school-navy/40'
+            }`}
+          >
+            <div className="flex items-center gap-2 border-b border-school-border/60 px-5 py-4 dark:border-white/10">
+              <AlertTriangle size={18} className={paidButNotPremium.length > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-school-muted'} />
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">
+                Paid but not Premium
+              </h2>
+              <span className="ml-auto text-sm font-medium text-school-muted">{paidButNotPremium.length} to review</span>
+            </div>
+            {paidButNotPremium.length === 0 ? (
+              <p className="px-5 py-6 text-center text-sm text-school-muted">
+                ✓ Everyone who paid has Premium. No action needed.
+              </p>
+            ) : (
+              <div className="divide-y divide-amber-200/60 dark:divide-white/10">
+                <p className="px-5 pt-3 text-xs text-amber-800 dark:text-amber-300">
+                  These accounts have a <strong>successful Paystack payment</strong> but aren't Premium — likely a webhook miss. Verify and grant.
+                </p>
+                {paidButNotPremium.map((p) => (
+                  <div key={p.id} className="flex flex-wrap items-center justify-between gap-2 px-5 py-3 text-sm">
+                    <div className="min-w-0">
+                      <button
+                        onClick={() => setSelectedUserId(p.id)}
+                        className="truncate font-medium text-school-green hover:underline"
+                      >
+                        {p.email}
+                      </button>
+                      <p className="text-xs text-school-muted">
+                        ₦{(p.amount / 100).toLocaleString()} · {p.ref || 'no ref'} · {formatDate(p.date)}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => grantPremium(p.id)}
+                      disabled={actingOn === p.id}
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-school-green px-3 py-1.5 text-xs font-bold text-white hover:bg-school-green/90 disabled:opacity-50"
+                    >
+                      <Crown size={13} /> {actingOn === p.id ? '…' : 'Grant Premium'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.section>
+
           <motion.section
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -548,14 +697,26 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
           >
             <div className="flex flex-col gap-3 border-b border-school-border px-5 py-4 dark:border-school-green/20 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">All Users</h2>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  onClick={() => downloadCsv('paid-emails.csv', paidEmails)}
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-school-green/10 px-3 py-2 text-xs font-bold text-school-green hover:bg-school-green/20"
+                >
+                  <Download size={13} /> Paid emails ({paidEmails.length})
+                </button>
+                <button
+                  onClick={() => downloadCsv('unpaid-emails.csv', unpaidEmails)}
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-amber-100 px-3 py-2 text-xs font-bold text-amber-700 hover:bg-amber-200 dark:bg-amber-900/30 dark:text-amber-300"
+                >
+                  <Download size={13} /> Unpaid emails ({unpaidEmails.length})
+                </button>
                 <div className="relative">
                   <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-muted" />
                   <input
                     value={userSearch}
                     onChange={(e) => setUserSearch(e.target.value)}
                     placeholder="Search by email…"
-                    className="w-full rounded-xl border border-school-border bg-school-light py-2 pl-9 pr-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white sm:w-56"
+                    className="w-full rounded-xl border border-school-border bg-school-light py-2 pl-9 pr-3 text-sm text-school-navy focus:border-school-green focus:outline-none dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white sm:w-48"
                   />
                 </div>
                 <span className="flex-none text-sm font-medium text-school-muted">{filteredUsers.length} shown</span>
@@ -860,6 +1021,17 @@ function Fact({ label, value }: { label: string; value: string }) {
     <div className="rounded-lg bg-school-light px-3 py-2 dark:bg-school-navy/60">
       <div className="text-[10px] font-bold uppercase tracking-wide text-school-muted">{label}</div>
       <div className="truncate font-semibold text-school-navy dark:text-white">{value}</div>
+    </div>
+  );
+}
+
+function GrowthCard({ label, value, money }: { label: string; value: string; money?: boolean }) {
+  return (
+    <div className="rounded-xl border border-school-border bg-school-light p-3 dark:border-school-green/20 dark:bg-school-navy/60">
+      <div className="text-[10px] font-bold uppercase tracking-wide text-school-muted">{label}</div>
+      <div className={`font-sora text-xl font-bold ${money ? 'text-school-green' : 'text-school-navy dark:text-white'}`}>
+        {value}
+      </div>
     </div>
   );
 }
