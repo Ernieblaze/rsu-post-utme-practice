@@ -7,14 +7,13 @@ import { useAuth } from '../context/AuthContext';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
+import { visibleOptionKeys } from '../lib/helpers';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
 interface QuestionOfTheDayProps {
   bank: BankQuestion[];
   onRequireAuth: () => void;
 }
-
-const OPTION_KEYS: OptionKey[] = ['A', 'B', 'C', 'D', 'E'];
 
 /** Local YYYY-MM-DD so the daily reset follows the student's own day. */
 function todayKey(): string {
@@ -193,7 +192,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
                 <p className="mb-4 font-medium text-school-navy dark:text-white">{question.text}</p>
 
                 <div className="space-y-2.5">
-                  {OPTION_KEYS.map((key) => {
+                  {visibleOptionKeys(question.options).map((key) => {
                     const isChosen = picked === key;
                     const isCorrect = key === question.answer;
                     const showCorrect = revealed && isCorrect;

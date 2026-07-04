@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BankQuestion, Test } from '../types';
-import { subjectColor } from '../lib/helpers';
+import { subjectColor, visibleOptionKeys } from '../lib/helpers';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
 import { categoryForSubject } from '../data/questionBank';
@@ -367,7 +367,7 @@ export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProp
                   <p className="mb-4 font-medium text-school-navy dark:text-white">{q.text}</p>
 
                   <div className="mb-4 grid gap-2 sm:grid-cols-2">
-                    {(['A', 'B', 'C', 'D', 'E'] as const).map((opt) => (
+                    {visibleOptionKeys(q.options).map((opt) => (
                       <div
                         key={opt}
                         className={`rounded-lg border px-3 py-2 text-sm ${

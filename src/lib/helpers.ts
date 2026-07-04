@@ -1,5 +1,16 @@
 import type { Attempt, OptionKey, Question, Test } from '../types';
 
+/**
+ * The option letters that actually have text for a question. Questions with
+ * only A–D (E left blank) return ['A','B','C','D'] so empty option boxes are
+ * never displayed. Order is always preserved (A,B,C,D,E).
+ */
+export function visibleOptionKeys(options: Record<OptionKey, string>): OptionKey[] {
+  return (['A', 'B', 'C', 'D', 'E'] as OptionKey[]).filter(
+    (k) => options[k] != null && String(options[k]).trim() !== ''
+  );
+}
+
 export function formatTime(totalSeconds: number): string {
   const m = Math.floor(totalSeconds / 60)
     .toString()

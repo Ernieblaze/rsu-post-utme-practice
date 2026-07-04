@@ -12,7 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { useToast } from './Toast';
 import type { OptionKey, Test, Attempt } from '../types';
-import { calculateResult, formatTime } from '../lib/helpers';
+import { calculateResult, formatTime, visibleOptionKeys } from '../lib/helpers';
 import { getTestState, saveTestState, clearTestState } from '../lib/storage';
 import { FREE_QUESTION_LIMIT, getFreeQuestionsUsed, incrementFreeQuestions } from '../lib/freeTrial';
 import { Paywall } from './Paywall';
@@ -140,8 +140,13 @@ export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, p
         '4': 'D',
         '5': 'E',
       };
-      if (optionMap[e.key]) {
-        selectOption(optionMap[e.key]);
+      const mapped = optionMap[e.key];
+      if (mapped) {
+        // Only allow keys for options this question actually has (no blank E).
+        const q = test.questions[state.currentIndex];
+        if (q && q.options[mapped] != null && String(q.options[mapped]).trim() !== '') {
+          selectOption(mapped);
+        }
       } else if (e.key === 'ArrowLeft') {
         prev();
       } else if (e.key === 'ArrowRight') {
@@ -162,7 +167,8 @@ export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, p
 
   const currentQuestion = test.questions[state.currentIndex];
   if (!currentQuestion) return null;
-  const optionKeys: OptionKey[] = ['A', 'B', 'C', 'D', 'E'];
+  // Only render options that have text — questions with just A–D won't show a blank E.
+  const optionKeys: OptionKey[] = visibleOptionKeys(currentQuestion.options);
   const warning = timeLeft <= 300;
   const danger = timeLeft <= 60;
 
