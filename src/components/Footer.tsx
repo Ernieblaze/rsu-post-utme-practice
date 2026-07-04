@@ -161,11 +161,14 @@ export function Footer({ onNavigate }: FooterProps) {
               </button>
             </div>
             <p className="mt-4 text-xs text-slate-400">
-              Found an error or have a suggestion?{' '}
-              <a href="mailto:?subject=RSU%20Post-UTME%20Practice%20Feedback" className="text-school-gold hover:underline">
-                Send feedback
-              </a>
+              Having any issue or difficulty? Contact our support team:
             </p>
+            <a
+              href="mailto:rsupostutmepractice@gmail.com"
+              className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-school-gold hover:underline"
+            >
+              <Mail size={14} /> rsupostutmepractice@gmail.com
+            </a>
           </motion.div>
         </div>
 

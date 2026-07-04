@@ -15,6 +15,7 @@ import {
   KeyRound,
   CheckCircle2,
   ChevronRight,
+  CreditCard,
 } from 'lucide-react';
 
 export function UserGuide() {
@@ -120,6 +121,23 @@ export function UserGuide() {
             <span>Access unlocks automatically within a few seconds of a successful payment — no manual approval needed.</span>
           </li>
         </ul>
+
+        {/* Step-by-step payment guide — recommends bank transfer */}
+        <div className="mb-4 rounded-xl border border-school-green/20 bg-school-pale/50 p-4 dark:border-school-green/20 dark:bg-school-navy/60">
+          <p className="mb-2 flex items-center gap-1.5 text-sm font-bold text-school-navy dark:text-white">
+            <CreditCard size={15} className="text-school-green" /> How to make payment — we recommend Bank Transfer 💡
+          </p>
+          <ol className="list-decimal space-y-1.5 pl-5 text-sm text-school-navy/80 dark:text-slate-300">
+            <li>Tap <strong className="text-school-navy dark:text-white">Upgrade to Premium</strong> — the secure Paystack window opens.</li>
+            <li>Choose <strong className="text-school-navy dark:text-white">Bank Transfer</strong> — it's the fastest and smoothest way to pay.</li>
+            <li>Paystack shows you a one-time account number. Open your bank app and transfer the exact amount to that account.</li>
+            <li>Once your transfer is confirmed, your Premium access <strong className="text-school-navy dark:text-white">unlocks automatically</strong> — no waiting for manual approval.</li>
+          </ol>
+          <p className="mt-2 text-xs text-school-muted">
+            Card and USSD also work, but Bank Transfer is the most reliable and stress-free option.
+          </p>
+        </div>
+
         <button
           onClick={() => navigate('/upgrade')}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-school-green px-6 py-3 font-bold text-white shadow-sm hover:bg-school-green/90 sm:w-auto"
@@ -155,8 +173,26 @@ export function UserGuide() {
         </ul>
       </Section>
 
+      {/* Contact / support */}
+      <Section title="Need Help? Contact Us" icon={<Mail size={20} />}>
+        <p className="text-sm leading-relaxed text-school-navy/80 dark:text-slate-300">
+          Having any issue or difficulty — with payment, your account, or anything at all? Reach our
+          support team directly and we'll help you out as fast as we can:
+        </p>
+        <a
+          href="mailto:rsupostutmepractice@gmail.com"
+          className="mt-3 inline-flex items-center gap-2 rounded-xl bg-school-green px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-school-green/90"
+        >
+          <Mail size={16} /> rsupostutmepractice@gmail.com
+        </a>
+      </Section>
+
       <p className="mt-10 text-center text-sm text-school-muted">
-        Still stuck on something? Use the "Send feedback" link in the footer to reach us directly.
+        Still stuck on something? Email us at{' '}
+        <a href="mailto:rsupostutmepractice@gmail.com" className="font-semibold text-school-green hover:underline">
+          rsupostutmepractice@gmail.com
+        </a>{' '}
+        and we'll sort it out.
       </p>
     </main>
   );
