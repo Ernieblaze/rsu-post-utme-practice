@@ -21,10 +21,11 @@ begin
   end if;
 
   -- 2) The protect_sensitive_profile_columns trigger blocks any non-service-role
-  --    JWT from changing payment fields. After the admin check above, clear the
-  --    JWT context (transaction-local) so this trusted, admin-approved change is
-  --    allowed through. Everyone else is still blocked by the guard.
-  perform set_config('request.jwt.claims', '{}', true);
+  --    JWT from changing payment fields. After the admin check above, present
+  --    this trusted admin change to the guard as the service role (covering both
+  --    the JSON-claims path and the legacy single-claim path). Transaction-local.
+  perform set_config('request.jwt.claims', '{"role":"service_role"}', true);
+  perform set_config('request.jwt.claim.role', 'service_role', true);
 
   if make_premium then
     update public.profiles
