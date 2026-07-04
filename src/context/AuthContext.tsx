@@ -31,6 +31,27 @@ export function useAuth() {
   return ctx;
 }
 
+/**
+ * Turn raw Supabase auth errors into student-friendly messages. The most
+ * common one is "Failed to fetch" — a network error that happens a lot when
+ * users open the site inside an in-app browser (Gmail/Facebook link) instead
+ * of Chrome. Give them a clear next step instead of a scary technical string.
+ */
+function friendlyAuthError(message?: string): string {
+  if (!message) return 'Something went wrong. Please try again.';
+  const m = message.toLowerCase();
+  if (m.includes('failed to fetch') || m.includes('network') || m.includes('load failed')) {
+    return "Couldn't connect. Please check your internet, or open the site directly in Chrome (not from an email or WhatsApp link), then try again.";
+  }
+  if (m.includes('invalid login credentials')) {
+    return 'Wrong email or password. Please check and try again — or tap "Forgot password?".';
+  }
+  if (m.includes('email not confirmed')) {
+    return 'Please confirm your email first — check your inbox (and spam) for the confirmation link.';
+  }
+  return message;
+}
+
 async function fetchProfile(userId: string): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
@@ -138,12 +159,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return { error: 'We could not send your confirmation email right now. Please try again in a few minutes.' };
     }
     // Surface the real message for everything else (wrong password, rate limit, etc.)
-    return { error: error.message };
+    return { error: friendlyAuthError(error.message) };
   }
 
   async function signIn(email: string, password: string): Promise<AuthResult> {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error: error ? error.message : null };
+    return { error: error ? friendlyAuthError(error.message) : null };
   }
 
   async function signOut(): Promise<AuthResult> {
@@ -156,12 +177,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
-    return { error: error ? error.message : null };
+    return { error: error ? friendlyAuthError(error.message) : null };
   }
 
   async function updatePassword(newPassword: string): Promise<AuthResult> {
     const { error } = await supabase.auth.updateUser({ password: newPassword });
-    return { error: error ? error.message : null };
+    return { error: error ? friendlyAuthError(error.message) : null };
   }
 
   const value: AuthContextValue = {

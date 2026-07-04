@@ -276,7 +276,8 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
 
                     {isExpanded && (
                       <div className="mb-3 rounded-lg bg-white p-3 text-sm text-school-navy/80 shadow-sm dark:bg-school-navy/60 dark:text-slate-300">
-                        <span className="font-semibold">Explanation:</span> {q.explanation}
+                        <span className="font-semibold">Explanation:</span>{' '}
+                        {q.explanation?.trim() || 'No detailed explanation for this question yet — the correct answer is shown above.'}
                       </div>
                     )}
 

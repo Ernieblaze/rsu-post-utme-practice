@@ -249,7 +249,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
                         </p>
                         <p className="flex items-start gap-1.5 leading-relaxed">
                           <Lightbulb size={15} className="mt-0.5 flex-none" />
-                          <span>{question.explanation}</span>
+                          <span>{question.explanation?.trim() || 'No detailed explanation for this question yet — the correct answer is shown above.'}</span>
                         </p>
                       </div>
 

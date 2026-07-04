@@ -408,7 +408,8 @@ export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProp
                         className="overflow-hidden"
                       >
                         <div className="mt-3 rounded-lg bg-school-light p-3 text-sm text-school-navy/80 dark:bg-school-navy/60 dark:text-slate-300">
-                          <span className="font-semibold">Explanation:</span> {q.explanation}
+                          <span className="font-semibold">Explanation:</span>{' '}
+                          {q.explanation?.trim() || 'No detailed explanation for this question yet — the correct answer is marked above.'}
                         </div>
                       </motion.div>
                     )}
