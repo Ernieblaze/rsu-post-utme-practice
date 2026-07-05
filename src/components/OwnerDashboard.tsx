@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp, Mail } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -52,6 +52,10 @@ interface AttemptRow {
   percentage: number;
   created_at: string;
 }
+
+// Your email provider's daily send limit (Brevo free = 300/day). Each new
+// signup sends one confirmation email. Raise this if you upgrade your plan.
+const DAILY_EMAIL_CAP = 300;
 
 export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const navigate = useNavigate();
@@ -284,6 +288,13 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
       revenueMonth: revenueSince(startOfMonth),
     };
   }, [users, transactions]);
+
+  // ── Confirmation-email usage today (vs the daily cap) ──
+  // Each signup sends one confirmation email, so today's signups ≈ emails used.
+  const emailsUsedToday = growth.signupsToday;
+  const emailsRemaining = Math.max(0, DAILY_EMAIL_CAP - emailsUsedToday);
+  const emailPct = Math.min(100, Math.round((emailsUsedToday / DAILY_EMAIL_CAP) * 100));
+  const emailLevel = emailPct >= 90 ? 'red' : emailPct >= 70 ? 'amber' : 'green';
 
   // ── Email lists for CSV export ──
   const paidEmails = useMemo(
@@ -616,6 +627,54 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                 </div>
               </>
             )}
+          </motion.section>
+
+          {/* ── Daily email quota (confirmation emails vs the 300/day cap) ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`mt-6 rounded-2xl border p-5 shadow-sm ${
+              emailLevel === 'red'
+                ? 'border-rose-300 bg-rose-50 dark:border-rose-500/40 dark:bg-rose-500/10'
+                : emailLevel === 'amber'
+                ? 'border-amber-300 bg-amber-50 dark:border-amber-500/40 dark:bg-amber-500/10'
+                : 'border-school-border bg-school-surface dark:border-school-green/20 dark:bg-school-navy/40'
+            }`}
+          >
+            <div className="mb-3 flex items-center gap-2">
+              <Mail size={18} className={emailLevel === 'red' ? 'text-rose-600' : emailLevel === 'amber' ? 'text-amber-600' : 'text-school-green'} />
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Daily Email Quota</h2>
+            </div>
+
+            <div className="mb-2 flex items-baseline justify-between">
+              <span className="font-sora text-3xl font-bold text-school-navy dark:text-white">
+                {emailsUsedToday} <span className="text-lg text-school-muted">/ {DAILY_EMAIL_CAP}</span>
+              </span>
+              <span className={`text-sm font-bold ${
+                emailLevel === 'red' ? 'text-rose-600 dark:text-rose-400' : emailLevel === 'amber' ? 'text-amber-600 dark:text-amber-400' : 'text-school-green'
+              }`}>
+                {emailsRemaining} left today
+              </span>
+            </div>
+
+            {/* progress bar */}
+            <div className="h-2.5 w-full overflow-hidden rounded-full bg-school-light dark:bg-school-navy/60">
+              <div
+                className={`h-full rounded-full transition-all ${
+                  emailLevel === 'red' ? 'bg-rose-500' : emailLevel === 'amber' ? 'bg-amber-500' : 'bg-school-green'
+                }`}
+                style={{ width: `${emailPct}%` }}
+              />
+            </div>
+
+            <p className="mt-2.5 text-xs leading-relaxed text-school-navy/70 dark:text-slate-400">
+              {emailLevel === 'red' ? (
+                <strong className="text-rose-600 dark:text-rose-400">⚠️ Almost at the daily limit — consider pausing your ads. </strong>
+              ) : emailLevel === 'amber' ? (
+                <strong className="text-amber-700 dark:text-amber-400">Getting close to the limit — keep an eye on this. </strong>
+              ) : null}
+              Based on new signups today (each sends one confirmation email). New signups may fail once this hits {DAILY_EMAIL_CAP}. Resets at midnight.
+            </p>
           </motion.section>
 
           {/* ── Growth: signups + revenue over time ── */}
