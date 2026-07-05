@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import type { Profile } from '../lib/access';
 import { consumeJustSignedUpFlag, getPendingReferralCode, markJustSignedUp } from '../lib/referral';
 import { clearPremiumLocally } from '../lib/access';
+import { logEmailEvent } from '../lib/emailEvents';
 
 interface AuthResult {
   error: string | null;
@@ -152,6 +153,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     if (!error) {
       markJustSignedUp();
+      logEmailEvent('signup'); // confirmation email sent — counts toward the daily cap
       return { error: null };
     }
     const status = (error as { status?: number }).status;
@@ -178,6 +180,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
+    if (!error) logEmailEvent('reset'); // reset email sent — counts toward the daily cap
     return { error: error ? friendlyAuthError(error.message) : null };
   }
 
@@ -194,7 +197,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       email: clean,
       options: { emailRedirectTo: `${window.location.origin}/email-confirmed` },
     });
-    if (!error) return { error: null };
+    if (!error) {
+      logEmailEvent('resend'); // resent confirmation — counts toward the daily cap
+      return { error: null };
+    }
     const status = (error as { status?: number }).status;
     if (status === 500 || !error.message || error.message === '{}') {
       return { error: 'We could not send the email right now. Please try again in a few minutes.' };

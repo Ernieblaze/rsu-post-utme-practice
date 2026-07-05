@@ -61,6 +61,13 @@ interface VisitStats {
   sources: { source: string; visitors: number }[];
 }
 
+interface EmailUsage {
+  total: number;
+  signup: number;
+  resend: number;
+  reset: number;
+}
+
 // Your email provider's daily send limit (Brevo free = 300/day). Each new
 // signup sends one confirmation email. Raise this if you upgrade your plan.
 const DAILY_EMAIL_CAP = 300;
@@ -78,6 +85,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [userSearch, setUserSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [visits, setVisits] = useState<VisitStats | null>(null);
+  const [emailUsage, setEmailUsage] = useState<EmailUsage | null>(null);
 
   function loadAll() {
     return Promise.all([
@@ -128,11 +136,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     };
   }, []);
 
-  // Website traffic stats (admin-only RPC).
+  // Website traffic + email-usage stats (admin-only RPCs).
   useEffect(() => {
     let cancelled = false;
     supabase.rpc('get_visit_stats').then(({ data }) => {
       if (!cancelled && data) setVisits(data as VisitStats);
+    });
+    supabase.rpc('get_email_usage_today').then(({ data }) => {
+      if (!cancelled && data) setEmailUsage(data as EmailUsage);
     });
     return () => {
       cancelled = true;
@@ -309,9 +320,11 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     };
   }, [users, transactions]);
 
-  // ── Confirmation-email usage today (vs the daily cap) ──
-  // Each signup sends one confirmation email, so today's signups ≈ emails used.
-  const emailsUsedToday = growth.signupsToday;
+  // ── Email usage today (vs the daily cap) ──
+  // Counts ALL emails that hit the cap: signups, resent confirmations, and
+  // password resets (from the email_events log). Falls back to today's signups
+  // if the email_events table isn't set up yet.
+  const emailsUsedToday = emailUsage ? emailUsage.total : growth.signupsToday;
   const emailsRemaining = Math.max(0, DAILY_EMAIL_CAP - emailsUsedToday);
   const emailPct = Math.min(100, Math.round((emailsUsedToday / DAILY_EMAIL_CAP) * 100));
   const emailLevel = emailPct >= 90 ? 'red' : emailPct >= 70 ? 'amber' : 'green';
@@ -734,13 +747,27 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
               />
             </div>
 
+            {emailUsage && (emailUsage.signup + emailUsage.resend + emailUsage.reset) > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold">
+                <span className="rounded-full bg-school-light px-2.5 py-1 text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+                  {emailUsage.signup} signups
+                </span>
+                <span className="rounded-full bg-school-light px-2.5 py-1 text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+                  {emailUsage.resend} resends
+                </span>
+                <span className="rounded-full bg-school-light px-2.5 py-1 text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
+                  {emailUsage.reset} password resets
+                </span>
+              </div>
+            )}
+
             <p className="mt-2.5 text-xs leading-relaxed text-school-navy/70 dark:text-slate-400">
               {emailLevel === 'red' ? (
                 <strong className="text-rose-600 dark:text-rose-400">⚠️ Almost at the daily limit — consider pausing your ads. </strong>
               ) : emailLevel === 'amber' ? (
                 <strong className="text-amber-700 dark:text-amber-400">Getting close to the limit — keep an eye on this. </strong>
               ) : null}
-              Based on new signups today (each sends one confirmation email). New signups may fail once this hits {DAILY_EMAIL_CAP}. Resets at midnight.
+              Counts every email sent today — new signups, resent confirmations, and password resets. New emails may fail once this hits {DAILY_EMAIL_CAP}. Resets at midnight.
             </p>
           </motion.section>
 
