@@ -245,6 +245,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return users.filter((u) => (u.email ?? '').toLowerCase().includes(q));
   }, [users, userSearch]);
 
+  // Only render a batch at a time so the list isn't a huge scroll.
+  const USERS_BATCH = 12;
+  const [usersShown, setUsersShown] = useState(USERS_BATCH);
+  useEffect(() => {
+    setUsersShown(USERS_BATCH); // reset when the search changes
+  }, [userSearch]);
+  const visibleUsers = filteredUsers.slice(0, usersShown);
+
   // Everyone who has successfully referred someone (earned a balance) or been
   // referred, so you can see your referral activity at a glance.
   const referrers = useMemo(
@@ -883,7 +891,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             ) : (
               <>
                 <div className="divide-y divide-school-border sm:hidden dark:divide-school-green/20">
-                  {filteredUsers.map((u) => {
+                  {visibleUsers.map((u) => {
                     const status = getAccessStatus(u);
                     const isPremiumNow = status === 'admin' || status === 'paid';
                     return (
@@ -938,7 +946,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-school-border dark:divide-school-green/20">
-                      {filteredUsers.map((u) => {
+                      {visibleUsers.map((u) => {
                         const status = getAccessStatus(u);
                         const isPremiumNow = status === 'admin' || status === 'paid';
                         return (
@@ -996,6 +1004,17 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                     </tbody>
                   </table>
                 </div>
+
+                {filteredUsers.length > usersShown && (
+                  <div className="border-t border-school-border px-5 py-3 text-center dark:border-school-green/20">
+                    <button
+                      onClick={() => setUsersShown((n) => n + USERS_BATCH)}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-school-green/30 bg-school-green/10 px-4 py-2 text-sm font-bold text-school-green hover:bg-school-green/20"
+                    >
+                      Show more ({filteredUsers.length - usersShown} more)
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </motion.section>
