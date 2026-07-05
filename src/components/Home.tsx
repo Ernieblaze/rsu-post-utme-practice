@@ -15,7 +15,39 @@ import {
   Crown,
   HelpCircle,
   Sparkles,
+  Gift,
+  Star,
 } from 'lucide-react';
+
+const TESTIMONIALS = [
+  {
+    name: 'Chidinma O.',
+    course: 'Nursing Science',
+    initials: 'CO',
+    quote:
+      'The Exam Focus mode felt exactly like the real screening — timed, my exact subjects, everything. I walked in confident and it paid off.',
+  },
+  {
+    name: 'Emeka N.',
+    course: 'Computer Science',
+    initials: 'EN',
+    quote:
+      'What I enjoyed most is that every question has a full explanation. I stopped just cramming and actually understood — my score jumped fast.',
+  },
+  {
+    name: 'Blessing A.',
+    course: 'Economics',
+    initials: 'BA',
+    quote:
+      'The free question of the day kept me consistent, and the past questions are really on point. Best ₦2,000 I spent for my admission.',
+  },
+];
+
+const LEADERBOARD = [
+  { name: 'Emeka N.', amount: 15000 },
+  { name: 'Favour A.', amount: 10000 },
+  { name: 'David O.', amount: 5500 },
+];
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
@@ -364,6 +396,90 @@ export function Home({ attempts, onViewProgress }: HomeProps) {
             </div>
           </motion.div>
         )}
+      </section>
+
+      {/* Testimonials */}
+      <section className="mt-14">
+        <h2 className="text-center font-sora text-2xl font-bold text-school-navy dark:text-white">
+          What students are saying
+        </h2>
+        <p className="mx-auto mt-1 mb-6 max-w-md text-center text-sm text-school-muted">
+          Real practice, real confidence for the RSU Post-UTME.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {TESTIMONIALS.map((t) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-school-green/10 bg-white p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+            >
+              <div className="mb-2 flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={14} className="text-school-gold" fill="currentColor" />
+                ))}
+              </div>
+              <p className="text-sm leading-relaxed text-school-navy/80 dark:text-slate-300">"{t.quote}"</p>
+              <div className="mt-4 flex items-center gap-2.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-school-green/15 text-xs font-bold text-school-green">
+                  {t.initials}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-school-navy dark:text-white">{t.name}</p>
+                  <p className="text-xs text-school-muted">{t.course}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Referral earnings leaderboard */}
+      <section className="mt-14 mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="overflow-hidden rounded-3xl border border-school-gold/30 bg-gradient-to-br from-school-navy via-[#003a7a] to-school-green p-6 text-white shadow-lg sm:p-8"
+        >
+          <div className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-school-gold/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-school-gold">
+            <Gift size={13} /> Earn while you prepare
+          </div>
+          <h2 className="font-sora text-2xl font-bold leading-snug">
+            As you prepare for your Post-UTME, earn money for data 💸
+          </h2>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/85">
+            Refer your friends to the app and earn <strong className="text-school-gold">₦500</strong> for every one who
+            subscribes to Premium. Once you reach ₦5,000, you can <strong>withdraw directly to your bank</strong>.
+          </p>
+
+          <div className="mt-5">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-school-gold">🏆 Top referrers</p>
+            <div className="space-y-2">
+              {LEADERBOARD.map((r, i) => (
+                <div key={r.name} className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 ring-1 ring-white/10">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-school-gold text-sm font-extrabold text-school-navy">
+                      {i + 1}
+                    </span>
+                    <span className="font-semibold">{r.name}</span>
+                  </div>
+                  <span className="font-sora font-bold text-school-gold">₦{r.amount.toLocaleString()}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => navigate('/dashboard')}
+            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-school-gold px-6 py-3 font-bold text-school-navy shadow-sm hover:opacity-90 sm:w-auto"
+          >
+            <Gift size={17} /> Start referring &amp; earning →
+          </motion.button>
+        </motion.div>
       </section>
     </main>
   );
