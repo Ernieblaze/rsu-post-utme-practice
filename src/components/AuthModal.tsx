@@ -13,15 +13,29 @@ interface AuthModalProps {
 type Mode = 'signin' | 'signup' | 'forgot';
 
 export function AuthModal({ open, onClose }: AuthModalProps) {
-  const { signUp, signIn, resetPassword } = useAuth();
+  const { signUp, signIn, resetPassword, resendConfirmation } = useAuth();
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [referralCode, setReferralCode] = useState(() => getPendingReferralCode() ?? '');
   const [submitting, setSubmitting] = useState(false);
+  const [resending, setResending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+
+  async function handleResend() {
+    setError(null);
+    setSuccess(null);
+    setResending(true);
+    const result = await resendConfirmation(email);
+    setResending(false);
+    if (result.error) {
+      setError(result.error);
+      return;
+    }
+    setSuccess('Confirmation email sent! Check your inbox and your spam/junk folder.');
+  }
 
   function reset() {
     setMode('signin');
@@ -198,6 +212,22 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   : 'Log in'}
               </button>
             </form>
+
+            {mode !== 'forgot' && (
+              <div className="mt-3 rounded-lg bg-school-light px-3 py-2 text-center dark:bg-school-navy/60">
+                <p className="text-xs text-school-navy/70 dark:text-slate-400">
+                  Didn't get the confirmation email?
+                </p>
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={resending}
+                  className="mt-0.5 text-xs font-bold text-school-green hover:underline disabled:opacity-60"
+                >
+                  {resending ? 'Sending…' : 'Resend confirmation email'}
+                </button>
+              </div>
+            )}
 
             <p className="mt-4 text-center text-sm text-school-navy/70 dark:text-slate-300">
               {mode === 'forgot' ? (

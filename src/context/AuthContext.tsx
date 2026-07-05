@@ -21,6 +21,7 @@ interface AuthContextValue {
   signOut: () => Promise<AuthResult>;
   resetPassword: (email: string) => Promise<AuthResult>;
   updatePassword: (newPassword: string) => Promise<AuthResult>;
+  resendConfirmation: (email: string) => Promise<AuthResult>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -185,6 +186,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error ? friendlyAuthError(error.message) : null };
   }
 
+  async function resendConfirmation(email: string): Promise<AuthResult> {
+    const clean = email.trim();
+    if (!clean) return { error: 'Please enter your email address first.' };
+    const { error } = await supabase.auth.resend({
+      type: 'signup',
+      email: clean,
+      options: { emailRedirectTo: `${window.location.origin}/email-confirmed` },
+    });
+    if (!error) return { error: null };
+    const status = (error as { status?: number }).status;
+    if (status === 500 || !error.message || error.message === '{}') {
+      return { error: 'We could not send the email right now. Please try again in a few minutes.' };
+    }
+    return { error: friendlyAuthError(error.message) };
+  }
+
   const value: AuthContextValue = {
     user: session?.user ?? null,
     session,
@@ -197,6 +214,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signOut,
     resetPassword,
     updatePassword,
+    resendConfirmation,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
