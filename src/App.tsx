@@ -34,6 +34,7 @@ import { canStartTest, getAccessStatus, isSubscriptionActive, setPremiumLocally 
 import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
+import { logVisit } from './lib/visits';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
@@ -111,6 +112,11 @@ function AppContent() {
   useEffect(() => {
     captureReferralFromUrl();
   }, []);
+
+  // Log each page view for the dashboard's traffic stats (anonymous, best-effort).
+  useEffect(() => {
+    logVisit(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     const base = 'RSU Post-UTME Practice';

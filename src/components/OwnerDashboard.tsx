@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp, Mail } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp, Mail, Activity } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -53,6 +53,14 @@ interface AttemptRow {
   created_at: string;
 }
 
+interface VisitStats {
+  lastHour: number;
+  last12h: number;
+  last24h: number;
+  pageviews24h: number;
+  sources: { source: string; visitors: number }[];
+}
+
 // Your email provider's daily send limit (Brevo free = 300/day). Each new
 // signup sends one confirmation email. Raise this if you upgrade your plan.
 const DAILY_EMAIL_CAP = 300;
@@ -69,6 +77,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [actingOn, setActingOn] = useState<string | null>(null);
   const [userSearch, setUserSearch] = useState('');
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [visits, setVisits] = useState<VisitStats | null>(null);
 
   function loadAll() {
     return Promise.all([
@@ -114,6 +123,17 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
       setLoading(false);
     });
 
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Website traffic stats (admin-only RPC).
+  useEffect(() => {
+    let cancelled = false;
+    supabase.rpc('get_visit_stats').then(({ data }) => {
+      if (!cancelled && data) setVisits(data as VisitStats);
+    });
     return () => {
       cancelled = true;
     };
@@ -625,6 +645,53 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                     </tbody>
                   </table>
                 </div>
+              </>
+            )}
+          </motion.section>
+
+          {/* ── Website traffic (live visitors + sources) ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="mb-4 flex items-center gap-2">
+              <Activity size={18} className="text-school-green" />
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Website Traffic</h2>
+              <span className="ml-auto text-xs text-school-muted">unique visitors</span>
+            </div>
+
+            {!visits ? (
+              <p className="py-4 text-center text-sm text-school-muted">
+                No traffic data yet — this starts filling once the tracking table is set up and people visit.
+              </p>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <GrowthCard label="Last 1 hour" value={String(visits.lastHour)} />
+                  <GrowthCard label="Last 12 hours" value={String(visits.last12h)} />
+                  <GrowthCard label="Last 24 hours" value={String(visits.last24h)} />
+                  <GrowthCard label="Page views (24h)" value={String(visits.pageviews24h)} />
+                </div>
+
+                <p className="mt-4 mb-2 text-xs font-bold uppercase tracking-widest text-school-muted">
+                  Where visitors came from (24h)
+                </p>
+                {visits.sources.length === 0 ? (
+                  <p className="text-sm text-school-muted">No source data yet.</p>
+                ) : (
+                  <div className="space-y-1.5">
+                    {visits.sources.map((s) => (
+                      <div key={s.source} className="flex items-center justify-between rounded-lg bg-school-light px-3 py-2 text-sm dark:bg-school-navy/60">
+                        <span className="font-medium text-school-navy dark:text-white">{s.source}</span>
+                        <span className="font-bold text-school-green">{s.visitors}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <p className="mt-2 text-[11px] text-school-muted">
+                  Tip: add <code>?utm_source=tiktok</code> (or facebook) to your ad link to see exactly how many visitors each ad brought.
+                </p>
               </>
             )}
           </motion.section>
