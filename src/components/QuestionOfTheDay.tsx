@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, CalendarDays, CheckCircle2, XCircle, Lightbulb, Lock, Play, Sunrise } from 'lucide-react';
@@ -56,22 +56,24 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
   const [revealed, setRevealed] = useState(false);
 
   const selectedCourse = courseId ? findCourseById(courseId) : null;
+  const userId = user?.id ?? null;
 
-  // Subjects relevant to the chosen course.
-  const subjects = useMemo(
-    () => (selectedCourse ? relevantBankSubjects(bank, selectedCourse.course) : []),
-    [selectedCourse, bank]
-  );
-
-  // Pick today's question and sync the answered/revealed state. Side effects
-  // (localStorage + random pick) live here in an effect, never during render.
+  // Pick today's question and sync the answered/revealed state. Depends ONLY on
+  // stable primitives (userId, courseId, bank) — never on freshly-created
+  // objects — so selecting an option does NOT re-run this and wipe the choice.
   useEffect(() => {
-    if (!user || !selectedCourse) {
+    if (!userId || !courseId) {
       setQuestion(null);
       return;
     }
+    const found = findCourseById(courseId);
+    if (!found) {
+      setQuestion(null);
+      return;
+    }
+    const subjects = relevantBankSubjects(bank, found.course);
     const today = todayKey();
-    let rec = readRecord(user.id);
+    let rec = readRecord(userId);
     let chosen: BankQuestion | null = null;
 
     // Reuse today's stored question if it still exists in the bank.
@@ -83,7 +85,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
       const pool = bank.filter((q) => q.type === 'single' && subjects.includes(q.subject));
       chosen = pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
       rec = chosen ? { date: today, questionId: chosen.id, answered: false } : null;
-      if (chosen && rec) writeRecord(user.id, rec);
+      if (chosen && rec) writeRecord(userId, rec);
     }
 
     setQuestion(chosen);
@@ -95,7 +97,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
       setPicked(null);
       setRevealed(false);
     }
-  }, [user, selectedCourse, subjects, bank]);
+  }, [userId, courseId, bank]);
 
   function handleSelectCourse(id: string) {
     setSelectedCourseId(id);

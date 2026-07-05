@@ -29,11 +29,14 @@ export function PracticeBank({ bank, onBack, onStart }: PracticeBankProps) {
     [bank]
   );
 
-  // Pre-selected subjects: course subjects when course is set, all subjects otherwise
-  const courseSubjects = useMemo(
-    () => (selected ? relevantBankSubjects(bank, selected.course) : null),
-    [selected, bank]
-  );
+  // Pre-selected subjects: course subjects when course is set, all subjects otherwise.
+  // Depends on courseId (stable string), NOT `selected` (a fresh object each render),
+  // so it doesn't recompute every render and reset the user's subject toggles.
+  const courseSubjects = useMemo(() => {
+    if (!courseId) return null;
+    const found = findCourseById(courseId);
+    return found ? relevantBankSubjects(bank, found.course) : null;
+  }, [courseId, bank]);
 
   function handleSelectCourse(id: string) {
     setSelectedCourseId(id);
