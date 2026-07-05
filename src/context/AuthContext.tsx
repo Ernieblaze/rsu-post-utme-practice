@@ -5,6 +5,7 @@ import type { Profile } from '../lib/access';
 import { consumeJustSignedUpFlag, getPendingReferralCode, markJustSignedUp } from '../lib/referral';
 import { clearPremiumLocally } from '../lib/access';
 import { logEmailEvent } from '../lib/emailEvents';
+import { trackTikTok } from '../lib/tiktok';
 
 interface AuthResult {
   error: string | null;
@@ -154,6 +155,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!error) {
       markJustSignedUp();
       logEmailEvent('signup'); // confirmation email sent — counts toward the daily cap
+      trackTikTok('CompleteRegistration'); // TikTok conversion: a new student signed up
       return { error: null };
     }
     const status = (error as { status?: number }).status;

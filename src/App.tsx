@@ -36,6 +36,7 @@ import { supabase } from './lib/supabaseClient';
 import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
 import { logVisit } from './lib/visits';
+import { trackTikTok } from './lib/tiktok';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
@@ -256,6 +257,8 @@ function AppContent() {
       userId,
       amountKobo,
       onSuccess: () => {
+        // TikTok conversion: a student paid for Premium.
+        trackTikTok('CompletePayment', { value: amountKobo / 100, currency: 'NGN' });
         // Grant access IMMEDIATELY via localStorage — fires the moment
         // Paystack confirms payment, no webhook delay needed. Scoped to this
         // user so it can never unlock premium for anyone else on the device.
