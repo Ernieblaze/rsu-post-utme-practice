@@ -51,10 +51,12 @@ const LEADERBOARD = [
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
+import { StudyPlanCard } from './StudyPlanCard';
 
 interface HomeProps {
   attempts: Attempt[];
   onViewProgress: () => void;
+  onReviseSubject: (subject: string) => void;
 }
 
 const containerVariants = {
@@ -74,7 +76,7 @@ const trustBadges = [
   { icon: <Zap size={16} />, text: 'Instant Results & Explanations' },
 ];
 
-export function Home({ attempts, onViewProgress }: HomeProps) {
+export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
   const navigate = useNavigate();
 
   const best = useMemo(() => {
@@ -167,6 +169,9 @@ export function Home({ attempts, onViewProgress }: HomeProps) {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Personalized study plan — countdown, streak, weakest subject */}
+      <StudyPlanCard attempts={attempts} onReviseSubject={onReviseSubject} />
 
       {/* New here? Guide banner */}
       <motion.button

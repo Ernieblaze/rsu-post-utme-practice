@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import { findCourseById } from '../data/rsuData';
 import { relevantBankSubjects } from '../data/subjectMatch';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
+import { recordStudyDay } from '../lib/streak';
 import { visibleOptionKeys } from '../lib/helpers';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
@@ -112,6 +113,7 @@ export function QuestionOfTheDay({ bank, onRequireAuth }: QuestionOfTheDayProps)
     if (!user || !question || !picked) return;
     const rec: DailyRecord = { date: todayKey(), questionId: question.id, answered: true, selected: picked };
     writeRecord(user.id, rec);
+    recordStudyDay(); // answering today's free question keeps the streak alive
     setRecord(rec);
     setRevealed(true);
   }

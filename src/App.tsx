@@ -37,6 +37,7 @@ import { startPaystackPayment } from './lib/paystack';
 import { captureReferralFromUrl } from './lib/referral';
 import { logVisit } from './lib/visits';
 import { trackTikTok } from './lib/tiktok';
+import { recordStudyDay } from './lib/streak';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
@@ -193,6 +194,7 @@ function AppContent() {
 
   function finishTest(attempt: Attempt) {
     saveAttempt(attempt);
+    recordStudyDay(); // keep the daily practice streak alive
     setAttempts(getAttempts());
     setResult(attempt);
 
@@ -327,6 +329,7 @@ function AppContent() {
                 <Home
                   attempts={attempts}
                   onViewProgress={() => routerNavigate('/progress')}
+                  onReviseSubject={reviseSubject}
                 />
               </motion.div>
             }
