@@ -27,6 +27,7 @@ import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
+import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
 import { PRIVACY_POLICY, TERMS_OF_SERVICE } from './data/legalContent';
 import { useAuth } from './context/AuthContext';
@@ -45,7 +46,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'daily';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -66,6 +67,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/guide': 'guide',
   '/ai-tutor': 'ai-tutor',
   '/daily': 'daily',
+  '/start': 'start',
   '/email-confirmed': 'email-confirmed',
   '/reset-password': 'reset-password',
 };
@@ -138,6 +140,7 @@ function AppContent() {
       guide: `How to Use | ${base}`,
       'ai-tutor': `AI Study Helper | ${base}`,
       daily: `Question of the Day | ${base}`,
+      start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
       'reset-password': `Reset Password | ${base}`,
     };
@@ -302,8 +305,8 @@ function AppContent() {
     <div className="min-h-screen bg-school-radial text-school-navy">
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && <WelcomeModal />}
-      {view !== 'quiz' && (
+      {view !== 'quiz' && view !== 'start' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && (
         <Header
           dark={dark}
           currentView={view}
@@ -559,6 +562,20 @@ function AppContent() {
           />
 
           <Route
+            path="/start"
+            element={
+              <motion.div key="start" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <StartLanding
+                  onGetStarted={() => {
+                    if (user) routerNavigate('/exam-focus');
+                    else setAuthModalOpen(true);
+                  }}
+                />
+              </motion.div>
+            }
+          />
+
+          <Route
             path="/email-confirmed"
             element={
               <motion.div key="email-confirmed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -585,8 +602,8 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && <WhatsAppButton />}
 
       <AuthModal
         open={authModalOpen}
