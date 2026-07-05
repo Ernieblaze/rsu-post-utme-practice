@@ -79,7 +79,7 @@ export function PracticeBank({ bank, onBack, onStart }: PracticeBankProps) {
         ) : (
           <div className="flex items-center justify-between rounded-xl border border-dashed border-school-green/30 bg-school-light/60 px-4 py-3 dark:border-school-green/20 dark:bg-school-navy/40">
             <span className="text-sm text-school-navy/70 dark:text-slate-400">
-              Showing all {allSubjects.length} subjects ·{' '}
+              Showing all subjects ·{' '}
               <button
                 onClick={() => setShowCoursePicker(true)}
                 className="font-semibold text-school-green underline-offset-2 hover:underline"
@@ -297,20 +297,16 @@ function PracticeForm({
           </div>
         )}
 
-        {/* Availability summary */}
+        {/* Readiness summary — no raw bank counts, just whether the set is ready */}
         <div className="mt-3 rounded-lg bg-school-pale/60 px-3 py-2 text-sm dark:bg-school-navy/40">
           {selectedSubjects.length === 0 ? (
             <span className="text-school-muted">No subjects selected — toggle some above.</span>
+          ) : available === 0 ? (
+            <span className="text-school-muted">No questions match this selection yet.</span>
           ) : (
             <span className="text-school-navy/70 dark:text-slate-400">
-              <strong className="text-school-green">{available}</strong> question
-              {available !== 1 ? 's' : ''} available to draw from
-              {count > available && available > 0 && (
-                <>
-                  {' '}
-                  <span className="text-school-muted">(you'll get all {available})</span>
-                </>
-              )}
+              Ready — you'll answer <strong className="text-school-green">{Math.min(count, available)}</strong> question
+              {Math.min(count, available) !== 1 ? 's' : ''} this session.
             </span>
           )}
         </div>
@@ -324,7 +320,7 @@ function PracticeForm({
         {count > available && available > 0 && (
           <p className="mt-2 flex items-center gap-2 rounded-xl bg-school-light p-3 text-sm font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-200">
             <Layers size={16} className="text-school-green" />
-            Session count is higher than available questions — all {available} will be used.
+            A few subjects have fewer questions right now — you'll get all that are available.
           </p>
         )}
 

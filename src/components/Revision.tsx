@@ -340,13 +340,13 @@ export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProp
           className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-school-green/20 bg-school-pale/60 px-4 py-3 dark:border-school-green/20 dark:bg-school-navy/60"
         >
           <span className="text-sm font-semibold text-school-navy dark:text-slate-200">
-            <span className="font-bold text-school-green">{filtered.length}</span> question{filtered.length !== 1 ? 's' : ''} match your filter
+            Ready to practice {subject !== 'all' ? subject : 'your subjects'}
           </span>
           <button
             onClick={() => onStart(buildRevisionTest(filtered, `Practice — ${subject !== 'all' ? subject : 'All subjects'}`))}
             className="flex items-center gap-1.5 rounded-xl bg-school-green px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-school-green/90"
           >
-            <Shuffle size={14} /> Practice all {filtered.length} (shuffled)
+            <Shuffle size={14} /> Practice (shuffled)
           </button>
         </motion.div>
       )}

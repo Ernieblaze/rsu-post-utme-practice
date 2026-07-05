@@ -17,6 +17,7 @@ interface ResultsProps {
 export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseSubject }: ResultsProps) {
   const [displayedScore, setDisplayedScore] = useState(0);
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+  const [reviewFilter, setReviewFilter] = useState<'all' | 'correct' | 'wrong'>('all');
   const [sharing, setSharing] = useState(false);
   const shareCardRef = useRef<HTMLDivElement>(null);
 
@@ -216,35 +217,64 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
             transition={{ delay: 0.2 }}
             className="rounded-2xl border border-school-green/10 bg-white p-5 shadow-md dark:border-school-green/20 dark:bg-school-navy/40"
           >
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-bold text-school-navy dark:text-white">
-                {missedCount === 0 ? 'Review questions' : `Missed questions (${missedCount})`}
-              </h2>
-              <span className="rounded-full bg-school-light px-3 py-1 text-xs font-semibold text-school-navy dark:bg-school-navy/60 dark:text-slate-300">
-                {missedCount === 0 ? 'All correct!' : 'Study these explanations'}
-              </span>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-lg font-bold text-school-navy dark:text-white">Review your answers</h2>
+              {/* Filter: students can review everything, just the correct ones, or just the wrong ones */}
+              <div className="flex gap-1 rounded-xl bg-school-light p-1 dark:bg-school-navy/60">
+                {([
+                  ['all', `All (${test.questions.length})`],
+                  ['correct', `Correct (${correctCount})`],
+                  ['wrong', `Wrong (${missedCount})`],
+                ] as const).map(([key, label]) => (
+                  <button
+                    key={key}
+                    onClick={() => setReviewFilter(key)}
+                    className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                      reviewFilter === key
+                        ? 'bg-school-green text-white shadow-sm'
+                        : 'text-school-navy/70 hover:text-school-navy dark:text-slate-300 dark:hover:text-white'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="max-h-[700px] space-y-4 overflow-auto pr-2">
               {test.questions.map((q, idx) => {
                 const selected = attempt.selectedAnswers[q.id];
                 const isCorrect = selected === q.answer;
-                if (isCorrect) return null;
+                if (reviewFilter === 'correct' && !isCorrect) return null;
+                if (reviewFilter === 'wrong' && isCorrect) return null;
                 const isExpanded = expanded[q.id] ?? true;
                 return (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     key={q.id}
-                    className="rounded-xl border border-rose-100 bg-rose-50/60 p-4 dark:border-rose-900/30 dark:bg-rose-900/10"
+                    className={`rounded-xl border p-4 ${
+                      isCorrect
+                        ? 'border-emerald-100 bg-emerald-50/60 dark:border-emerald-900/30 dark:bg-emerald-900/10'
+                        : 'border-rose-100 bg-rose-50/60 dark:border-rose-900/30 dark:bg-rose-900/10'
+                    }`}
                   >
                     <div className="mb-3 flex items-start gap-3">
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-400">
-                        <XCircle size={16} />
+                      <div
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
+                          isCorrect
+                            ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400'
+                            : 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-400'
+                        }`}
+                      >
+                        {isCorrect ? <CheckCircle size={16} /> : <XCircle size={16} />}
                       </div>
                       <div className="flex-1">
                         <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-school-navy/60 dark:text-slate-400">
                           <span>Q{idx + 1}</span>
                           <span className="rounded bg-school-light px-1.5 py-0.5 dark:bg-school-navy/60">{q.subject}</span>
+                          <span className={isCorrect ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-500 dark:text-rose-400'}>
+                            {isCorrect ? 'Correct' : 'Wrong'}
+                          </span>
                         </div>
                         <p className="font-medium text-school-navy dark:text-white">{q.text}</p>
                       </div>
@@ -253,20 +283,22 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
                     <div className="mb-3 grid gap-2 sm:grid-cols-2">
                       <div className="rounded-lg bg-white p-3 text-sm shadow-sm dark:bg-school-navy/60">
                         <span className="block text-xs text-school-navy/60 dark:text-slate-400">Your answer</span>
-                        <span className="font-bold text-rose-600 dark:text-rose-400">
+                        <span className={`font-bold ${isCorrect ? 'text-school-green' : 'text-rose-600 dark:text-rose-400'}`}>
                           {selected ? `${selected}: ${q.options[selected]}` : 'Skipped'}
                         </span>
                       </div>
-                      <div className="rounded-lg bg-white p-3 text-sm shadow-sm dark:bg-school-navy/60">
-                        <span className="block text-xs text-school-navy/60 dark:text-slate-400">Correct answer</span>
-                        <span className="font-bold text-school-green">
-                          {q.answer}: {q.options[q.answer]}
-                        </span>
-                      </div>
+                      {!isCorrect && (
+                        <div className="rounded-lg bg-white p-3 text-sm shadow-sm dark:bg-school-navy/60">
+                          <span className="block text-xs text-school-navy/60 dark:text-slate-400">Correct answer</span>
+                          <span className="font-bold text-school-green">
+                            {q.answer}: {q.options[q.answer]}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     <button
-                      onClick={() => setExpanded((prev) => ({ ...prev, [q.id]: !prev[q.id] }))}
+                      onClick={() => setExpanded((prev) => ({ ...prev, [q.id]: !(prev[q.id] ?? true) }))}
                       className="mb-2 flex items-center gap-1 text-sm font-bold text-school-blue hover:underline dark:text-school-green"
                     >
                       <HelpCircle size={16} />
@@ -290,13 +322,19 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
                   </motion.div>
                 );
               })}
-              {missedCount === 0 && (
+              {reviewFilter === 'wrong' && missedCount === 0 && (
                 <div className="flex flex-col items-center justify-center rounded-2xl bg-emerald-50 py-12 text-center dark:bg-emerald-900/20">
                   <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
                     <Award size={32} />
                   </div>
                   <p className="text-lg font-bold text-emerald-800 dark:text-emerald-300">Perfect score!</p>
                   <p className="text-emerald-700/80 dark:text-emerald-400/80">You answered every question correctly.</p>
+                </div>
+              )}
+              {reviewFilter === 'correct' && correctCount === 0 && (
+                <div className="flex flex-col items-center justify-center rounded-2xl bg-school-light py-12 text-center dark:bg-school-navy/60">
+                  <p className="text-lg font-bold text-school-navy dark:text-white">No correct answers this time</p>
+                  <p className="text-school-navy/70 dark:text-slate-400">Switch to “Wrong” to study what to improve.</p>
                 </div>
               )}
             </div>
