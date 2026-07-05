@@ -304,12 +304,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return [...flagged.entries()].map(([id, info]) => ({ id, ...info }));
   }, [users, transactions, emailById]);
 
-  // ── Growth: signups + revenue for today / this week / this month ──
+  // ── Growth: signups + revenue for today / last 7 days / last 30 days ──
+  // All windows are consistent (today ≤ 7 days ≤ 30 days) so the numbers can
+  // never look contradictory. All are ROLLING windows measured from now.
   const growth = useMemo(() => {
     const now = new Date();
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const weekAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+    const monthAgo = now.getTime() - 30 * 24 * 60 * 60 * 1000;
 
     const countSince = (rows: { created_at: string }[], since: number) =>
       rows.filter((r) => new Date(r.created_at).getTime() >= since).length;
@@ -321,10 +323,10 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return {
       signupsToday: countSince(users, startOfToday),
       signupsWeek: countSince(users, weekAgo),
-      signupsMonth: countSince(users, startOfMonth),
+      signupsMonth: countSince(users, monthAgo),
       revenueToday: revenueSince(startOfToday),
       revenueWeek: revenueSince(weekAgo),
-      revenueMonth: revenueSince(startOfMonth),
+      revenueMonth: revenueSince(monthAgo),
     };
   }, [users, transactions]);
 
@@ -791,11 +793,11 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               <GrowthCard label="Signups today" value={String(growth.signupsToday)} />
-              <GrowthCard label="Signups this week" value={String(growth.signupsWeek)} />
-              <GrowthCard label="Signups this month" value={String(growth.signupsMonth)} />
+              <GrowthCard label="Signups (last 7 days)" value={String(growth.signupsWeek)} />
+              <GrowthCard label="Signups (last 30 days)" value={String(growth.signupsMonth)} />
               <GrowthCard label="Revenue today" value={`₦${growth.revenueToday.toLocaleString()}`} money />
-              <GrowthCard label="Revenue this week" value={`₦${growth.revenueWeek.toLocaleString()}`} money />
-              <GrowthCard label="Revenue this month" value={`₦${growth.revenueMonth.toLocaleString()}`} money />
+              <GrowthCard label="Revenue (last 7 days)" value={`₦${growth.revenueWeek.toLocaleString()}`} money />
+              <GrowthCard label="Revenue (last 30 days)" value={`₦${growth.revenueMonth.toLocaleString()}`} money />
             </div>
           </motion.section>
 
