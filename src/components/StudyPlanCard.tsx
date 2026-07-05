@@ -39,11 +39,18 @@ export function StudyPlanCard({ attempts, onReviseSubject }: StudyPlanCardProps)
         <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-school-gold ring-1 ring-white/10">
           <Target size={13} /> Your Exam Plan
         </span>
-        {streak > 0 && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-school-gold/20 px-3 py-1 text-xs font-bold text-school-gold ring-1 ring-school-gold/30">
-            <Flame size={14} fill="currentColor" /> {streak}-day streak
-          </span>
-        )}
+        <span
+          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ring-1 ${
+            streak > 0
+              ? 'bg-school-gold/20 text-school-gold ring-school-gold/30'
+              : 'bg-white/10 text-white/80 ring-white/15'
+          }`}
+        >
+          <Flame size={14} fill={streak > 0 ? 'currentColor' : 'none'} />
+          {streak > 0
+            ? `${streak}-day streak`
+            : 'Start your streak today'}
+        </span>
       </div>
 
       {/* Countdown */}
