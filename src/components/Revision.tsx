@@ -69,10 +69,14 @@ export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProp
 
   const allItems = useMemo(() => bank.filter((q) => q.type === 'single'), [bank]);
 
-  const relevantSubjects = useMemo(
-    () => (selectedCourse ? relevantBankSubjects(bank, selectedCourse.course) : null),
-    [selectedCourse, bank]
-  );
+  // Depend on courseId (a stable string), NOT selectedCourse (a fresh object
+  // each render via findCourseById), so this memo is stable and can be a safe
+  // dependency of `filtered` below.
+  const relevantSubjects = useMemo(() => {
+    if (!courseId) return null;
+    const c = findCourseById(courseId);
+    return c ? relevantBankSubjects(bank, c.course) : null;
+  }, [courseId, bank]);
 
   const allSubjects = useMemo(
     () => Array.from(new Set(allItems.map((q) => q.subject))).sort(),
@@ -82,15 +86,46 @@ export function Revision({ bank, onBack, initialSubject, onStart }: RevisionProp
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return allItems.filter((item) => {
+    const base = allItems.filter((item) => {
       const matchesSearch =
         item.text.toLowerCase().includes(q) ||
         Object.values(item.options).some((o) => o.toLowerCase().includes(q));
-      const matchesSubject = subject === 'all' || item.subject === subject;
+      // "All" must respect the selected course: when a course is set, "All your
+      // subjects" means ONLY that course's subjects — not the entire bank.
+      const matchesSubject =
+        subject === 'all'
+          ? relevantSubjects
+            ? relevantSubjects.includes(item.subject)
+            : true
+          : item.subject === subject;
       const matchesTopic = topic === 'all' || item.topic === topic;
       return matchesSearch && matchesSubject && matchesTopic;
     });
-  }, [allItems, search, subject, topic]);
+
+    // The bank is stored grouped by subject (e.g. all Geography together). When
+    // browsing more than one subject, interleave them round-robin so the first
+    // page shows a real mix instead of a long run of a single subject. A
+    // specific-subject filter keeps the natural order.
+    if (subject !== 'all') return base;
+    const bySubject = new Map<string, BankQuestion[]>();
+    base.forEach((item) => {
+      const arr = bySubject.get(item.subject);
+      if (arr) arr.push(item);
+      else bySubject.set(item.subject, [item]);
+    });
+    const groups = Array.from(bySubject.values());
+    const mixed: BankQuestion[] = [];
+    for (let i = 0, added = true; added; i++) {
+      added = false;
+      for (const g of groups) {
+        if (i < g.length) {
+          mixed.push(g[i]);
+          added = true;
+        }
+      }
+    }
+    return mixed;
+  }, [allItems, search, subject, topic, relevantSubjects]);
 
   const topics = useMemo(() => {
     const pool = subject === 'all' ? allItems : allItems.filter((i) => i.subject === subject);
