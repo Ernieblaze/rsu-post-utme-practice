@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Moon, Sun, BarChart3, Home, Menu, X, GraduationCap, Layers, Trophy, Target,
-  HelpCircle, Sparkles, TrendingUp, ChevronDown, LayoutDashboard,
+  HelpCircle, Sparkles, TrendingUp, ChevronDown, LayoutDashboard, Rocket,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AuthControl } from './AuthControl';
@@ -55,6 +55,7 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
     { label: 'Progress', icon: <BarChart3 size={16} />, run: () => onNavigate('progress') },
     { label: 'Leaderboard', icon: <Trophy size={16} />, run: () => onNavigate('leaderboard') },
     { label: 'My Dashboard', icon: <LayoutDashboard size={16} />, run: () => navigate('/dashboard') },
+    { label: 'Explore AdmitMe', icon: <Rocket size={16} />, run: () => navigate('/admitme') },
     { label: 'How to Use', icon: <HelpCircle size={16} />, run: () => navigate('/guide') },
   ];
 
@@ -208,6 +209,7 @@ export function Header({ dark, currentView, onToggleDark, onNavigate }: HeaderPr
           <MobileItem icon={<BarChart3 size={16} />} label="Progress" onClick={() => { onNavigate('progress'); setMobileOpen(false); }} />
           <MobileItem icon={<Trophy size={16} />} label="Leaderboard" onClick={() => { onNavigate('leaderboard'); setMobileOpen(false); }} />
           <MobileItem icon={<LayoutDashboard size={16} />} label="My Dashboard" onClick={() => { navigate('/dashboard'); setMobileOpen(false); }} />
+          <MobileItem icon={<Rocket size={16} />} label="Explore AdmitMe" onClick={() => { navigate('/admitme'); setMobileOpen(false); }} />
           <MobileItem icon={<HelpCircle size={16} />} label="How to Use" onClick={() => { navigate('/guide'); setMobileOpen(false); }} />
           <div className="mt-3">
             <AuthControl />

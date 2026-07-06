@@ -188,9 +188,13 @@ export function Footer({ onNavigate }: FooterProps) {
             <Link to="/terms" className="text-school-gold hover:underline">Terms of Service</Link>
           </p>
           <p className="mt-4 text-[11px] text-slate-500">
-            An <strong className="font-bold text-slate-300">{COMPANY.name}</strong> platform · {COMPANY.tagline}
+            An{' '}
+            <Link to="/admitme" className="font-bold text-school-gold hover:underline">{COMPANY.name}</Link>{' '}
+            platform · {COMPANY.tagline}
             <br />
-            <span className="text-slate-500">More coming soon: UniPort Post-UTME · JAMB · WAEC 👀</span>
+            <Link to="/admitme" className="text-slate-400 hover:text-slate-200 hover:underline">
+              More coming soon: UniPort Post-UTME · JAMB · WAEC 👀
+            </Link>
           </p>
         </div>
       </div>

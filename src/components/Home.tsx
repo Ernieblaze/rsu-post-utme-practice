@@ -17,6 +17,7 @@ import {
   Sparkles,
   Gift,
   Star,
+  Rocket,
 } from 'lucide-react';
 
 const TESTIMONIALS = [
@@ -305,6 +306,16 @@ export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
           cta="Answer Today's Question"
           onClick={() => navigate('/daily')}
           accent="bg-school-gold text-school-navy"
+        />
+        <SectionPromoCard
+          icon={<Rocket size={26} />}
+          eyebrow="The bigger picture"
+          badge="AdmitMe"
+          title="Explore AdmitMe"
+          description="RSU is just the start. AdmitMe is one platform for WAEC, JAMB & Post-UTME — see what's live and what's coming next."
+          cta="Explore AdmitMe"
+          onClick={() => navigate('/admitme')}
+          accent="bg-school-navy text-white"
         />
       </motion.section>
 
