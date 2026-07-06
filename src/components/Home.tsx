@@ -250,6 +250,16 @@ export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
         className="mt-12 space-y-5"
       >
         <SectionPromoCard
+          icon={<TrendingUp size={26} />}
+          eyebrow="New"
+          badge="Hot 🔥"
+          title="Admission Predictor"
+          description="Enter your JAMB + Post-UTME scores and instantly see your aggregate — and exactly which RSU courses you can get into."
+          cta="Check my chances"
+          onClick={() => navigate('/predictor')}
+          accent="bg-school-gold text-school-navy"
+        />
+        <SectionPromoCard
           icon={<Target size={26} />}
           eyebrow="Flagship feature"
           title="Exam Focus"

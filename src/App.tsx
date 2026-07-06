@@ -26,6 +26,7 @@ import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
+import { AdmissionPredictor } from './components/AdmissionPredictor';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -48,7 +49,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -68,6 +69,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/terms': 'terms',
   '/guide': 'guide',
   '/ai-tutor': 'ai-tutor',
+  '/predictor': 'predictor',
   '/daily': 'daily',
   '/start': 'start',
   '/email-confirmed': 'email-confirmed',
@@ -141,6 +143,7 @@ function AppContent() {
       terms: `Terms of Service | ${base}`,
       guide: `How to Use | ${base}`,
       'ai-tutor': `AI Study Helper | ${base}`,
+      predictor: `Admission Predictor | ${base}`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
@@ -554,6 +557,15 @@ function AppContent() {
             element={
               <motion.div key="ai-tutor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <AiTutor profile={profile} onUpgrade={() => handleUpgrade('/ai-tutor')} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/predictor"
+            element={
+              <motion.div key="predictor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <AdmissionPredictor profile={profile} onUpgrade={() => handleUpgrade('/predictor')} />
               </motion.div>
             }
           />
