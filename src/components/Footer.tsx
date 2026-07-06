@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BookOpen, Facebook, Twitter, Share2, Mail, MessageCircle, Home, BarChart3, GraduationCap, Layers, Trophy, Target, HelpCircle, Sparkles } from 'lucide-react';
+import { COMPANY } from '../config/admitme';
 
 type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
@@ -185,6 +186,11 @@ export function Footer({ onNavigate }: FooterProps) {
             <Link to="/privacy" className="text-school-gold hover:underline">Privacy Policy</Link>
             <span className="text-slate-500">•</span>
             <Link to="/terms" className="text-school-gold hover:underline">Terms of Service</Link>
+          </p>
+          <p className="mt-4 text-[11px] text-slate-500">
+            An <strong className="font-bold text-slate-300">{COMPANY.name}</strong> platform · {COMPANY.tagline}
+            <br />
+            <span className="text-slate-500">More coming soon: UniPort Post-UTME · JAMB · WAEC 👀</span>
           </p>
         </div>
       </div>
