@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   Flame, Target, BookOpen, Lightbulb, GraduationCap, Star, CheckCircle2, ArrowRight,
 } from 'lucide-react';
+import { InAppBrowserNotice } from './InAppBrowserNotice';
 
 /**
  * Dedicated ad landing page (/start). Clean, focused, 100% education —
@@ -70,6 +71,9 @@ export function StartLanding({ onGetStarted }: StartLandingProps) {
 
       {/* Hero */}
       <main className="mx-auto max-w-3xl px-4 pb-16 pt-6 text-center">
+        {/* Rescue paid TikTok traffic stuck in the in-app browser (sign-up fails there) */}
+        <InAppBrowserNotice />
+
         {t && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
