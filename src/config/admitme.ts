@@ -15,6 +15,14 @@ export const COMPANY = {
   supportEmail: 'rsupostutmepractice@gmail.com',
 } as const;
 
+/** AdmitMe's own brand palette — indigo/violet, distinct from every section. */
+export const BRAND = {
+  primary: '#4f46e5', // indigo-600
+  secondary: '#7c3aed', // violet-600
+  deep: '#312e81', // indigo-900
+  soft: '#eef2ff', // indigo-50
+} as const;
+
 export type ExamCategory = 'post-utme' | 'jamb' | 'waec';
 export type ExamStatus = 'live' | 'coming-soon';
 
@@ -28,6 +36,8 @@ export interface ExamOffering {
   status: ExamStatus;
   /** Where a live offering sends the student ("/" is the RSU home). */
   path?: string;
+  /** The section's own brand colour (hex) so it feels "at home". */
+  accent: string;
 }
 
 /**
@@ -35,10 +45,10 @@ export interface ExamOffering {
  * placeholder slot a future section drops into (just flip to `live` + add data).
  */
 export const EXAMS: ExamOffering[] = [
-  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/' },
-  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon' },
-  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb' },
-  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon' },
+  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/', accent: '#046a38' }, // green
+  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon', accent: '#1d4ed8' }, // blue
+  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb', accent: '#ea580c' }, // orange
+  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon', accent: '#0d9488' }, // teal
 ];
 
 /** The exam this deployment currently serves (its face for ads/SEO). */
