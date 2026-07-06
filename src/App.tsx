@@ -28,6 +28,7 @@ import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
 import { AdmissionPredictor } from './components/AdmissionPredictor';
 import { AdmitMeHub } from './components/AdmitMeHub';
+import { JambPractice } from './components/JambPractice';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -50,7 +51,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -72,6 +73,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/ai-tutor': 'ai-tutor',
   '/predictor': 'predictor',
   '/admitme': 'admitme',
+  '/jamb': 'jamb',
   '/daily': 'daily',
   '/start': 'start',
   '/email-confirmed': 'email-confirmed',
@@ -147,6 +149,7 @@ function AppContent() {
       'ai-tutor': `AI Study Helper | ${base}`,
       predictor: `Admission Predictor | ${base}`,
       admitme: `AdmitMe — WAEC · JAMB · Post-UTME`,
+      jamb: `JAMB (UTME) Practice | AdmitMe`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
@@ -578,6 +581,15 @@ function AppContent() {
             element={
               <motion.div key="admitme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <AdmitMeHub />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/jamb"
+            element={
+              <motion.div key="jamb" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <JambPractice bank={bank} onStart={guardedStartDynamicTest} />
               </motion.div>
             }
           />

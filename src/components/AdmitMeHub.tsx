@@ -70,7 +70,7 @@ export function AdmitMeHub() {
 
               <div className="grid gap-3 sm:grid-cols-2">
                 {offerings.map((exam) => (
-                  <ExamCard key={exam.id} exam={exam} onStart={() => navigate('/')} />
+                  <ExamCard key={exam.id} exam={exam} onStart={() => navigate(exam.path ?? '/')} />
                 ))}
               </div>
             </section>

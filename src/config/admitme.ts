@@ -26,6 +26,8 @@ export interface ExamOffering {
   /** Full school name, for Post-UTME offerings. */
   school?: string;
   status: ExamStatus;
+  /** Where a live offering sends the student ("/" is the RSU home). */
+  path?: string;
 }
 
 /**
@@ -33,9 +35,9 @@ export interface ExamOffering {
  * placeholder slot a future section drops into (just flip to `live` + add data).
  */
 export const EXAMS: ExamOffering[] = [
-  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live' },
+  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/' },
   { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon' },
-  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'coming-soon' },
+  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb' },
   { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon' },
 ];
 
