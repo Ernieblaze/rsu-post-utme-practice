@@ -22,6 +22,7 @@ import { Upgrade } from './components/Upgrade';
 import { Paywall } from './components/Paywall';
 import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
+import { AdmitMeHQ } from './components/AdmitMeHQ';
 import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
@@ -53,7 +54,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -69,6 +70,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/upgrade': 'upgrade',
   '/dashboard': 'dashboard',
   '/owner': 'owner',
+  '/hq': 'hq',
   '/privacy': 'privacy',
   '/terms': 'terms',
   '/guide': 'guide',
@@ -147,6 +149,7 @@ function AppContent() {
       upgrade: `Upgrade | ${base}`,
       dashboard: `Dashboard | ${base}`,
       owner: `Owner Dashboard | ${base}`,
+      hq: `AdmitMe HQ`,
       privacy: `Privacy Policy | ${base}`,
       terms: `Terms of Service | ${base}`,
       guide: `How to Use | ${base}`,
@@ -529,7 +532,20 @@ function AppContent() {
             element={
               gateLoading ? null : profile?.is_admin ? (
                 <motion.div key="owner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <OwnerDashboard onBack={() => routerNavigate('/')} />
+                  <OwnerDashboard onBack={() => routerNavigate('/hq')} />
+                </motion.div>
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
+
+          <Route
+            path="/hq"
+            element={
+              gateLoading ? null : profile?.is_admin ? (
+                <motion.div key="hq" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <AdmitMeHQ onBack={() => routerNavigate('/')} />
                 </motion.div>
               ) : (
                 <Navigate to="/" replace />
