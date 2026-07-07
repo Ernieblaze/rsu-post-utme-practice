@@ -45,10 +45,10 @@ export interface ExamOffering {
  * placeholder slot a future section drops into (just flip to `live` + add data).
  */
 export const EXAMS: ExamOffering[] = [
-  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/', accent: '#046a38' }, // green
+  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/', accent: '#046a38' }, // forest green
   { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon', accent: '#1d4ed8' }, // blue
-  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb', accent: '#ea580c' }, // orange
-  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon', accent: '#0d9488' }, // teal
+  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb', accent: '#10b981' }, // fresh emerald green
+  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon', accent: '#9333ea' }, // purple (with orange)
 ];
 
 /** The exam this deployment currently serves (its face for ads/SEO). */
