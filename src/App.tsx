@@ -319,8 +319,8 @@ function AppContent() {
     <div className="min-h-screen bg-school-radial text-school-navy">
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && <WelcomeModal />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && (
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && (
         <Header
           dark={dark}
           currentView={view}
@@ -644,8 +644,8 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && <WhatsAppButton />}
 
       <AuthModal
         open={authModalOpen}
