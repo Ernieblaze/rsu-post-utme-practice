@@ -7,12 +7,12 @@ import {
 import { COMPANY } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
 
-/** UniPort's own theme — blue + white, clean & professional. */
+/** UniPort's official brand — deep navy/royal blue + white. */
 const T = {
-  primary: '#1d4ed8', // blue-700
-  light: '#3b82f6', // blue-500
-  deep: '#1e3a8a', // blue-900
-  soft: '#eff6ff', // blue-50
+  primary: '#1b3f70', // UniPort deep navy blue
+  light: '#3b82f6', // brighter blue for accents/gradients
+  deep: '#102544', // darkest navy
+  soft: '#eef3fb', // very light blue
 };
 
 const NOTIFY = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi! Please notify me when UniPort Post-UTME is ready on ${COMPANY.name}. 🙏`)}`;
