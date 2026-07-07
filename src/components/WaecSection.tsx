@@ -90,6 +90,33 @@ export function WaecSection({ onLogin }: { onLogin: () => void }) {
         </div>
       </section>
 
+      {/* ── How WAEC works ── */}
+      <section className="mx-auto max-w-5xl px-4 py-14">
+        <div className="mb-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: T.navy }}>How WAEC works</p>
+          <h2 className="mt-1 font-sora text-3xl font-extrabold text-slate-900">Objectives + Theory, per subject</h2>
+          <p className="mt-2 text-slate-600">Most WAEC subjects are tested in two (sometimes three) papers — we'll prep you for each.</p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {[
+            { icon: ListChecks, title: 'Paper 1 — Objectives', body: 'Multiple-choice questions across the syllabus. Speed and accuracy matter.' },
+            { icon: PenLine, title: 'Paper 2 — Theory', body: 'Written / essay answers where you show your working and explain fully.' },
+            { icon: BookOpen, title: 'Practicals (some subjects)', body: 'Science practicals, orals and tests of practical work where applicable.' },
+          ].map((c, i) => {
+            const Icon = c.icon;
+            const gold = i === 1;
+            return (
+              <div key={c.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl text-white" style={{ background: gold ? T.gold : T.navy }}><Icon size={22} /></div>
+                <h3 className="font-sora font-bold text-slate-900">{c.title}</h3>
+                <p className="mt-1 text-sm text-slate-600">{c.body}</p>
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-4 text-center text-xs text-slate-400">Exact paper structure varies by subject — we'll match each subject's real format.</p>
+      </section>
+
       {/* ── Subjects preview ── */}
       <section id="subjects" className="scroll-mt-20 py-14" style={{ background: T.soft }}>
         <div className="mx-auto max-w-4xl px-4 text-center">

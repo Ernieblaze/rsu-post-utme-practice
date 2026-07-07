@@ -23,6 +23,7 @@ import { Paywall } from './components/Paywall';
 import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
 import { AdmitMeHQ } from './components/AdmitMeHQ';
+import { NotFound } from './components/NotFound';
 import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
@@ -680,7 +681,7 @@ function AppContent() {
             }
           />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </AnimatePresence>
 

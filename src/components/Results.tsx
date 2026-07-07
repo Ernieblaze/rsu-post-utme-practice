@@ -65,6 +65,13 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
   const missedCount = missed.length;
   const correctCount = test.questions.length - missedCount;
 
+  // JAMB mock only: estimate a UTME score out of 400 (each subject scored /100,
+  // like the real UTME). Labelled as an estimate; RSU tests never trigger this.
+  const isJamb = /jamb/i.test(test.id) || /JAMB/i.test(test.title);
+  const jamb400 = isJamb
+    ? attempt.subjectBreakdown.reduce((s, sb) => s + (sb.total ? Math.round((sb.correct / sb.total) * 100) : 0), 0)
+    : null;
+
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
       <div className="grid gap-6 lg:grid-cols-3">
@@ -103,6 +110,12 @@ export function Results({ attempt, test, onRetake, onHome, onProgress, onReviseS
                 </div>
               </div>
               <div className="text-2xl font-bold text-school-navy dark:text-white">{attempt.percentage}%</div>
+              {jamb400 != null && (
+                <div className="mt-2 rounded-xl bg-emerald-50 px-4 py-1.5 text-center dark:bg-emerald-900/20">
+                  <span className="text-lg font-extrabold text-emerald-700 dark:text-emerald-400">{jamb400} / 400</span>
+                  <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600/80 dark:text-emerald-400/70">est. UTME score</span>
+                </div>
+              )}
               <div className={`mt-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${band.color}`}>
                 {band.label} — {band.message}
               </div>
