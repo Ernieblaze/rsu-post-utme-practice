@@ -46,7 +46,7 @@ export interface ExamOffering {
  */
 export const EXAMS: ExamOffering[] = [
   { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/', accent: '#046a38' }, // forest green
-  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon', accent: '#1d4ed8' }, // blue
+  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon', accent: '#1d4ed8', path: '/uniport' }, // blue
   { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb', accent: '#10b981' }, // fresh emerald green
   { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon', accent: '#9333ea', path: '/waec' }, // purple (with orange)
 ];

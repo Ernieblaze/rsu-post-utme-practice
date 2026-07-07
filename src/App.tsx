@@ -30,6 +30,7 @@ import { AdmissionPredictor } from './components/AdmissionPredictor';
 import { AdmitMeHub } from './components/AdmitMeHub';
 import { JambPractice } from './components/JambPractice';
 import { WaecSection } from './components/WaecSection';
+import { UniportSection } from './components/UniportSection';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -52,7 +53,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -76,6 +77,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/admitme': 'admitme',
   '/jamb': 'jamb',
   '/waec': 'waec',
+  '/uniport': 'uniport',
   '/daily': 'daily',
   '/start': 'start',
   '/email-confirmed': 'email-confirmed',
@@ -153,6 +155,7 @@ function AppContent() {
       admitme: `AdmitMe — WAEC · JAMB · Post-UTME`,
       jamb: `JAMB (UTME) Practice | AdmitMe`,
       waec: `WAEC (SSCE) | AdmitMe`,
+      uniport: `UniPort Post-UTME | AdmitMe`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
@@ -322,8 +325,8 @@ function AppContent() {
     <div className="min-h-screen bg-school-radial text-school-navy">
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && <WelcomeModal />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && (
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && (
         <Header
           dark={dark}
           currentView={view}
@@ -607,6 +610,15 @@ function AppContent() {
           />
 
           <Route
+            path="/uniport"
+            element={
+              <motion.div key="uniport" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <UniportSection />
+              </motion.div>
+            }
+          />
+
+          <Route
             path="/daily"
             element={
               <motion.div key="daily" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -656,8 +668,8 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <WhatsAppButton />}
 
       <AuthModal
         open={authModalOpen}
