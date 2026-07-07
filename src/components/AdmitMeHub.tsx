@@ -45,7 +45,7 @@ export function AdmitMeHub() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+    <div className="min-h-screen bg-white text-slate-900">
       {/* ── Top utility bar ── */}
       <div className="text-white" style={{ background: BRAND.deep }}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-1.5 text-[11px] font-medium">
@@ -55,7 +55,7 @@ export function AdmitMeHub() {
       </div>
 
       {/* ── Header ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/90">
+      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${BRAND.primary}, ${BRAND.secondary})` }}>
@@ -64,9 +64,9 @@ export function AdmitMeHub() {
             <span className="text-lg font-extrabold tracking-tight">Admit<span style={{ color: BRAND.secondary }}>Me</span></span>
           </button>
           <nav className="flex items-center gap-1">
-            <a href="#exams" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">Exams</a>
-            <a href="#features" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">Features</a>
-            <a href="#how" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">How it works</a>
+            <a href="#exams" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Exams</a>
+            <a href="#features" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Features</a>
+            <a href="#how" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">How it works</a>
             <a href="#exams" className="rounded-xl px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: BRAND.primary }}>Get started</a>
           </nav>
         </div>
@@ -79,10 +79,10 @@ export function AdmitMeHub() {
             <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold" style={{ background: '#ffffff', color: BRAND.primary, boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}>
               ⭐ Nigeria’s all-in-one exam prep
             </span>
-            <h1 className="mt-4 font-sora text-4xl font-extrabold leading-[1.08] text-slate-900 dark:text-white sm:text-5xl">
+            <h1 className="mt-4 font-sora text-4xl font-extrabold leading-[1.08] text-slate-900 sm:text-5xl">
               Grow into the school of your <span style={{ color: BRAND.primary }}>dreams</span> 🎓
             </h1>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
+            <p className="mt-4 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg">
               {COMPANY.name} is your all-in-one prep for <strong>WAEC, JAMB &amp; Post-UTME</strong> — real past
               questions, timed mock exams, and an explanation on every answer.
             </p>
@@ -90,7 +90,7 @@ export function AdmitMeHub() {
               <a href="#exams" className="inline-flex items-center gap-2 rounded-2xl px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:scale-[1.03]" style={{ background: BRAND.primary }}>
                 Choose your exam <ArrowRight size={18} />
               </a>
-              <a href="#how" className="inline-flex items-center gap-2 rounded-2xl border-2 px-6 py-3.5 text-base font-bold transition hover:bg-slate-50 dark:hover:bg-white/5" style={{ borderColor: BRAND.primary, color: BRAND.primary }}>
+              <a href="#how" className="inline-flex items-center gap-2 rounded-2xl border-2 px-6 py-3.5 text-base font-bold transition hover:bg-slate-50" style={{ borderColor: BRAND.primary, color: BRAND.primary }}>
                 How it works
               </a>
             </div>
@@ -105,7 +105,7 @@ export function AdmitMeHub() {
                 <div className="flex items-center gap-0.5 text-amber-500">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={13} fill="currentColor" />)}
                 </div>
-                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">Trusted by students across Nigeria</span>
+                <span className="text-xs font-semibold text-slate-500">Trusted by students across Nigeria</span>
               </div>
             </div>
           </motion.div>
@@ -131,12 +131,12 @@ export function AdmitMeHub() {
           {FEATURES.map((f) => {
             const Icon = f.icon;
             return (
-              <div key={f.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-slate-900">
+              <div key={f.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: BRAND.soft, color: BRAND.primary }}>
                   <Icon size={24} />
                 </div>
                 <h3 className="font-sora font-bold">{f.title}</h3>
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{f.body}</p>
+                <p className="mt-1 text-sm text-slate-500">{f.body}</p>
               </div>
             );
           })}
@@ -144,12 +144,12 @@ export function AdmitMeHub() {
       </section>
 
       {/* ── Choose your exam (programs) ── */}
-      <section id="exams" className="scroll-mt-24 bg-slate-50 py-14 dark:bg-white/5">
+      <section id="exams" className="scroll-mt-24 bg-slate-50 py-14">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 text-center">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: BRAND.primary }}>Our exams</p>
             <h2 className="mt-1 font-sora text-3xl font-extrabold">Choose what you're preparing for</h2>
-            <p className="mt-2 text-slate-500 dark:text-slate-400">Each exam has its own home — pick yours and dive in.</p>
+            <p className="mt-2 text-slate-500">Each exam has its own home — pick yours and dive in.</p>
           </div>
           {ORDER.map((cat) => {
             const meta = CATEGORY_META[cat];
@@ -160,7 +160,7 @@ export function AdmitMeHub() {
               <div key={cat} className="mb-8">
                 <div className="mb-3 flex items-center gap-2.5">
                   <Icon size={18} className="text-slate-400" />
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">{meta.title}</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500">{meta.title}</h3>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {offerings.map((exam) => (
@@ -179,7 +179,7 @@ export function AdmitMeHub() {
           <div>
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: BRAND.primary }}>About {COMPANY.name}</p>
             <h2 className="mt-1 font-sora text-3xl font-extrabold">A better future starts with the right practice</h2>
-            <p className="mt-4 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 text-slate-600">
               We put you through real exam conditions with questions structured from the actual syllabus — so you
               walk into your exam already familiar with it. One account covers every exam you need.
             </p>
@@ -198,9 +198,9 @@ export function AdmitMeHub() {
           {/* Stats panel */}
           <div className="grid grid-cols-2 gap-4">
             {[['3,000+', 'Questions'], ['2', 'Exams live'], ['16', 'Subjects'], ['100%', 'Real past Qs']].map(([v, l]) => (
-              <div key={l} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm dark:border-white/10 dark:bg-slate-900">
+              <div key={l} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
                 <div className="font-sora text-3xl font-extrabold" style={{ color: BRAND.primary }}>{v}</div>
-                <div className="mt-1 text-sm font-semibold text-slate-500 dark:text-slate-400">{l}</div>
+                <div className="mt-1 text-sm font-semibold text-slate-500">{l}</div>
               </div>
             ))}
           </div>
@@ -208,15 +208,15 @@ export function AdmitMeHub() {
       </section>
 
       {/* ── How it works ── */}
-      <section id="how" className="scroll-mt-24 bg-slate-50 py-14 dark:bg-white/5">
+      <section id="how" className="scroll-mt-24 bg-slate-50 py-14">
         <div className="mx-auto max-w-5xl px-4">
           <h2 className="text-center font-sora text-3xl font-extrabold">How it works</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {STEPS.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm dark:border-white/10 dark:bg-slate-900">
+              <div key={s.n} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full text-lg font-extrabold text-white" style={{ background: BRAND.primary }}>{s.n}</div>
                 <h3 className="font-sora font-bold">{s.title}</h3>
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{s.body}</p>
+                <p className="mt-1 text-sm text-slate-500">{s.body}</p>
               </div>
             ))}
           </div>
@@ -228,11 +228,11 @@ export function AdmitMeHub() {
         <h2 className="text-center font-sora text-3xl font-extrabold">What students say</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {TESTIMONIALS.map((t) => (
-            <div key={t.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
+            <div key={t.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-2 flex gap-0.5 text-amber-500">
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
               </div>
-              <p className="text-sm text-slate-600 dark:text-slate-300">"{t.quote}"</p>
+              <p className="text-sm text-slate-600">"{t.quote}"</p>
               <p className="mt-3 text-sm font-bold">{t.name} <span className="font-normal text-slate-400">— {t.role}</span></p>
             </div>
           ))}
@@ -251,8 +251,8 @@ export function AdmitMeHub() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
-        <p className="font-bold text-slate-700 dark:text-slate-200">Admit<span style={{ color: BRAND.secondary }}>Me</span></p>
+      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+        <p className="font-bold text-slate-700">Admit<span style={{ color: BRAND.secondary }}>Me</span></p>
         <p className="mt-1">{COMPANY.tagline}</p>
         <p className="mt-2 text-xs">Support: {COMPANY.supportEmail}</p>
         <p className="mt-2 text-xs">© {new Date().getFullYear()} {COMPANY.name}. Not officially affiliated with any university or exam body.</p>
@@ -276,26 +276,30 @@ function FloatCard({ className, icon, title, sub }: { className: string; icon: R
 function ExamCard({ exam, onStart }: { exam: ExamOffering; onStart: () => void }) {
   const live = exam.status === 'live';
   return (
-    <div className="flex flex-col justify-between overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:bg-slate-900" style={{ borderColor: `${exam.accent}33` }}>
+    <div className="flex flex-col justify-between overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md" style={{ borderColor: `${exam.accent}33` }}>
       <div className="h-1.5 w-full" style={{ background: exam.accent }} />
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
           <div className="mb-1 flex items-center gap-2">
-            <h4 className="font-sora text-lg font-bold text-slate-900 dark:text-white">{exam.name}</h4>
+            <h4 className="font-sora text-lg font-bold text-slate-900">{exam.name}</h4>
             {live ? (
               <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white" style={{ background: exam.accent }}><CheckCircle2 size={10} /> Live</span>
             ) : (
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-500 dark:bg-white/10 dark:text-slate-300"><Clock size={10} /> Coming soon</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-500"><Clock size={10} /> Coming soon</span>
             )}
           </div>
-          {exam.school && <p className="text-sm text-slate-500 dark:text-slate-400">{exam.school}</p>}
+          {exam.school && <p className="text-sm text-slate-500">{exam.school}</p>}
         </div>
         {live ? (
           <button onClick={onStart} className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: exam.accent }}>
             Start practising <ArrowRight size={15} />
           </button>
+        ) : exam.path ? (
+          <button onClick={onStart} className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold transition hover:bg-slate-50" style={{ borderColor: `${exam.accent}55`, color: exam.accent }}>
+            Take a look <ArrowRight size={15} />
+          </button>
         ) : (
-          <a href={notifyLink(exam)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold transition hover:bg-slate-50 dark:hover:bg-white/5" style={{ borderColor: `${exam.accent}55`, color: exam.accent }}>
+          <a href={notifyLink(exam)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold transition hover:bg-slate-50" style={{ borderColor: `${exam.accent}55`, color: exam.accent }}>
             <Bell size={15} /> Notify me
           </a>
         )}

@@ -59,9 +59,9 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+    <div className="min-h-screen bg-white text-slate-900">
       {/* ── JAMB header (own nav) ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/90">
+      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${T.primary}, ${T.light})` }}>
@@ -70,9 +70,9 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
             <span className="text-lg font-extrabold tracking-tight">JAMB <span style={{ color: T.primary }}>Prep</span></span>
           </button>
           <nav className="flex items-center gap-1">
-            <a href="#mock" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">Mock</a>
-            <button onClick={() => navigate('/bank')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">Practice</button>
-            <button onClick={() => navigate('/predictor')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white sm:block">Predictor</button>
+            <a href="#mock" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Mock</a>
+            <button onClick={() => navigate('/bank')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Practice</button>
+            <button onClick={() => navigate('/predictor')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Predictor</button>
             <button onClick={() => navigate('/admitme')} className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: T.primary }}>
               <ArrowLeft size={15} /> AdmitMe
             </button>
@@ -119,12 +119,12 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
           {FEATURES.map((f) => {
             const Icon = f.icon;
             return (
-              <button key={f.title} onClick={() => goTo(f.to)} className="rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-slate-900">
+              <button key={f.title} onClick={() => goTo(f.to)} className="rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: T.soft, color: T.primary }}>
                   <Icon size={24} />
                 </div>
                 <h3 className="font-sora font-bold">{f.title}</h3>
-                <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{f.body}</p>
+                <p className="mt-1 text-sm text-slate-500">{f.body}</p>
               </button>
             );
           })}
@@ -132,22 +132,22 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
       </section>
 
       {/* ── Build your mock (#mock) ── */}
-      <section id="mock" className="scroll-mt-20 bg-slate-50 py-14 dark:bg-white/5">
+      <section id="mock" className="scroll-mt-20 bg-slate-50 py-14">
         <div className="mx-auto max-w-3xl px-4">
           <div className="mb-6 text-center">
             <p className="text-xs font-bold uppercase tracking-widest" style={{ color: T.primary }}>Your mock exam</p>
             <h2 className="mt-1 font-sora text-3xl font-extrabold">Build your JAMB mock</h2>
-            <p className="mt-2 text-slate-500 dark:text-slate-400">Use of English is compulsory — pick your 3 subjects.</p>
+            <p className="mt-2 text-slate-500">Use of English is compulsory — pick your 3 subjects.</p>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-md dark:border-white/10 dark:bg-slate-900">
-            <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Compulsory</p>
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-md">
+            <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">Compulsory</p>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: T.primary }}>
               <Lock size={14} /> {JAMB_COMPULSORY}
             </div>
 
             <div className="mb-2 flex items-center justify-between">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Choose your 3 subjects</p>
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Choose your 3 subjects</p>
               <span className="text-xs font-semibold" style={{ color: T.primary }}>{selected.length}/{JAMB_MAX_OTHER_SUBJECTS} selected</span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -190,8 +190,8 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
-        <p className="font-bold text-slate-700 dark:text-slate-200">JAMB Prep · <span style={{ color: T.primary }}>AdmitMe</span></p>
+      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+        <p className="font-bold text-slate-700">JAMB Prep · <span style={{ color: T.primary }}>AdmitMe</span></p>
         <p className="mt-1">Real UTME practice — English + your 3 subjects.</p>
         <button onClick={() => navigate('/admitme')} className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold hover:underline" style={{ color: T.primary }}>
           <ArrowLeft size={13} /> Back to AdmitMe
