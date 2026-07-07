@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { COMPANY } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
+import { SectionShell } from './SectionShell';
 
 /** UniPort's official brand — deep navy/royal blue + white. */
 const T = {
@@ -36,30 +37,18 @@ const FACULTIES = [
   'Biochemistry', 'Petroleum Engineering', 'Architecture', 'English', 'Geology',
 ];
 
-export function UniportSection() {
+export function UniportSection({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${T.primary}, ${T.light})` }}>
-              <GraduationCap size={18} />
-            </div>
-            <span className="text-lg font-extrabold tracking-tight">UniPort <span style={{ color: T.primary }}>Prep</span></span>
-          </button>
-          <nav className="flex items-center gap-1">
-            <a href="#features" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Features</a>
-            <a href="#courses" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Courses</a>
-            <a href={NOTIFY} target="_blank" rel="noreferrer" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 sm:block">Notify me</a>
-            <button onClick={() => navigate('/admitme')} className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: T.primary }}>
-              <ArrowLeft size={15} /> AdmitMe
-            </button>
-          </nav>
-        </div>
-      </header>
+      <SectionShell
+        theme={{ primary: T.primary, light: T.light }}
+        brandName="UniPort " brandAccent="Prep"
+        currentExamId="uniport-post-utme"
+        navItems={[{ label: 'Features', to: '#features' }, { label: 'Courses', to: '#courses' }]}
+        onLogin={onLogin}
+      />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: `linear-gradient(180deg, ${T.soft} 0%, #ffffff 100%)` }}>

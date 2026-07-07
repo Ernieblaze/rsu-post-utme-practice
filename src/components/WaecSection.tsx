@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { COMPANY } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
+import { SectionShell } from './SectionShell';
 
 /** WAEC's official brand — deep navy blue + gold + white. */
 const T = {
@@ -29,29 +30,18 @@ const SUBJECTS = [
   'Agricultural Science', 'CRS', 'IRS', 'Civic Education', 'Further Mathematics',
 ];
 
-export function WaecSection() {
+export function WaecSection({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: T.navy }}>
-              <BookOpen size={18} />
-            </div>
-            <span className="text-lg font-extrabold tracking-tight" style={{ color: T.navy }}>WAEC <span style={{ color: T.gold }}>Prep</span></span>
-          </button>
-          <nav className="flex items-center gap-1">
-            <a href="#subjects" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Subjects</a>
-            <a href={NOTIFY} target="_blank" rel="noreferrer" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Notify me</a>
-            <button onClick={() => navigate('/admitme')} className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: T.navy }}>
-              <ArrowLeft size={15} /> AdmitMe
-            </button>
-          </nav>
-        </div>
-      </header>
+      <SectionShell
+        theme={{ primary: T.navy, light: T.gold }}
+        brandName="WAEC " brandAccent="Prep"
+        currentExamId="waec"
+        navItems={[{ label: 'Subjects', to: '#subjects' }]}
+        onLogin={onLogin}
+      />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden text-white" style={{ background: `linear-gradient(150deg, ${T.deep} 0%, ${T.navy} 100%)` }}>

@@ -586,7 +586,7 @@ function AppContent() {
             path="/admitme"
             element={
               <motion.div key="admitme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <AdmitMeHub />
+                <AdmitMeHub onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
@@ -595,7 +595,7 @@ function AppContent() {
             path="/jamb"
             element={
               <motion.div key="jamb" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <JambPractice bank={bank} onStart={guardedStartDynamicTest} />
+                <JambPractice bank={bank} onStart={guardedStartDynamicTest} onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
@@ -604,7 +604,7 @@ function AppContent() {
             path="/waec"
             element={
               <motion.div key="waec" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <WaecSection />
+                <WaecSection onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
@@ -613,7 +613,7 @@ function AppContent() {
             path="/uniport"
             element={
               <motion.div key="uniport" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <UniportSection />
+                <UniportSection onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />

@@ -10,10 +10,12 @@ import {
   JAMB_COMPULSORY, JAMB_SUBJECTS, JAMB_MAX_OTHER_SUBJECTS, JAMB_DURATION_MINUTES,
   buildJambMock, jambSubjectCount,
 } from '../data/jambExam';
+import { SectionShell } from './SectionShell';
 
 interface JambPracticeProps {
   bank: BankQuestion[];
   onStart: (test: Test) => void;
+  onLogin: () => void;
 }
 
 /** JAMB's theme — Nigeria green + white, tuned modern & futuristic. */
@@ -31,7 +33,7 @@ const FEATURES = [
   { icon: TrendingUp, title: 'Score Prediction', body: 'Turn your JAMB score into your admission chances.', to: '/predictor' },
 ];
 
-export function JambPractice({ bank, onStart }: JambPracticeProps) {
+export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState<string[]>([]);
   const [error, setError] = useState('');
@@ -58,25 +60,13 @@ export function JambPractice({ bank, onStart }: JambPracticeProps) {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${T.primary}, ${T.light})` }}>
-              <Target size={18} />
-            </div>
-            <span className="text-lg font-extrabold tracking-tight">JAMB <span style={{ color: T.primary }}>Prep</span></span>
-          </button>
-          <nav className="flex items-center gap-1">
-            <a href="#mock" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Mock</a>
-            <button onClick={() => navigate('/bank')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Practice</button>
-            <button onClick={() => navigate('/predictor')} className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Predictor</button>
-            <button onClick={() => navigate('/admitme')} className="inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: T.primary }}>
-              <ArrowLeft size={15} /> AdmitMe
-            </button>
-          </nav>
-        </div>
-      </header>
+      <SectionShell
+        theme={{ primary: T.primary, light: T.light }}
+        brandName="JAMB " brandAccent="Prep"
+        currentExamId="jamb"
+        navItems={[{ label: 'Mock', to: '#mock' }, { label: 'Practice', to: '/bank' }, { label: 'Predictor', to: '/predictor' }]}
+        onLogin={onLogin}
+      />
 
       {/* ── Hero (modern, light, glowing) ── */}
       <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 to-white">

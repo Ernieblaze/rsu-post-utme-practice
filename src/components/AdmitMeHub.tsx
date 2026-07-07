@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { COMPANY, BRAND, EXAMS, type ExamCategory, type ExamOffering } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
+import { SectionShell } from './SectionShell';
 
 const CATEGORY_META: Record<ExamCategory, { title: string; icon: typeof Target }> = {
   'post-utme': { title: 'Post-UTME', icon: GraduationCap },
@@ -52,7 +53,7 @@ function notifyLink(exam: ExamOffering): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-export function AdmitMeHub() {
+export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate();
 
   return (
@@ -65,23 +66,13 @@ export function AdmitMeHub() {
         </div>
       </div>
 
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${BRAND.primary}, ${BRAND.secondary})` }}>
-              <GraduationCap size={18} />
-            </div>
-            <span className="text-lg font-extrabold tracking-tight text-slate-900">Admit<span style={{ color: BRAND.secondary }}>Me</span></span>
-          </button>
-          <nav className="flex items-center gap-1">
-            <a href="#offers" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">What we offer</a>
-            <a href="#exams" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">Exams</a>
-            <a href="#how" className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 sm:block">How it works</a>
-            <a href="#exams" className="rounded-xl px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: BRAND.primary }}>Get started</a>
-          </nav>
-        </div>
-      </header>
+      <SectionShell
+        theme={{ primary: BRAND.primary, light: BRAND.secondary }}
+        brandName="Admit" brandAccent="Me"
+        currentExamId="admitme"
+        navItems={[{ label: 'What we offer', to: '#offers' }, { label: 'Exams', to: '#exams' }, { label: 'How it works', to: '#how' }]}
+        onLogin={onLogin}
+      />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: `linear-gradient(180deg, ${BRAND.soft} 0%, #ffffff 100%)` }}>
