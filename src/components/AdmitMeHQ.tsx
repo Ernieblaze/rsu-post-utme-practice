@@ -30,12 +30,13 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [snap, setSnap] = useState<Snapshot | null>(null);
+  const [recent, setRecent] = useState<{ email: string | null; created_at: string }[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     Promise.all([
-      supabase.from('profiles').select('id, has_paid, created_at'),
+      supabase.from('profiles').select('id, email, has_paid, created_at'),
       supabase.from('transactions').select('amount, status').eq('status', 'success'),
     ]).then(([usersRes, txRes]) => {
       if (cancelled) return;
@@ -45,6 +46,12 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
         return;
       }
       const users = usersRes.data ?? [];
+      setRecent(
+        [...users]
+          .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+          .slice(0, 8)
+          .map((u) => ({ email: u.email, created_at: u.created_at }))
+      );
       const tx = txRes.data ?? [];
       const now = Date.now();
       const startOfToday = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
@@ -110,6 +117,22 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
           </div>
         )}
       </section>
+
+      {/* Recent signups */}
+      {recent.length > 0 && (
+        <section className="mb-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-400">Recent signups</p>
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            {recent.map((r, i) => (
+              <div key={`${r.email}-${i}`} className={`flex items-center gap-3 px-5 py-3 ${i > 0 ? 'border-t border-slate-100' : ''}`}>
+                <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-indigo-100 text-xs font-bold uppercase text-indigo-700">{r.email?.[0] ?? '?'}</span>
+                <span className="min-w-0 flex-1 truncate text-sm font-medium text-slate-800">{r.email ?? '(no email)'}</span>
+                <span className="flex-none text-xs text-slate-400">{new Date(r.created_at).toLocaleDateString()}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Exams */}
       <section className="mb-8">

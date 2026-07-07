@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   GraduationCap, Target, BookOpen, ArrowRight, Bell, CheckCircle2, Clock,
   Lightbulb, BarChart3, Star, ShieldCheck, Wallet, Award, Layers, TrendingUp, Sparkles,
+  ChevronDown, Building2, MessageCircle,
 } from 'lucide-react';
 import { COMPANY, BRAND, EXAMS, type ExamCategory, type ExamOffering } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
@@ -46,6 +47,14 @@ const TESTIMONIALS = [
   { name: 'Chidinma O.', role: 'Nursing aspirant', quote: 'The mock felt exactly like the real screening. I walked in confident.' },
   { name: 'Emeka N.', role: 'JAMB candidate', quote: 'Every question has an explanation. I stopped cramming and understood.' },
   { name: 'Blessing A.', role: 'Post-UTME', quote: 'Practising daily here is the reason I got my admission.' },
+];
+const FAQS = [
+  { q: 'Is it free to start?', a: 'Yes — sign up free and start practising right away. Premium (₦2,000, one payment) unlocks everything: unlimited mock exams, every subject, and score prediction.' },
+  { q: 'Are these real past questions?', a: 'Yes. Every question is structured from real exam syllabi and past questions — the material that actually matters for your exam.' },
+  { q: 'Which exams do you cover?', a: 'RSU Post-UTME and JAMB are live now. UniPort Post-UTME and WAEC are coming soon — with more schools on the way.' },
+  { q: 'One payment for everything?', a: 'Yes — one AdmitMe account and one ₦2,000 payment unlocks every live exam on the platform.' },
+  { q: 'Can I use it on my phone?', a: 'Absolutely. AdmitMe works on any phone browser and can be added to your home screen like an app.' },
+  { q: 'How do I pay?', a: 'Securely with Paystack (card or bank transfer) right inside the app — your access unlocks instantly.' },
 ];
 
 function notifyLink(exam: ExamOffering): string {
@@ -118,6 +127,26 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
             <FloatCard className="right-0 top-1/3" icon={<CheckCircle2 size={16} />} title="2 exams" sub="live now" />
             <FloatCard className="bottom-8 left-6" icon={<Award size={16} />} title="Real" sub="exam feel" />
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Trust band ── */}
+      <section className="border-y border-slate-100 bg-white py-6">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 sm:grid-cols-4">
+          {[
+            { icon: BookOpen, label: '3,000+ real questions' },
+            { icon: CheckCircle2, label: '2 exams live now' },
+            { icon: Clock, label: 'Timed mock exams' },
+            { icon: Lightbulb, label: 'Every answer explained' },
+          ].map((t) => {
+            const Icon = t.icon;
+            return (
+              <div key={t.label} className="flex items-center gap-2.5">
+                <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl" style={{ background: BRAND.soft, color: BRAND.primary }}><Icon size={18} /></span>
+                <span className="text-sm font-semibold text-slate-700">{t.label}</span>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -235,6 +264,43 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
               <p className="mt-3 text-sm font-bold text-slate-900">{t.name} <span className="font-normal text-slate-500">— {t.role}</span></p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="bg-slate-50 py-14">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="mb-8 text-center">
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: BRAND.primary }}>FAQ</p>
+            <h2 className="mt-1 font-sora text-3xl font-extrabold text-slate-900">Questions? Answered.</h2>
+          </div>
+          <div className="space-y-3">
+            {FAQS.map((f) => (
+              <details key={f.q} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <summary className="flex cursor-pointer list-none items-center justify-between font-semibold text-slate-900">
+                  {f.q}
+                  <ChevronDown size={18} className="text-slate-400 transition group-open:rotate-180" />
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── For schools & partners ── */}
+      <section className="mx-auto max-w-5xl px-4 py-14">
+        <div className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:grid-cols-2 sm:p-10">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold" style={{ background: BRAND.soft, color: BRAND.primary }}><Building2 size={13} /> For schools & partners</span>
+            <h2 className="mt-3 font-sora text-2xl font-extrabold text-slate-900">Bring AdmitMe to your students</h2>
+            <p className="mt-2 text-slate-600">Running a school, tutorial centre or study group? Partner with us to give your students structured exam prep — and grow together.</p>
+          </div>
+          <div className="flex sm:justify-end">
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi AdmitMe — I would like to partner / bring AdmitMe to my students.')}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl px-6 py-3.5 text-base font-bold text-white shadow-lg transition hover:scale-[1.03]" style={{ background: BRAND.primary }}>
+              <MessageCircle size={18} /> Talk to us
+            </a>
+          </div>
         </div>
       </section>
 

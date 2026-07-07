@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, Grid3x3, LogIn, LogOut, User as UserIcon } from 'lucide-react';
+import { ChevronDown, Menu, X, Grid3x3, LogIn, LogOut, User as UserIcon, GraduationCap, Gauge } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { EXAMS } from '../config/admitme';
 
@@ -34,7 +34,7 @@ interface SectionShellProps {
  */
 export function SectionShell({ theme, brandName, brandAccent, currentExamId, navItems = [], onLogin }: SectionShellProps) {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
   const [switchOpen, setSwitchOpen] = useState(false);
   const [acctOpen, setAcctOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -66,8 +66,8 @@ export function SectionShell({ theme, brandName, brandAccent, currentExamId, nav
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo */}
         <button onClick={() => navigate('/admitme')} className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm" style={{ background: `linear-gradient(135deg, ${theme.primary}, ${theme.light ?? theme.primary})` }}>
-            <span className="text-xs font-extrabold">A</span>
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm ring-1 ring-black/5" style={{ background: `linear-gradient(135deg, ${theme.primary}, ${theme.light ?? theme.primary})` }}>
+            <GraduationCap size={18} />
           </div>
           <span className="text-lg font-extrabold tracking-tight text-slate-900">{brandName}<span style={{ color: theme.primary }}>{brandAccent}</span></span>
         </button>
@@ -79,6 +79,12 @@ export function SectionShell({ theme, brandName, brandAccent, currentExamId, nav
               {n.label}
             </button>
           ))}
+
+          {profile?.is_admin && (
+            <button onClick={() => navigate('/hq')} className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-bold text-slate-700 transition hover:text-slate-900">
+              <Gauge size={15} /> HQ
+            </button>
+          )}
 
           {/* Exam switcher */}
           <div className="relative ml-1" ref={switchRef}>
@@ -139,6 +145,11 @@ export function SectionShell({ theme, brandName, brandAccent, currentExamId, nav
             {navItems.map((n) => (
               <button key={n.label} onClick={() => go(n.to)} className="block w-full rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50">{n.label}</button>
             ))}
+            {profile?.is_admin && (
+              <button onClick={() => { setMobileOpen(false); navigate('/hq'); }} className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-bold text-slate-800 hover:bg-slate-50">
+                <Gauge size={15} /> AdmitMe HQ
+              </button>
+            )}
             <p className="mt-2 px-3 pb-1 pt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Switch exam</p>
             {switchTargets.map((t) => (
               <button key={t.id} onClick={() => { setMobileOpen(false); navigate(t.path); }} className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50">
