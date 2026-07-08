@@ -16,6 +16,7 @@ import { calculateResult, formatTime, visibleOptionKeys } from '../lib/helpers';
 import { getTestState, saveTestState, clearTestState } from '../lib/storage';
 import { FREE_QUESTION_LIMIT, getFreeQuestionsUsed, incrementFreeQuestions } from '../lib/freeTrial';
 import { Paywall } from './Paywall';
+import { ExamCalculator } from './ExamCalculator';
 
 interface QuizProps {
   test: Test;
@@ -289,6 +290,8 @@ export function Quiz({ test, onFinish, onCancel, isPremium, userId, onUpgrade, p
 
   return (
     <div className="flex min-h-screen flex-col bg-watercolor pb-20 md:pb-0">
+      {/* On-screen exam calculator (like the real RSU CBT) — floating, draggable, closable */}
+      <ExamCalculator />
       {/* Top bar */}
       <div className="sticky top-0 z-30 border-b border-school-green/20 bg-white/95 shadow-sm backdrop-blur dark:border-school-green/30 dark:bg-school-navy/95">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
