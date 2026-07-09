@@ -13,6 +13,7 @@ interface OwnerDashboardProps {
 interface UserRow {
   id: string;
   email: string | null;
+  username: string | null;
   has_paid: boolean;
   paid_until: string | null;
   free_test_used: boolean;
@@ -104,7 +105,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return Promise.all([
       supabase
         .from('profiles')
-        .select('id, email, has_paid, paid_until, free_test_used, is_admin, created_at, referral_code, referred_by, referral_balance')
+        .select('id, email, username, has_paid, paid_until, free_test_used, is_admin, created_at, referral_code, referred_by, referral_balance')
         .order('created_at', { ascending: false }),
       supabase
         .from('transactions')
@@ -1063,10 +1064,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             ) : (
               <div className="divide-y divide-school-border dark:divide-school-green/20">
                 {referrers.map((u) => (
-                  <div key={u.id} className="flex items-center justify-between px-5 py-3 text-sm">
-                    <span className="min-w-0 flex-1 truncate font-medium text-school-navy dark:text-white">
-                      {u.email ?? '—'}
-                    </span>
+                  <div key={u.id} className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate font-semibold text-school-navy dark:text-white">
+                        {u.username || u.email?.split('@')[0] || '—'}
+                        {!u.username && <span className="ml-1.5 text-[10px] font-normal text-school-muted">(no name set)</span>}
+                      </div>
+                      <div className="truncate text-xs text-school-muted">{u.email ?? '—'}</div>
+                    </div>
                     <span className="flex-none font-bold text-school-green">
                       ₦{((u.referral_balance ?? 0) / 100).toLocaleString()} earned
                     </span>

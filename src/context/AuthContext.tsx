@@ -58,7 +58,7 @@ function friendlyAuthError(message?: string): string {
 async function fetchProfile(userId: string): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
-    .select('id, email, has_paid, paid_until, free_test_used, is_admin, referral_code, referred_by, referral_balance')
+    .select('id, email, has_paid, paid_until, free_test_used, is_admin, referral_code, referred_by, referral_balance, username')
     .eq('id', userId)
     .single();
   if (error) return null;

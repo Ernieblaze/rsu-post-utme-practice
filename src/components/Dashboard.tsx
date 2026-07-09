@@ -12,6 +12,8 @@ import {
   Wallet,
   Copy,
   Send,
+  AtSign,
+  Check,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getAccessStatus, isSubscriptionActive } from '../lib/access';
@@ -88,6 +90,9 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
   const { user, profile, refreshProfile } = useAuth();
   const reduceMotion = useReducedMotion();
 
+  const [nameInput, setNameInput] = useState('');
+  const [savingName, setSavingName] = useState(false);
+  const [nameSaved, setNameSaved] = useState(false);
   const [withdrawals, setWithdrawals] = useState<WithdrawalRow[]>([]);
   const [referralLoading, setReferralLoading] = useState(true);
   const [requesting, setRequesting] = useState(false);
@@ -195,7 +200,21 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
   else if (status === 'paid') statusLabel = `Active until ${formatDate(profile?.paid_until ?? null)}`;
   else if (status === 'free-available') statusLabel = 'Free trial available';
 
-  const greetingName = user?.email ? user.email.split('@')[0] : 'there';
+  useEffect(() => { setNameInput(profile?.username ?? ''); }, [profile?.username]);
+
+  async function saveName() {
+    if (!user) return;
+    setSavingName(true);
+    setNameSaved(false);
+    const clean = nameInput.trim().slice(0, 30);
+    await supabase.from('profiles').update({ username: clean || null }).eq('id', user.id);
+    await refreshProfile();
+    setSavingName(false);
+    setNameSaved(true);
+    setTimeout(() => setNameSaved(false), 2500);
+  }
+
+  const greetingName = profile?.username || (user?.email ? user.email.split('@')[0] : 'there');
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
@@ -238,6 +257,38 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             {status === 'free-available' ? 'Upgrade Now' : 'Renew Access'}
           </button>
         )}
+      </motion.section>
+
+      {/* Display name — shown on leaderboards & referral shout-outs (never your email) */}
+      <motion.section
+        variants={itemVariants}
+        initial={reduceMotion ? false : 'hidden'}
+        animate="show"
+        className="mt-4 rounded-2xl border border-school-border bg-school-surface p-5 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+      >
+        <div className="mb-1 flex items-center gap-2">
+          <AtSign size={16} className="text-school-green" />
+          <span className="text-xs font-bold uppercase tracking-widest text-school-muted">Display name</span>
+        </div>
+        <p className="mb-3 text-sm text-school-muted">
+          Choose a public name. It's shown on leaderboards and top-referrer shout-outs — your email stays private.
+        </p>
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <input
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            maxLength={30}
+            placeholder="e.g. David O."
+            className="flex-1 rounded-xl border border-school-green/20 bg-school-light px-3 py-2.5 text-sm font-medium text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+          />
+          <button
+            onClick={saveName}
+            disabled={savingName || nameInput.trim() === (profile?.username ?? '')}
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-school-green px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:opacity-90 disabled:opacity-40"
+          >
+            {savingName ? 'Saving…' : nameSaved ? <><Check size={15} /> Saved</> : 'Save name'}
+          </button>
+        </div>
       </motion.section>
 
       {/* Analytics */}

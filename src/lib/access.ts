@@ -8,6 +8,7 @@ export interface Profile {
   referral_code: string | null;
   referred_by: string | null;
   referral_balance: number;
+  username: string | null;
 }
 
 import { freeQuestionsRemaining } from './freeTrial';
