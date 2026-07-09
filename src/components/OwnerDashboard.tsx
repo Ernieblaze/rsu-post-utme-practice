@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp, Mail, Activity } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle2, Gift, Lock, Wallet, AlertCircle, Receipt, FileText, ChevronRight, Send, Check, X, BarChart3, Crown, Search, Undo2, Download, AlertTriangle, TrendingUp, Mail, Activity, Eye, EyeOff } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { getAccessStatus } from '../lib/access';
 import { formatDate, formatDateTime } from '../lib/helpers';
@@ -86,6 +86,19 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [visits, setVisits] = useState<VisitStats | null>(null);
   const [emailUsage, setEmailUsage] = useState<EmailUsage | null>(null);
+
+  // Privacy toggle — hide sensitive figures when showing the dashboard to others.
+  const [hideNumbers, setHideNumbers] = useState<boolean>(() => {
+    try { return localStorage.getItem('owner_hide_numbers') === '1'; } catch { return false; }
+  });
+  function toggleHide() {
+    setHideNumbers((v) => {
+      const nv = !v;
+      try { localStorage.setItem('owner_hide_numbers', nv ? '1' : '0'); } catch { /* ignore */ }
+      return nv;
+    });
+  }
+  const hidden = '••••';
 
   function loadAll() {
     return Promise.all([
@@ -401,6 +414,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
       </h1>
       <p className="mt-1 text-school-muted">All users, payment status, and real revenue from Paystack.</p>
 
+      <button
+        onClick={toggleHide}
+        className="mt-4 inline-flex items-center gap-2 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
+      >
+        {hideNumbers ? <><Eye size={16} /> Show numbers</> : <><EyeOff size={16} /> Hide numbers</>}
+        <span className="text-xs font-normal text-school-muted">{hideNumbers ? '(hidden for privacy)' : '(hide when screen-sharing)'}</span>
+      </button>
+
       <motion.button
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -431,10 +452,10 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             animate={{ opacity: 1, y: 0 }}
             className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
-            <StatCard icon={<Users size={20} />} label="Total users" value={String(stats.total)} />
-            <StatCard icon={<CheckCircle2 size={20} />} label="Active paid" value={String(stats.paid)} />
-            <StatCard icon={<Gift size={20} />} label="Free trial available" value={String(stats.freeAvailable)} />
-            <StatCard icon={<Lock size={20} />} label="Locked (trial used)" value={String(stats.locked)} />
+            <StatCard icon={<Users size={20} />} label="Total users" value={hideNumbers ? hidden : String(stats.total)} />
+            <StatCard icon={<CheckCircle2 size={20} />} label="Active paid" value={hideNumbers ? hidden : String(stats.paid)} />
+            <StatCard icon={<Gift size={20} />} label="Free trial available" value={hideNumbers ? hidden : String(stats.freeAvailable)} />
+            <StatCard icon={<Lock size={20} />} label="Locked (trial used)" value={hideNumbers ? hidden : String(stats.locked)} />
           </motion.section>
 
           <motion.section
@@ -447,10 +468,10 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
               <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Revenue</h2>
             </div>
             <div className="mt-2 font-sora text-3xl font-bold text-school-navy dark:text-white">
-              ₦{totalRevenueNaira.toLocaleString()}
+              ₦{hideNumbers ? hidden : totalRevenueNaira.toLocaleString()}
             </div>
             <p className="mt-1 text-sm text-school-muted">
-              From {transactions.length} successful payment(s), based on real Paystack transaction records.
+              From {hideNumbers ? hidden : transactions.length} successful payment(s), based on real Paystack transaction records.
             </p>
           </motion.section>
 
