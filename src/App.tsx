@@ -46,6 +46,7 @@ import { captureReferralFromUrl } from './lib/referral';
 import { logVisit } from './lib/visits';
 import { trackTikTok } from './lib/tiktok';
 import { recordStudyDay } from './lib/streak';
+import { recordActivity } from './lib/presence';
 import { getBank } from './lib/bankStorage';
 import {
   getAttempts,
@@ -100,6 +101,26 @@ const NAV_TO_PATH: Record<NavView, string> = {
   leaderboard: '/leaderboard',
 };
 
+/** Human-readable "what they're doing" for the live activity feed. */
+const ACTION_FOR_VIEW: Partial<Record<View, string>> = {
+  home: 'Browsing home',
+  quiz: 'Taking a test',
+  results: 'Reviewing results',
+  'exam-focus': 'In Exam Focus',
+  bank: 'Building practice',
+  revision: 'Revision',
+  predictor: 'Aggregate checker',
+  jamb: 'JAMB prep',
+  waec: 'WAEC section',
+  uniport: 'UniPort section',
+  admitme: 'On AdmitMe',
+  daily: 'Question of the Day',
+  progress: 'Viewing progress',
+  dashboard: 'On dashboard',
+  leaderboard: 'Leaderboard',
+  'ai-tutor': 'AI Tutor',
+};
+
 function AppContent() {
   const { user, loading: authLoading, profile, profileLoading, refreshProfile } = useAuth();
   const location = useLocation();
@@ -136,6 +157,17 @@ function AppContent() {
   useEffect(() => {
     logVisit(location.pathname);
   }, [location.pathname]);
+
+  // Live presence — record what the signed-in user is doing (on view change + every 45s).
+  useEffect(() => {
+    if (!user) return;
+    const action = ACTION_FOR_VIEW[view] ?? 'Using the app';
+    const email = user.email ?? null;
+    const username = profile?.username ?? null;
+    recordActivity(user.id, email, username, action);
+    const id = setInterval(() => recordActivity(user.id, email, username, action), 45000);
+    return () => clearInterval(id);
+  }, [user, view, profile?.username]);
 
   useEffect(() => {
     const base = 'RSU Post-UTME Practice';

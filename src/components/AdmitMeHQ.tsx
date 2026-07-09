@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, Users, Crown, Wallet, TrendingUp, LayoutDashboard, FileText, Rocket,
-  ArrowRight, CheckCircle2, Clock, ExternalLink,
+  ArrowRight, CheckCircle2, Clock, ExternalLink, Activity,
 } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { EXAMS } from '../config/admitme';
@@ -20,6 +20,22 @@ interface Snapshot {
   signups7: number;
 }
 
+interface LiveRow {
+  user_id: string;
+  email: string | null;
+  username: string | null;
+  action: string | null;
+  updated_at: string;
+}
+
+function timeAgo(iso: string): string {
+  const s = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
+  if (s < 60) return `${s}s ago`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ago`;
+  return `${Math.floor(m / 60)}h ago`;
+}
+
 /**
  * AdmitMe HQ — the platform command center. A single admin-only station that
  * shows a live snapshot of the whole platform (one shared account + payment
@@ -31,7 +47,21 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
   const [loading, setLoading] = useState(true);
   const [snap, setSnap] = useState<Snapshot | null>(null);
   const [recent, setRecent] = useState<{ email: string | null; created_at: string }[]>([]);
+  const [live, setLive] = useState<LiveRow[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  // Live activity — who's active in the last 5 minutes, polled every 25s.
+  useEffect(() => {
+    let cancelled = false;
+    function load() {
+      supabase.rpc('get_live_activity', { minutes: 5 }).then(({ data }) => {
+        if (!cancelled && Array.isArray(data)) setLive(data as LiveRow[]);
+      });
+    }
+    load();
+    const id = setInterval(load, 25000);
+    return () => { cancelled = true; clearInterval(id); };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -117,6 +147,31 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
           </div>
         )}
       </section>
+
+      {/* Live now */}
+      {live.length > 0 && (
+        <section className="mb-8">
+          <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            </span>
+            Live now · {live.length} active
+          </p>
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            {live.map((r, i) => (
+              <div key={r.user_id} className={`flex items-center gap-3 px-5 py-3 ${i > 0 ? 'border-t border-slate-100' : ''}`}>
+                <Activity size={16} className="flex-none text-emerald-500" />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-slate-800">{r.username || r.email?.split('@')[0] || 'Someone'}</p>
+                  <p className="truncate text-xs text-slate-500">{r.action ?? 'Using the app'}</p>
+                </div>
+                <span className="flex-none text-xs text-slate-400">{timeAgo(r.updated_at)}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Recent signups */}
       {recent.length > 0 && (
