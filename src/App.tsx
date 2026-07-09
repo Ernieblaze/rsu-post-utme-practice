@@ -7,6 +7,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { InAppBrowserBanner } from './components/InAppBrowserBanner';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { WelcomeModal } from './components/WelcomeModal';
+import { UsernamePrompt } from './components/UsernamePrompt';
 import { Home } from './components/Home';
 import { Quiz } from './components/Quiz';
 import { Results } from './components/Results';
@@ -365,6 +366,7 @@ function AppContent() {
       <ScrollToTop />
       <InAppBrowserBanner />
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && <UsernamePrompt />}
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && (
         <Header
           dark={dark}

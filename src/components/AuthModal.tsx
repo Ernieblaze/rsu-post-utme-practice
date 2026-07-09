@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Lock, Gift, Eye, EyeOff, MessageCircle, ExternalLink } from 'lucide-react';
+import { X, Mail, Lock, Gift, Eye, EyeOff, MessageCircle, ExternalLink, AtSign } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getPendingReferralCode, setPendingReferralCode } from '../lib/referral';
+import { setPendingUsername } from '../lib/pendingUsername';
 import { isInAppBrowser } from '../lib/browser';
 import { WHATSAPP_NUMBER } from '../lib/support';
 
@@ -23,6 +24,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [referralCode, setReferralCode] = useState(() => getPendingReferralCode() ?? '');
+  const [username, setUsername] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [resending, setResending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -72,6 +74,9 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
 
     if (mode === 'signup' && referralCode.trim()) {
       setPendingReferralCode(referralCode);
+    }
+    if (mode === 'signup' && username.trim()) {
+      setPendingUsername(username);
     }
 
     if (mode === 'forgot') {
@@ -186,6 +191,20 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   >
                     Forgot password?
                   </button>
+                </div>
+              )}
+
+              {mode === 'signup' && (
+                <div className="relative">
+                  <AtSign size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-school-navy/40 dark:text-slate-400" />
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    maxLength={30}
+                    placeholder="Display name (e.g. David O.)"
+                    className="w-full rounded-lg border border-school-green/20 bg-school-light py-2.5 pl-9 pr-3 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-white/10 dark:text-white"
+                  />
                 </div>
               )}
 

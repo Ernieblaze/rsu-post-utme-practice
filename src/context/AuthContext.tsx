@@ -3,6 +3,7 @@ import type { Session, User } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabaseClient';
 import type { Profile } from '../lib/access';
 import { consumeJustSignedUpFlag, getPendingReferralCode, markJustSignedUp } from '../lib/referral';
+import { consumePendingUsername } from '../lib/pendingUsername';
 import { clearPremiumLocally } from '../lib/access';
 import { logEmailEvent } from '../lib/emailEvents';
 import { trackTikTok } from '../lib/tiktok';
@@ -124,6 +125,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const attributed = await attributeReferralIfPending(p);
         if (attributed) {
           p = await fetchProfile(userId);
+        }
+        // Save a display name chosen at sign-up (couldn't write until authenticated).
+        if (p && !p.username) {
+          const pendingName = consumePendingUsername();
+          if (pendingName) {
+            const { error } = await supabase.from('profiles').update({ username: pendingName }).eq('id', userId);
+            if (!error) p = await fetchProfile(userId);
+          }
         }
       }
       if (!cancelled) {
