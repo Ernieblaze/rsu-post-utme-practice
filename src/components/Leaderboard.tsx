@@ -142,7 +142,7 @@ export function Leaderboard({ attempts, onBack }: LeaderboardProps) {
         </div>
       )}
 
-      {!error && !loading && rows.length > 0 && user && myRank === -1 && (
+      {!error && !loading && rows.length > 0 && user && !profile?.is_admin && myRank === -1 && (
         <div className="mt-4 flex items-center justify-center gap-2 rounded-2xl border border-school-green/10 bg-white px-4 py-3 text-sm text-school-navy/70 shadow-sm dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-300">
           <Crown size={15} className="text-school-gold" />
           You're not in the top 20 yet — finish a full exam and beat {Math.round(rows[rows.length - 1].best_percentage)}% to break in.
