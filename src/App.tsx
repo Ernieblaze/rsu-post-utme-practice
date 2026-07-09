@@ -24,6 +24,7 @@ import { Dashboard } from './components/Dashboard';
 import { OwnerDashboard } from './components/OwnerDashboard';
 import { AdmitMeHQ } from './components/AdmitMeHQ';
 import { NotFound } from './components/NotFound';
+import { LoginHelp } from './components/LoginHelp';
 import { LegalPage } from './components/LegalPage';
 import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
@@ -55,7 +56,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'login-help' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -75,6 +76,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/privacy': 'privacy',
   '/terms': 'terms',
   '/guide': 'guide',
+  '/login-help': 'login-help',
   '/ai-tutor': 'ai-tutor',
   '/predictor': 'predictor',
   '/admitme': 'admitme',
@@ -154,6 +156,7 @@ function AppContent() {
       privacy: `Privacy Policy | ${base}`,
       terms: `Terms of Service | ${base}`,
       guide: `How to Use | ${base}`,
+      'login-help': `Login Help | ${base}`,
       'ai-tutor': `AI Study Helper | ${base}`,
       predictor: `Admission Predictor | ${base}`,
       admitme: `AdmitMe — WAEC · JAMB · Post-UTME`,
@@ -677,6 +680,15 @@ function AppContent() {
             element={
               <motion.div key="reset-password" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
                 <ResetPassword onDone={() => routerNavigate('/dashboard')} />
+              </motion.div>
+            }
+          />
+
+          <Route
+            path="/login-help"
+            element={
+              <motion.div key="login-help" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <LoginHelp />
               </motion.div>
             }
           />

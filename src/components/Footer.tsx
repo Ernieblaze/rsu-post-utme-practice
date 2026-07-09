@@ -182,7 +182,9 @@ export function Footer({ onNavigate }: FooterProps) {
             This website is not officially affiliated with Rivers State University. &copy; {new Date().getFullYear()} RSU
             Post-UTME Practice.
           </p>
-          <p className="mt-2 flex items-center justify-center gap-3">
+          <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <Link to="/login-help" className="text-school-gold hover:underline">Login Help</Link>
+            <span className="text-slate-500">•</span>
             <Link to="/privacy" className="text-school-gold hover:underline">Privacy Policy</Link>
             <span className="text-slate-500">•</span>
             <Link to="/terms" className="text-school-gold hover:underline">Terms of Service</Link>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Lock, Gift, Eye, EyeOff, MessageCircle, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -16,6 +17,7 @@ type Mode = 'signin' | 'signup' | 'forgot';
 
 export function AuthModal({ open, onClose }: AuthModalProps) {
   const { signUp, signIn, resetPassword, resendConfirmation } = useAuth();
+  const navigate = useNavigate();
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -267,9 +269,16 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
               )}
             </p>
 
-            <div className="mt-3 border-t border-school-green/10 pt-3 text-center dark:border-white/10">
-              <a href={helpLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-school-green hover:underline">
-                <MessageCircle size={13} /> Trouble logging in? Chat with us on WhatsApp
+            <div className="mt-3 space-y-1.5 border-t border-school-green/10 pt-3 text-center dark:border-white/10">
+              <button
+                type="button"
+                onClick={() => { handleClose(); navigate('/login-help'); }}
+                className="block w-full text-xs font-bold text-school-green hover:underline"
+              >
+                Struggling to log in or reset your password? Read the quick guide →
+              </button>
+              <a href={helpLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-school-navy/70 hover:underline dark:text-slate-300">
+                <MessageCircle size={13} /> or chat with us on WhatsApp
               </a>
             </div>
           </motion.div>
