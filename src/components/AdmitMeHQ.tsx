@@ -48,14 +48,23 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
   const [snap, setSnap] = useState<Snapshot | null>(null);
   const [recent, setRecent] = useState<{ email: string | null; created_at: string }[]>([]);
   const [live, setLive] = useState<LiveRow[]>([]);
+  const [liveLoading, setLiveLoading] = useState(true);
+  const [liveError, setLiveError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Live activity — who's active in the last 5 minutes, polled every 25s.
   useEffect(() => {
     let cancelled = false;
     function load() {
-      supabase.rpc('get_live_activity', { minutes: 5 }).then(({ data }) => {
-        if (!cancelled && Array.isArray(data)) setLive(data as LiveRow[]);
+      supabase.rpc('get_live_activity', { minutes: 5 }).then(({ data, error: rpcError }) => {
+        if (cancelled) return;
+        setLiveLoading(false);
+        if (rpcError) {
+          setLiveError(rpcError.message);
+          return;
+        }
+        setLiveError(null);
+        if (Array.isArray(data)) setLive(data as LiveRow[]);
       });
     }
     load();
@@ -148,18 +157,31 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
         )}
       </section>
 
-      {/* Live now */}
-      {live.length > 0 && (
-        <section className="mb-8">
-          <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-            </span>
-            Live now · {live.length} active
-          </p>
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {live.map((r, i) => (
+      {/* Live now — always shown so the section is visible even when quiet */}
+      <section className="mb-8">
+        <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className={`absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 ${live.length > 0 ? 'animate-ping' : ''}`} />
+            <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${live.length > 0 ? 'bg-emerald-500' : 'bg-slate-300'}`} />
+          </span>
+          Live now{live.length > 0 ? ` · ${live.length} active` : ''}
+        </p>
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          {liveError ? (
+            <div className="px-5 py-5 text-sm">
+              <p className="font-semibold text-amber-700">Live activity isn't set up yet.</p>
+              <p className="mt-1 text-slate-500">Run the one-time SQL (the <code className="rounded bg-slate-100 px-1">user_activity</code> table + <code className="rounded bg-slate-100 px-1">get_live_activity</code> function) in Supabase, then this will start filling in automatically.</p>
+              <p className="mt-2 break-all text-xs text-slate-400">Details: {liveError}</p>
+            </div>
+          ) : liveLoading ? (
+            <div className="px-5 py-6 text-sm text-slate-400">Loading…</div>
+          ) : live.length === 0 ? (
+            <div className="flex items-center gap-3 px-5 py-6 text-sm text-slate-500">
+              <Activity size={16} className="flex-none text-slate-300" />
+              No one is active in the last 5 minutes. This lights up in real time as students use the app.
+            </div>
+          ) : (
+            live.map((r, i) => (
               <div key={r.user_id} className={`flex items-center gap-3 px-5 py-3 ${i > 0 ? 'border-t border-slate-100' : ''}`}>
                 <Activity size={16} className="flex-none text-emerald-500" />
                 <div className="min-w-0 flex-1">
@@ -168,10 +190,10 @@ export function AdmitMeHQ({ onBack }: AdmitMeHQProps) {
                 </div>
                 <span className="flex-none text-xs text-slate-400">{timeAgo(r.updated_at)}</span>
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+            ))
+          )}
+        </div>
+      </section>
 
       {/* Recent signups */}
       {recent.length > 0 && (
