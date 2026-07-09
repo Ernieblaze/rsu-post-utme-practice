@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Lock, Gift, Eye, EyeOff } from 'lucide-react';
+import { X, Mail, Lock, Gift, Eye, EyeOff, MessageCircle, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getPendingReferralCode, setPendingReferralCode } from '../lib/referral';
+import { isInAppBrowser } from '../lib/browser';
+import { WHATSAPP_NUMBER } from '../lib/support';
 
 interface AuthModalProps {
   open: boolean;
@@ -23,6 +25,8 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   const [resending, setResending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const inApp = isInAppBrowser();
+  const helpLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi, I need help logging in / resetting my password on RSU Post-UTME Practice.')}`;
 
   async function handleResend() {
     setError(null);
@@ -75,7 +79,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
         setError(result.error);
         return;
       }
-      setSuccess('Check your email for a link to reset your password.');
+      setSuccess('Reset link sent! Check your inbox AND your spam/junk folder. If the link still won\'t open, you\'re likely in an in-app browser — open the site in Chrome, or chat with us on WhatsApp below.');
       return;
     }
 
@@ -125,6 +129,15 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                 <X size={18} />
               </button>
             </div>
+
+            {inApp && (
+              <div className="mb-3 rounded-lg border border-amber-300 bg-amber-50 p-2.5 text-xs font-semibold text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300">
+                <span className="flex items-start gap-1.5">
+                  <ExternalLink size={13} className="mt-0.5 flex-none" />
+                  You're in an in-app browser (WhatsApp/TikTok). Login often fails here — tap the ⋮ / share menu and choose "Open in Chrome / Browser", then try again.
+                </span>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="relative">
@@ -253,6 +266,12 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                 </>
               )}
             </p>
+
+            <div className="mt-3 border-t border-school-green/10 pt-3 text-center dark:border-white/10">
+              <a href={helpLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-school-green hover:underline">
+                <MessageCircle size={13} /> Trouble logging in? Chat with us on WhatsApp
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       )}
