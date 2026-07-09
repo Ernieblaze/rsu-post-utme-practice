@@ -69,6 +69,22 @@ interface EmailUsage {
   reset: number;
 }
 
+interface LiveRow {
+  user_id: string;
+  email: string | null;
+  username: string | null;
+  action: string | null;
+  updated_at: string;
+}
+
+function timeAgo(iso: string): string {
+  const s = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
+  if (s < 60) return `${s}s ago`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ago`;
+  return `${Math.floor(m / 60)}h ago`;
+}
+
 // Your email provider's daily send limit (Brevo free = 300/day). Each new
 // signup sends one confirmation email. Raise this if you upgrade your plan.
 const DAILY_EMAIL_CAP = 300;
@@ -87,6 +103,9 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [visits, setVisits] = useState<VisitStats | null>(null);
   const [emailUsage, setEmailUsage] = useState<EmailUsage | null>(null);
+  const [live, setLive] = useState<LiveRow[]>([]);
+  const [liveLoading, setLiveLoading] = useState(true);
+  const [liveError, setLiveError] = useState<string | null>(null);
 
   // Privacy toggle — hide sensitive figures when showing the dashboard to others.
   const [hideNumbers, setHideNumbers] = useState<boolean>(() => {
@@ -148,6 +167,23 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
     return () => {
       cancelled = true;
     };
+  }, []);
+
+  // Live activity — who's using the app right now (last 5 min), polled every 25s.
+  useEffect(() => {
+    let cancelled = false;
+    function load() {
+      supabase.rpc('get_live_activity', { minutes: 5 }).then(({ data, error: rpcError }) => {
+        if (cancelled) return;
+        setLiveLoading(false);
+        if (rpcError) { setLiveError(rpcError.message); return; }
+        setLiveError(null);
+        if (Array.isArray(data)) setLive(data as LiveRow[]);
+      });
+    }
+    load();
+    const id = setInterval(load, 25000);
+    return () => { cancelled = true; clearInterval(id); };
   }, []);
 
   // Website traffic + email-usage stats (admin-only RPCs).
@@ -457,6 +493,54 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
             <StatCard icon={<CheckCircle2 size={20} />} label="Active paid" value={hideNumbers ? hidden : String(stats.paid)} />
             <StatCard icon={<Gift size={20} />} label="Free trial available" value={hideNumbers ? hidden : String(stats.freeAvailable)} />
             <StatCard icon={<Lock size={20} />} label="Locked (trial used)" value={hideNumbers ? hidden : String(stats.locked)} />
+          </motion.section>
+
+          {/* ── Live now — who's using the app in real time ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="flex items-center gap-2 border-b border-school-border px-5 py-4 dark:border-school-green/20">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className={`absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 ${live.length > 0 ? 'animate-ping' : ''}`} />
+                <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${live.length > 0 ? 'bg-emerald-500' : 'bg-school-muted/40'}`} />
+              </span>
+              <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Live now</h2>
+              <span className="ml-auto text-sm font-medium text-school-muted">
+                {hideNumbers ? hidden : `${live.length} active`}
+              </span>
+            </div>
+            {liveError ? (
+              <div className="px-5 py-5 text-sm">
+                <p className="font-semibold text-amber-700 dark:text-amber-400">Live activity isn't set up yet.</p>
+                <p className="mt-1 text-school-muted">Run the one-time <code className="rounded bg-school-light px-1 dark:bg-school-navy/60">user_activity</code> + <code className="rounded bg-school-light px-1 dark:bg-school-navy/60">get_live_activity</code> SQL in Supabase, then this fills in automatically.</p>
+              </div>
+            ) : liveLoading ? (
+              <p className="px-5 py-6 text-center text-sm text-school-muted">Loading…</p>
+            ) : hideNumbers ? (
+              <p className="px-5 py-6 text-center text-sm text-school-muted">Hidden for privacy.</p>
+            ) : live.length === 0 ? (
+              <p className="flex items-center justify-center gap-2 px-5 py-6 text-center text-sm text-school-muted">
+                <Activity size={15} className="text-school-muted/60" />
+                No one active in the last 5 minutes. This lights up as students use the app.
+              </p>
+            ) : (
+              <div className="divide-y divide-school-border dark:divide-school-green/20">
+                {live.map((r) => (
+                  <div key={r.user_id} className="flex items-center gap-3 px-5 py-3">
+                    <Activity size={16} className="flex-none text-emerald-500" />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-school-navy dark:text-white">
+                        {r.username || r.email?.split('@')[0] || 'Someone'}
+                      </p>
+                      <p className="truncate text-xs text-school-muted">{r.action ?? 'Using the app'}</p>
+                    </div>
+                    <span className="flex-none text-xs text-school-muted">{timeAgo(r.updated_at)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </motion.section>
 
           <motion.section
