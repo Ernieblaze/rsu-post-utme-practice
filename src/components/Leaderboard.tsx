@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Trophy, Medal, Flame, Target, Crown } from 'lucide-react';
+import { ArrowLeft, Trophy, Medal, Flame, Target, Crown, Check, Sparkles } from 'lucide-react';
 import type { Attempt } from '../types';
 import { supabase } from '../lib/supabaseClient';
 import { useAuth } from '../context/AuthContext';
@@ -33,24 +33,35 @@ const MIN_QUESTIONS = 40;
  * stats" band still reflects this device's own history.
  */
 export function Leaderboard({ attempts, onBack }: LeaderboardProps) {
-  const { user, profile } = useAuth();
+  const { user, profile, refreshProfile } = useAuth();
   const [rows, setRows] = useState<LeaderRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [nameInput, setNameInput] = useState('');
+  const [savingName, setSavingName] = useState(false);
 
-  useEffect(() => {
-    let cancelled = false;
-    supabase
-      .rpc('get_leaderboard', { limit_n: 20, min_total: MIN_QUESTIONS })
-      .then(({ data, error: rpcError }) => {
-        if (cancelled) return;
-        setLoading(false);
-        if (rpcError) { setError(rpcError.message); return; }
-        setError(null);
-        if (Array.isArray(data)) setRows(data as LeaderRow[]);
-      });
-    return () => { cancelled = true; };
+  const loadBoard = useCallback(async () => {
+    const { data, error: rpcError } = await supabase.rpc('get_leaderboard', { limit_n: 20, min_total: MIN_QUESTIONS });
+    setLoading(false);
+    if (rpcError) { setError(rpcError.message); return; }
+    setError(null);
+    if (Array.isArray(data)) setRows(data as LeaderRow[]);
   }, []);
+
+  useEffect(() => { void loadBoard(); }, [loadBoard]);
+
+  // Let a student claim their spot right here — saves their display name, then
+  // refreshes the board so their name replaces "Anonymous student" instantly.
+  async function claimName() {
+    if (!user) return;
+    const clean = nameInput.trim().slice(0, 30);
+    if (!clean) return;
+    setSavingName(true);
+    await supabase.from('profiles').update({ username: clean }).eq('id', user.id);
+    await refreshProfile();
+    await loadBoard();
+    setSavingName(false);
+  }
 
   // Personal practice stats from this device (still useful, always accurate).
   const stats = useMemo(() => {
@@ -91,8 +102,33 @@ export function Leaderboard({ attempts, onBack }: LeaderboardProps) {
       </div>
 
       {loggedInNoName && (
-        <div className="mb-6 rounded-2xl border border-school-gold/40 bg-school-gold/10 px-4 py-3 text-sm text-school-navy dark:border-school-gold/30 dark:text-slate-200">
-          <strong>Set a display name</strong> to show up on the leaderboard by name — add it on your Dashboard. Without one you appear as an anonymous student.
+        <div className="mb-6 rounded-2xl border border-school-gold/40 bg-school-gold/10 p-4 dark:border-school-gold/30">
+          <div className="mb-2 flex items-center gap-2">
+            <Sparkles size={18} className="flex-none text-amber-600 dark:text-school-gold" />
+            <p className="text-sm font-bold text-school-navy dark:text-white">
+              You're on the board as “Anonymous student” — claim your spot!
+            </p>
+          </div>
+          <p className="mb-3 text-xs text-school-navy/70 dark:text-slate-300">
+            Add a display name and your scores show up under YOUR name. (Your email stays private.)
+          </p>
+          <div className="flex gap-2">
+            <input
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+              maxLength={30}
+              placeholder="Your display name (e.g. David O.)"
+              onKeyDown={(e) => { if (e.key === 'Enter') void claimName(); }}
+              className="flex-1 rounded-xl border border-school-green/20 bg-white px-3 py-2.5 text-sm text-school-navy outline-none focus:border-school-green dark:border-school-green/30 dark:bg-school-navy/60 dark:text-white"
+            />
+            <button
+              onClick={() => void claimName()}
+              disabled={savingName || !nameInput.trim()}
+              className="inline-flex flex-none items-center gap-1.5 rounded-xl bg-school-green px-4 py-2.5 text-sm font-bold text-white hover:bg-school-green/90 disabled:opacity-40"
+            >
+              {savingName ? 'Saving…' : <><Check size={15} /> Claim my spot</>}
+            </button>
+          </div>
         </div>
       )}
 
