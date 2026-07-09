@@ -1,13 +1,30 @@
 import type { BankQuestion, Question, Test } from '../types';
 import type { Course } from './rsuData';
-import { isGenericSlot, poolForSlot, questionsForSubject } from './subjectMatch';
+import { isGenericSlot, poolForSlot, questionsForSubject, slotOptions } from './subjectMatch';
 
-// Real RSU Post-UTME shape: 50 questions in 30 minutes, kept SEPARATED by
-// subject (not scrambled together). The JAMB subjects share 40 questions
-// (~10 each for a 4-subject combo), plus 5 Current Affairs and 5 About RSU.
-const JAMB_QUOTA = 40;
-const CURRENT_AFFAIRS_QUOTA = 5;
-const GENERAL_KNOWLEDGE_QUOTA = 5;
+/**
+ * Real RSU Post-UTME shape: EXACTLY 50 questions in 30 minutes, kept SEPARATED
+ * by subject (not scrambled). Verified structure (science example):
+ *   English 10 · Maths 10 · Chemistry 10 · Biology 10 · Physics 5 · General 5 = 50
+ *
+ * So the split is NOT even — most subjects carry ~10, ONE supporting subject is
+ * reduced to 5, and there are 5 "General Knowledge" questions (About RSU +
+ * Current Affairs pooled). The same fixed structure applies to every course;
+ * only the Practice section lets students choose their own count/time.
+ */
+const TOTAL = 50;
+const GENERAL_QUOTA = 5;                 // About RSU + Current Affairs, pooled
+const ACADEMIC_QUOTA = TOTAL - GENERAL_QUOTA; // 45 across the course's subjects
+const MINOR_QUOTA = 5;                    // the one "supporting" subject dropped to 5
+
+// Which subject to reduce to 5 when a course has several — the supporting ones,
+// most-reducible first. Use of English (and the course's core subjects) are
+// never chosen here, so they keep the heavier weighting.
+const MINOR_PRIORITY = [
+  'Physics', 'Geography', 'Commerce', 'Government', 'CRS',
+  'Islamic Religious Knowledge', 'History', 'Literature in English',
+  'Computer Studies', 'Economics', 'Biology', 'Chemistry', 'Mathematics',
+];
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -44,20 +61,46 @@ function toQuestion(q: BankQuestion, idx: number): Question {
 }
 
 /**
+ * Per-subject question quotas for a course, matching the real RSU structure:
+ * 45 academic + 5 general = 50, with one supporting subject reduced to 5.
+ */
+function academicQuotas(namedSlots: string[]): Map<string, number> {
+  const slots = Array.from(new Set(namedSlots)); // de-duplicate (e.g. Law lists a slot twice)
+  const quotas = new Map<string, number>();
+  const n = slots.length;
+  if (n === 0) return quotas;
+  if (n === 1) {
+    quotas.set(slots[0], ACADEMIC_QUOTA);
+    return quotas;
+  }
+
+  // Pick the "minor" slot to reduce to 5.
+  let minorSlot = slots[slots.length - 1]; // fallback: the last-listed subject
+  for (const pref of MINOR_PRIORITY) {
+    const found = slots.find((s) => slotOptions(s).includes(pref));
+    if (found) { minorSlot = found; break; }
+  }
+  quotas.set(minorSlot, MINOR_QUOTA);
+
+  // Spread the remaining 40 across the other subjects (heavier ones first).
+  const majors = slots.filter((s) => s !== minorSlot);
+  const remaining = ACADEMIC_QUOTA - MINOR_QUOTA; // 40
+  const base = Math.floor(remaining / majors.length);
+  let extra = remaining - base * majors.length;
+  majors.forEach((s) => {
+    quotas.set(s, base + (extra > 0 ? 1 : 0));
+    if (extra > 0) extra -= 1;
+  });
+  return quotas;
+}
+
+/**
  * Build a personalized Exam Focus mock for a course, mirroring the real RSU
- * Post-UTME structure:
- *
- *  - 50 questions / 30 minutes
- *  - Questions are GROUPED BY SUBJECT in a fixed order (English section, then
- *    the next subject's section, and so on) — never mixed together. This is
- *    the key difference from the old shuffled format.
- *  - Each subject's own questions are randomised internally for variety.
- *  - `seenIds` (from the student's past attempts) are de-prioritised, so a
- *    retake serves fresh questions first and only repeats once the pool for a
- *    subject is exhausted.
- *
- * Subjects without enough published questions yet are simply shorter rather
- * than blocking the exam, and the gap is reported back.
+ * Post-UTME: 50 questions / 30 minutes, grouped by subject in a fixed order,
+ * with the verified per-subject counts (most subjects ~10, one supporting
+ * subject 5, plus 5 General Knowledge). `seenIds` are de-prioritised so retakes
+ * serve fresh questions first. Subjects short on questions are simply shorter
+ * and reported back rather than blocking the exam.
  */
 export function buildExamFocusTest(
   bank: BankQuestion[],
@@ -65,15 +108,11 @@ export function buildExamFocusTest(
   seenIds: Set<string> = new Set()
 ): ExamBlueprintResult {
   const namedSlots = course.jambSubjects.filter((slot) => !isGenericSlot(slot));
+  const quotas = academicQuotas(namedSlots);
   const gaps: ExamBlueprintGap[] = [];
-  // Grouped, in order: each entry is one subject section's questions.
   const sections: BankQuestion[][] = [];
-  // Prevents the same question appearing twice when slots overlap (e.g. Law's
-  // "two of Government/CRS/History" repeats the same slot string).
   const usedIds = new Set<string>();
 
-  // Take `count` questions from a pool, preferring ones the student hasn't
-  // seen in past attempts, and never reusing one already picked for this exam.
   function take(pool: BankQuestion[], count: number): BankQuestion[] {
     const available = pool.filter((q) => !usedIds.has(q.id));
     const unseen = shuffle(available.filter((q) => !seenIds.has(q.id)));
@@ -83,44 +122,33 @@ export function buildExamFocusTest(
     return chosen;
   }
 
-  if (namedSlots.length > 0) {
-    const perSlot = Math.floor(JAMB_QUOTA / namedSlots.length);
-    let remainder = JAMB_QUOTA - perSlot * namedSlots.length;
+  // Academic subjects, in the course's listed order, at their fixed quotas.
+  Array.from(new Set(namedSlots)).forEach((slot) => {
+    const want = quotas.get(slot) ?? 0;
+    if (want <= 0) return;
+    const chosen = take(poolForSlot(bank, slot), want);
+    if (chosen.length > 0) sections.push(chosen);
+    if (chosen.length < want) gaps.push({ slot, requested: want, available: chosen.length });
+  });
 
-    namedSlots.forEach((slot) => {
-      const want = perSlot + (remainder > 0 ? 1 : 0);
-      if (remainder > 0) remainder -= 1;
-      const pool = poolForSlot(bank, slot);
-      const chosen = take(pool, want);
-      if (chosen.length > 0) sections.push(chosen);
-      if (chosen.length < want) {
-        gaps.push({ slot, requested: want, available: chosen.length });
-      }
-    });
+  // General Knowledge: 5, pooled from Current Affairs + About RSU together.
+  const generalPool = [
+    ...questionsForSubject(bank, 'Current Affairs'),
+    ...questionsForSubject(bank, 'RSU General Knowledge'),
+  ];
+  const general = take(generalPool, GENERAL_QUOTA);
+  if (general.length > 0) sections.push(general);
+  if (general.length < GENERAL_QUOTA) {
+    gaps.push({ slot: 'General Knowledge', requested: GENERAL_QUOTA, available: general.length });
   }
 
-  const currentAffairsPool = questionsForSubject(bank, 'Current Affairs');
-  const currentAffairs = take(currentAffairsPool, CURRENT_AFFAIRS_QUOTA);
-  if (currentAffairs.length > 0) sections.push(currentAffairs);
-  if (currentAffairs.length < CURRENT_AFFAIRS_QUOTA) {
-    gaps.push({ slot: 'Current Affairs', requested: CURRENT_AFFAIRS_QUOTA, available: currentAffairs.length });
-  }
-
-  const generalKnowledgePool = questionsForSubject(bank, 'RSU General Knowledge');
-  const generalKnowledge = take(generalKnowledgePool, GENERAL_KNOWLEDGE_QUOTA);
-  if (generalKnowledge.length > 0) sections.push(generalKnowledge);
-  if (generalKnowledge.length < GENERAL_KNOWLEDGE_QUOTA) {
-    gaps.push({ slot: 'RSU General Knowledge', requested: GENERAL_KNOWLEDGE_QUOTA, available: generalKnowledge.length });
-  }
-
-  // Flatten the subject sections IN ORDER — grouped, not shuffled together.
   const ordered = sections.flat();
   const questions = ordered.map((q, idx) => toQuestion(q, idx));
 
   const test: Test = {
     id: `exam-focus-${course.id}-${Date.now()}`,
     title: `Exam Focus: ${course.name}`,
-    description: `Realistic ${questions.length}-question RSU Post-UTME mock for ${course.name} — subjects grouped just like the real exam, with fresh questions each attempt.`,
+    description: `Realistic ${questions.length}-question RSU Post-UTME mock for ${course.name} — the exact per-subject structure of the real exam, with fresh questions each attempt.`,
     durationMinutes: 30,
     questions,
   };
