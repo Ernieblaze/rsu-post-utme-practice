@@ -16,8 +16,20 @@ interface AuthModalProps {
 
 type Mode = 'signin' | 'signup' | 'forgot';
 
+/** The official multi-colour Google "G" mark. */
+function GoogleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+    </svg>
+  );
+}
+
 export function AuthModal({ open, onClose }: AuthModalProps) {
-  const { signUp, signIn, resetPassword, resendConfirmation } = useAuth();
+  const { signUp, signIn, signInWithGoogle, resetPassword, resendConfirmation } = useAuth();
   const navigate = useNavigate();
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
@@ -31,6 +43,21 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
   const [success, setSuccess] = useState<string | null>(null);
   const inApp = isInAppBrowser();
   const helpLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi, I need help logging in / resetting my password on RSU Post-UTME Practice.')}`;
+
+  async function handleGoogle() {
+    setError(null);
+    setSuccess(null);
+    // Carry any typed referral code into the pending store so it survives the
+    // redirect to Google and attributes when the user returns.
+    if (referralCode.trim()) setPendingReferralCode(referralCode);
+    setSubmitting(true);
+    const result = await signInWithGoogle();
+    if (result.error) {
+      setSubmitting(false);
+      setError(result.error);
+    }
+    // On success the page redirects to Google — no further handling needed.
+  }
 
   async function handleResend() {
     setError(null);
@@ -144,6 +171,25 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   You're in an in-app browser (WhatsApp/TikTok). Login often fails here — tap the ⋮ / share menu and choose "Open in Chrome / Browser", then try again.
                 </span>
               </div>
+            )}
+
+            {mode !== 'forgot' && (
+              <>
+                <button
+                  type="button"
+                  onClick={handleGoogle}
+                  disabled={submitting}
+                  className="flex w-full items-center justify-center gap-2.5 rounded-lg border border-school-green/20 bg-white py-2.5 text-sm font-bold text-school-navy shadow-sm transition hover:bg-school-light disabled:opacity-60 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  <GoogleIcon />
+                  {mode === 'signup' ? 'Sign up with Google' : 'Continue with Google'}
+                </button>
+                <div className="my-3 flex items-center gap-3">
+                  <span className="h-px flex-1 bg-school-green/15 dark:bg-white/10" />
+                  <span className="text-xs font-medium text-school-navy/50 dark:text-slate-400">or use email</span>
+                  <span className="h-px flex-1 bg-school-green/15 dark:bg-white/10" />
+                </div>
+              </>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-3">

@@ -21,6 +21,7 @@ interface AuthContextValue {
   refreshProfile: () => Promise<Profile | null>;
   signUp: (email: string, password: string) => Promise<AuthResult>;
   signIn: (email: string, password: string) => Promise<AuthResult>;
+  signInWithGoogle: () => Promise<AuthResult>;
   signOut: () => Promise<AuthResult>;
   resetPassword: (email: string) => Promise<AuthResult>;
   updatePassword: (newPassword: string) => Promise<AuthResult>;
@@ -181,6 +182,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error ? friendlyAuthError(error.message) : null };
   }
 
+  /**
+   * Sign up / log in with Google. This is a PARALLEL option to the email/password
+   * flow — it never touches existing password accounts. Google redirects back to
+   * the app, then the normal onAuthStateChange → profile-load path runs, so
+   * subscription checks, ACLs and referral attribution all work unchanged.
+   * If the user arrived via a referral link, we mark this as a signup so the
+   * pending referral code attributes on their first login (same as email signup).
+   */
+  async function signInWithGoogle(): Promise<AuthResult> {
+    if (getPendingReferralCode()) {
+      markJustSignedUp();
+    }
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: window.location.origin,
+        queryParams: { prompt: 'select_account' },
+      },
+    });
+    // On success the browser redirects to Google, so nothing else runs here.
+    return { error: error ? friendlyAuthError(error.message) : null };
+  }
+
   async function signOut(): Promise<AuthResult> {
     clearPremiumLocally(); // remove localStorage flag so it doesn't persist to next user
     const { error } = await supabase.auth.signOut();
@@ -228,6 +252,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     refreshProfile,
     signUp,
     signIn,
+    signInWithGoogle,
     signOut,
     resetPassword,
     updatePassword,
