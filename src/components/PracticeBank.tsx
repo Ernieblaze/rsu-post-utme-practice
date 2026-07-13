@@ -7,6 +7,8 @@ import { relevantBankSubjects } from '../data/subjectMatch';
 import { filterForPractice, buildPracticeTest } from '../data/practiceBuilder';
 import { getSelectedCourseId, setSelectedCourseId, clearSelectedCourseId } from '../lib/courseSelection';
 import { categoryForSubject } from '../data/questionBank';
+import { getSeenQuestionIds, recordSeenQuestionIds } from '../lib/examHistory';
+import { useAuth } from '../context/AuthContext';
 import { CoursePicker, CourseSummaryCard } from './CourseSelector';
 
 interface PracticeBankProps {
@@ -112,6 +114,7 @@ function PracticeForm({
   courseSubjects: string[] | null;
   onStart: (test: Test) => void;
 }) {
+  const { user } = useAuth();
   const defaultSubjects = courseSubjects ?? allSubjects;
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>(defaultSubjects);
   const [topic, setTopic] = useState('all');
@@ -148,18 +151,23 @@ function PracticeForm({
 
   function start() {
     setError('');
-    const test = buildPracticeTest(
+    // Serve fresh questions the student hasn't seen before (across Exam Focus AND
+    // Practice), so every session keeps rotating through the bank.
+    const seen = getSeenQuestionIds(user?.id ?? null);
+    const result = buildPracticeTest(
       bank,
       { subjects: selectedSubjects, topics: topic === 'all' ? [] : [topic] },
       count,
       timed ? minutes : UNTIMED_MINUTES,
-      `Practice: ${selectedSubjects.length === allSubjects.length ? 'All subjects' : selectedSubjects.join(', ')}`
+      `Practice: ${selectedSubjects.length === allSubjects.length ? 'All subjects' : selectedSubjects.join(', ')}`,
+      seen
     );
-    if (!test) {
+    if (!result) {
       setError('No questions match these filters. Try selecting more subjects or clearing the topic filter.');
       return;
     }
-    onStart(test);
+    recordSeenQuestionIds(user?.id ?? null, result.usedIds);
+    onStart(result.test);
   }
 
   return (
