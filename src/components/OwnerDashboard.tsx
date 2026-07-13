@@ -77,6 +77,16 @@ interface LiveRow {
   updated_at: string;
 }
 
+interface PayoutRow {
+  id: string;
+  referrer_id: string | null;
+  username: string | null;
+  email: string | null;
+  amount: number; // kobo
+  note: string | null;
+  paid_at: string;
+}
+
 function timeAgo(iso: string): string {
   const s = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
   if (s < 60) return `${s}s ago`;
@@ -106,6 +116,14 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
   const [live, setLive] = useState<LiveRow[]>([]);
   const [liveLoading, setLiveLoading] = useState(true);
   const [liveError, setLiveError] = useState<string | null>(null);
+  const [payouts, setPayouts] = useState<PayoutRow[]>([]);
+
+  function loadPayouts() {
+    supabase.rpc('get_referral_payouts', { limit_n: 20 }).then(({ data }) => {
+      if (Array.isArray(data)) setPayouts(data as PayoutRow[]);
+    });
+  }
+  useEffect(() => { loadPayouts(); }, []);
 
   // Privacy toggle — hide sensitive figures when showing the dashboard to others.
   const [hideNumbers, setHideNumbers] = useState<boolean>(() => {
@@ -268,15 +286,50 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
 
     if (!updateError) {
       if (status === 'paid' && request?.user_id) {
-        const { data: payee } = await supabase
-          .from('profiles')
-          .select('referral_balance')
-          .eq('id', request.user_id)
-          .single();
-        const newBalance = Math.max(0, (payee?.referral_balance ?? 0) - request.amount);
-        await supabase.from('profiles').update({ referral_balance: newBalance }).eq('id', request.user_id);
+        // A direct profiles update is blocked by the protect_sensitive_profile_columns
+        // trigger, so decrement the balance through the admin RPC (which also logs it).
+        const { data: newBalance, error: payErr } = await supabase.rpc('admin_pay_referral', {
+          target_id: request.user_id,
+          amount_paid: request.amount,
+          payout_note: 'Withdrawal request',
+        });
+        if (payErr) {
+          window.alert('Marked paid, but the balance could not be updated: ' + payErr.message);
+        } else {
+          const uid = request.user_id;
+          setUsers((prev) => prev.map((u) => (u.id === uid ? { ...u, referral_balance: (newBalance as number) ?? 0 } : u)));
+          loadPayouts();
+        }
       }
       setWithdrawals((prev) => prev.map((w) => (w.id === id ? { ...w, status } : w)));
+    }
+    setActingOn(null);
+  }
+
+  /**
+   * Mark a referrer as PAID after you've sent them the money (e.g. by bank
+   * transfer) — logs the payout and resets their referral balance to zero, so
+   * they drop off the top of the referrers list. Uses the admin RPC because a
+   * direct balance update is blocked by the sensitive-columns trigger.
+   */
+  async function payReferrer(u: UserRow) {
+    const amount = u.referral_balance ?? 0;
+    if (amount <= 0) return;
+    const who = u.username || u.email || 'this user';
+    if (!window.confirm(
+      `Mark ${who} as PAID and reset their ₦${(amount / 100).toLocaleString()} referral balance to zero?\n\nOnly do this AFTER you have actually sent them the money.`
+    )) return;
+    setActingOn(u.id);
+    const { data: newBalance, error } = await supabase.rpc('admin_pay_referral', {
+      target_id: u.id,
+      amount_paid: amount,
+      payout_note: 'Manual payout',
+    });
+    if (error) {
+      window.alert('Could not record the payout: ' + error.message);
+    } else {
+      setUsers((prev) => prev.map((x) => (x.id === u.id ? { ...x, referral_balance: (newBalance as number) ?? 0 } : x)));
+      loadPayouts();
     }
     setActingOn(null);
   }
@@ -1158,6 +1211,52 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
                     </div>
                     <span className="flex-none font-bold text-school-green">
                       ₦{((u.referral_balance ?? 0) / 100).toLocaleString()} earned
+                    </span>
+                    <button
+                      onClick={() => payReferrer(u)}
+                      disabled={actingOn === u.id || (u.referral_balance ?? 0) <= 0}
+                      className="flex-none inline-flex items-center gap-1.5 rounded-lg bg-school-green px-3 py-1.5 text-xs font-bold text-white hover:bg-school-green/90 disabled:opacity-40"
+                    >
+                      <Check size={13} /> {actingOn === u.id ? '…' : 'Mark as paid'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.section>
+
+          {/* ── Referral payouts log (money you've already sent out) ── */}
+          <motion.section
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 rounded-2xl border border-school-border bg-school-surface shadow-sm dark:border-school-green/20 dark:bg-school-navy/40"
+          >
+            <div className="flex items-center justify-between border-b border-school-border px-5 py-4 dark:border-school-green/20">
+              <div className="flex items-center gap-2">
+                <Send size={18} className="text-school-green" />
+                <h2 className="font-sora text-lg font-semibold text-school-navy dark:text-white">Recent Payouts</h2>
+              </div>
+              <span className="text-sm font-medium text-school-muted">
+                ₦{hideNumbers ? hidden : (payouts.reduce((s, p) => s + (p.amount ?? 0), 0) / 100).toLocaleString()} paid out
+              </span>
+            </div>
+            {payouts.length === 0 ? (
+              <p className="px-5 py-8 text-center text-sm text-school-muted">
+                No payouts yet. When you tap “Mark as paid” on a referrer, it's recorded here.
+              </p>
+            ) : (
+              <div className="divide-y divide-school-border dark:divide-school-green/20">
+                {payouts.map((p) => (
+                  <div key={p.id} className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate font-semibold text-school-navy dark:text-white">
+                        {p.username || p.email?.split('@')[0] || '—'}
+                        {p.note && <span className="ml-1.5 text-[10px] font-normal text-school-muted">· {p.note}</span>}
+                      </div>
+                      <div className="truncate text-xs text-school-muted">{formatDateTime(p.paid_at)}</div>
+                    </div>
+                    <span className="flex-none font-bold text-school-green">
+                      ₦{hideNumbers ? hidden : (p.amount / 100).toLocaleString()} paid
                     </span>
                   </div>
                 ))}
