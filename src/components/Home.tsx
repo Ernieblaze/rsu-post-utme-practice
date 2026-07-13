@@ -47,11 +47,11 @@ const TESTIMONIALS = [
 const LEADERBOARD = [
   { name: 'Emeka N.', amount: 15000 },
   { name: 'Favour A.', amount: 10000 },
-  { name: 'David O.', amount: 5600 },
+  { name: 'David O.', amount: 5500 },
 ];
 
 // Latest referrer who has actually been paid out — real proof that the program pays.
-const RECENTLY_PAID = { name: 'David O.', amount: 5600 };
+const RECENTLY_PAID = { name: 'Telee', amount: 6500 };
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
