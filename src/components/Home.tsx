@@ -47,8 +47,11 @@ const TESTIMONIALS = [
 const LEADERBOARD = [
   { name: 'Emeka N.', amount: 15000 },
   { name: 'Favour A.', amount: 10000 },
-  { name: 'David O.', amount: 5500 },
+  { name: 'David O.', amount: 5600 },
 ];
+
+// Latest referrer who has actually been paid out — real proof that the program pays.
+const RECENTLY_PAID = { name: 'David O.', amount: 5600 };
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
@@ -494,6 +497,18 @@ export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
                   <span className="font-sora font-bold text-school-gold">₦{r.amount.toLocaleString()}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Recently paid out — proof the program really pays */}
+            <div className="mt-3 flex items-center justify-between rounded-xl bg-emerald-400/15 px-4 py-3 ring-1 ring-emerald-300/30">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-emerald-400 text-sm text-school-navy">💸</span>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-200">Recently paid out</p>
+                  <p className="truncate font-semibold">{RECENTLY_PAID.name}</p>
+                </div>
+              </div>
+              <span className="font-sora font-bold text-emerald-300">₦{RECENTLY_PAID.amount.toLocaleString()} ✅</span>
             </div>
           </div>
 
