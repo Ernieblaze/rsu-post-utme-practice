@@ -20254,25 +20254,6 @@
     "explanation": "The intersection P ∩ Q contains elements common to both sets. Comparing P and Q, only 3 and 4 appear in both."
   },
   {
-    "id": "q-1782936257520-be8yiw",
-    "university": "Rivers State University",
-    "year": "General",
-    "subject": "Mathematics",
-    "topic": "",
-    "difficulty": "medium",
-    "type": "single",
-    "text": "If P = {1,2,3,4} and Q = {3,4,5,6}, find P ∪ Q.",
-    "options": {
-      "A": "{3,4}",
-      "B": "{1,2,3,4}",
-      "C": "{1,2,3,4,5,6}",
-      "D": "{5,6}",
-      "E": ""
-    },
-    "answer": "C",
-    "explanation": "The union P ∪ Q contains all elements from both sets without repetition: {1,2,3,4,5,6}."
-  },
-  {
     "id": "q-1782936257520-i4s3cv",
     "university": "Rivers State University",
     "year": "General",
@@ -60019,25 +60000,6 @@
     },
     "answer": "B",
     "explanation": "Impedance is measured in ohms, voltage in volts, and frequency in hertz."
-  },
-  {
-    "id": "seed-exam-2010-36",
-    "university": "Rivers State University",
-    "year": "2010",
-    "subject": "About RSU & Rules",
-    "topic": "",
-    "difficulty": "medium",
-    "type": "single",
-    "text": "The head of Department, Dean of Faculty, Faculty Examination Officer, and Secretary to the Faculty Board retain copies of the results of all students to avoid unofficial releases of results.",
-    "options": {
-      "A": "true",
-      "B": "false",
-      "C": "not stated",
-      "D": "partly true",
-      "E": "none of the above"
-    },
-    "answer": "A",
-    "explanation": "According to the answer key, this statement is true."
   },
   {
     "id": "seed-exam-2010-37",

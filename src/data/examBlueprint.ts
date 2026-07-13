@@ -112,13 +112,18 @@ export function buildExamFocusTest(
   const gaps: ExamBlueprintGap[] = [];
   const sections: BankQuestion[][] = [];
   const usedIds = new Set<string>();
+  const usedTexts = new Set<string>(); // guards against duplicate CONTENT (same text, different id)
+
+  const normText = (t: string) => t.trim().toLowerCase().replace(/\s+/g, ' ');
 
   function take(pool: BankQuestion[], count: number): BankQuestion[] {
-    const available = pool.filter((q) => !usedIds.has(q.id));
+    // Exclude anything already used in this exam — by id AND by wording, so two
+    // differently-keyed but identically-worded questions can never both appear.
+    const available = pool.filter((q) => !usedIds.has(q.id) && !usedTexts.has(normText(q.text)));
     const unseen = shuffle(available.filter((q) => !seenIds.has(q.id)));
     const seen = shuffle(available.filter((q) => seenIds.has(q.id)));
     const chosen = [...unseen, ...seen].slice(0, count);
-    chosen.forEach((q) => usedIds.add(q.id));
+    chosen.forEach((q) => { usedIds.add(q.id); usedTexts.add(normText(q.text)); });
     return chosen;
   }
 
@@ -131,12 +136,25 @@ export function buildExamFocusTest(
     if (chosen.length < want) gaps.push({ slot, requested: want, available: chosen.length });
   });
 
-  // General Knowledge: 5, pooled from Current Affairs + About RSU together.
-  const generalPool = [
-    ...questionsForSubject(bank, 'Current Affairs'),
-    ...questionsForSubject(bank, 'RSU General Knowledge'),
+  // General Knowledge: 5 questions that are a GUARANTEED MIX of "About RSU"
+  // (questions about the school) and Nigeria Current Affairs — the real exam
+  // blends both, so we draw a fixed share from each rather than sampling one
+  // combined pool (which, with far more current-affairs questions, would often
+  // return zero RSU questions). If either pool is short, we backfill from the
+  // other so the section still totals 5.
+  const RSU_GK_SHARE = 2; // at least 2 "about the school" questions
+  let general = [
+    ...take(questionsForSubject(bank, 'RSU General Knowledge'), RSU_GK_SHARE),
+    ...take(questionsForSubject(bank, 'Current Affairs'), GENERAL_QUOTA - RSU_GK_SHARE),
   ];
-  const general = take(generalPool, GENERAL_QUOTA);
+  if (general.length < GENERAL_QUOTA) {
+    const backfill = [
+      ...questionsForSubject(bank, 'Current Affairs'),
+      ...questionsForSubject(bank, 'RSU General Knowledge'),
+    ];
+    general = [...general, ...take(backfill, GENERAL_QUOTA - general.length)];
+  }
+  general = shuffle(general); // interleave RSU + current affairs so it reads as one mixed section
   if (general.length > 0) sections.push(general);
   if (general.length < GENERAL_QUOTA) {
     gaps.push({ slot: 'General Knowledge', requested: GENERAL_QUOTA, available: general.length });
