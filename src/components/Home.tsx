@@ -50,8 +50,11 @@ const LEADERBOARD = [
   { name: 'David O.', amount: 5500 },
 ];
 
-// Latest referrer who has actually been paid out — real proof that the program pays.
-const RECENTLY_PAID = { name: 'Telee', amount: 6500 };
+// Referrers who have actually been paid out — real proof that the program pays.
+const RECENTLY_PAID_OUT = [
+  { name: 'Telee', amount: 6500 },
+  { name: 'John Paul', amount: 5000 },
+];
 import { motion } from 'framer-motion';
 import type { Attempt } from '../types';
 import { formatDate, formatTime } from '../lib/helpers';
@@ -500,15 +503,18 @@ export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
             </div>
 
             {/* Recently paid out — proof the program really pays */}
-            <div className="mt-3 flex items-center justify-between rounded-xl bg-emerald-400/15 px-4 py-3 ring-1 ring-emerald-300/30">
-              <div className="flex min-w-0 items-center gap-3">
-                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-emerald-400 text-sm text-school-navy">💸</span>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-200">Recently paid out</p>
-                  <p className="truncate font-semibold">{RECENTLY_PAID.name}</p>
-                </div>
+            <div className="mt-3 rounded-xl bg-emerald-400/15 px-4 py-3 ring-1 ring-emerald-300/30">
+              <p className="mb-2 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-emerald-200">
+                💸 Recently paid out
+              </p>
+              <div className="space-y-2">
+                {RECENTLY_PAID_OUT.map((p) => (
+                  <div key={p.name} className="flex items-center justify-between">
+                    <span className="truncate font-semibold">{p.name}</span>
+                    <span className="font-sora font-bold text-emerald-300">₦{p.amount.toLocaleString()} ✅</span>
+                  </div>
+                ))}
               </div>
-              <span className="font-sora font-bold text-emerald-300">₦{RECENTLY_PAID.amount.toLocaleString()} ✅</span>
             </div>
           </div>
 
