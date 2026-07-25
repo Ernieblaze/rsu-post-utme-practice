@@ -483,7 +483,7 @@ export function Home({ attempts, onViewProgress, onReviseSubject }: HomeProps) {
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/85">
             Refer your friends to the app and earn <strong className="text-school-gold">₦500</strong> for every one who
-            subscribes to Premium. Once you reach ₦5,000, you can <strong>withdraw directly to your bank</strong>.
+            subscribes to Premium. Once you reach ₦5,000, you can <strong>request a payout</strong> (reviewed &amp; paid manually).
           </p>
 
           <div className="mt-5">

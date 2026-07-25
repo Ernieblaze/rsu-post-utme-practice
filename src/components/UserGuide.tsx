@@ -151,7 +151,8 @@ export function UserGuide() {
         <p className="text-sm leading-relaxed text-school-navy/80 dark:text-slate-300">
           From your Dashboard, copy your personal referral link and share it. When someone signs up through your
           link and pays for premium, you earn <strong className="text-school-navy dark:text-white">25% of what they paid</strong> as
-          a balance you can withdraw to your bank account once it reaches <strong className="text-school-navy dark:text-white">₦5,000</strong>.
+          a balance you can request as a payout once it reaches <strong className="text-school-navy dark:text-white">₦5,000</strong>. Every payout
+          request is reviewed and paid out manually — it is not an automatic bank transfer.
         </p>
       </Section>
 

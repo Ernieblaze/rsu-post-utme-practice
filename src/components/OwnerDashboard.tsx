@@ -291,7 +291,7 @@ export function OwnerDashboard({ onBack }: OwnerDashboardProps) {
         const { data: newBalance, error: payErr } = await supabase.rpc('admin_pay_referral', {
           target_id: request.user_id,
           amount_paid: request.amount,
-          payout_note: 'Withdrawal request',
+          payout_note: 'Payout request',
         });
         if (payErr) {
           window.alert('Marked paid, but the balance could not be updated: ' + payErr.message);

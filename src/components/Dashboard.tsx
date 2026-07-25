@@ -421,7 +421,7 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
             {referralLoading
               ? 'Loading…'
               : hasPendingRequest
-              ? 'You have a payment request pending review.'
+              ? 'You have a payout request pending manual review.'
               : availableKobo <= 0
               ? 'No earnings available yet.'
               : belowMinimum
@@ -471,9 +471,12 @@ export function Dashboard({ onBack, onUpgrade }: DashboardProps) {
               disabled={availableKobo <= 0 || hasPendingRequest || belowMinimum}
               className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-school-green px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-40"
             >
-              <Send size={14} /> Request payment
+              <Send size={14} /> Request payout
             </button>
           )}
+          <p className="mt-2 text-[11px] leading-snug text-school-muted">
+            Payout requests are reviewed and sent manually — this is not an automatic bank transfer.
+          </p>
           {withdrawals.length > 0 && (
             <div className="mt-4 border-t border-school-border pt-3 dark:border-school-green/20">
               <p className="mb-2 text-xs font-bold uppercase tracking-wider text-school-muted">Payout history</p>
