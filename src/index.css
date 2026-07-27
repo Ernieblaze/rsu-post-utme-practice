@@ -22,7 +22,15 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
+
+/* App-feel: no rubber-band scroll chaining; controls don't select like text. */
+body { overscroll-behavior-y: none; }
+button, [role="button"] { -webkit-user-select: none; user-select: none; }
+/* iOS home-indicator safe area for a bottom nav bar. */
+.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 0.25rem); }
 
 body {
   font-family: var(--font-sora);

@@ -62,9 +62,30 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "xclndyek9y");
     </script>
+    <style>
+      /* Launch splash — shown until React mounts into #root, then replaced. */
+      #am-splash{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+        background:radial-gradient(120% 90% at 50% 38%, #17335c 0%, #0a172b 70%);z-index:9999;animation:am-fade .4s ease both}
+      #am-splash svg{width:96px;height:96px;animation:am-rise .5s cubic-bezier(.2,.8,.2,1) both}
+      #am-splash .am-wm{font-family:'Sora',system-ui,sans-serif;font-weight:800;font-size:26px;letter-spacing:-.5px;color:#fff;animation:am-rise .5s .06s cubic-bezier(.2,.8,.2,1) both}
+      #am-splash .am-wm b{color:#f4b400;font-weight:800}
+      @keyframes am-fade{from{opacity:0}to{opacity:1}}
+      @keyframes am-rise{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+      @media (prefers-reduced-motion: reduce){#am-splash,#am-splash svg,#am-splash .am-wm{animation:none}}
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="am-splash">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="512" height="512" rx="116" fill="#0f2038"/>
+          <g stroke="#f4b400" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M168 368 L256 150"/><path d="M256 150 L344 368"/><path d="M208 300 L300 286"/>
+          </g>
+        </svg>
+        <div class="am-wm">Admit<b>Me</b></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

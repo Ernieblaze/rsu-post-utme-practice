@@ -33,6 +33,10 @@ import { AiTutor } from './components/AiTutor';
 import { AdmissionPredictor } from './components/AdmissionPredictor';
 import { AdmitMeHub } from './components/AdmitMeHub';
 import { PLATFORM_HEAD, RSU_HOME } from './config/admitme';
+import { BottomTabBar } from './components/BottomTabBar';
+
+/** Core RSU app views where the mobile bottom tab bar appears. */
+const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboard', 'dashboard', 'ai-tutor', 'predictor', 'daily', 'exam-focus']);
 import { JambPractice } from './components/JambPractice';
 import { WaecSection } from './components/WaecSection';
 import { UniportSection } from './components/UniportSection';
@@ -367,8 +371,10 @@ function AppContent() {
     }
   }
 
+  const showTabBar = TABBAR_VIEWS.has(view);
+
   return (
-    <div className="min-h-screen bg-school-radial text-school-navy">
+    <div className={`min-h-screen bg-school-radial text-school-navy ${showTabBar ? 'pb-16 sm:pb-0' : ''}`}>
       <ScrollToTop />
       <InAppBrowserBanner />
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WelcomeModal />}
@@ -761,6 +767,8 @@ function AppContent() {
 
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <Footer onNavigate={navigate} />}
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WhatsAppButton />}
+
+      {showTabBar && <BottomTabBar currentView={view} onNavigate={routerNavigate} />}
 
       <AuthModal
         open={authModalOpen}
