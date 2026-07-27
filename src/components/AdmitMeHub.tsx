@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
-  GraduationCap, Target, BookOpen, ArrowRight, Bell, CheckCircle2, Clock,
+  GraduationCap, Target, BookOpen, ArrowRight, CheckCircle2, Clock,
   Lightbulb, BarChart3, Star, ShieldCheck, Wallet, Award, Layers, TrendingUp, Sparkles,
-  ChevronDown, Building2, MessageCircle,
+  ChevronDown, Building2, MessageCircle, Bot, Send,
 } from 'lucide-react';
-import { COMPANY, EXAMS, type ExamCategory, type ExamOffering } from '../config/admitme';
+import { COMPANY } from '../config/admitme';
 import { WHATSAPP_NUMBER } from '../lib/support';
+import { supabase } from '../lib/supabaseClient';
 import { SectionShell } from './SectionShell';
 
 /* ── Brand system: Trust Navy + Gold ── */
@@ -17,25 +19,17 @@ const T = {
   gold: '#C68A12',     // accent text on light (WCAG-safe)
   goldFill: '#F4B400', // button fills (navy text on top)
   bg: '#F8FAFC',
-  muted: '#475569',
   line: '#E2E8F0',
 };
 const FONT_BODY = "'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-const CATEGORY_META: Record<ExamCategory, { title: string; icon: typeof Target }> = {
-  'post-utme': { title: 'Post-UTME', icon: GraduationCap },
-  jamb: { title: 'JAMB (UTME)', icon: Target },
-  waec: { title: 'WAEC (SSCE)', icon: BookOpen },
-};
-const ORDER: ExamCategory[] = ['post-utme', 'jamb', 'waec'];
-
-const EXAM_DETAIL: Record<string, { icon: typeof Target; pitch: string; features: string[]; cta: string }> = {
-  'rsu-post-utme': { icon: GraduationCap, pitch: 'Rivers State University screening — the full experience.', features: ['Course-based mock exams', '3,000+ real past questions', 'Score prediction + AI tutor'], cta: 'Enter RSU Post-UTME' },
-  'uniport-post-utme': { icon: GraduationCap, pitch: 'University of Port Harcourt screening prep.', features: ['Built for your exact course', 'Real past questions', 'Timed mock exams'], cta: 'Explore UniPort' },
-  jamb: { icon: Target, pitch: 'The national UTME — practise the real format.', features: ['English + your 3 subjects', '180-question timed mock', 'Explanation on every answer'], cta: 'Enter JAMB' },
-  waec: { icon: BookOpen, pitch: 'Your O-Level (SSCE), made easy.', features: ['Objectives + theory prep', 'Science, Arts & Commercial', 'Practice by subject'], cta: 'Explore WAEC' },
-};
+/* The three sections — one unified look, side by side. */
+const SECTIONS = [
+  { key: 'waec', name: 'WAEC', tag: 'SSCE', sub: 'Science · Arts · Commercial tracks', icon: BookOpen, path: '/waec', cta: 'Explore WAEC', status: 'New' },
+  { key: 'jamb', name: 'JAMB', tag: 'UTME', sub: 'Your combination · 180-question CBT mock', icon: Target, path: '/jamb', cta: 'Enter JAMB', status: 'Live' },
+  { key: 'post-utme', name: 'Post-UTME', tag: 'By school', sub: 'Pick your university · its exact format', icon: GraduationCap, path: '/post-utme', cta: 'Pick your school', status: 'Live' },
+];
 
 const OFFERS = [
   { icon: Layers, title: 'Custom Practice', body: 'Drill any subjects & topics, timed or untimed, as much as you like.' },
@@ -69,11 +63,6 @@ const FAQS = [
   { q: 'How do I pay?', a: 'Securely with Paystack (card or bank transfer) right inside the app — your access unlocks instantly.' },
 ];
 
-function notifyLink(exam: ExamOffering): string {
-  const msg = `Hi! Please notify me when ${exam.name} is ready on ${COMPANY.name}. 🙏`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-}
-
 export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate();
 
@@ -91,13 +80,12 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
         theme={{ primary: T.navy, light: T.goldFill }}
         brandName="Admit" brandAccent="Me"
         currentExamId="admitme"
-        navItems={[{ label: 'What we offer', to: '#offers' }, { label: 'Exams', to: '#exams' }, { label: 'How it works', to: '#how' }]}
+        navItems={[{ label: 'What we offer', to: '#offers' }, { label: 'Exams', to: '#exams' }, { label: 'AI tutor', to: '#ai' }]}
         onLogin={onLogin}
       />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden" style={{ background: `linear-gradient(180deg, ${T.navy} 0%, ${T.navy2} 62%, #1c3a63 100%)` }}>
-        {/* ambient gold glow */}
         <div className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full opacity-25 blur-3xl" style={{ background: T.goldFill }} />
         <div className="pointer-events-none absolute right-0 top-1/3 h-80 w-80 rounded-full opacity-10 blur-3xl" style={{ background: '#60a5fa' }} />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
@@ -112,11 +100,7 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
               WAEC, JAMB and Post-UTME in one place — real past questions, timed mock exams that copy the real thing, and an explanation on every answer.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <motion.button
-                onClick={onLogin} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 font-sora text-base font-bold shadow-lg"
-                style={{ background: T.goldFill, color: T.navy, boxShadow: `0 16px 40px -12px ${T.goldFill}` }}
-              >
+              <motion.button onClick={onLogin} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 font-sora text-base font-bold shadow-lg" style={{ background: T.goldFill, color: T.navy, boxShadow: `0 16px 40px -12px ${T.goldFill}` }}>
                 Start free <ArrowRight size={18} />
               </motion.button>
               <a href="#exams" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-3.5 font-sora text-base font-bold text-white transition hover:bg-white/10">
@@ -130,10 +114,8 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
               <span className="text-sm font-semibold text-slate-300">Trusted by students across Nigeria</span>
             </div>
           </motion.div>
-
           <HeroPhone />
         </div>
-        {/* soft fade into page */}
         <div className="h-8 w-full" style={{ background: 'linear-gradient(180deg, transparent, #fff)' }} />
       </section>
 
@@ -181,37 +163,29 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
         </div>
       </section>
 
-      {/* ── Choose your exam ── */}
+      {/* ── Choose your exam — three unified cards, side by side ── */}
       <section id="exams" className="scroll-mt-24 py-16" style={{ background: T.bg }}>
         <div className="mx-auto max-w-6xl px-4">
           <Reveal className="mb-10 text-center">
             <p className="font-sora text-xs font-bold uppercase tracking-[0.2em]" style={{ color: T.gold }}>Our exams</p>
-            <h2 className="mt-2 font-sora text-3xl font-extrabold text-slate-900 sm:text-4xl">Choose your section — step into your exam</h2>
-            <p className="mt-2 text-slate-600">Each one is a full, dedicated space built just for that exam.</p>
+            <h2 className="mt-2 font-sora text-3xl font-extrabold text-slate-900 sm:text-4xl">Choose your exam</h2>
+            <p className="mt-2 text-slate-600">Three sections, one account. Tap in and start.</p>
           </Reveal>
-          {ORDER.map((cat) => {
-            const meta = CATEGORY_META[cat];
-            const Icon = meta.icon;
-            const offerings = EXAMS.filter((e) => e.category === cat);
-            if (offerings.length === 0) return null;
-            return (
-              <div key={cat} className="mb-9">
-                <div className="mb-3 flex items-center gap-2.5">
-                  <Icon size={18} style={{ color: T.navy }} />
-                  <h3 className="font-sora text-sm font-bold uppercase tracking-widest text-slate-600">{meta.title}</h3>
-                </div>
-                <div className="grid gap-5 md:grid-cols-2">
-                  {cat === 'post-utme' ? (
-                    <Reveal className="md:col-span-2"><PostUtmeGateway schools={offerings} onEnter={() => navigate('/post-utme')} /></Reveal>
-                  ) : (
-                    offerings.map((exam, i) => (
-                      <Reveal key={exam.id} delay={i * 0.06}><BigExamCard exam={exam} onEnter={() => navigate(exam.path ?? '/')} /></Reveal>
-                    ))
-                  )}
-                </div>
-              </div>
-            );
-          })}
+          <div className="grid gap-5 sm:grid-cols-3">
+            {SECTIONS.map((s, i) => (
+              <Reveal key={s.key} delay={i * 0.07}><SectionCard section={s} onEnter={() => navigate(s.path)} /></Reveal>
+            ))}
+          </div>
+
+          {/* ── AI chatbot, below the sections ── */}
+          <div id="ai" className="mt-12 scroll-mt-24">
+            <Reveal className="mb-5 text-center">
+              <p className="font-sora text-xs font-bold uppercase tracking-[0.2em]" style={{ color: T.gold }}>AI study helper</p>
+              <h2 className="mt-2 font-sora text-3xl font-extrabold text-slate-900 sm:text-4xl">Stuck on a question? Just ask.</h2>
+              <p className="mt-2 text-slate-600">Our AI tutor explains anything, in any subject — clearly and simply.</p>
+            </Reveal>
+            <Reveal><HubAiChat onLogin={onLogin} /></Reveal>
+          </div>
         </div>
       </section>
 
@@ -257,7 +231,7 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {STEPS.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.08}>
-                <div className="relative h-full rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
+                <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
                   <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl font-sora text-lg font-extrabold" style={{ background: T.goldFill, color: T.navy }}>{s.n}</div>
                   <h3 className="font-sora text-lg font-bold text-slate-900">{s.title}</h3>
                   <p className="mt-1.5 text-sm text-slate-600">{s.body}</p>
@@ -350,24 +324,43 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
   );
 }
 
-/* ── Scroll-reveal wrapper (fade + rise on enter; reduced-motion safe) ── */
+/* ── Scroll-reveal wrapper ── */
 function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, delay, ease: EASE }}
-    >
+    <motion.div className={className} initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55, delay, ease: EASE }}>
       {children}
     </motion.div>
   );
 }
 
-/* ── Hero device mockup: a phone showing the AdmitMe app, gently floating ── */
+/* ── Unified exam card (same navy+gold look for all three) ── */
+function SectionCard({ section, onEnter }: { section: typeof SECTIONS[number]; onEnter: () => void }) {
+  const Icon = section.icon;
+  return (
+    <motion.button
+      onClick={onEnter}
+      whileHover={{ y: -5 }} whileTap={{ scale: 0.99 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 26 }}
+      className="group flex h-full w-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm hover:shadow-xl"
+    >
+      <div className="flex items-center justify-between">
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: T.navy, color: T.goldFill }}><Icon size={24} /></span>
+        <span className="rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide" style={{ background: '#fdf4dc', color: T.gold }}>{section.status}</span>
+      </div>
+      <h3 className="mt-4 font-sora text-xl font-extrabold text-slate-900">{section.name}</h3>
+      <p className="mt-0.5 text-xs font-bold uppercase tracking-wider" style={{ color: T.gold }}>{section.tag}</p>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{section.sub}</p>
+      <span className="mt-4 inline-flex items-center gap-1.5 font-sora text-sm font-bold" style={{ color: T.navy }}>
+        {section.cta}
+        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" style={{ color: T.gold }} />
+      </span>
+    </motion.button>
+  );
+}
+
+/* ── Hero device mockup ── */
 function HeroPhone() {
   const reduce = useReducedMotion();
   const tiles = [
@@ -376,16 +369,8 @@ function HeroPhone() {
     { n: 'Post-UTME', d: 'Pick your school', c: '#046a38' },
   ];
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-      className="relative mx-auto hidden w-[270px] lg:block"
-    >
-      <motion.div
-        animate={reduce ? undefined : { y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="rounded-[2.2rem] p-3 shadow-2xl"
-        style={{ background: '#0b1526', boxShadow: '0 40px 80px -30px rgba(0,0,0,.7)' }}
-      >
+    <motion.div initial={{ opacity: 0, y: 30, rotate: -2 }} animate={{ opacity: 1, y: 0, rotate: 0 }} transition={{ duration: 0.7, ease: EASE, delay: 0.1 }} className="relative mx-auto hidden w-[270px] lg:block">
+      <motion.div animate={reduce ? undefined : { y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="rounded-[2.2rem] p-3 shadow-2xl" style={{ background: '#0b1526', boxShadow: '0 40px 80px -30px rgba(0,0,0,.7)' }}>
         <div className="overflow-hidden rounded-[1.7rem] bg-white">
           <div className="px-4 pb-4 pt-5 text-white" style={{ background: `linear-gradient(135deg, ${T.navy}, ${T.navy2})` }}>
             <div className="font-sora text-[15px] font-extrabold">Admit<span style={{ color: T.goldFill }}>Me</span></div>
@@ -406,7 +391,6 @@ function HeroPhone() {
           </div>
         </div>
       </motion.div>
-      {/* floating stat chips */}
       <FloatChip className="-left-6 top-16" icon={<BookOpen size={14} />} title="3,000+" sub="questions" />
       <FloatChip className="-right-6 bottom-24" icon={<CheckCircle2 size={14} />} title="Real" sub="exam feel" />
     </motion.div>
@@ -416,11 +400,7 @@ function HeroPhone() {
 function FloatChip({ className, icon, title, sub }: { className: string; icon: ReactNode; title: string; sub: string }) {
   const reduce = useReducedMotion();
   return (
-    <motion.div
-      animate={reduce ? undefined : { y: [0, 8, 0] }}
-      transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-      className={`absolute flex items-center gap-2 rounded-2xl bg-white px-3 py-2 shadow-xl ${className}`}
-    >
+    <motion.div animate={reduce ? undefined : { y: [0, 8, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }} className={`absolute flex items-center gap-2 rounded-2xl bg-white px-3 py-2 shadow-xl ${className}`}>
       <span className="flex h-8 w-8 items-center justify-center rounded-xl" style={{ background: T.navy, color: T.goldFill }}>{icon}</span>
       <div className="leading-tight">
         <div className="font-sora text-sm font-extrabold text-slate-900">{title}</div>
@@ -430,79 +410,93 @@ function FloatChip({ className, icon, title, sub }: { className: string; icon: R
   );
 }
 
-function PostUtmeGateway({ schools, onEnter }: { schools: ExamOffering[]; onEnter: () => void }) {
-  const accent = '#046a38';
-  const liveCount = schools.filter((s) => s.status === 'live').length;
+/* ── Embedded AI chat: reuses the ai-chat backend; invites sign-up when locked ── */
+interface Msg { role: 'user' | 'assistant'; content: string }
+function HubAiChat({ onLogin }: { onLogin: () => void }) {
+  const reduce = useReducedMotion();
+  const [messages, setMessages] = useState<Msg[]>([
+    { role: 'assistant', content: 'Hi! I’m the AdmitMe AI tutor. Ask me anything — e.g. “Explain how to balance a chemical equation.”' },
+  ]);
+  const [input, setInput] = useState('');
+  const [sending, setSending] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, sending, locked]);
+
+  async function send() {
+    const text = input.trim();
+    if (!text || sending) return;
+    setInput('');
+    setLocked(false);
+    const next = [...messages, { role: 'user' as const, content: text }];
+    setMessages(next);
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('ai-chat', {
+        body: { message: text, history: next.slice(-11, -1) },
+      });
+      if (data?.reply) {
+        setMessages((prev) => [...prev, { role: 'assistant', content: data.reply as string }]);
+      } else {
+        // not logged in / not premium / rate-limited → invite to unlock
+        setLocked(true);
+      }
+      void error;
+    } catch {
+      setLocked(true);
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 400, damping: 26 }} className="flex flex-col overflow-hidden rounded-3xl border bg-white shadow-sm hover:shadow-xl" style={{ borderColor: `${accent}22` }}>
-      <div className="flex items-center gap-3 px-6 py-5 text-white" style={{ background: `linear-gradient(120deg, ${accent}, ${accent}cc)` }}>
-        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-white/20"><GraduationCap size={24} /></div>
-        <div className="min-w-0">
-          <h4 className="font-sora text-xl font-extrabold leading-tight">Post-UTME</h4>
-          <p className="truncate text-sm text-white/90">Prep for your university's exact screening</p>
+    <div className="mx-auto flex max-w-2xl flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+      <div className="flex items-center gap-3 px-5 py-4 text-white" style={{ background: `linear-gradient(120deg, ${T.navy}, ${T.navy2})` }}>
+        <span className="flex h-10 w-10 items-center justify-center rounded-2xl" style={{ background: 'rgba(244,180,0,0.18)', color: T.goldFill }}><Bot size={20} /></span>
+        <div>
+          <div className="font-sora text-base font-extrabold">AdmitMe AI Tutor</div>
+          <div className="text-[11px] text-slate-300">Clear, simple explanations — any subject</div>
         </div>
-        <span className="ml-auto flex-none rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">{liveCount} live · more soon</span>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <p className="text-slate-600">Choose your school and practise in <strong className="text-slate-900">its</strong> real exam format — course-based mocks, real past questions, and score prediction.</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {schools.map((s) => (
-            <span key={s.id} className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold" style={{ borderColor: `${s.accent}44`, color: s.accent }}>
-              {s.status === 'live' ? <CheckCircle2 size={12} /> : <Clock size={12} />}
-              {s.name.replace(' Post-UTME', '')}
+
+      <div ref={listRef} className="flex max-h-[340px] min-h-[220px] flex-col gap-3 overflow-y-auto p-4">
+        {messages.map((m, i) => (
+          <div key={i} className={`flex items-start gap-2 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
+            <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full text-white" style={{ background: m.role === 'user' ? T.navy : T.goldFill, color: m.role === 'user' ? '#fff' : T.navy }}>
+              {m.role === 'user' ? <span className="text-[11px] font-bold">You</span> : <Bot size={14} />}
             </span>
-          ))}
-        </div>
-        <div className="mt-auto pt-5">
-          <button onClick={onEnter} className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-sora text-base font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: accent }}>
-            Pick your school <ArrowRight size={17} />
-          </button>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function BigExamCard({ exam, onEnter }: { exam: ExamOffering; onEnter: () => void }) {
-  const live = exam.status === 'live';
-  const detail = EXAM_DETAIL[exam.id];
-  const Icon = detail?.icon ?? GraduationCap;
-  const enterable = live || !!exam.path;
-  const cta = live ? (detail?.cta ?? 'Enter section') : 'Take a look';
-
-  return (
-    <motion.div whileHover={{ y: -4 }} transition={{ type: 'spring', stiffness: 400, damping: 26 }} className="flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-sm hover:shadow-xl" style={{ borderColor: `${exam.accent}22` }}>
-      <div className="flex items-center gap-3 px-6 py-5 text-white" style={{ background: `linear-gradient(120deg, ${exam.accent}, ${exam.accent}cc)` }}>
-        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-white/20"><Icon size={24} /></div>
-        <div className="min-w-0">
-          <h4 className="font-sora text-xl font-extrabold leading-tight">{exam.name}</h4>
-          {exam.school && <p className="truncate text-sm text-white/90">{exam.school}</p>}
-        </div>
-        <span className="ml-auto flex-none rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">{live ? 'Available now' : 'Coming soon'}</span>
-      </div>
-      <div className="flex flex-1 flex-col p-6">
-        {detail && <p className="text-slate-600">{detail.pitch}</p>}
-        {detail && (
-          <ul className="mt-4 space-y-2">
-            {detail.features.map((f) => (
-              <li key={f} className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <CheckCircle2 size={16} style={{ color: exam.accent }} /> {f}
-              </li>
-            ))}
-          </ul>
+            <div className="max-w-[82%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed" style={m.role === 'user' ? { background: T.navy, color: '#fff' } : { background: T.bg, color: '#0f172a' }}>
+              {m.content}
+            </div>
+          </div>
+        ))}
+        {sending && (
+          <div className="flex items-start gap-2">
+            <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full" style={{ background: T.goldFill, color: T.navy }}><Bot size={14} /></span>
+            <div className="rounded-2xl px-4 py-2.5 text-sm text-slate-500" style={{ background: T.bg }}>Thinking…</div>
+          </div>
         )}
-        <div className="mt-auto pt-5">
-          {enterable ? (
-            <button onClick={onEnter} className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-sora text-base font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: exam.accent }}>
-              {cta} <ArrowRight size={17} />
+        {locked && (
+          <div className="rounded-2xl border p-4 text-center text-sm" style={{ borderColor: '#f4d78a', background: '#fffbeb' }}>
+            <p className="font-bold text-slate-800">Unlock the AI tutor 🔓</p>
+            <p className="mt-1 text-slate-600">Sign up free and go Premium (₦2,000/yr) to chat with the AI tutor across every subject.</p>
+            <button onClick={onLogin} className="mt-3 inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 font-sora text-sm font-bold" style={{ background: T.goldFill, color: T.navy }}>
+              Start free <ArrowRight size={15} />
             </button>
-          ) : (
-            <a href={notifyLink(exam)} target="_blank" rel="noreferrer" className="flex w-full items-center justify-center gap-2 rounded-xl border-2 px-5 py-3 font-sora text-base font-bold transition hover:bg-slate-50" style={{ borderColor: exam.accent, color: exam.accent }}>
-              <Bell size={16} /> Notify me
-            </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    </motion.div>
+
+      <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex items-center gap-2 border-t border-slate-200 p-3">
+        <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask a study question…" disabled={sending} className="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 outline-none focus:border-slate-400 disabled:opacity-60" />
+        <motion.button type="submit" disabled={sending || !input.trim()} whileHover={reduce ? undefined : { scale: 1.05 }} whileTap={reduce ? undefined : { scale: 0.95 }} className="flex h-11 w-11 flex-none items-center justify-center rounded-xl text-white disabled:opacity-40" style={{ background: T.navy }} aria-label="Send">
+          <Send size={16} />
+        </motion.button>
+      </form>
+    </div>
   );
 }
