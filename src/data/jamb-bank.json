@@ -1,0 +1,67 @@
+[
+  {
+    "id": "jamb-sample-eng-1",
+    "university": "JAMB",
+    "year": "Sample",
+    "subject": "Use of English",
+    "topic": "Synonyms",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Choose the word that is NEAREST in meaning to the word: enormous.",
+    "options": { "A": "huge", "B": "tiny", "C": "average", "D": "quiet" },
+    "answer": "A",
+    "explanation": "‘Enormous’ means very large in size or quantity, so ‘huge’ is the closest synonym."
+  },
+  {
+    "id": "jamb-sample-mth-1",
+    "university": "JAMB",
+    "year": "Sample",
+    "subject": "Mathematics",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Simplify: 2/3 + 1/6.",
+    "options": { "A": "5/6", "B": "3/9", "C": "1/2", "D": "5/9" },
+    "answer": "A",
+    "explanation": "2/3 = 4/6. Then 4/6 + 1/6 = 5/6."
+  },
+  {
+    "id": "jamb-sample-phy-1",
+    "university": "JAMB",
+    "year": "Sample",
+    "subject": "Physics",
+    "topic": "Units",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The SI unit of force is the:",
+    "options": { "A": "newton", "B": "joule", "C": "watt", "D": "pascal" },
+    "answer": "A",
+    "explanation": "Force is measured in newtons (N). The joule is energy, the watt is power, and the pascal is pressure."
+  },
+  {
+    "id": "jamb-sample-chm-1",
+    "university": "JAMB",
+    "year": "Sample",
+    "subject": "Chemistry",
+    "topic": "Elements",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The chemical symbol for sodium is:",
+    "options": { "A": "Na", "B": "So", "C": "S", "D": "Sn" },
+    "answer": "A",
+    "explanation": "Sodium's symbol is Na, from its Latin name ‘natrium’. Sn is tin and S is sulphur."
+  },
+  {
+    "id": "jamb-sample-bio-1",
+    "university": "JAMB",
+    "year": "Sample",
+    "subject": "Biology",
+    "topic": "Cell biology",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Which cell organelle is known as the ‘powerhouse of the cell’?",
+    "options": { "A": "Mitochondrion", "B": "Nucleus", "C": "Ribosome", "D": "Golgi apparatus" },
+    "answer": "A",
+    "explanation": "The mitochondrion releases energy (ATP) through respiration, so it is called the powerhouse of the cell."
+  }
+]

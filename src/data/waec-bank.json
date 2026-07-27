@@ -1,0 +1,67 @@
+[
+  {
+    "id": "waec-sample-eng-1",
+    "university": "WAEC",
+    "year": "Sample",
+    "subject": "English Language",
+    "topic": "Antonyms",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "Choose the word that is MOST NEARLY OPPOSITE in meaning to: scarce.",
+    "options": { "A": "abundant", "B": "rare", "C": "limited", "D": "few" },
+    "answer": "A",
+    "explanation": "‘Scarce’ means in short supply, so its opposite is ‘abundant’ (plentiful)."
+  },
+  {
+    "id": "waec-sample-mth-1",
+    "university": "WAEC",
+    "year": "Sample",
+    "subject": "Mathematics",
+    "topic": "Percentages",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "What is 25% of 240?",
+    "options": { "A": "60", "B": "48", "C": "72", "D": "50" },
+    "answer": "A",
+    "explanation": "25% = 1/4, and 240 ÷ 4 = 60."
+  },
+  {
+    "id": "waec-sample-bio-1",
+    "university": "WAEC",
+    "year": "Sample",
+    "subject": "Biology",
+    "topic": "Nutrition",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The green pigment in plants responsible for photosynthesis is:",
+    "options": { "A": "chlorophyll", "B": "haemoglobin", "C": "melanin", "D": "carotene" },
+    "answer": "A",
+    "explanation": "Chlorophyll traps light energy for photosynthesis and gives plants their green colour."
+  },
+  {
+    "id": "waec-sample-gov-1",
+    "university": "WAEC",
+    "year": "Sample",
+    "subject": "Government",
+    "topic": "Basic concepts",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "A system of government in which power is shared between a central authority and component units is called:",
+    "options": { "A": "federalism", "B": "unitary", "C": "confederation", "D": "monarchy" },
+    "answer": "A",
+    "explanation": "Federalism divides powers between a central government and regional/component units, as in Nigeria."
+  },
+  {
+    "id": "waec-sample-eco-1",
+    "university": "WAEC",
+    "year": "Sample",
+    "subject": "Economics",
+    "topic": "Basic concepts",
+    "difficulty": "easy",
+    "type": "single",
+    "text": "The basic economic problem arises mainly because of:",
+    "options": { "A": "scarcity of resources", "B": "too much money", "C": "government policy", "D": "high population only" },
+    "answer": "A",
+    "explanation": "Economics exists because human wants are unlimited while resources are scarce, forcing choices."
+  }
+]
