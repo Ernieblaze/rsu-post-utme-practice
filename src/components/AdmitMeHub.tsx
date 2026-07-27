@@ -192,9 +192,13 @@ export function AdmitMeHub({ onLogin }: { onLogin: () => void }) {
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600">{meta.title}</h3>
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
-                  {offerings.map((exam) => (
-                    <BigExamCard key={exam.id} exam={exam} onEnter={() => navigate(exam.path ?? '/')} />
-                  ))}
+                  {cat === 'post-utme' ? (
+                    <PostUtmeGateway schools={offerings} onEnter={() => navigate('/post-utme')} />
+                  ) : (
+                    offerings.map((exam) => (
+                      <BigExamCard key={exam.id} exam={exam} onEnter={() => navigate(exam.path ?? '/')} />
+                    ))
+                  )}
                 </div>
               </div>
             );
@@ -333,6 +337,46 @@ function FloatCard({ className, icon, title, sub }: { className: string; icon: R
       <div className="leading-tight">
         <div className="text-sm font-extrabold text-slate-900">{title}</div>
         <div className="text-[10px] font-semibold text-slate-500">{sub}</div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The Post-UTME section on the hub is ONE gateway (not a card per school) that
+ * leads to the "pick your school" picker — so the home reads as three clean
+ * sections. It previews the schools available inside.
+ */
+function PostUtmeGateway({ schools, onEnter }: { schools: ExamOffering[]; onEnter: () => void }) {
+  const accent = '#046a38'; // RSU green — the flagship live school
+  const liveCount = schools.filter((s) => s.status === 'live').length;
+  return (
+    <div className="md:col-span-2 flex flex-col overflow-hidden rounded-3xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl" style={{ borderColor: `${accent}22` }}>
+      <div className="flex items-center gap-3 px-6 py-5 text-white" style={{ background: `linear-gradient(120deg, ${accent}, ${accent}cc)` }}>
+        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-white/20"><GraduationCap size={24} /></div>
+        <div className="min-w-0">
+          <h4 className="font-sora text-xl font-extrabold leading-tight">Post-UTME</h4>
+          <p className="truncate text-sm text-white/90">Prep for your university's exact screening</p>
+        </div>
+        <span className="ml-auto flex-none rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
+          {liveCount} live · more soon
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <p className="text-slate-600">Choose your school and practise in <strong className="text-slate-900">its</strong> real exam format — course-based mocks, real past questions, and score prediction.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {schools.map((s) => (
+            <span key={s.id} className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold" style={{ borderColor: `${s.accent}44`, color: s.accent }}>
+              {s.status === 'live' ? <CheckCircle2 size={12} /> : <Clock size={12} />}
+              {s.name.replace(' Post-UTME', '')}
+            </span>
+          ))}
+        </div>
+        <div className="mt-auto pt-5">
+          <button onClick={onEnter} className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-bold text-white shadow-sm transition hover:opacity-90" style={{ background: accent }}>
+            Pick your school <ArrowRight size={17} />
+          </button>
+        </div>
       </div>
     </div>
   );
