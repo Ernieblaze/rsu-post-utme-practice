@@ -1,0 +1,28 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AdmitMe splash">
+  <defs>
+    <linearGradient id="sp-navy" x1="0" y1="0" x2="0" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#13294b"/>
+      <stop offset="1" stop-color="#0a172b"/>
+    </linearGradient>
+    <radialGradient id="sp-glow" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#f4b400" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#f4b400" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#sp-navy)"/>
+  <rect width="1080" height="1080" fill="url(#sp-glow)"/>
+  <!-- Mark, centred -->
+  <g transform="translate(390,320) scale(0.6)">
+    <rect width="512" height="512" rx="116" fill="#0f2038"/>
+    <g stroke="#f4b400" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M168 368 L256 150"/>
+      <path d="M256 150 L344 368"/>
+      <path d="M208 300 L300 286"/>
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <text x="540" y="720" text-anchor="middle" font-family="'Sora', system-ui, sans-serif" font-size="86" font-weight="800" letter-spacing="-2">
+    <tspan fill="#ffffff">Admit</tspan><tspan fill="#f4b400">Me</tspan>
+  </text>
+  <text x="540" y="772" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="4" fill="#93a6c6">PASS EVERY EXAM. GET ADMITTED.</text>
+</svg>

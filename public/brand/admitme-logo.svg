@@ -1,0 +1,22 @@
+<svg width="760" height="200" viewBox="0 0 760 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AdmitMe logo">
+  <defs>
+    <linearGradient id="lg-navy" x1="0" y1="0" x2="0" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#17335c"/>
+      <stop offset="1" stop-color="#0a172b"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark -->
+  <g transform="translate(20,20)">
+    <rect width="160" height="160" rx="38" fill="url(#lg-navy)"/>
+    <g stroke="#f4b400" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(0,0) scale(0.3125)">
+      <path d="M168 368 L256 150"/>
+      <path d="M256 150 L344 368"/>
+      <path d="M208 300 L300 286"/>
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <text x="205" y="128" font-family="'Sora', system-ui, -apple-system, Segoe UI, sans-serif" font-size="92" font-weight="800" letter-spacing="-2">
+    <tspan fill="#101f3a">Admit</tspan><tspan fill="#c68a12">Me</tspan>
+  </text>
+  <text x="208" y="165" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="600" letter-spacing="3" fill="#55668a">WAEC · JAMB · POST-UTME</text>
+</svg>
