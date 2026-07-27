@@ -10,18 +10,20 @@ export default defineConfig(async ({ mode }) => {
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', 'brand/favicon.ico', 'brand/apple-touch-icon-180x180.png'],
       manifest: {
-        name: 'RSU Post-UTME Practice',
-        short_name: 'RSU Post-UTME',
-        description: 'Personalized RSU Post-UTME exam practice — timed mock exams, custom practice, and revision by course.',
-        theme_color: '#002b5c',
-        background_color: '#ffffff',
+        name: 'AdmitMe — WAEC, JAMB & Post-UTME',
+        short_name: 'AdmitMe',
+        description: 'Pass WAEC, JAMB and Post-UTME with real past questions, timed mock exams and an AI tutor — one app for every exam that stands between you and admission.',
+        theme_color: '#101f3a',
+        background_color: '#0a172b',
         display: 'standalone',
         start_url: '.',
         icons: [
-          { src: 'icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'brand/pwa-64x64.png', sizes: '64x64', type: 'image/png' },
+          { src: 'brand/pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'brand/pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'brand/maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
