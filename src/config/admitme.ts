@@ -23,6 +23,17 @@ export const BRAND = {
   soft: '#eef2ff', // indigo-50
 } as const;
 
+/**
+ * Which experience is the front door at "/".
+ *  - 'rsu'     → the RSU Post-UTME app is the root (in-season, current live behaviour).
+ *  - 'admitme' → the AdmitMe hub is the root and RSU moves to /rsu (the post-season "flip").
+ * Flipping the whole platform is changing this ONE value.
+ */
+export const PLATFORM_HEAD: 'rsu' | 'admitme' = 'admitme';
+
+/** Where the RSU Post-UTME app lives: "/" now, "/rsu" once AdmitMe is the head. */
+export const RSU_HOME = PLATFORM_HEAD === 'admitme' ? '/rsu' : '/';
+
 export type ExamCategory = 'post-utme' | 'jamb' | 'waec';
 export type ExamStatus = 'live' | 'coming-soon';
 
@@ -51,7 +62,7 @@ export interface ExamOffering {
  */
 export const EXAMS: ExamOffering[] = [
   // ── Post-UTME (per school) ──
-  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', location: 'Port Harcourt', blurb: 'Real past questions in RSU’s exact 50-question screening format.', status: 'live', path: '/', accent: '#046a38' }, // forest green
+  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', location: 'Port Harcourt', blurb: 'Real past questions in RSU’s exact 50-question screening format.', status: 'live', path: RSU_HOME, accent: '#046a38' }, // forest green — RSU_HOME follows the flip
   { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', location: 'Port Harcourt', blurb: 'Prep tuned to UniPort’s screening — coming soon.', status: 'coming-soon', accent: '#1b3f70', path: '/uniport' }, // UniPort deep navy blue
   { id: 'iaue-post-utme', category: 'post-utme', name: 'IAUE Post-UTME', school: 'Ignatius Ajuru University of Education', location: 'Port Harcourt', blurb: 'Ignatius Ajuru University of Education screening — coming soon.', status: 'coming-soon', accent: '#6b21a8' }, // education purple (no page yet → Notify me)
   // ── National exams ──

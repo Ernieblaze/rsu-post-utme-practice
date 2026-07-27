@@ -32,6 +32,7 @@ import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
 import { AdmissionPredictor } from './components/AdmissionPredictor';
 import { AdmitMeHub } from './components/AdmitMeHub';
+import { PLATFORM_HEAD, RSU_HOME } from './config/admitme';
 import { JambPractice } from './components/JambPractice';
 import { WaecSection } from './components/WaecSection';
 import { UniportSection } from './components/UniportSection';
@@ -63,7 +64,8 @@ type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'ex
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
-  '/': 'home',
+  '/': PLATFORM_HEAD === 'admitme' ? 'admitme' : 'home',
+  '/rsu': 'home',
   '/quiz': 'quiz',
   '/results': 'results',
   '/progress': 'progress',
@@ -94,7 +96,7 @@ const PATH_TO_VIEW: Record<string, View> = {
 };
 
 const NAV_TO_PATH: Record<NavView, string> = {
-  home: '/',
+  home: RSU_HOME,
   progress: '/progress',
   revision: '/revision',
   bank: '/bank',
@@ -382,15 +384,28 @@ function AppContent() {
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
+          {/* Root: AdmitMe hub once flipped ('admitme'), otherwise the RSU home. */}
           <Route
             path="/"
             element={
-              <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Home
-                  attempts={attempts}
-                  onViewProgress={() => routerNavigate('/progress')}
-                  onReviseSubject={reviseSubject}
-                />
+              PLATFORM_HEAD === 'admitme' ? (
+                <motion.div key="admitme-root" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <AdmitMeHub onLogin={() => setAuthModalOpen(true)} />
+                </motion.div>
+              ) : (
+                <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                  <Home attempts={attempts} onViewProgress={() => routerNavigate('/progress')} onReviseSubject={reviseSubject} />
+                </motion.div>
+              )
+            }
+          />
+
+          {/* RSU home moves here once AdmitMe is the head; harmless before the flip. */}
+          <Route
+            path="/rsu"
+            element={
+              <motion.div key="rsu-home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <Home attempts={attempts} onViewProgress={() => routerNavigate('/progress')} onReviseSubject={reviseSubject} />
               </motion.div>
             }
           />
