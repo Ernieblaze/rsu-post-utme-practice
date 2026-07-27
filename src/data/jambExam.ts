@@ -45,17 +45,31 @@ function pool(bank: BankQuestion[], subject: string): BankQuestion[] {
   return bank.filter((q) => (q.type === 'single' || !q.type) && q.subject === subject);
 }
 
+export interface JambMockOptions {
+  /** Questions from Use of English (default: full 60). */
+  englishCount?: number;
+  /** Questions from each other subject (default: full 40). */
+  otherCount?: number;
+  /** Timer in minutes (default: full 120). */
+  durationMinutes?: number;
+}
+
 /**
- * Build a JAMB mock: English (60) + up to 3 chosen subjects (40 each), grouped
- * by subject like a real paper. Returns null if nothing is available.
+ * Build a JAMB mock: English + up to 3 chosen subjects, grouped by subject like
+ * a real paper. Defaults to the full UTME shape (English 60, others 40, 120 min);
+ * pass options for a lighter "quick practice" run. Returns null if empty.
  */
-export function buildJambMock(bank: BankQuestion[], chosen: string[]): Test | null {
+export function buildJambMock(bank: BankQuestion[], chosen: string[], opts: JambMockOptions = {}): Test | null {
+  const englishCount = opts.englishCount ?? JAMB_ENGLISH_COUNT;
+  const otherCount = opts.otherCount ?? JAMB_OTHER_COUNT;
+  const duration = opts.durationMinutes ?? JAMB_DURATION_MINUTES;
+
   const others = chosen.filter((s) => s !== JAMB_COMPULSORY).slice(0, JAMB_MAX_OTHER_SUBJECTS);
   const subjects = [JAMB_COMPULSORY, ...others];
 
   const picked: BankQuestion[] = [];
   subjects.forEach((sub) => {
-    const want = sub === JAMB_COMPULSORY ? JAMB_ENGLISH_COUNT : JAMB_OTHER_COUNT;
+    const want = sub === JAMB_COMPULSORY ? englishCount : otherCount;
     picked.push(...shuffle(pool(bank, sub)).slice(0, want));
   });
   if (picked.length === 0) return null;
@@ -75,7 +89,7 @@ export function buildJambMock(bank: BankQuestion[], chosen: string[]): Test | nu
     id: `jamb-mock-${Date.now()}`,
     title: 'JAMB Mock (UTME)',
     description: `${questions.length} questions across ${subjects.length} subjects — English + your chosen subjects.`,
-    durationMinutes: JAMB_DURATION_MINUTES,
+    durationMinutes: duration,
     questions,
   };
 }

@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Target, Play, Lock, Clock, BookOpen, ArrowRight, ArrowLeft, Lightbulb, BarChart3,
-  CheckCircle2, Layers, TrendingUp, Sparkles,
+  CheckCircle2, Layers, TrendingUp, Sparkles, Check, Zap,
 } from 'lucide-react';
 import type { BankQuestion, Test } from '../types';
 import {
   JAMB_COMPULSORY, JAMB_SUBJECTS, JAMB_MAX_OTHER_SUBJECTS, JAMB_DURATION_MINUTES,
   buildJambMock, jambSubjectCount,
 } from '../data/jambExam';
+
+/** Practice modes: the real full UTME shape, or a lighter untimed run. */
+const JAMB_MODES = {
+  full: { label: 'Full mock', englishCount: 60, otherCount: 40, durationMinutes: JAMB_DURATION_MINUTES, timed: true },
+  quick: { label: 'Quick practice', englishCount: 20, otherCount: 15, durationMinutes: 999, timed: false },
+} as const;
+type JambMode = keyof typeof JAMB_MODES;
 import { SectionShell } from './SectionShell';
 
 interface JambPracticeProps {
@@ -35,7 +42,9 @@ const FEATURES = [
 
 export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
   const navigate = useNavigate();
+  const reduce = useReducedMotion();
   const [selected, setSelected] = useState<string[]>([]);
+  const [mode, setMode] = useState<JambMode>('full');
   const [error, setError] = useState('');
   const others = JAMB_SUBJECTS.filter((s) => s !== JAMB_COMPULSORY);
 
@@ -49,10 +58,20 @@ export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
   }
   function start() {
     if (selected.length === 0) return setError('Pick at least one subject (plus Use of English) to start.');
-    const test = buildJambMock(bank, [JAMB_COMPULSORY, ...selected]);
+    const m = JAMB_MODES[mode];
+    const test = buildJambMock(bank, [JAMB_COMPULSORY, ...selected], {
+      englishCount: m.englishCount, otherCount: m.otherCount, durationMinutes: m.durationMinutes,
+    });
     if (!test || test.questions.length === 0) return setError('No questions available for this selection yet.');
     onStart(test);
   }
+
+  const m = JAMB_MODES[mode];
+  const maxQs = m.englishCount + selected.length * m.otherCount;
+  const container = { hidden: {}, show: { transition: { staggerChildren: reduce ? 0 : 0.035 } } };
+  const item = reduce
+    ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
+    : { hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } };
   function goTo(to: string) {
     if (to.startsWith('#')) document.querySelector(to)?.scrollIntoView({ behavior: 'smooth' });
     else navigate(to);
@@ -141,7 +160,7 @@ export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
             <p className="mt-2 text-slate-600">Use of English is compulsory — pick your 3 subjects.</p>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl sm:p-7">
             <p className="mb-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">Compulsory</p>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: T.primary }}>
               <Lock size={14} /> {JAMB_COMPULSORY}
@@ -149,21 +168,41 @@ export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
 
             <div className="mb-2 flex items-center justify-between">
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Choose your 3 subjects</p>
-              <span className="text-xs font-semibold" style={{ color: T.primary }}>{selected.length}/{JAMB_MAX_OTHER_SUBJECTS} selected</span>
+              <span className="text-xs font-semibold tabular-nums" style={{ color: T.primary }}>{selected.length}/{JAMB_MAX_OTHER_SUBJECTS} selected</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <motion.div variants={container} initial="hidden" animate="show" className="flex flex-wrap gap-2">
               {others.map((s) => {
                 const active = selected.includes(s);
                 const disabled = (!active && selected.length >= JAMB_MAX_OTHER_SUBJECTS) || jambSubjectCount(bank, s) === 0;
                 return (
-                  <button
+                  <motion.button
                     key={s}
+                    variants={item}
                     onClick={() => toggle(s)}
                     disabled={disabled}
-                    className="rounded-full border px-3.5 py-2 text-sm font-semibold transition disabled:opacity-40"
+                    whileTap={reduce || disabled ? undefined : { scale: 0.95 }}
+                    animate={reduce ? undefined : { scale: active ? 1.03 : 1 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                    className="inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-semibold transition disabled:opacity-40"
                     style={active ? { background: T.primary, borderColor: T.primary, color: '#fff' } : { borderColor: '#e2e8f0', color: '#334155' }}
                   >
+                    {active && <Check size={14} />}
                     {s}
+                  </motion.button>
+                );
+              })}
+            </motion.div>
+
+            {/* Practice mode */}
+            <p className="mb-2 mt-6 text-xs font-bold uppercase tracking-wider text-slate-500">Practice mode</p>
+            <div className="grid grid-cols-2 gap-2 rounded-2xl bg-slate-100 p-1.5">
+              {(Object.keys(JAMB_MODES) as JambMode[]).map((k) => {
+                const on = k === mode;
+                const Icon = k === 'full' ? Clock : Zap;
+                return (
+                  <button key={k} onClick={() => setMode(k)} className="relative rounded-xl px-2 py-2.5 text-sm font-bold transition" style={{ color: on ? '#fff' : '#475569' }}>
+                    {on && <motion.span layoutId={reduce ? undefined : 'jamb-mode-pill'} transition={{ type: 'spring', stiffness: 480, damping: 38 }} className="absolute inset-0 rounded-xl" style={{ background: T.primary }} />}
+                    <span className="relative flex items-center justify-center gap-1.5"><Icon size={14} /> {JAMB_MODES[k].label}</span>
                   </button>
                 );
               })}
@@ -172,14 +211,16 @@ export function JambPractice({ bank, onStart, onLogin }: JambPracticeProps) {
             {error && <p className="mt-4 text-sm font-semibold text-rose-500">{error}</p>}
 
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-1 rounded-xl px-4 py-3 text-xs font-semibold" style={{ background: T.soft, color: T.deep }}>
-              <span className="inline-flex items-center gap-1.5"><BookOpen size={13} /> English 60 + 40 each</span>
-              <span className="inline-flex items-center gap-1.5"><Clock size={13} /> {JAMB_DURATION_MINUTES} minutes</span>
-              <span className="inline-flex items-center gap-1.5"><BarChart3 size={13} /> Up to 180 questions</span>
+              <span className="inline-flex items-center gap-1.5 tabular-nums"><BookOpen size={13} /> English {m.englishCount} + {m.otherCount} each</span>
+              <span className="inline-flex items-center gap-1.5"><Clock size={13} /> {m.timed ? `${m.durationMinutes} minutes` : 'Relaxed'}</span>
+              <AnimatePresence mode="popLayout">
+                <motion.span key={maxQs} initial={reduce ? false : { opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: 4 }} className="inline-flex items-center gap-1.5 tabular-nums"><BarChart3 size={13} /> Up to {maxQs} questions</motion.span>
+              </AnimatePresence>
             </div>
 
-            <button onClick={start} className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-lg font-bold text-white transition hover:opacity-90" style={{ background: T.primary, boxShadow: `0 12px 30px -8px ${T.primary}` }}>
-              <Play size={20} fill="currentColor" /> Start JAMB Mock
-            </button>
+            <motion.button onClick={start} whileHover={reduce ? undefined : { scale: 1.01 }} whileTap={reduce ? undefined : { scale: 0.99 }} className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-lg font-bold text-white" style={{ background: T.primary, boxShadow: `0 14px 34px -12px ${T.primary}` }}>
+              <Play size={20} fill="currentColor" /> Start {JAMB_MODES[mode].label}
+            </motion.button>
           </div>
 
           <p className="mt-6 text-center text-xs text-slate-500">
