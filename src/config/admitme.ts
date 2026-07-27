@@ -33,6 +33,10 @@ export interface ExamOffering {
   name: string;
   /** Full school name, for Post-UTME offerings. */
   school?: string;
+  /** Where the school is, shown on the picker card (Post-UTME). */
+  location?: string;
+  /** One-line description shown on the picker/section card. */
+  blurb?: string;
   status: ExamStatus;
   /** Where a live offering sends the student ("/" is the RSU home). */
   path?: string;
@@ -43,12 +47,16 @@ export interface ExamOffering {
 /**
  * Everything AdmitMe offers (or will). `live` = ready now; `coming-soon` = a
  * placeholder slot a future section drops into (just flip to `live` + add data).
+ * Adding a new Post-UTME school is now purely a matter of adding a row here.
  */
 export const EXAMS: ExamOffering[] = [
-  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', status: 'live', path: '/', accent: '#046a38' }, // forest green
-  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', status: 'coming-soon', accent: '#1b3f70', path: '/uniport' }, // UniPort deep navy blue
-  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', status: 'live', path: '/jamb', accent: '#10b981' }, // fresh emerald green
-  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', status: 'coming-soon', accent: '#1b1b6b', path: '/waec' }, // WAEC deep navy (with gold)
+  // ── Post-UTME (per school) ──
+  { id: 'rsu-post-utme', category: 'post-utme', name: 'RSU Post-UTME', school: 'Rivers State University', location: 'Port Harcourt', blurb: 'Real past questions in RSU’s exact 50-question screening format.', status: 'live', path: '/', accent: '#046a38' }, // forest green
+  { id: 'uniport-post-utme', category: 'post-utme', name: 'UniPort Post-UTME', school: 'University of Port Harcourt', location: 'Port Harcourt', blurb: 'Prep tuned to UniPort’s screening — coming soon.', status: 'coming-soon', accent: '#1b3f70', path: '/uniport' }, // UniPort deep navy blue
+  { id: 'iaue-post-utme', category: 'post-utme', name: 'IAUE Post-UTME', school: 'Ignatius Ajuru University of Education', location: 'Port Harcourt', blurb: 'Ignatius Ajuru University of Education screening — coming soon.', status: 'coming-soon', accent: '#6b21a8' }, // education purple (no page yet → Notify me)
+  // ── National exams ──
+  { id: 'jamb', category: 'jamb', name: 'JAMB (UTME)', location: 'Nationwide', blurb: 'Your subject combination, UTME-style CBT mocks.', status: 'live', path: '/jamb', accent: '#10b981' }, // fresh emerald green
+  { id: 'waec', category: 'waec', name: 'WAEC (SSCE)', location: 'Nationwide', blurb: 'Science & Arts tracks by subject — coming soon.', status: 'coming-soon', accent: '#1b1b6b', path: '/waec' }, // WAEC deep navy (with gold)
 ];
 
 /** The exam this deployment currently serves (its face for ads/SEO). */
@@ -59,3 +67,12 @@ export const activeExam = (): ExamOffering =>
 
 export const comingSoonExams = (): ExamOffering[] =>
   EXAMS.filter((e) => e.status === 'coming-soon');
+
+/** All offerings in a category (e.g. every Post-UTME school), live ones first. */
+export const examsByCategory = (category: ExamCategory): ExamOffering[] =>
+  EXAMS.filter((e) => e.category === category).sort(
+    (a, b) => (a.status === 'live' ? 0 : 1) - (b.status === 'live' ? 0 : 1)
+  );
+
+/** Every Post-UTME school offering — powers the "pick your school" picker. */
+export const postUtmeSchools = (): ExamOffering[] => examsByCategory('post-utme');

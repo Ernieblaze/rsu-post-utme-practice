@@ -35,6 +35,7 @@ import { AdmitMeHub } from './components/AdmitMeHub';
 import { JambPractice } from './components/JambPractice';
 import { WaecSection } from './components/WaecSection';
 import { UniportSection } from './components/UniportSection';
+import { PostUtmeSection } from './components/PostUtmeSection';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -58,7 +59,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'login-help' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'login-help' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'post-utme' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -85,6 +86,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/jamb': 'jamb',
   '/waec': 'waec',
   '/uniport': 'uniport',
+  '/post-utme': 'post-utme',
   '/daily': 'daily',
   '/start': 'start',
   '/email-confirmed': 'email-confirmed',
@@ -114,6 +116,7 @@ const ACTION_FOR_VIEW: Partial<Record<View, string>> = {
   jamb: 'JAMB prep',
   waec: 'WAEC section',
   uniport: 'UniPort section',
+  'post-utme': 'Choosing a school',
   admitme: 'On AdmitMe',
   daily: 'Question of the Day',
   progress: 'Viewing progress',
@@ -196,6 +199,7 @@ function AppContent() {
       jamb: `JAMB (UTME) Practice | AdmitMe`,
       waec: `WAEC (SSCE) | AdmitMe`,
       uniport: `UniPort Post-UTME | AdmitMe`,
+      'post-utme': `Post-UTME — pick your school | AdmitMe`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
@@ -365,9 +369,9 @@ function AppContent() {
     <div className="min-h-screen bg-school-radial text-school-navy">
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WelcomeModal />}
       {view !== 'quiz' && view !== 'start' && <UsernamePrompt />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && (
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && (
         <Header
           dark={dark}
           currentView={view}
@@ -673,6 +677,15 @@ function AppContent() {
           />
 
           <Route
+            path="/post-utme"
+            element={
+              <motion.div key="post-utme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <PostUtmeSection onLogin={() => setAuthModalOpen(true)} />
+              </motion.div>
+            }
+          />
+
+          <Route
             path="/daily"
             element={
               <motion.div key="daily" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -731,8 +744,8 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WhatsAppButton />}
 
       <AuthModal
         open={authModalOpen}
