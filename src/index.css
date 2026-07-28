@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Lato:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -31,6 +31,120 @@ body { overscroll-behavior-y: none; }
 button, [role="button"] { -webkit-user-select: none; user-select: none; }
 /* iOS home-indicator safe area for a bottom nav bar. */
 .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 0.25rem); }
+
+/* ============================================================
+   MITUM DESIGN SYSTEM — scoped to .mitum-app; does NOT affect RSU.
+   Central token source (reusable later for the mobile app).
+   Theme via data-theme on <html>; RSU uses .dark, so both coexist.
+   ============================================================ */
+:root {
+  --bg: #F8FAFC;        --surface: #FFFFFF;    --surface-2: #F1F5F9;
+  --primary: #F59E0B;   --primary-hover: #D97706;
+  --accent: #6366F1;    --success: #10B981;
+  --text: #0F172A;      --text-muted: #64748B; --border: #E2E8F0;
+
+  --mt-display: 'Sora', system-ui, sans-serif;
+  --mt-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --mt-mono: 'JetBrains Mono', ui-monospace, 'IBM Plex Mono', monospace;
+  --mt-label: 'Outfit', system-ui, sans-serif;
+
+  --mt-radius-card: 1rem;   /* rounded-2xl */
+  --mt-radius-btn: 0.75rem; /* rounded-xl  */
+  --mt-shadow-sm: 0 1px 2px rgba(15,23,42,.05), 0 4px 12px rgba(15,23,42,.05);
+  --mt-shadow: 0 2px 6px rgba(15,23,42,.06), 0 16px 40px -12px rgba(15,23,42,.14);
+  --mt-glass: rgba(255,255,255,.72);
+  --mt-grid: rgba(15,23,42,.035);
+}
+:root[data-theme="light"] {
+  --bg: #F8FAFC; --surface: #FFFFFF; --surface-2: #F1F5F9;
+  --primary: #F59E0B; --primary-hover: #D97706; --accent: #6366F1; --success: #10B981;
+  --text: #0F172A; --text-muted: #64748B; --border: #E2E8F0;
+  --mt-glass: rgba(255,255,255,.72); --mt-grid: rgba(15,23,42,.035);
+}
+:root[data-theme="dark"] {
+  --bg: #0B1120; --surface: #111827; --surface-2: #1E293B;
+  --primary: #FBBF24; --primary-hover: #F59E0B; --accent: #818CF8; --success: #34D399;
+  --text: #F1F5F9; --text-muted: #94A3B8; --border: #334155;
+  --mt-shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.35);
+  --mt-shadow: 0 2px 6px rgba(0,0,0,.4), 0 20px 48px -14px rgba(0,0,0,.6);
+  --mt-glass: rgba(17,24,39,.66); --mt-grid: rgba(255,255,255,.04);
+}
+
+/* App wrapper — the only place base styles are applied, so RSU is untouched. */
+.mitum-app {
+  font-family: var(--mt-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background .3s ease, color .3s ease;
+}
+.mitum-app ::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
+.mt-display { font-family: var(--mt-display); }
+.mt-mono { font-family: var(--mt-mono); font-variant-numeric: tabular-nums; }
+.mt-label { font-family: var(--mt-label); text-transform: uppercase; letter-spacing: .14em; }
+.mt-body { font-family: var(--mt-body); }
+
+/* Fine exam-paper grid, very subtle, for exam surfaces */
+.mt-grid-surface {
+  background-image: linear-gradient(var(--mt-grid) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--mt-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Card */
+.mt-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--mt-radius-card);
+  box-shadow: var(--mt-shadow-sm);
+}
+.mt-glass {
+  background: var(--mt-glass);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+/* ── Unique button system ── */
+.mt-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font-family: var(--mt-label); font-weight: 600; letter-spacing: .02em; font-size: .95rem;
+  border-radius: var(--mt-radius-btn); padding: .75rem 1.35rem; cursor: pointer; border: 1px solid transparent;
+  transition: transform .12s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease, background .22s ease, color .18s ease, border-color .18s ease;
+  -webkit-user-select: none; user-select: none;
+}
+.mt-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mt-btn:active { transform: scale(.97); }
+
+.mt-btn-primary {
+  color: #1B1206;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 82%, #fff), var(--primary));
+  padding-top: .85rem; padding-bottom: .85rem; /* slightly taller */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55), var(--mt-shadow-sm);
+}
+.mt-btn-primary:hover {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 88%, #fff), var(--primary-hover));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 10px 30px -8px color-mix(in srgb, var(--primary) 80%, transparent);
+}
+
+.mt-btn-secondary {
+  color: var(--text); background: var(--surface); border-color: var(--border);
+  box-shadow: var(--mt-shadow-sm);
+}
+.mt-btn-secondary:hover { border-color: color-mix(in srgb, var(--primary) 55%, var(--border)); background: var(--surface-2); }
+
+.mt-btn-tertiary { color: var(--text); background: transparent; padding-left: .4rem; padding-right: .4rem; }
+.mt-btn-tertiary { position: relative; }
+.mt-btn-tertiary::after {
+  content: ''; position: absolute; left: .4rem; right: .4rem; bottom: .45rem; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .22s ease;
+}
+.mt-btn-tertiary:hover { color: var(--accent); }
+.mt-btn-tertiary:hover::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mitum-app, .mt-btn, .mt-btn-tertiary::after { transition: none !important; }
+}
 
 body {
   font-family: var(--font-sora);

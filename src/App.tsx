@@ -41,6 +41,7 @@ import { JambPractice } from './components/JambPractice';
 import { WaecSection } from './components/WaecSection';
 import { UniportSection } from './components/UniportSection';
 import { PostUtmeSection } from './components/PostUtmeSection';
+import { MitumHome } from './components/mitum/MitumHome';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -64,7 +65,7 @@ import {
 } from './lib/storage';
 import type { Attempt, Test } from './types';
 
-type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'login-help' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'post-utme' | 'daily' | 'start';
+type View = 'home' | 'quiz' | 'results' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'admin' | 'leaderboard' | 'upgrade' | 'dashboard' | 'owner' | 'hq' | 'privacy' | 'terms' | 'email-confirmed' | 'reset-password' | 'guide' | 'login-help' | 'ai-tutor' | 'predictor' | 'admitme' | 'jamb' | 'waec' | 'uniport' | 'post-utme' | 'mitum' | 'daily' | 'start';
 export type NavView = 'home' | 'progress' | 'revision' | 'bank' | 'exam-focus' | 'ai-tutor' | 'admin' | 'leaderboard';
 
 const PATH_TO_VIEW: Record<string, View> = {
@@ -93,6 +94,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/waec': 'waec',
   '/uniport': 'uniport',
   '/post-utme': 'post-utme',
+  '/mitum': 'mitum',
   '/daily': 'daily',
   '/start': 'start',
   '/email-confirmed': 'email-confirmed',
@@ -206,6 +208,7 @@ function AppContent() {
       waec: `WAEC (SSCE) | AdmitMe`,
       uniport: `UniPort Post-UTME | AdmitMe`,
       'post-utme': `Post-UTME — pick your school | AdmitMe`,
+      mitum: `Mitum — Pass WAEC, JAMB & Post-UTME`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,
@@ -377,9 +380,9 @@ function AppContent() {
     <div className={`min-h-screen bg-school-radial text-school-navy ${showTabBar ? 'pb-16 sm:pb-0' : ''}`}>
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <WelcomeModal />}
       {view !== 'quiz' && view !== 'start' && <UsernamePrompt />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && (
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && (
         <Header
           dark={dark}
           currentView={view}
@@ -707,6 +710,15 @@ function AppContent() {
           />
 
           <Route
+            path="/mitum"
+            element={
+              <motion.div key="mitum" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
+                <MitumHome onLogin={() => setAuthModalOpen(true)} />
+              </motion.div>
+            }
+          />
+
+          <Route
             path="/daily"
             element={
               <motion.div key="daily" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -765,8 +777,8 @@ function AppContent() {
         </Routes>
       </AnimatePresence>
 
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <WhatsAppButton />}
 
       {showTabBar && <BottomTabBar currentView={view} onNavigate={routerNavigate} />}
 
