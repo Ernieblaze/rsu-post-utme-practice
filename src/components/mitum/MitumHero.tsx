@@ -88,9 +88,7 @@ function ExamPhone() {
       transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
       className="relative mx-auto w-[280px]"
     >
-      <motion.div
-        animate={reduce ? undefined : { y: [0, -10, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+      <div
         className="rounded-[2.4rem] p-3"
         style={{ background: '#0a1526', boxShadow: '0 50px 90px -30px rgba(0,0,0,.75)' }}
       >
@@ -144,18 +142,16 @@ function ExamPhone() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* floating score chip */}
-      <motion.div
-        animate={reduce ? undefined : { y: [0, 9, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+      <div
         className="mt-glass absolute -right-5 bottom-16 flex items-center gap-2 rounded-2xl px-3 py-2 shadow-xl"
         style={{ background: '#fff', border: '1px solid #E2E8F0' }}
       >
         <span className="mt-mono text-lg font-extrabold" style={{ color: 'var(--success)' }}>92%</span>
         <span className="mt-body text-[10px] font-semibold leading-tight" style={{ color: '#64748B' }}>mock<br />score</span>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

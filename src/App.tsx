@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
@@ -36,11 +36,13 @@ import { BottomTabBar } from './components/BottomTabBar';
 
 /** Core RSU app views where the mobile bottom tab bar appears. */
 const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboard', 'dashboard', 'ai-tutor', 'predictor', 'daily', 'exam-focus']);
-import { JambPage } from './components/mitum/exam/JambPage';
-import { WaecPage } from './components/mitum/exam/WaecPage';
 import { UniportSection } from './components/UniportSection';
-import { PostUtmePage } from './components/mitum/exam/PostUtmePage';
-import { MitumHome } from './components/mitum/MitumHome';
+// AdmitMe pages are code-split (lazy) so the initial load stays light on low-end
+// phones — they only download when a student actually opens that exam page.
+const JambPage = lazy(() => import('./components/mitum/exam/JambPage').then((m) => ({ default: m.JambPage })));
+const WaecPage = lazy(() => import('./components/mitum/exam/WaecPage').then((m) => ({ default: m.WaecPage })));
+const PostUtmePage = lazy(() => import('./components/mitum/exam/PostUtmePage').then((m) => ({ default: m.PostUtmePage })));
+const MitumHome = lazy(() => import('./components/mitum/MitumHome').then((m) => ({ default: m.MitumHome })));
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -390,6 +392,7 @@ function AppContent() {
         />
       )}
 
+      <Suspense fallback={<div className="flex min-h-[70vh] items-center justify-center"><span className="h-8 w-8 animate-spin rounded-full border-2 border-slate-300 border-t-transparent" /></div>}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           {/* Root: AdmitMe hub once flipped ('admitme'), otherwise the RSU home. */}
@@ -775,6 +778,7 @@ function AppContent() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AnimatePresence>
+      </Suspense>
 
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <Footer onNavigate={navigate} />}
       {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <WhatsAppButton />}
