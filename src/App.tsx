@@ -39,7 +39,7 @@ const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboa
 import { JambPage } from './components/mitum/exam/JambPage';
 import { WaecPage } from './components/mitum/exam/WaecPage';
 import { UniportSection } from './components/UniportSection';
-import { PostUtmeSection } from './components/PostUtmeSection';
+import { PostUtmePage } from './components/mitum/exam/PostUtmePage';
 import { MitumHome } from './components/mitum/MitumHome';
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
@@ -703,7 +703,7 @@ function AppContent() {
             path="/post-utme"
             element={
               <motion.div key="post-utme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <PostUtmeSection onLogin={() => setAuthModalOpen(true)} />
+                <PostUtmePage onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
