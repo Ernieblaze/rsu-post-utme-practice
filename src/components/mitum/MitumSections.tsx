@@ -10,7 +10,7 @@ import { MitumButton } from './MitumButton';
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /** Scroll-reveal (fade + rise, once). Reduced-motion safe. */
-function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
+export function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
@@ -20,10 +20,10 @@ function Reveal({ children, delay = 0, className }: { children: ReactNode; delay
   );
 }
 
-function Overline({ children }: { children: ReactNode }) {
+export function Overline({ children }: { children: ReactNode }) {
   return <p className="mt-label text-xs font-semibold" style={{ color: 'var(--primary)' }}>{children}</p>;
 }
-function Heading({ children }: { children: ReactNode }) {
+export function Heading({ children }: { children: ReactNode }) {
   return <h2 className="mt-display mt-2 text-3xl font-extrabold sm:text-4xl" style={{ color: 'var(--text)', letterSpacing: '-0.02em', textWrap: 'balance' }}>{children}</h2>;
 }
 
