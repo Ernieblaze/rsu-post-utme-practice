@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
-  GraduationCap, Layers, Sparkles, Newspaper, Lock, Check, Play, Clock, Zap, ArrowUpRight,
-  Lightbulb, FileText, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight, BookOpen,
+  GraduationCap, Layers, Sparkles, Newspaper, Lock, Check, Play, Clock, Zap,
+  FileText, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight, BookOpen,
 } from 'lucide-react';
 import type { BankQuestion, Test } from '../../../types';
 import {
@@ -12,6 +12,7 @@ import {
 import { useMitumTheme } from '../useMitumTheme';
 import { ExamNav } from './ExamNav';
 import { ExamAiChat } from './ExamAiChat';
+import { ExamNews } from './ExamNews';
 
 // WAEC signature colours: deep navy + gold.
 const NAVY = '#1B1B6B';
@@ -25,14 +26,8 @@ const TABS = [
   { id: 'focus', label: 'Focus mock', hint: 'Your track', icon: GraduationCap },
   { id: 'practice', label: 'Practice', hint: 'Any subject', icon: Layers },
   { id: 'ai', label: 'AI Tutor', hint: 'Ask anything', icon: Sparkles },
-  { id: 'news', label: 'News', hint: 'Updates', icon: Newspaper },
+  { id: 'news', label: 'News', hint: 'Coming soon', icon: Newspaper },
 ] as const;
-
-const NEWS = [
-  { title: 'WAEC 2026: timetable & registration', body: 'Key dates and what to prepare before the papers begin.', fresh: true },
-  { title: 'Objective vs theory: how to study both', body: 'Score the OBJ paper, then build your theory answers.', fresh: false },
-  { title: 'Picking your WAEC subject track', body: 'Science, Arts or Commercial — match it to your future course.', fresh: false },
-];
 
 // Every WAEC subject a student could practise (core + all tracks), de-duped.
 const ALL_SUBJECTS = Array.from(new Set([...WAEC_CORE, ...WAEC_TRACKS.flatMap((t) => t.subjects)]));
@@ -140,7 +135,10 @@ export function WaecPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
                   <Icon size={18} />
                 </span>
                 <span className="min-w-0">
-                  <span className="mt-display block text-sm font-extrabold leading-tight" style={{ color: on ? '#fff' : 'var(--text)' }}>{t.label}</span>
+                  <span className="mt-display flex items-center gap-1.5 text-sm font-extrabold leading-tight" style={{ color: on ? '#fff' : 'var(--text)' }}>
+                    {t.label}
+                    {t.id === 'news' && <em className="mt-label rounded-full px-1.5 py-0.5 text-[8px] font-bold not-italic" style={on ? { background: 'rgba(255,255,255,.25)', color: '#fff' } : { background: softNavy(16), color: NAVY }}>SOON</em>}
+                  </span>
                   <span className="mt-body block truncate text-[11px]" style={{ color: on ? 'rgba(255,255,255,.85)' : 'var(--text-muted)' }}>{t.hint}</span>
                 </span>
               </motion.button>
@@ -271,23 +269,7 @@ export function WaecPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
           {/* ═══ NEWS ═══ */}
           {tab === 'news' && (
             <motion.div key="news" {...fade}>
-              <Head icon={Newspaper} title="WAEC news & updates" sub="Timetables, tips and changes — so you never miss what matters." />
-              <div className="grid gap-5 sm:grid-cols-3">
-                {NEWS.map((n) => (
-                  <a key={n.title} href="#news" className="mt-card group flex h-full flex-col p-6 transition-shadow hover:shadow-lg" style={{ boxShadow: 'var(--mt-shadow-sm)' }}>
-                    <div className="flex items-center justify-between">
-                      <span className="mt-label rounded-full px-2.5 py-1 text-[10px] font-bold" style={{ background: softNavy(12), color: NAVY }}>WAEC</span>
-                      {n.fresh && <span className="mt-label rounded-full px-2.5 py-1 text-[10px] font-bold" style={{ background: softGold(30), color: '#8a6300' }}>New this week</span>}
-                    </div>
-                    <h3 className="mt-display mt-4 text-lg font-bold" style={{ color: 'var(--text)' }}>{n.title}</h3>
-                    <p className="mt-body mt-1.5 flex-1 text-sm" style={{ color: 'var(--text-muted)' }}>{n.body}</p>
-                    <span className="mt-body mt-4 inline-flex items-center gap-1 text-sm font-bold transition-transform group-hover:gap-1.5" style={{ color: NAVY }}>Read <ArrowUpRight size={15} /></span>
-                  </a>
-                ))}
-              </div>
-              <p className="mt-body mt-6 flex items-center justify-center gap-1.5 text-center text-xs" style={{ color: 'var(--text-muted)' }}>
-                <Lightbulb size={13} /> Real WAEC news will be posted here — this is the structure.
-              </p>
+              <ExamNews accent={NAVY} examName="WAEC" />
             </motion.div>
           )}
         </AnimatePresence>

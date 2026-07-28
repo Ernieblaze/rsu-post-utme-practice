@@ -1,6 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, ChevronDown, Home, Check } from 'lucide-react';
 import type { Theme } from '../useMitumTheme';
 
 export interface ExamTab {
@@ -8,6 +9,13 @@ export interface ExamTab {
   label: string;
   icon: typeof Sun;
 }
+
+/** The exams a student can jump between, for the cross-exam switcher. */
+const EXAM_LINKS = [
+  { name: 'JAMB', path: '/jamb', color: '#10B981' },
+  { name: 'WAEC', path: '/waec', color: '#1B1B6B' },
+  { name: 'Post-UTME', path: '/post-utme', color: '#13294B' },
+];
 
 interface ExamNavProps {
   examName: string;
@@ -28,6 +36,16 @@ interface ExamNavProps {
  */
 export function ExamNav({ examName, accent, theme, onToggleTheme, onLogin, tabs, active, onTab }: ExamNavProps) {
   const navigate = useNavigate();
+  const [switcher, setSwitcher] = useState(false);
+  const switchRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!switcher) return;
+    const onDoc = (e: MouseEvent) => { if (switchRef.current && !switchRef.current.contains(e.target as Node)) setSwitcher(false); };
+    document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, [switcher]);
+
   return (
     <header className="mt-glass sticky top-0 z-50" style={{ borderBottom: '1px solid var(--border)' }}>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5">
@@ -37,7 +55,39 @@ export function ExamNav({ examName, accent, theme, onToggleTheme, onLogin, tabs,
             <span className="mt-display hidden text-base font-extrabold sm:inline" style={{ color: 'var(--text)' }}>Admit<span style={{ color: 'var(--primary)' }}>Me</span></span>
           </button>
           <span className="hidden text-sm sm:inline" style={{ color: 'var(--border)' }}>/</span>
-          <span className="mt-display truncate text-base font-extrabold" style={{ color: accent }}>{examName}</span>
+
+          {/* Exam name → cross-exam switcher */}
+          <div ref={switchRef} className="relative">
+            <button onClick={() => setSwitcher((v) => !v)} className="mt-display flex items-center gap-1 truncate rounded-lg px-1.5 py-1 text-base font-extrabold transition-colors" style={{ color: accent }} aria-haspopup="menu" aria-expanded={switcher}>
+              {examName}
+              <motion.span animate={{ rotate: switcher ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex"><ChevronDown size={16} /></motion.span>
+            </button>
+            <AnimatePresence>
+              {switcher && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.98 }} transition={{ duration: 0.16 }}
+                  role="menu" className="absolute left-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-xl p-1.5"
+                  style={{ background: 'var(--surface)', border: '1px solid var(--border)', boxShadow: 'var(--mt-shadow)' }}
+                >
+                  <p className="mt-label px-2.5 pb-1 pt-1.5 text-[10px]" style={{ color: 'var(--text-muted)' }}>Switch exam</p>
+                  {EXAM_LINKS.map((e) => {
+                    const current = e.name === examName;
+                    return (
+                      <button key={e.name} role="menuitem" onClick={() => { setSwitcher(false); if (!current) navigate(e.path); }} className="mt-body flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-semibold transition-colors" style={{ color: 'var(--text)', background: current ? 'var(--surface-2)' : 'transparent' }}>
+                        <span className="h-2.5 w-2.5 flex-none rounded-full" style={{ background: e.color }} />
+                        <span className="flex-1 text-left">{e.name}</span>
+                        {current && <Check size={15} style={{ color: accent }} />}
+                      </button>
+                    );
+                  })}
+                  <div className="my-1 h-px" style={{ background: 'var(--border)' }} />
+                  <button role="menuitem" onClick={() => { setSwitcher(false); navigate('/'); }} className="mt-body flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-semibold transition-colors" style={{ color: 'var(--text-muted)' }}>
+                    <Home size={15} /> All exams
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         <div className="flex items-center gap-1.5">

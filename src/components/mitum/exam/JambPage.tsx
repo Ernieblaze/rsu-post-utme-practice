@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
-  Target, Layers, Sparkles, Newspaper, Lock, Check, Play, Clock, Zap, ArrowUpRight,
-  Lightbulb, FileText, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight,
+  Target, Layers, Sparkles, Newspaper, Lock, Check, Play, Clock, Zap,
+  FileText, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import type { BankQuestion, Test } from '../../../types';
 import { JAMB_COMPULSORY, JAMB_SUBJECTS, JAMB_MAX_OTHER_SUBJECTS, JAMB_DURATION_MINUTES, buildJambMock, jambSubjectCount } from '../../../data/jambExam';
@@ -10,6 +10,7 @@ import { buildPracticeTest } from '../../../data/practiceBuilder';
 import { useMitumTheme } from '../useMitumTheme';
 import { ExamNav } from './ExamNav';
 import { ExamAiChat } from './ExamAiChat';
+import { ExamNews } from './ExamNews';
 
 const A = '#10B981';        // JAMB green (signature colour)
 const A_HOVER = '#059669';
@@ -21,14 +22,8 @@ const TABS = [
   { id: 'focus', label: 'Focus mock', hint: 'Full CBT', icon: Target },
   { id: 'practice', label: 'Practice', hint: 'Any subjects', icon: Layers },
   { id: 'ai', label: 'AI Tutor', hint: 'Ask anything', icon: Sparkles },
-  { id: 'news', label: 'News', hint: 'Updates', icon: Newspaper },
+  { id: 'news', label: 'News', hint: 'Coming soon', icon: Newspaper },
 ] as const;
-
-const NEWS = [
-  { title: 'JAMB 2026: registration & key dates', body: 'Everything to prepare before the CBT window opens.', fresh: true },
-  { title: 'How UTME scoring works', body: 'English 60 + 3 subjects × 40 = 400. Here’s the maths.', fresh: false },
-  { title: 'Choosing the right subject combination', body: 'Match your combination to the course you want.', fresh: false },
-];
 
 export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onStart: (t: Test) => void; onLogin: () => void }) {
   const { theme, toggle } = useMitumTheme();
@@ -123,7 +118,10 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
                   <Icon size={18} />
                 </span>
                 <span className="min-w-0">
-                  <span className="mt-display block text-sm font-extrabold leading-tight" style={{ color: on ? '#fff' : 'var(--text)' }}>{t.label}</span>
+                  <span className="mt-display flex items-center gap-1.5 text-sm font-extrabold leading-tight" style={{ color: on ? '#fff' : 'var(--text)' }}>
+                    {t.label}
+                    {t.id === 'news' && <em className="mt-label rounded-full px-1.5 py-0.5 text-[8px] font-bold not-italic" style={on ? { background: 'rgba(255,255,255,.25)', color: '#fff' } : { background: soft(16), color: A }}>SOON</em>}
+                  </span>
                   <span className="mt-body block truncate text-[11px]" style={{ color: on ? 'rgba(255,255,255,.85)' : 'var(--text-muted)' }}>{t.hint}</span>
                 </span>
               </motion.button>
@@ -229,23 +227,7 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
           {/* ═══ NEWS ═══ */}
           {tab === 'news' && (
             <motion.div key="news" {...fade}>
-              <Head icon={Newspaper} title="JAMB news & updates" sub="Deadlines, tips and changes — so you never miss what matters." />
-              <div className="grid gap-5 sm:grid-cols-3">
-                {NEWS.map((n) => (
-                  <a key={n.title} href="#news" className="mt-card group flex h-full flex-col p-6 transition-shadow hover:shadow-lg" style={{ boxShadow: 'var(--mt-shadow-sm)' }}>
-                    <div className="flex items-center justify-between">
-                      <span className="mt-label rounded-full px-2.5 py-1 text-[10px] font-bold" style={{ background: soft(14), color: A }}>JAMB</span>
-                      {n.fresh && <span className="mt-label rounded-full px-2.5 py-1 text-[10px] font-bold" style={{ background: soft(16), color: A }}>New this week</span>}
-                    </div>
-                    <h3 className="mt-display mt-4 text-lg font-bold" style={{ color: 'var(--text)' }}>{n.title}</h3>
-                    <p className="mt-body mt-1.5 flex-1 text-sm" style={{ color: 'var(--text-muted)' }}>{n.body}</p>
-                    <span className="mt-body mt-4 inline-flex items-center gap-1 text-sm font-bold transition-transform group-hover:gap-1.5" style={{ color: A }}>Read <ArrowUpRight size={15} /></span>
-                  </a>
-                ))}
-              </div>
-              <p className="mt-body mt-6 flex items-center justify-center gap-1.5 text-center text-xs" style={{ color: 'var(--text-muted)' }}>
-                <Lightbulb size={13} /> Real JAMB news will be posted here — this is the structure.
-              </p>
+              <ExamNews accent={A} examName="JAMB" />
             </motion.div>
           )}
         </AnimatePresence>
