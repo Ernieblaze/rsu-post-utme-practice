@@ -21,7 +21,7 @@ export function Reveal({ children, delay = 0, className }: { children: ReactNode
 }
 
 export function Overline({ children }: { children: ReactNode }) {
-  return <p className="mt-label text-xs font-semibold" style={{ color: 'var(--primary)' }}>{children}</p>;
+  return <p className="mt-label text-xs font-semibold" style={{ color: 'var(--gold-ink)' }}>{children}</p>;
 }
 export function Heading({ children }: { children: ReactNode }) {
   return <h2 className="mt-display mt-2 text-3xl font-extrabold sm:text-4xl" style={{ color: 'var(--text)', letterSpacing: '-0.02em', textWrap: 'balance' }}>{children}</h2>;
@@ -113,7 +113,7 @@ function BentoCard({ icon: Icon, title, body, accent, large, children }: { icon:
 
 /* ─────────────────────────  5 · Choose your exam  ───────────────────────── */
 const EXAM_CARDS = [
-  { key: 'waec', name: 'WAEC', tag: 'SSCE', accent: 'var(--accent)', icon: BookOpen, badge: 'NEW', path: '/waec', flow: ['Pick a track — Science / Arts / Commercial', 'Choose your subjects', 'Practice or timed mock'], cta: 'Start WAEC' },
+  { key: 'waec', name: 'WAEC', tag: 'SSCE', accent: 'var(--accent)', icon: BookOpen, badge: 'SOON', path: '/waec', flow: ['Pick a track — Science / Arts / Commercial', 'Choose your subjects', 'Practice or timed mock'], cta: 'Preview WAEC' },
   { key: 'jamb', name: 'JAMB', tag: 'UTME', accent: 'var(--success)', icon: Target, badge: 'LIVE', path: '/jamb', flow: ['Select your 4-subject combination', 'Full CBT mock — 180 questions', 'Explanation on every answer'], cta: 'Start JAMB' },
   { key: 'post-utme', name: 'Post-UTME', tag: 'By school', accent: 'var(--primary)', icon: GraduationCap, badge: 'LIVE', path: '/post-utme', flow: ['Choose your school', 'Then faculty & department', 'That school’s exact format + AI help'], cta: 'Pick your school' },
 ];

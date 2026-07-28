@@ -100,7 +100,7 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
           </div>
 
           {/* live CBT screen mockup */}
-          <motion.div initial={reduce ? false : { opacity: 0, y: 24, rotate: -1 }} animate={{ opacity: 1, y: 0, rotate: -1.2 }} transition={{ duration: 0.7, ease: EASE, delay: 0.15 }} className="hidden lg:block">
+          <motion.div initial={reduce ? false : { opacity: 0, y: 24, rotate: -1 }} animate={{ opacity: 1, y: 0, rotate: -1.2 }} transition={{ duration: 0.7, ease: EASE, delay: 0.15 }} className="mx-auto w-full max-w-md lg:max-w-none">
             <CbtMockup />
           </motion.div>
         </div>

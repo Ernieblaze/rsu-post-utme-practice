@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { MitumNav } from './MitumNav';
 import { MitumHero } from './MitumHero';
 import { FloatingTrustBar, BentoGrid, ChooseExam } from './MitumSections';
-import { AiHelper, SchoolNews, HowItWorks, Testimonials, StatsStrip, ComingSoon, Faq, SchoolsPartners, FinalCta, MitumFooter } from './MitumSections2';
+import { AiHelper, SchoolNews, HowItWorks, Testimonials, StatsStrip, ComingSoon, Pricing, Faq, SchoolsPartners, FinalCta, MitumFooter } from './MitumSections2';
 import { COMPANY } from '../../config/admitme';
 import { WHATSAPP_NUMBER } from '../../lib/support';
 
@@ -44,6 +44,7 @@ export function MitumHome({ onLogin }: { onLogin: () => void }) {
       <Testimonials />
       <StatsStrip />
       <ComingSoon />
+      <Pricing onStart={onLogin} />
       <Faq />
       <SchoolsPartners waLink={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi AdmitMe — I would like to partner / bring AdmitMe to my students.')}`} />
       <FinalCta onStart={onLogin} />

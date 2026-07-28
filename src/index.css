@@ -40,6 +40,7 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
 :root {
   --bg: #F8FAFC;        --surface: #FFFFFF;    --surface-2: #F1F5F9;
   --primary: #F59E0B;   --primary-hover: #D97706;
+  --gold-ink: #B45309;  /* readable gold for TEXT on light (fills keep --primary) */
   --accent: #6366F1;    --success: #10B981;
   --text: #0F172A;      --text-muted: #64748B; --border: #E2E8F0;
 
@@ -57,13 +58,13 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
 }
 :root[data-theme="light"] {
   --bg: #F8FAFC; --surface: #FFFFFF; --surface-2: #F1F5F9;
-  --primary: #F59E0B; --primary-hover: #D97706; --accent: #6366F1; --success: #10B981;
+  --primary: #F59E0B; --primary-hover: #D97706; --gold-ink: #B45309; --accent: #6366F1; --success: #10B981;
   --text: #0F172A; --text-muted: #64748B; --border: #E2E8F0;
   --mt-glass: rgba(255,255,255,.72); --mt-grid: rgba(15,23,42,.035);
 }
 :root[data-theme="dark"] {
   --bg: #0B1120; --surface: #111827; --surface-2: #1E293B;
-  --primary: #FBBF24; --primary-hover: #F59E0B; --accent: #818CF8; --success: #34D399;
+  --primary: #FBBF24; --primary-hover: #F59E0B; --gold-ink: #FBBF24; --accent: #818CF8; --success: #34D399;
   --text: #F1F5F9; --text-muted: #94A3B8; --border: #334155;
   --mt-shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.35);
   --mt-shadow: 0 2px 6px rgba(0,0,0,.4), 0 20px 48px -14px rgba(0,0,0,.6);

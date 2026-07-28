@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
-  Bot, Send, Newspaper, ArrowRight, ArrowUpRight, Star, ShieldCheck, ChevronDown,
+  Bot, Send, Newspaper, ArrowRight, ArrowUpRight, ShieldCheck, ChevronDown,
   CalendarClock, Flame, Users, WifiOff, Building2, MessageCircle, Sparkles,
+  Target, Lightbulb, TrendingUp, Check,
 } from 'lucide-react';
 import { MitumButton } from './MitumButton';
 import { Reveal, Overline, Heading } from './MitumSections';
@@ -71,7 +73,7 @@ export function SchoolNews() {
     <section id="news" className="scroll-mt-24 py-16 sm:py-20" style={{ background: 'var(--surface-2)' }}>
       <div className="mx-auto max-w-6xl px-4">
         <Reveal className="mb-10 flex flex-col items-center text-center">
-          <span className="mt-label mb-2 inline-flex items-center gap-1.5 text-xs" style={{ color: 'var(--primary)' }}><Newspaper size={13} /> School news &amp; updates</span>
+          <span className="mt-label mb-2 inline-flex items-center gap-1.5 text-xs" style={{ color: 'var(--gold-ink)' }}><Newspaper size={13} /> School news &amp; updates</span>
           <Heading>Stay ahead of every deadline</Heading>
           <p className="mt-body mt-3 text-base" style={{ color: 'var(--text-muted)' }}>Exam news, cut-offs and admission updates — so you never miss what matters.</p>
         </Reveal>
@@ -85,7 +87,7 @@ export function SchoolNews() {
                 </div>
                 <h3 className="mt-display mt-4 text-lg font-bold" style={{ color: 'var(--text)' }}>{n.title}</h3>
                 <p className="mt-body mt-1.5 flex-1 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{n.body}</p>
-                <span className="mt-body mt-4 inline-flex items-center gap-1 text-sm font-bold" style={{ color: 'var(--primary)' }}>Read <ArrowUpRight size={15} /></span>
+                <span className="mt-body mt-4 inline-flex items-center gap-1 text-sm font-bold" style={{ color: 'var(--gold-ink)' }}>Read <ArrowUpRight size={15} /></span>
               </motion.a>
             </Reveal>
           ))}
@@ -122,27 +124,32 @@ export function HowItWorks() {
   );
 }
 
-/* ─────────────────────────  9 · Testimonials  ───────────────────────── */
-const TESTIMONIALS = [
-  { name: 'Chidinma O.', role: 'Nursing aspirant', quote: 'The mock felt exactly like the real screening. I walked in confident.' },
-  { name: 'Emeka N.', role: 'JAMB candidate', quote: 'Every question has an explanation. I stopped cramming and understood.' },
-  { name: 'Blessing A.', role: 'Post-UTME', quote: 'Practising daily here is the reason I got my admission.' },
+/* ─────────────────────────  9 · Why students practise here  ─────────────────────────
+   Honest, un-attributed value statements (no fabricated people/ratings). Swap in
+   real student quotes here once you've collected them. */
+const REASONS = [
+  { icon: Target, title: 'It feels like the real hall', body: 'Timed mocks mirror the real screening — question count, clock and all — so exam day feels familiar.' },
+  { icon: Lightbulb, title: 'Understand, don’t cram', body: 'Every answer comes with a clear explanation, so the concept actually sticks for next time.' },
+  { icon: TrendingUp, title: 'Practice that pays off', body: 'Practise daily and watch your scores climb — you always know which topics to fix next.' },
 ];
 export function Testimonials() {
   return (
     <section className="py-16 sm:py-20" style={{ background: 'var(--surface-2)' }}>
       <div className="mx-auto max-w-6xl px-4">
-        <Reveal className="mb-10 text-center"><Overline>What students say</Overline><Heading>Students who walked in ready</Heading></Reveal>
+        <Reveal className="mb-10 text-center"><Overline>Why it works</Overline><Heading>Built to get you admitted</Heading></Reveal>
         <div className="grid gap-5 sm:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.07}>
-              <figure className="mt-card h-full p-6">
-                <div className="mb-2 flex gap-0.5" style={{ color: 'var(--primary)' }}>{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={15} fill="currentColor" />)}</div>
-                <blockquote className="mt-body text-sm leading-relaxed" style={{ color: 'var(--text)' }}>“{t.quote}”</blockquote>
-                <figcaption className="mt-display mt-4 text-sm font-bold" style={{ color: 'var(--text)' }}>{t.name} <span className="mt-body font-normal" style={{ color: 'var(--text-muted)' }}>— {t.role}</span></figcaption>
-              </figure>
-            </Reveal>
-          ))}
+          {REASONS.map((r, i) => {
+            const Icon = r.icon;
+            return (
+              <Reveal key={r.title} delay={i * 0.07}>
+                <div className="mt-card h-full p-6">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: 'color-mix(in srgb, var(--primary) 14%, transparent)', color: 'var(--gold-ink)' }}><Icon size={24} /></span>
+                  <h3 className="mt-display mt-4 text-lg font-bold" style={{ color: 'var(--text)' }}>{r.title}</h3>
+                  <p className="mt-body mt-1.5 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{r.body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -158,7 +165,7 @@ export function StatsStrip() {
         {STATS.map(([v, l], i) => (
           <Reveal key={l} delay={i * 0.06}>
             <div className="mt-glass rounded-2xl px-4 py-6 text-center" style={{ boxShadow: 'var(--mt-shadow-sm)' }}>
-              <div className="mt-mono text-3xl font-extrabold sm:text-4xl" style={{ color: 'var(--primary)' }}>{v}</div>
+              <div className="mt-mono text-3xl font-extrabold sm:text-4xl" style={{ color: 'var(--gold-ink)' }}>{v}</div>
               <div className="mt-label mt-1.5 text-[11px]" style={{ color: 'var(--text-muted)' }}>{l}</div>
             </div>
           </Reveal>
@@ -200,6 +207,65 @@ export function ComingSoon() {
   );
 }
 
+/* ─────────────────────────  11b · Pricing  ───────────────────────── */
+const FREE = ['Sign up free — no card needed', 'Daily practice questions', 'Sample subjects to try', 'AI tutor preview'];
+const PREMIUM = ['Everything in Free', 'Unlimited timed mock exams', 'Every subject & topic', 'Explanation on every answer', 'Score & admission prediction', 'All live exams — JAMB + Post-UTME'];
+export function Pricing({ onStart }: { onStart: () => void }) {
+  return (
+    <section id="pricing" className="scroll-mt-24 py-16 sm:py-20">
+      <div className="mx-auto max-w-4xl px-4">
+        <Reveal className="mb-10 text-center">
+          <Overline>Simple pricing</Overline>
+          <Heading>One payment. Everything unlocked.</Heading>
+          <p className="mt-body mt-3 text-base" style={{ color: 'var(--text-muted)' }}>Start free. Upgrade once — no subscriptions, no surprises.</p>
+        </Reveal>
+        <div className="grid items-start gap-5 sm:grid-cols-2">
+          {/* Free */}
+          <Reveal>
+            <div className="mt-card flex h-full flex-col p-7">
+              <p className="mt-label text-xs" style={{ color: 'var(--text-muted)' }}>Free</p>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="mt-display text-4xl font-extrabold" style={{ color: 'var(--text)' }}>₦0</span>
+                <span className="mt-body text-sm" style={{ color: 'var(--text-muted)' }}>/ forever</span>
+              </div>
+              <ul className="mt-5 flex-1 space-y-2.5">
+                {FREE.map((f) => (
+                  <li key={f} className="mt-body flex items-start gap-2 text-sm" style={{ color: 'var(--text)' }}>
+                    <Check size={17} className="mt-0.5 flex-none" style={{ color: 'var(--success)' }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <button onClick={onStart} className="mt-btn mt-6 w-full" style={{ border: '1px solid var(--border)', background: 'var(--surface-2)', color: 'var(--text)' }}>Start free</button>
+            </div>
+          </Reveal>
+          {/* Premium */}
+          <Reveal delay={0.06}>
+            <div className="mt-card relative flex h-full flex-col p-7" style={{ border: '2px solid var(--primary)', boxShadow: 'var(--mt-shadow)' }}>
+              <span className="mt-label absolute -top-3 right-6 rounded-full px-3 py-1 text-[10px] font-bold" style={{ background: 'var(--primary)', color: '#1B1206' }}>Best value</span>
+              <p className="mt-label text-xs" style={{ color: 'var(--gold-ink)' }}>Premium</p>
+              <div className="mt-2 flex items-baseline gap-1.5">
+                <span className="mt-display text-4xl font-extrabold" style={{ color: 'var(--text)' }}>₦2,000</span>
+                <span className="mt-body text-sm" style={{ color: 'var(--text-muted)' }}>one payment</span>
+              </div>
+              <ul className="mt-5 flex-1 space-y-2.5">
+                {PREMIUM.map((f) => (
+                  <li key={f} className="mt-body flex items-start gap-2 text-sm" style={{ color: 'var(--text)' }}>
+                    <Check size={17} className="mt-0.5 flex-none" style={{ color: 'var(--gold-ink)' }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <MitumButton onClick={onStart} className="mt-6 w-full">Go Premium <ArrowRight size={17} /></MitumButton>
+              <p className="mt-body mt-3 flex items-center justify-center gap-1.5 text-center text-xs" style={{ color: 'var(--text-muted)' }}>
+                <ShieldCheck size={13} style={{ color: 'var(--success)' }} /> One payment unlocks every live exam
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────────────────  12 · FAQ  ───────────────────────── */
 const FAQS = [
   { q: 'Is it free to start?', a: 'Yes — sign up free and start practising right away. Premium (₦2,000, one payment) unlocks everything: unlimited mock exams, every subject, and score prediction.' },
@@ -210,7 +276,7 @@ const FAQS = [
 ];
 export function Faq() {
   return (
-    <section id="pricing" className="scroll-mt-24 py-16 sm:py-20" style={{ background: 'var(--surface-2)' }}>
+    <section id="faq" className="scroll-mt-24 py-16 sm:py-20" style={{ background: 'var(--surface-2)' }}>
       <div className="mx-auto max-w-3xl px-4">
         <Reveal className="mb-9 text-center"><Overline>FAQ</Overline><Heading>Questions? Answered.</Heading></Reveal>
         <div className="space-y-3">
@@ -234,7 +300,7 @@ export function Faq() {
 /* ─────────────────────────  13 · Schools & Partners  ───────────────────────── */
 export function SchoolsPartners({ waLink }: { waLink: string }) {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16">
+    <section id="partners" className="mx-auto max-w-5xl scroll-mt-24 px-4 py-16">
       <Reveal>
         <div className="mt-card mt-grid-surface grid items-center gap-8 p-8 sm:grid-cols-2 sm:p-10">
           <div>
@@ -272,20 +338,35 @@ export function FinalCta({ onStart }: { onStart: () => void }) {
 }
 
 /* ─────────────────────────  15 · Footer  ───────────────────────── */
+type FootLink = { label: string; to?: string; href?: string };
 export function MitumFooter({ supportEmail }: { supportEmail: string }) {
-  const cols = [
-    { h: 'Exams', links: ['WAEC', 'JAMB', 'Post-UTME'] },
-    { h: 'Platform', links: ['What we offer', 'AI Tutor', 'Pricing', 'News'] },
-    { h: 'Company', links: ['About AdmitMe', 'For schools', 'Contact'] },
+  const navigate = useNavigate();
+  const cols: { h: string; links: FootLink[] }[] = [
+    { h: 'Exams', links: [
+      { label: 'JAMB', to: '/jamb' },
+      { label: 'Post-UTME', to: '/post-utme' },
+      { label: 'WAEC', to: '/waec' },
+    ] },
+    { h: 'Platform', links: [
+      { label: 'What we offer', href: '#offers' },
+      { label: 'AI Tutor', href: '#ai' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'News', href: '#news' },
+    ] },
+    { h: 'Company', links: [
+      { label: 'How it works', href: '#how' },
+      { label: 'For schools', href: '#partners' },
+      { label: 'Contact', href: `mailto:${supportEmail}` },
+    ] },
   ];
   return (
     <footer className="border-t" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
+          <a href="#top" className="flex items-center gap-2.5">
             <span className="mt-display flex h-9 w-9 items-center justify-center rounded-xl text-lg font-extrabold" style={{ background: 'var(--primary)', color: '#1B1206' }}>A</span>
-            <span className="mt-display text-xl font-extrabold" style={{ color: 'var(--text)' }}>Admit<span style={{ color: 'var(--primary)' }}>Me</span></span>
-          </div>
+            <span className="mt-display text-xl font-extrabold" style={{ color: 'var(--text)' }}>Admit<span style={{ color: 'var(--gold-ink)' }}>Me</span></span>
+          </a>
           <p className="mt-body mt-3 max-w-xs text-sm" style={{ color: 'var(--text-muted)' }}>Pass WAEC, JAMB &amp; Post-UTME with real past questions, timed mocks and an AI tutor.</p>
         </div>
         {cols.map((c) => (
@@ -293,7 +374,11 @@ export function MitumFooter({ supportEmail }: { supportEmail: string }) {
             <p className="mt-label text-[11px] font-bold" style={{ color: 'var(--text-muted)' }}>{c.h}</p>
             <ul className="mt-3 space-y-2">
               {c.links.map((l) => (
-                <li key={l}><a href="#top" className="mt-body text-sm" style={{ color: 'var(--text)' }}>{l}</a></li>
+                <li key={l.label}>
+                  {l.to
+                    ? <button onClick={() => navigate(l.to!)} className="mt-body text-left text-sm transition-colors hover:opacity-70" style={{ color: 'var(--text)' }}>{l.label}</button>
+                    : <a href={l.href} className="mt-body text-sm transition-colors hover:opacity-70" style={{ color: 'var(--text)' }}>{l.label}</a>}
+                </li>
               ))}
             </ul>
           </div>
