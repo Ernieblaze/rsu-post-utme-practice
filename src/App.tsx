@@ -783,6 +783,7 @@ function AppContent() {
 
       <AuthModal
         open={authModalOpen}
+        accent={(view === 'admitme' || view === 'jamb' || view === 'waec' || view === 'uniport' || view === 'post-utme' || view === 'mitum') ? 'gold' : 'green'}
         onClose={() => {
           setAuthModalOpen(false);
           setPendingAction(null);

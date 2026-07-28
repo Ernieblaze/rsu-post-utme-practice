@@ -12,6 +12,8 @@ import { WHATSAPP_NUMBER } from '../lib/support';
 interface AuthModalProps {
   open: boolean;
   onClose: () => void;
+  /** Brand accent: 'green' = RSU (default), 'gold' = AdmitMe navy+gold pages. */
+  accent?: 'green' | 'gold';
 }
 
 type Mode = 'signin' | 'signup' | 'forgot';
@@ -28,8 +30,13 @@ function GoogleIcon() {
   );
 }
 
-export function AuthModal({ open, onClose }: AuthModalProps) {
+export function AuthModal({ open, onClose, accent = 'green' }: AuthModalProps) {
   const { signUp, signIn, signInWithGoogle, resetPassword, resendConfirmation } = useAuth();
+  // AdmitMe pages use navy+gold; RSU keeps its green. Inline styles override the
+  // school-green Tailwind classes only when accent === 'gold'.
+  const gold = accent === 'gold';
+  const btnStyle = gold ? { background: '#F59E0B', color: '#0F172A' } : undefined;
+  const linkStyle = gold ? { color: '#B45309' } : undefined;
   const navigate = useNavigate();
   const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
@@ -233,6 +240,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   <button
                     type="button"
                     onClick={() => switchMode('forgot')}
+                    style={linkStyle}
                     className="text-xs font-semibold text-school-green hover:underline"
                   >
                     Forgot password?
@@ -281,6 +289,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
               <button
                 type="submit"
                 disabled={submitting}
+                style={btnStyle}
                 className="w-full rounded-lg bg-school-green py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-school-green/90 disabled:opacity-60"
               >
                 {submitting
@@ -302,6 +311,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
                   type="button"
                   onClick={handleResend}
                   disabled={resending}
+                  style={linkStyle}
                   className="mt-0.5 text-xs font-bold text-school-green hover:underline disabled:opacity-60"
                 >
                   {resending ? 'Sending…' : 'Resend confirmation email'}
@@ -313,21 +323,21 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
               {mode === 'forgot' ? (
                 <>
                   Remembered it?{' '}
-                  <button onClick={() => switchMode('signin')} className="font-semibold text-school-green hover:underline">
+                  <button onClick={() => switchMode('signin')} style={linkStyle} className="font-semibold text-school-green hover:underline">
                     Log in
                   </button>
                 </>
               ) : mode === 'signup' ? (
                 <>
                   Already have an account?{' '}
-                  <button onClick={() => switchMode('signin')} className="font-semibold text-school-green hover:underline">
+                  <button onClick={() => switchMode('signin')} style={linkStyle} className="font-semibold text-school-green hover:underline">
                     Log in
                   </button>
                 </>
               ) : (
                 <>
                   Need an account?{' '}
-                  <button onClick={() => switchMode('signup')} className="font-semibold text-school-green hover:underline">
+                  <button onClick={() => switchMode('signup')} style={linkStyle} className="font-semibold text-school-green hover:underline">
                     Sign up
                   </button>
                 </>
@@ -338,6 +348,7 @@ export function AuthModal({ open, onClose }: AuthModalProps) {
               <button
                 type="button"
                 onClick={() => { handleClose(); navigate('/login-help'); }}
+                style={linkStyle}
                 className="block w-full text-xs font-bold text-school-green hover:underline"
               >
                 Struggling to log in or reset your password? Read the quick guide →
