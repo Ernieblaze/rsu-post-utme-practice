@@ -36,7 +36,7 @@ import { BottomTabBar } from './components/BottomTabBar';
 
 /** Core RSU app views where the mobile bottom tab bar appears. */
 const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboard', 'dashboard', 'ai-tutor', 'predictor', 'daily', 'exam-focus']);
-import { JambPractice } from './components/JambPractice';
+import { JambPage } from './components/mitum/exam/JambPage';
 import { WaecSection } from './components/WaecSection';
 import { UniportSection } from './components/UniportSection';
 import { PostUtmeSection } from './components/PostUtmeSection';
@@ -676,7 +676,7 @@ function AppContent() {
             path="/jamb"
             element={
               <motion.div key="jamb" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <JambPractice bank={bank} onStart={guardedStartDynamicTest} onLogin={() => setAuthModalOpen(true)} />
+                <JambPage bank={bank} onStart={guardedStartDynamicTest} onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
