@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
-import { MitumButton } from './MitumButton';
+import { AdmitMeButton } from './AdmitMeButton';
 
 const LINKS = [
   { label: 'Exams', to: '#exams' },
@@ -10,7 +10,7 @@ const LINKS = [
   { label: 'Pricing', to: '#pricing' },
 ];
 
-interface MitumNavProps {
+interface AdmitMeNavProps {
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
   onLogin: () => void;
@@ -34,7 +34,7 @@ function Logo() {
   );
 }
 
-export function MitumNav({ theme, onToggleTheme, onLogin, onStart }: MitumNavProps) {
+export function AdmitMeNav({ theme, onToggleTheme, onLogin, onStart }: AdmitMeNavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -92,7 +92,7 @@ export function MitumNav({ theme, onToggleTheme, onLogin, onStart }: MitumNavPro
           </button>
 
           <button onClick={onLogin} className="mt-btn mt-btn-tertiary hidden sm:inline-flex">Login</button>
-          <MitumButton onClick={onStart} className="hidden sm:inline-flex">Start free</MitumButton>
+          <AdmitMeButton onClick={onStart} className="hidden sm:inline-flex">Start free</AdmitMeButton>
 
           <button
             onClick={() => setOpen((v) => !v)}
@@ -130,7 +130,7 @@ export function MitumNav({ theme, onToggleTheme, onLogin, onStart }: MitumNavPro
               ))}
               <div className="mt-2 flex gap-2">
                 <button onClick={onLogin} className="mt-btn mt-btn-secondary flex-1">Login</button>
-                <MitumButton onClick={onStart} className="flex-1">Start free</MitumButton>
+                <AdmitMeButton onClick={onStart} className="flex-1">Start free</AdmitMeButton>
               </div>
             </nav>
           </motion.div>

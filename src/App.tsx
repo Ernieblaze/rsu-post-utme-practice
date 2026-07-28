@@ -42,7 +42,7 @@ import { UniportSection } from './components/UniportSection';
 const JambPage = lazy(() => import('./components/mitum/exam/JambPage').then((m) => ({ default: m.JambPage })));
 const WaecPage = lazy(() => import('./components/mitum/exam/WaecPage').then((m) => ({ default: m.WaecPage })));
 const PostUtmePage = lazy(() => import('./components/mitum/exam/PostUtmePage').then((m) => ({ default: m.PostUtmePage })));
-const MitumHome = lazy(() => import('./components/mitum/MitumHome').then((m) => ({ default: m.MitumHome })));
+const AdmitMeHome = lazy(() => import('./components/mitum/AdmitMeHome').then((m) => ({ default: m.AdmitMeHome })));
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -401,7 +401,7 @@ function AppContent() {
             element={
               PLATFORM_HEAD === 'admitme' ? (
                 <motion.div key="admitme-root" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <MitumHome onLogin={() => setAuthModalOpen(true)} />
+                  <AdmitMeHome onLogin={() => setAuthModalOpen(true)} />
                 </motion.div>
               ) : (
                 <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -670,7 +670,7 @@ function AppContent() {
             path="/admitme"
             element={
               <motion.div key="admitme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <MitumHome onLogin={() => setAuthModalOpen(true)} />
+                <AdmitMeHome onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
@@ -715,7 +715,7 @@ function AppContent() {
             path="/mitum"
             element={
               <motion.div key="mitum" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <MitumHome onLogin={() => setAuthModalOpen(true)} />
+                <AdmitMeHome onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />

@@ -9,7 +9,7 @@ import {
   WAEC_CORE, WAEC_TRACKS, WAEC_COUNT_OPTIONS, WAEC_TIMED_MINUTES_PER_Q, WAEC_UNTIMED_MINUTES,
   buildWaecMock, waecSubjectCount, type WaecTrack,
 } from '../../../data/waecExam';
-import { useMitumTheme } from '../useMitumTheme';
+import { useAdmitMeTheme } from '../useAdmitMeTheme';
 import { ExamNav } from './ExamNav';
 import { ExamAiChat } from './ExamAiChat';
 import { ExamNews } from './ExamNews';
@@ -33,7 +33,7 @@ const TABS = [
 const ALL_SUBJECTS = Array.from(new Set([...WAEC_CORE, ...WAEC_TRACKS.flatMap((t) => t.subjects)]));
 
 export function WaecPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onStart: (t: Test) => void; onLogin: () => void }) {
-  const { theme, toggle } = useMitumTheme();
+  const { theme, toggle } = useAdmitMeTheme();
   const reduce = useReducedMotion();
   const [tab, setTab] = useState<string>('focus');
 
@@ -79,7 +79,7 @@ export function WaecPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
   const focusTotal = focusSubjects * count;
 
   return (
-    <div className="mitum-app" style={{ ['--primary' as string]: NAVY, ['--primary-hover' as string]: NAVY_DEEP, minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className="admitme-app" style={{ ['--primary' as string]: NAVY, ['--primary-hover' as string]: NAVY_DEEP, minHeight: '100vh', background: 'var(--bg)' }}>
       <ExamNav examName="WAEC" accent={NAVY} theme={theme} onToggleTheme={toggle} onLogin={onLogin} />
 
       {/* ── Hero: copy + live OBJ CBT screen ── */}

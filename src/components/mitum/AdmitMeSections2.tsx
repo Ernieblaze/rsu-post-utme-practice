@@ -6,8 +6,8 @@ import {
   CalendarClock, Flame, Users, WifiOff, Building2, MessageCircle, Sparkles,
   Target, Lightbulb, TrendingUp, Check,
 } from 'lucide-react';
-import { MitumButton } from './MitumButton';
-import { Reveal, Overline, Heading } from './MitumSections';
+import { AdmitMeButton } from './AdmitMeButton';
+import { Reveal, Overline, Heading } from './AdmitMeSections';
 
 /* ─────────────────────────  6 · AI Study Helper  ───────────────────────── */
 const CHIPS = ['Explain photosynthesis', 'Balance this equation', 'What is a pronoun?', 'Solve simultaneous equations'];
@@ -254,7 +254,7 @@ export function Pricing({ onStart }: { onStart: () => void }) {
                   </li>
                 ))}
               </ul>
-              <MitumButton onClick={onStart} className="mt-6 w-full">Go Premium <ArrowRight size={17} /></MitumButton>
+              <AdmitMeButton onClick={onStart} className="mt-6 w-full">Go Premium <ArrowRight size={17} /></AdmitMeButton>
               <p className="mt-body mt-3 flex items-center justify-center gap-1.5 text-center text-xs" style={{ color: 'var(--text-muted)' }}>
                 <ShieldCheck size={13} style={{ color: 'var(--success)' }} /> One payment unlocks every live exam
               </p>
@@ -329,7 +329,7 @@ export function FinalCta({ onStart }: { onStart: () => void }) {
           <h2 className="mt-display relative mt-3 text-3xl font-extrabold text-white sm:text-4xl">Ready to get admitted?</h2>
           <p className="mt-body relative mx-auto mt-3 max-w-md" style={{ color: '#94A3B8' }}>One account, every exam. Start practising free — no card needed.</p>
           <div className="relative mt-6 flex justify-center">
-            <MitumButton onClick={onStart} style={{ fontSize: '1.05rem', padding: '1rem 1.8rem' }}>Start free <ArrowRight size={19} /></MitumButton>
+            <AdmitMeButton onClick={onStart} style={{ fontSize: '1.05rem', padding: '1rem 1.8rem' }}>Start free <ArrowRight size={19} /></AdmitMeButton>
           </div>
         </div>
       </Reveal>
@@ -339,7 +339,7 @@ export function FinalCta({ onStart }: { onStart: () => void }) {
 
 /* ─────────────────────────  15 · Footer  ───────────────────────── */
 type FootLink = { label: string; to?: string; href?: string };
-export function MitumFooter({ supportEmail }: { supportEmail: string }) {
+export function AdmitMeFooter({ supportEmail }: { supportEmail: string }) {
   const navigate = useNavigate();
   const cols: { h: string; links: FootLink[] }[] = [
     { h: 'Exams', links: [

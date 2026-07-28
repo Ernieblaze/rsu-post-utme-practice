@@ -5,7 +5,7 @@ import {
   Clock, Sparkles, Layers, TrendingUp, Lightbulb, BarChart3,
   BookOpen, Target, GraduationCap, ArrowRight, CheckCircle2, FileText, ShieldCheck, Zap,
 } from 'lucide-react';
-import { MitumButton } from './MitumButton';
+import { AdmitMeButton } from './AdmitMeButton';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -174,8 +174,8 @@ export function ChooseExam() {
   );
 }
 
-/* Convenience export used by MitumHome to render Phase-3 in order. */
-export function MitumPhase3({ onStart }: { onStart?: () => void }) {
+/* Convenience export used by AdmitMeHome to render Phase-3 in order. */
+export function AdmitMePhase3({ onStart }: { onStart?: () => void }) {
   void onStart;
   return (
     <>

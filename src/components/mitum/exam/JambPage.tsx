@@ -7,7 +7,7 @@ import {
 import type { BankQuestion, Test } from '../../../types';
 import { JAMB_COMPULSORY, JAMB_SUBJECTS, JAMB_MAX_OTHER_SUBJECTS, JAMB_DURATION_MINUTES, buildJambMock, jambSubjectCount } from '../../../data/jambExam';
 import { buildPracticeTest } from '../../../data/practiceBuilder';
-import { useMitumTheme } from '../useMitumTheme';
+import { useAdmitMeTheme } from '../useAdmitMeTheme';
 import { ExamNav } from './ExamNav';
 import { ExamAiChat } from './ExamAiChat';
 import { ExamNews } from './ExamNews';
@@ -26,7 +26,7 @@ const TABS = [
 ] as const;
 
 export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onStart: (t: Test) => void; onLogin: () => void }) {
-  const { theme, toggle } = useMitumTheme();
+  const { theme, toggle } = useAdmitMeTheme();
   const reduce = useReducedMotion();
   const [tab, setTab] = useState<string>('focus');
 
@@ -60,7 +60,7 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
   const focusTotal = 60 + focus.length * 40;
 
   return (
-    <div className="mitum-app" style={{ ['--primary' as string]: A, ['--primary-hover' as string]: A_HOVER, minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className="admitme-app" style={{ ['--primary' as string]: A, ['--primary-hover' as string]: A_HOVER, minHeight: '100vh', background: 'var(--bg)' }}>
       <ExamNav examName="JAMB" accent={A} theme={theme} onToggleTheme={toggle} onLogin={onLogin} />
 
       {/* ── Hero band: copy + live CBT screen ── */}

@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Star, ShieldCheck } from 'lucide-react';
-import { MitumButton } from './MitumButton';
+import { AdmitMeButton } from './AdmitMeButton';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -9,7 +9,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
  * indigo ambient glow, a strong headline, two CTAs, a floating realistic CBT
  * exam-interface phone mockup, and a thin trust strip along the bottom.
  */
-export function MitumHero({ onStart }: { onStart: () => void }) {
+export function AdmitMeHero({ onStart }: { onStart: () => void }) {
   const reduce = useReducedMotion();
   const up = (delay = 0) =>
     reduce
@@ -42,9 +42,9 @@ export function MitumHero({ onStart }: { onStart: () => void }) {
           </motion.p>
 
           <motion.div {...up(0.18)} className="mt-8 flex flex-wrap gap-3">
-            <MitumButton onClick={onStart} style={{ fontSize: '1rem', padding: '0.95rem 1.6rem' }}>
+            <AdmitMeButton onClick={onStart} style={{ fontSize: '1rem', padding: '0.95rem 1.6rem' }}>
               Start free <ArrowRight size={18} />
-            </MitumButton>
+            </AdmitMeButton>
             <a href="#exams" className="mt-btn" style={{ fontSize: '1rem', padding: '0.95rem 1.6rem', color: '#fff', border: '1px solid rgba(255,255,255,.25)', background: 'rgba(255,255,255,.04)' }}>
               Explore exams
             </a>

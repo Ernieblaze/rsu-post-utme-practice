@@ -14,7 +14,7 @@ function initial(): Theme {
  * AdmitMe light/dark theme — sets data-theme on <html> (RSU ignores it, so both
  * coexist) and persists the choice. Shared by the home and every exam page.
  */
-export function useMitumTheme() {
+export function useAdmitMeTheme() {
   const [theme, setTheme] = useState<Theme>(initial);
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

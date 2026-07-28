@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { MitumNav } from './MitumNav';
-import { MitumHero } from './MitumHero';
-import { FloatingTrustBar, BentoGrid, ChooseExam } from './MitumSections';
-import { SchoolNews, HowItWorks, Testimonials, StatsStrip, Pricing, Faq, SchoolsPartners, FinalCta, MitumFooter } from './MitumSections2';
+import { AdmitMeNav } from './AdmitMeNav';
+import { AdmitMeHero } from './AdmitMeHero';
+import { FloatingTrustBar, BentoGrid, ChooseExam } from './AdmitMeSections';
+import { SchoolNews, HowItWorks, Testimonials, StatsStrip, Pricing, Faq, SchoolsPartners, FinalCta, AdmitMeFooter } from './AdmitMeSections2';
 import { COMPANY } from '../../config/admitme';
 import { WHATSAPP_NUMBER } from '../../lib/support';
 
@@ -17,11 +17,11 @@ function initialTheme(): Theme {
 }
 
 /**
- * Mitum homepage (redesign, in progress). Owns the theme (data-theme on <html>;
+ * AdmitMe homepage (redesign, in progress). Owns the theme (data-theme on <html>;
  * RSU ignores it, so both coexist). PHASE 1 renders the design-system foundation
  * for review — full page sections land in later phases.
  */
-export function MitumHome({ onLogin }: { onLogin: () => void }) {
+export function AdmitMeHome({ onLogin }: { onLogin: () => void }) {
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
   useEffect(() => {
@@ -32,9 +32,9 @@ export function MitumHome({ onLogin }: { onLogin: () => void }) {
   const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
 
   return (
-    <div id="top" className="mitum-app">
-      <MitumNav theme={theme} onToggleTheme={toggle} onLogin={onLogin} onStart={onLogin} />
-      <MitumHero onStart={onLogin} />
+    <div id="top" className="admitme-app">
+      <AdmitMeNav theme={theme} onToggleTheme={toggle} onLogin={onLogin} onStart={onLogin} />
+      <AdmitMeHero onStart={onLogin} />
       <FloatingTrustBar />
       <ChooseExam />
       <HowItWorks />
@@ -46,7 +46,7 @@ export function MitumHome({ onLogin }: { onLogin: () => void }) {
       <Faq />
       <SchoolsPartners waLink={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi AdmitMe — I would like to partner / bring AdmitMe to my students.')}`} />
       <FinalCta onStart={onLogin} />
-      <MitumFooter supportEmail={COMPANY.supportEmail} />
+      <AdmitMeFooter supportEmail={COMPANY.supportEmail} />
     </div>
   );
 }

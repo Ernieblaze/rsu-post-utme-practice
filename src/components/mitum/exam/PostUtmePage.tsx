@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { COMPANY, postUtmeSchools, type ExamOffering } from '../../../config/admitme';
 import { WHATSAPP_NUMBER } from '../../../lib/support';
-import { useMitumTheme } from '../useMitumTheme';
+import { useAdmitMeTheme } from '../useAdmitMeTheme';
 import { ExamNav } from './ExamNav';
 
 // Post-UTME is a hub — a calm navy shell; each school card carries its own accent.
@@ -30,13 +30,13 @@ function notifyLink(school: string): string {
 
 export function PostUtmePage({ onLogin }: { onLogin: () => void }) {
   const navigate = useNavigate();
-  const { theme, toggle } = useMitumTheme();
+  const { theme, toggle } = useAdmitMeTheme();
   const reduce = useReducedMotion();
   const schools = postUtmeSchools();
   const liveCount = schools.filter((s) => s.status === 'live').length;
 
   return (
-    <div className="mitum-app" style={{ ['--primary' as string]: HUB, ['--primary-hover' as string]: HUB_DEEP, minHeight: '100vh', background: 'var(--bg)' }}>
+    <div className="admitme-app" style={{ ['--primary' as string]: HUB, ['--primary-hover' as string]: HUB_DEEP, minHeight: '100vh', background: 'var(--bg)' }}>
       <ExamNav examName="Post-UTME" accent={HUB} theme={theme} onToggleTheme={toggle} onLogin={onLogin} />
 
       {/* ── Hero: copy + live RSU screening screen ── */}

@@ -33,7 +33,7 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
 .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 0.25rem); }
 
 /* ============================================================
-   MITUM DESIGN SYSTEM — scoped to .mitum-app; does NOT affect RSU.
+   ADMITME DESIGN SYSTEM — scoped to .admitme-app; does NOT affect RSU.
    Central token source (reusable later for the mobile app).
    Theme via data-theme on <html>; RSU uses .dark, so both coexist.
    ============================================================ */
@@ -72,7 +72,7 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
 }
 
 /* App wrapper — the only place base styles are applied, so RSU is untouched. */
-.mitum-app {
+.admitme-app {
   font-family: var(--mt-body);
   background: var(--bg);
   color: var(--text);
@@ -80,7 +80,7 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
   -webkit-font-smoothing: antialiased;
   transition: background .3s ease, color .3s ease;
 }
-.mitum-app ::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
+.admitme-app ::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
 .mt-display { font-family: var(--mt-display); }
 .mt-mono { font-family: var(--mt-mono); font-variant-numeric: tabular-nums; }
 .mt-label { font-family: var(--mt-label); text-transform: uppercase; letter-spacing: .14em; }
@@ -144,7 +144,7 @@ button, [role="button"] { -webkit-user-select: none; user-select: none; }
 .mt-btn-tertiary:hover::after { transform: scaleX(1); }
 
 @media (prefers-reduced-motion: reduce) {
-  .mitum-app, .mt-btn, .mt-btn-tertiary::after { transition: none !important; }
+  .admitme-app, .mt-btn, .mt-btn-tertiary::after { transition: none !important; }
 }
 
 body {

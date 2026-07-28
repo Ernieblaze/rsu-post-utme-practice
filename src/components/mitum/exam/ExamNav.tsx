@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, ChevronDown, Home, Check } from 'lucide-react';
-import type { Theme } from '../useMitumTheme';
+import type { Theme } from '../useAdmitMeTheme';
 
 export interface ExamTab {
   id: string;
