@@ -15,9 +15,10 @@ interface ExamNavProps {
   theme: Theme;
   onToggleTheme: () => void;
   onLogin: () => void;
-  tabs: ExamTab[];
-  active: string;
-  onTab: (id: string) => void;
+  /** Optional in-nav tabs. Omit to keep the nav clean and put section tabs in-page. */
+  tabs?: ExamTab[];
+  active?: string;
+  onTab?: (id: string) => void;
 }
 
 /**
@@ -51,21 +52,23 @@ export function ExamNav({ examName, accent, theme, onToggleTheme, onLogin, tabs,
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="border-t" style={{ borderColor: 'var(--border)' }}>
-        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-3">
-          {tabs.map((t) => {
-            const on = t.id === active;
-            const Icon = t.icon;
-            return (
-              <button key={t.id} onClick={() => onTab(t.id)} className="relative flex flex-none items-center gap-1.5 px-3 py-2.5 text-sm font-semibold transition-colors" style={{ color: on ? accent : 'var(--text-muted)', fontFamily: 'var(--mt-body)' }}>
-                <Icon size={16} /> {t.label}
-                {on && <motion.span layoutId="exam-tab" transition={{ type: 'spring', stiffness: 500, damping: 38 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full" style={{ background: accent }} />}
-              </button>
-            );
-          })}
+      {/* Optional in-nav tabs (kept for pages that want them) */}
+      {tabs && tabs.length > 0 && (
+        <div className="border-t" style={{ borderColor: 'var(--border)' }}>
+          <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-3">
+            {tabs.map((t) => {
+              const on = t.id === active;
+              const Icon = t.icon;
+              return (
+                <button key={t.id} onClick={() => onTab?.(t.id)} className="relative flex flex-none items-center gap-1.5 px-3 py-2.5 text-sm font-semibold transition-colors" style={{ color: on ? accent : 'var(--text-muted)', fontFamily: 'var(--mt-body)' }}>
+                  <Icon size={16} /> {t.label}
+                  {on && <motion.span layoutId="exam-tab" transition={{ type: 'spring', stiffness: 500, damping: 38 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full" style={{ background: accent }} />}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

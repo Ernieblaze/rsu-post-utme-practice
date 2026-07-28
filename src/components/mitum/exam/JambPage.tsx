@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Target, Layers, Sparkles, Newspaper, Lock, Check, Play, Clock, Zap, ArrowUpRight,
-  BookOpen, Lightbulb, FileText, ShieldCheck, ArrowRight,
+  Lightbulb, FileText, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import type { BankQuestion, Test } from '../../../types';
 import { JAMB_COMPULSORY, JAMB_SUBJECTS, JAMB_MAX_OTHER_SUBJECTS, JAMB_DURATION_MINUTES, buildJambMock, jambSubjectCount } from '../../../data/jambExam';
@@ -18,11 +18,12 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const soft = (pct: number) => `color-mix(in srgb, ${A} ${pct}%, transparent)`;
 
 const TABS = [
-  { id: 'focus', label: 'Focus', icon: Target },
-  { id: 'practice', label: 'Practice', icon: Layers },
-  { id: 'ai', label: 'AI Tutor', icon: Sparkles },
-  { id: 'news', label: 'News', icon: Newspaper },
-];
+  { id: 'focus', label: 'Focus mock', hint: 'Full CBT', icon: Target },
+  { id: 'practice', label: 'Practice', hint: 'Any subjects', icon: Layers },
+  { id: 'ai', label: 'AI Tutor', hint: 'Ask anything', icon: Sparkles },
+  { id: 'news', label: 'News', hint: 'Updates', icon: Newspaper },
+] as const;
+
 const NEWS = [
   { title: 'JAMB 2026: registration & key dates', body: 'Everything to prepare before the CBT window opens.', fresh: true },
   { title: 'How UTME scoring works', body: 'English 60 + 3 subjects × 40 = 400. Here’s the maths.', fresh: false },
@@ -32,7 +33,7 @@ const NEWS = [
 export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onStart: (t: Test) => void; onLogin: () => void }) {
   const { theme, toggle } = useMitumTheme();
   const reduce = useReducedMotion();
-  const [tab, setTab] = useState('focus');
+  const [tab, setTab] = useState<string>('focus');
 
   const others = JAMB_SUBJECTS.filter((s) => s !== JAMB_COMPULSORY);
   const [focus, setFocus] = useState<string[]>([]);
@@ -58,38 +59,78 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
     onStart(r.test);
   }
 
+  function selectTab(id: string) { setErr(''); setTab(id); }
+
   const fade = { initial: reduce ? false as const : { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, exit: reduce ? undefined : { opacity: 0, y: -8 }, transition: { duration: 0.35, ease: EASE } };
   const focusTotal = 60 + focus.length * 40;
 
   return (
-    <div className="mitum-app" style={{ ['--primary' as string]: A, ['--primary-hover' as string]: A_HOVER }}>
-      <ExamNav examName="JAMB" accent={A} theme={theme} onToggleTheme={toggle} onLogin={onLogin} tabs={TABS} active={tab} onTab={setTab} />
+    <div className="mitum-app" style={{ ['--primary' as string]: A, ['--primary-hover' as string]: A_HOVER, minHeight: '100vh', background: 'var(--bg)' }}>
+      <ExamNav examName="JAMB" accent={A} theme={theme} onToggleTheme={toggle} onLogin={onLogin} />
 
-      {/* ── Hero band ── */}
-      <section className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${A_DEEP} 0%, ${A_HOVER} 55%, ${A} 100%)` }}>
-        <div className="pointer-events-none absolute inset-0 mt-grid-surface opacity-[0.18]" />
-        <div className="pointer-events-none absolute -right-10 -top-16 opacity-10"><Target size={340} color="#fff" strokeWidth={1} /></div>
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full blur-3xl" style={{ background: '#fff', opacity: 0.12 }} />
-        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:py-14">
-          <motion.span initial={reduce ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} className="mt-label inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold" style={{ background: 'rgba(255,255,255,.18)', color: '#fff' }}>
-            <Target size={13} /> National UTME
-          </motion.span>
-          <motion.h1 initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.05 }} className="mt-display mt-4 text-4xl font-extrabold text-white sm:text-5xl" style={{ letterSpacing: '-0.025em' }}>
-            Your JAMB, <span style={{ color: '#D1FAE5' }}>mastered</span>.
-          </motion.h1>
-          <motion.p initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.1 }} className="mt-body mt-3 max-w-lg text-base text-white/90 sm:text-lg">
-            Sit a full UTME-style CBT on your exact combination, or build your own practice from any subject. Real past questions, timed like the real thing.
-          </motion.p>
-          <motion.div initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.15 }} className="mt-6 flex flex-wrap gap-2.5">
-            {[['180', 'questions'], ['120', 'minutes'], ['4', 'subjects'], ['400', 'max score']].map(([v, l]) => (
-              <div key={l} className="flex items-baseline gap-1.5 rounded-xl px-3 py-1.5" style={{ background: 'rgba(255,255,255,.14)' }}>
-                <span className="mt-mono text-sm font-extrabold text-white">{v}</span>
-                <span className="mt-body text-[11px] text-white/80">{l}</span>
-              </div>
-            ))}
+      {/* ── Hero band: copy + live CBT screen ── */}
+      <section className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${A_DEEP} 0%, ${A_HOVER} 58%, ${A} 100%)` }}>
+        <div className="pointer-events-none absolute inset-0 mt-grid-surface opacity-[0.16]" />
+        <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full blur-3xl" style={{ background: '#fff', opacity: 0.1 }} />
+        <div className="pointer-events-none absolute right-1/4 -bottom-16 h-64 w-64 rounded-full blur-3xl" style={{ background: '#A7F3D0', opacity: 0.18 }} />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* copy */}
+          <div>
+            <motion.span initial={reduce ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} className="mt-label inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold" style={{ background: 'rgba(255,255,255,.18)', color: '#fff' }}>
+              <Target size={13} /> National UTME · CBT
+            </motion.span>
+            <motion.h1 initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.05 }} className="mt-display mt-4 text-4xl font-extrabold text-white sm:text-5xl" style={{ letterSpacing: '-0.025em' }}>
+              Your JAMB, <span style={{ color: '#D1FAE5' }}>mastered</span>.
+            </motion.h1>
+            <motion.p initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.1 }} className="mt-body mt-3 max-w-lg text-base text-white/90 sm:text-lg">
+              Sit a full UTME-style CBT on your exact combination, or build your own practice from any subject. Real past questions, timed like the real thing.
+            </motion.p>
+            <motion.div initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.15 }} className="mt-6 flex flex-wrap gap-2.5">
+              {[['180', 'questions'], ['120', 'minutes'], ['4', 'subjects'], ['400', 'max score']].map(([v, l]) => (
+                <div key={l} className="flex items-baseline gap-1.5 rounded-xl px-3 py-1.5" style={{ background: 'rgba(255,255,255,.14)' }}>
+                  <span className="mt-mono text-sm font-extrabold text-white">{v}</span>
+                  <span className="mt-body text-[11px] text-white/80">{l}</span>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div initial={reduce ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.2 }} className="mt-7 flex flex-wrap gap-3">
+              <button onClick={() => selectTab('focus')} className="mt-btn font-bold" style={{ background: '#fff', color: A_DEEP, fontSize: '1rem', padding: '.85rem 1.4rem', boxShadow: '0 16px 40px -14px rgba(0,0,0,.5)' }}><Play size={17} fill="currentColor" /> Start a full mock</button>
+              <button onClick={() => selectTab('practice')} className="mt-btn font-bold text-white" style={{ background: 'rgba(255,255,255,.16)', border: '1px solid rgba(255,255,255,.35)', fontSize: '1rem', padding: '.85rem 1.4rem' }}><Layers size={17} /> Quick practice</button>
+            </motion.div>
+          </div>
+
+          {/* live CBT screen mockup */}
+          <motion.div initial={reduce ? false : { opacity: 0, y: 24, rotate: -1 }} animate={{ opacity: 1, y: 0, rotate: -1.2 }} transition={{ duration: 0.7, ease: EASE, delay: 0.15 }} className="hidden lg:block">
+            <CbtMockup />
           </motion.div>
         </div>
       </section>
+
+      {/* ── Prominent in-page section buttons (floating over the hero seam) ── */}
+      <div className="relative z-10 mx-auto -mt-7 max-w-6xl px-4">
+        <div className="mt-card grid grid-cols-2 gap-2 p-2 sm:grid-cols-4 sm:gap-2.5 sm:p-2.5" style={{ boxShadow: 'var(--mt-shadow)' }}>
+          {TABS.map((t) => {
+            const on = tab === t.id;
+            const Icon = t.icon;
+            return (
+              <motion.button
+                key={t.id} onClick={() => selectTab(t.id)}
+                whileTap={reduce ? undefined : { scale: 0.97 }}
+                className="group relative flex items-center gap-3 rounded-xl px-3.5 py-3 text-left transition-colors"
+                style={on ? { background: A, boxShadow: `0 12px 26px -12px ${A}` } : { background: 'transparent' }}
+              >
+                <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg transition-colors" style={on ? { background: 'rgba(255,255,255,.22)', color: '#fff' } : { background: soft(12), color: A }}>
+                  <Icon size={18} />
+                </span>
+                <span className="min-w-0">
+                  <span className="mt-display block text-sm font-extrabold leading-tight" style={{ color: on ? '#fff' : 'var(--text)' }}>{t.label}</span>
+                  <span className="mt-body block truncate text-[11px]" style={{ color: on ? 'rgba(255,255,255,.85)' : 'var(--text-muted)' }}>{t.hint}</span>
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
         <AnimatePresence mode="wait">
@@ -129,7 +170,7 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
               </div>
 
               {/* live exam-paper preview */}
-              <div className="lg:sticky lg:top-28">
+              <div className="lg:sticky lg:top-24">
                 <PaperPreview focus={focus} total={focusTotal} />
               </div>
             </motion.div>
@@ -171,7 +212,7 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
                 <button onClick={startPractice} className="mt-btn mt-6 w-full text-white" style={{ background: A, fontSize: '1rem', padding: '0.95rem', boxShadow: `0 14px 34px -12px ${A}` }}><Play size={18} fill="currentColor" /> Start practice</button>
               </div>
 
-              <div className="lg:sticky lg:top-28">
+              <div className="lg:sticky lg:top-24">
                 <SetPreview subjects={practice} count={count} timed={timed} />
               </div>
             </motion.div>
@@ -209,6 +250,94 @@ export function JambPage({ bank, onStart, onLogin }: { bank: BankQuestion[]; onS
           )}
         </AnimatePresence>
       </main>
+    </div>
+  );
+}
+
+/* ── Live JAMB CBT screen mockup (hero visual — the "exam environment") ── */
+function CbtMockup() {
+  const opts = [
+    { k: 'A', t: 'A body at rest stays at rest' },
+    { k: 'B', t: 'Force equals mass times acceleration', on: true },
+    { k: 'C', t: 'Every action has a reaction' },
+    { k: 'D', t: 'Energy cannot be created' },
+  ];
+  const palette = Array.from({ length: 20 }, (_, i) => i + 1);
+  const answered = new Set([1, 2, 3, 5, 6, 8, 9, 12]);
+  const current = 14;
+  const subjects = ['English', 'Physics', 'Chemistry', 'Biology'];
+  return (
+    <div className="overflow-hidden rounded-2xl" style={{ background: '#fff', boxShadow: '0 40px 80px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.14)' }}>
+      {/* window bar */}
+      <div className="flex items-center gap-1.5 px-3.5 py-2.5" style={{ background: '#0F172A' }}>
+        <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#EF4444' }} />
+        <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#F59E0B' }} />
+        <span className="h-2.5 w-2.5 rounded-full" style={{ background: '#22C55E' }} />
+        <span className="mx-auto text-[11px] font-semibold" style={{ color: '#94A3B8', fontFamily: 'var(--mt-body)' }}>JAMB CBT · Candidate 20264417</span>
+      </div>
+      {/* header + timer */}
+      <div className="flex items-center justify-between px-4 py-2.5" style={{ background: `linear-gradient(120deg, ${A_DEEP}, ${A_HOVER})` }}>
+        <div className="flex items-center gap-2 text-white">
+          <span className="flex h-6 w-6 items-center justify-center rounded-md text-[11px] font-extrabold" style={{ background: 'rgba(255,255,255,.9)', color: A_DEEP, fontFamily: 'var(--mt-display)' }}>A</span>
+          <span className="text-xs font-bold" style={{ fontFamily: 'var(--mt-display)' }}>Physics</span>
+        </div>
+        <div className="flex items-center gap-1.5 rounded-lg px-2.5 py-1" style={{ background: 'rgba(255,255,255,.18)' }}>
+          <motion.span animate={{ opacity: [1, 0.35, 1] }} transition={{ duration: 1.6, repeat: Infinity }} className="h-1.5 w-1.5 rounded-full" style={{ background: '#FCA5A5' }} />
+          <span className="text-xs font-bold text-white" style={{ fontFamily: 'var(--mt-mono)' }}>01:42:18</span>
+        </div>
+      </div>
+      {/* subject tabs */}
+      <div className="flex gap-1 px-3 pt-3">
+        {subjects.map((s, i) => (
+          <span key={s} className="rounded-t-lg px-2.5 py-1.5 text-[11px] font-bold" style={i === 1 ? { background: '#F0FDF4', color: A_DEEP, fontFamily: 'var(--mt-body)' } : { color: '#94A3B8', fontFamily: 'var(--mt-body)' }}>{s}</span>
+        ))}
+      </div>
+      <div className="grid gap-3 border-t p-4" style={{ borderColor: '#E2E8F0', gridTemplateColumns: '1fr 84px' }}>
+        {/* question + options */}
+        <div>
+          <div className="text-[11px] font-bold" style={{ color: A, fontFamily: 'var(--mt-mono)' }}>QUESTION 14 OF 40</div>
+          <p className="mt-1 text-[13px] font-semibold leading-snug" style={{ color: '#0F172A', fontFamily: 'var(--mt-body)' }}>
+            Newton’s second law of motion is best expressed as which of the following?
+          </p>
+          <div className="mt-3 space-y-1.5">
+            {opts.map((o) => (
+              <div key={o.k} className="flex items-center gap-2 rounded-lg border px-2.5 py-2 text-[12px]" style={o.on ? { borderColor: A, background: '#F0FDF4' } : { borderColor: '#E2E8F0', background: '#fff' }}>
+                <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full text-[10px] font-bold" style={o.on ? { background: A, color: '#fff' } : { background: '#F1F5F9', color: '#64748B' }}>{o.on ? <Check size={12} /> : o.k}</span>
+                <span style={{ color: o.on ? A_DEEP : '#475569', fontFamily: 'var(--mt-body)', fontWeight: o.on ? 700 : 500 }}>{o.t}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 flex items-center justify-between">
+            <span className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-[11px] font-bold" style={{ background: '#F1F5F9', color: '#64748B', fontFamily: 'var(--mt-body)' }}><ChevronLeft size={13} /> Prev</span>
+            <span className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-[11px] font-bold text-white" style={{ background: A, fontFamily: 'var(--mt-body)' }}>Next <ChevronRight size={13} /></span>
+          </div>
+        </div>
+        {/* question palette */}
+        <div className="rounded-lg p-2" style={{ background: '#F8FAFC', border: '1px solid #EEF2F7' }}>
+          <div className="mb-1.5 text-[9px] font-bold uppercase tracking-wide" style={{ color: '#94A3B8', fontFamily: 'var(--mt-label)' }}>Palette</div>
+          <div className="grid grid-cols-4 gap-1">
+            {palette.map((n) => {
+              const isCur = n === current;
+              const isDone = answered.has(n);
+              return (
+                <span key={n} className="flex h-4 w-full items-center justify-center rounded-[3px] text-[8px] font-bold" style={isCur ? { background: '#fff', color: A_DEEP, boxShadow: `0 0 0 1.5px ${A}`, fontFamily: 'var(--mt-mono)' } : isDone ? { background: A, color: '#fff', fontFamily: 'var(--mt-mono)' } : { background: '#E2E8F0', color: '#94A3B8', fontFamily: 'var(--mt-mono)' }}>{n}</span>
+              );
+            })}
+          </div>
+          <div className="mt-2 space-y-1">
+            <Legend color={A} label="Answered" />
+            <Legend color="#E2E8F0" label="Unseen" dark />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+function Legend({ color, label, dark }: { color: string; label: string; dark?: boolean }) {
+  return (
+    <div className="flex items-center gap-1.5">
+      <span className="h-2.5 w-2.5 rounded-[3px]" style={{ background: color }} />
+      <span className="text-[9px] font-semibold" style={{ color: dark ? '#94A3B8' : '#64748B', fontFamily: 'var(--mt-body)' }}>{label}</span>
     </div>
   );
 }
