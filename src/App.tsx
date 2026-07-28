@@ -208,7 +208,7 @@ function AppContent() {
       waec: `WAEC (SSCE) | AdmitMe`,
       uniport: `UniPort Post-UTME | AdmitMe`,
       'post-utme': `Post-UTME — pick your school | AdmitMe`,
-      mitum: `Mitum — Pass WAEC, JAMB & Post-UTME`,
+      mitum: `AdmitMe — Pass WAEC, JAMB & Post-UTME`,
       daily: `Question of the Day | ${base}`,
       start: `Start Practicing | ${base}`,
       'email-confirmed': `Email Verified | ${base}`,

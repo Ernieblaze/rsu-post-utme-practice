@@ -18,7 +18,7 @@ interface MitumNavProps {
   onStart: () => void;
 }
 
-/** Mitum logo — a gold exam-tile "M" + wordmark. */
+/** AdmitMe logo — a gold exam-tile "A" + wordmark. */
 function Logo() {
   return (
     <a href="#top" className="flex items-center gap-2.5">
@@ -26,9 +26,11 @@ function Logo() {
         className="mt-display flex h-9 w-9 items-center justify-center rounded-xl text-lg font-extrabold"
         style={{ background: 'var(--primary)', color: '#1B1206', boxShadow: 'inset 0 1px 0 rgba(255,255,255,.5)' }}
       >
-        M
+        A
       </span>
-      <span className="mt-display text-xl font-extrabold" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>Mitum</span>
+      <span className="mt-display text-xl font-extrabold" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
+        Admit<span style={{ color: 'var(--primary)' }}>Me</span>
+      </span>
     </a>
   );
 }
