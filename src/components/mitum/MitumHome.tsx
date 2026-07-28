@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MitumNav } from './MitumNav';
 import { MitumHero } from './MitumHero';
+import { FloatingTrustBar, BentoGrid, ChooseExam } from './MitumSections';
 
 type Theme = 'light' | 'dark';
 
@@ -31,11 +32,14 @@ export function MitumHome({ onLogin }: { onLogin: () => void }) {
     <div id="top" className="mitum-app">
       <MitumNav theme={theme} onToggleTheme={toggle} onLogin={onLogin} onStart={onLogin} />
       <MitumHero onStart={onLogin} />
+      <FloatingTrustBar />
+      <BentoGrid />
+      <ChooseExam />
 
       <main className="mx-auto max-w-3xl px-4 py-14">
         <p className="mt-body rounded-xl border p-4 text-sm" style={{ borderColor: 'var(--border)', background: 'var(--surface-2)', color: 'var(--text-muted)' }}>
-          ✅ <strong style={{ color: 'var(--text)' }}>Phase 2 (Hero) complete.</strong> Try the theme toggle — the page re-themes; the hero stays a dark exam-hall band by design.
-          Next up: <strong style={{ color: 'var(--text)' }}>Phase 3 — floating trust bar, the bento feature grid, and the “Choose your exam” cards.</strong>
+          ✅ <strong style={{ color: 'var(--text)' }}>Phase 3 complete</strong> — floating trust bar, bento feature grid, and the “Choose your exam” cards.
+          Next: <strong style={{ color: 'var(--text)' }}>Phase 4 — AI Study Helper, School News, How it works, testimonials, stats, Coming Soon, FAQ, Schools, final CTA, footer.</strong>
         </p>
       </main>
     </div>
