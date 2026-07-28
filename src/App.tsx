@@ -37,7 +37,7 @@ import { BottomTabBar } from './components/BottomTabBar';
 /** Core RSU app views where the mobile bottom tab bar appears. */
 const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboard', 'dashboard', 'ai-tutor', 'predictor', 'daily', 'exam-focus']);
 import { JambPage } from './components/mitum/exam/JambPage';
-import { WaecSection } from './components/WaecSection';
+import { WaecPage } from './components/mitum/exam/WaecPage';
 import { UniportSection } from './components/UniportSection';
 import { PostUtmeSection } from './components/PostUtmeSection';
 import { MitumHome } from './components/mitum/MitumHome';
@@ -685,7 +685,7 @@ function AppContent() {
             path="/waec"
             element={
               <motion.div key="waec" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <WaecSection bank={bank} onStart={guardedStartDynamicTest} onLogin={() => setAuthModalOpen(true)} />
+                <WaecPage bank={bank} onStart={guardedStartDynamicTest} onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
