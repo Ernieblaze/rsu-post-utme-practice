@@ -348,8 +348,8 @@ export function MitumFooter({ supportEmail }: { supportEmail: string }) {
       { label: 'WAEC', to: '/waec' },
     ] },
     { h: 'Platform', links: [
+      { label: 'Choose your exam', href: '#exams' },
       { label: 'What we offer', href: '#offers' },
-      { label: 'AI Tutor', href: '#ai' },
       { label: 'Pricing', href: '#pricing' },
       { label: 'News', href: '#news' },
     ] },

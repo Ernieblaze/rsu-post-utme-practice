@@ -4,9 +4,8 @@ import { Sun, Moon, Menu, X } from 'lucide-react';
 import { MitumButton } from './MitumButton';
 
 const LINKS = [
-  { label: 'What we offer', to: '#offers' },
   { label: 'Exams', to: '#exams' },
-  { label: 'AI Tutor', to: '#ai' },
+  { label: 'What we offer', to: '#offers' },
   { label: 'News', to: '#news' },
   { label: 'Pricing', to: '#pricing' },
 ];
