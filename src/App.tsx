@@ -31,7 +31,6 @@ import { EmailConfirmed } from './components/EmailConfirmed';
 import { UserGuide } from './components/UserGuide';
 import { AiTutor } from './components/AiTutor';
 import { AdmissionPredictor } from './components/AdmissionPredictor';
-import { AdmitMeHub } from './components/AdmitMeHub';
 import { PLATFORM_HEAD, RSU_HOME } from './config/admitme';
 import { BottomTabBar } from './components/BottomTabBar';
 
@@ -399,7 +398,7 @@ function AppContent() {
             element={
               PLATFORM_HEAD === 'admitme' ? (
                 <motion.div key="admitme-root" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <AdmitMeHub onLogin={() => setAuthModalOpen(true)} />
+                  <MitumHome onLogin={() => setAuthModalOpen(true)} />
                 </motion.div>
               ) : (
                 <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
@@ -668,7 +667,7 @@ function AppContent() {
             path="/admitme"
             element={
               <motion.div key="admitme" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <AdmitMeHub onLogin={() => setAuthModalOpen(true)} />
+                <MitumHome onLogin={() => setAuthModalOpen(true)} />
               </motion.div>
             }
           />
