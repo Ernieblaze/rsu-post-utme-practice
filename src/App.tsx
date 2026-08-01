@@ -381,9 +381,9 @@ function AppContent() {
     <div className={`min-h-screen bg-school-radial text-school-navy ${showTabBar ? 'pb-16 sm:pb-0' : ''}`}>
       <ScrollToTop />
       <InAppBrowserBanner />
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <WelcomeModal />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && view !== 'hq' && <WelcomeModal />}
       {view !== 'quiz' && view !== 'start' && <UsernamePrompt />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && (
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && view !== 'hq' && (
         <Header
           dark={dark}
           currentView={view}
@@ -780,8 +780,8 @@ function AppContent() {
       </AnimatePresence>
       </Suspense>
 
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <Footer onNavigate={navigate} />}
-      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && <WhatsAppButton />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && view !== 'hq' && <Footer onNavigate={navigate} />}
+      {view !== 'quiz' && view !== 'start' && view !== 'admitme' && view !== 'jamb' && view !== 'waec' && view !== 'uniport' && view !== 'post-utme' && view !== 'mitum' && view !== 'hq' && <WhatsAppButton />}
 
       {showTabBar && <BottomTabBar currentView={view} onNavigate={routerNavigate} />}
 
