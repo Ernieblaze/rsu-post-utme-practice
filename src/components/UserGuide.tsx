@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { RSU_HOME } from '../config/admitme';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -24,7 +25,7 @@ export function UserGuide() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate(RSU_HOME)}
         className="mb-6 inline-flex items-center gap-1.5 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
       >
         <ArrowLeft size={16} /> Back

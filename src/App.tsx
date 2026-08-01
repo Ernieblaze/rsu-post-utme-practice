@@ -39,10 +39,10 @@ const TABBAR_VIEWS = new Set(['home', 'bank', 'revision', 'progress', 'leaderboa
 import { UniportSection } from './components/UniportSection';
 // AdmitMe pages are code-split (lazy) so the initial load stays light on low-end
 // phones — they only download when a student actually opens that exam page.
-const JambPage = lazy(() => import('./components/mitum/exam/JambPage').then((m) => ({ default: m.JambPage })));
-const WaecPage = lazy(() => import('./components/mitum/exam/WaecPage').then((m) => ({ default: m.WaecPage })));
-const PostUtmePage = lazy(() => import('./components/mitum/exam/PostUtmePage').then((m) => ({ default: m.PostUtmePage })));
-const AdmitMeHome = lazy(() => import('./components/mitum/AdmitMeHome').then((m) => ({ default: m.AdmitMeHome })));
+const JambPage = lazy(() => import('./components/admitme/exam/JambPage').then((m) => ({ default: m.JambPage })));
+const WaecPage = lazy(() => import('./components/admitme/exam/WaecPage').then((m) => ({ default: m.WaecPage })));
+const PostUtmePage = lazy(() => import('./components/admitme/exam/PostUtmePage').then((m) => ({ default: m.PostUtmePage })));
+const AdmitMeHome = lazy(() => import('./components/admitme/AdmitMeHome').then((m) => ({ default: m.AdmitMeHome })));
 import { QuestionOfTheDay } from './components/QuestionOfTheDay';
 import { StartLanding } from './components/StartLanding';
 import { ResetPassword } from './components/ResetPassword';
@@ -429,7 +429,7 @@ function AppContent() {
                   <Quiz
                     test={activeTest}
                     onFinish={finishTest}
-                    onCancel={() => routerNavigate('/')}
+                    onCancel={() => routerNavigate(RSU_HOME)}
                     isPremium={(() => { const s = getAccessStatus(profile); return s === 'admin' || s === 'paid'; })()}
                     userId={user?.id ?? ''}
                     onUpgrade={() => handleUpgrade('/quiz')}
@@ -438,7 +438,7 @@ function AppContent() {
                   />
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />
@@ -456,7 +456,7 @@ function AppContent() {
                       onUpgrade={handleUpgrade}
                       onHome={() => {
                         setPaywallPending(false);
-                        routerNavigate('/');
+                        routerNavigate(RSU_HOME);
                       }}
                     />
                   ) : (
@@ -464,14 +464,14 @@ function AppContent() {
                       attempt={result}
                       test={activeTest}
                       onRetake={retakeTest}
-                      onHome={() => routerNavigate('/')}
+                      onHome={() => routerNavigate(RSU_HOME)}
                       onProgress={() => routerNavigate('/progress')}
                       onReviseSubject={reviseSubject}
                     />
                   )}
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />
@@ -480,7 +480,7 @@ function AppContent() {
             path="/progress"
             element={
               <motion.div key="progress" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Progress attempts={attempts} onBack={() => routerNavigate('/')} onClear={clearHistory} />
+                <Progress attempts={attempts} onBack={() => routerNavigate(RSU_HOME)} onClear={clearHistory} />
               </motion.div>
             }
           />
@@ -493,14 +493,14 @@ function AppContent() {
                   (() => {
                     const status = getAccessStatus(profile);
                     return status === 'admin' || status === 'paid' ? (
-                      <Revision bank={bank} onBack={() => routerNavigate('/')} initialSubject={revisionSubject} onStart={guardedStartDynamicTest} />
+                      <Revision bank={bank} onBack={() => routerNavigate(RSU_HOME)} initialSubject={revisionSubject} onStart={guardedStartDynamicTest} />
                     ) : (
                       <Paywall
                         variant="revision"
                         priceLabel="₦2,000"
                         loading={paywallLoading}
                         onUpgrade={() => handleUpgrade('/revision')}
-                        onHome={() => routerNavigate('/')}
+                        onHome={() => routerNavigate(RSU_HOME)}
                       />
                     );
                   })()
@@ -513,7 +513,7 @@ function AppContent() {
             path="/bank"
             element={
               <motion.div key="bank" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <PracticeBank bank={bank} onBack={() => routerNavigate('/')} onStart={guardedStartDynamicTest} />
+                <PracticeBank bank={bank} onBack={() => routerNavigate(RSU_HOME)} onStart={guardedStartDynamicTest} />
               </motion.div>
             }
           />
@@ -531,7 +531,7 @@ function AppContent() {
             path="/leaderboard"
             element={
               <motion.div key="leaderboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                <Leaderboard attempts={attempts} onBack={() => routerNavigate('/')} />
+                <Leaderboard attempts={attempts} onBack={() => routerNavigate(RSU_HOME)} />
               </motion.div>
             }
           />
@@ -544,7 +544,7 @@ function AppContent() {
                   <Admin onBack={() => routerNavigate('/owner')} onBankChanged={refreshBank} />
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />
@@ -572,7 +572,7 @@ function AppContent() {
                   </main>
                 ) : (
                   <Upgrade
-                    onBack={() => routerNavigate('/')}
+                    onBack={() => routerNavigate(RSU_HOME)}
                     onUpgrade={handleUpgrade}
                     priceLabel="₦2,000"
                     loading={paywallLoading}
@@ -587,10 +587,10 @@ function AppContent() {
             element={
               authLoading ? null : user ? (
                 <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
-                  <Dashboard onBack={() => routerNavigate('/')} onUpgrade={() => routerNavigate('/upgrade')} />
+                  <Dashboard onBack={() => routerNavigate(RSU_HOME)} onUpgrade={() => routerNavigate('/upgrade')} />
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />
@@ -603,7 +603,7 @@ function AppContent() {
                   <OwnerDashboard onBack={() => routerNavigate('/hq')} />
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />
@@ -616,7 +616,7 @@ function AppContent() {
                   <AdmitMeHQ onBack={() => routerNavigate('/')} />
                 </motion.div>
               ) : (
-                <Navigate to="/" replace />
+                <Navigate to={RSU_HOME} replace />
               )
             }
           />

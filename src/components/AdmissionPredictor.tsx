@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RSU_HOME } from '../config/admitme';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -84,7 +85,7 @@ export function AdmissionPredictor({ profile, onUpgrade }: AdmissionPredictorPro
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate(RSU_HOME)}
         className="mb-6 inline-flex items-center gap-1.5 rounded-xl border border-school-border bg-school-surface px-4 py-2 text-sm font-semibold text-school-navy shadow-sm hover:bg-school-light dark:border-school-green/20 dark:bg-school-navy/40 dark:text-slate-200 dark:hover:bg-school-navy/60"
       >
         <ArrowLeft size={16} /> Back
